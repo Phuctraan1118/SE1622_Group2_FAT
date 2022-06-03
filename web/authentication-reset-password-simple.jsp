@@ -101,7 +101,6 @@
                                                 <a href="index.jsp">Login in here</a>
                                             </div>
                                         </c:if>
-
                                     </form>
                                 </div>
                             </div>
