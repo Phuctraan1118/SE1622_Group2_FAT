@@ -47,16 +47,22 @@ public class LoginController extends HttpServlet {
            String password = request.getParameter("txtPassword");
            UserDAO dao = new UserDAO();
            UserDTO dto = dao.checkLogin(username, password);
+           HttpSession session = request.getSession();
            if(dto != null){
-               HttpSession session = request.getSession();
                session.setAttribute("USER", dto);
                String role = dto.getRole();
-               if(role.equals(MyApplicationConstants.AuthenticationFeatures.AD)){
-                   url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.ADMIN_PAGE);
-               }else if(role.equals(MyApplicationConstants.AuthenticationFeatures.US)){
-                   url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
-               }else if(role.equals(MyApplicationConstants.AuthenticationFeatures.STAFF)){
-                   url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+               switch (role) {
+                   case MyApplicationConstants.AuthenticationFeatures.AD:
+                       url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.ADMIN_PAGE);
+                       break;
+                   case MyApplicationConstants.AuthenticationFeatures.US:
+                       url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
+                       break;
+                   case MyApplicationConstants.AuthenticationFeatures.STAFF:
+                       url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+                       break;
+                   default:
+                       break;
                }
            }
         }catch(NamingException | SQLException ex){
