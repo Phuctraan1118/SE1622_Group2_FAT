@@ -63,7 +63,7 @@
                 <div class="flex">
                     <input type="checkbox" name="txtRemember" id="remember-me">
                     <label for="remember-me">remember me</label>
-                    <a href="forgotPassword.jsp">ForgetPassword?</a>
+                    <a href="authentication-reset-password-simple.jsp">ForgetPassword?</a>
                 </div>
                 <input type="submit" name="btn" value="login now" class="btn">
                 <p>don't have an account <a href="#">create one!</a></p>

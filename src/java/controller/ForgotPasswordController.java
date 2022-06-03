@@ -49,7 +49,6 @@ public class ForgotPasswordController extends HttpServlet {
             String email = request.getParameter("email");
             UserDAO dao = new UserDAO();
             UserDTO account = dao.findByUsernameAndEmail(userName, email);
-            HttpSession session = request.getSession();
             if (account != null) {
                 EmailDTO _email = new EmailDTO();
                 _email.setFrom("nguyenbkse151446@fpt.edu.vn");
@@ -65,11 +64,11 @@ public class ForgotPasswordController extends HttpServlet {
 
                 _email.setContent(sb.toString());
                 EmailDAO.send(_email);
-                url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.HOME_PAGE);
-                session.setAttribute("ERROR", "Email send to the email Address."
+                url = siteMaps.getProperty(MyApplicationConstants.ForgotPasswordFeatures.FORGOT_PAGE);
+                request.setAttribute("ERROR", "Email send to the email Address."
                         + "Please check and get your password!");
             } else {
-                session.setAttribute("ERROR", "UserName or Email are incorrect!");
+                request.setAttribute("ERROR", "UserName or Email are incorrect!");
             }
         }catch (NamingException | SQLException | MessagingException ex) {
             request.setAttribute("ERROR", ex.getMessage());

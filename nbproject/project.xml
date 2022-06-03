@@ -33,6 +33,7 @@
         </data>
         <spellchecker-wordlist xmlns="http://www.netbeans.org/ns/spellchecker-wordlist/1">
             <word>servlet</word>
+            <word>tglb</word>
         </spellchecker-wordlist>
     </configuration>
 </project>

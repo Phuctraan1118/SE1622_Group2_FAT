@@ -1,3 +1,11 @@
+<%-- 
+    Document   : authentication-reset-password-simple
+    Created on : Jun 3, 2022, 4:04:14 PM
+    Author     : buikh
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -77,15 +85,23 @@
                                     <form action="MainController" method="POST" class="form-body row g-3">
                                         <div class="col-12">
                                             <label for="inputEmail" class="form-label">Username</label>
-                                            <input type="text" class="form-control" name="username" id="inputEmail" placeholder="abc@example.com">
+                                            <input type="text" class="form-control" name="userName" value="" id="inputEmail" placeholder="abc@example.com" required="">
                                             <label for="inputEmail" class="form-label">Email</label>
-                                            <input type="email" class="form-control" name="email" id="inputEmail" placeholder="abc@example.com">
+                                            <input type="email" class="form-control" name="email" value="" id="inputEmail" placeholder="abc@example.com" required="">
                                         </div>
                                         <div class="col-12 col-lg-12">
                                             <div class="d-grid">
-                                                <button type="button" name="btn" value="" class="btn btn-primary">Send</button>
+                                                <input type="submit" name="btn" value="Retrieve" class="btn btn-primary">
                                             </div>
                                         </div>
+                                        <c:set var="Error" value="${requestScope.ERROR}"/>
+                                        <c:if test="${not empty Error}">
+                                            <div class="text-center">
+                                                <p>${Error}</p>
+                                                <a href="index.jsp">Login in here</a>
+                                            </div>
+                                        </c:if>
+
                                     </form>
                                 </div>
                             </div>
