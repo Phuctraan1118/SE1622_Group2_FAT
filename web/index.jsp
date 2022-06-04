@@ -66,7 +66,8 @@
                     <a href="authentication-reset-password-simple.jsp">ForgetPassword?</a>
                 </div>
                 <input type="submit" name="btn" value="login now" class="btn">
-                <p>don't have an account <a href="#">create one!</a></p>
+                <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/HostelManagementSystem/LoginGoogleController&response_type=code&client_id=439305708712-m7f3ru5gmloasv1n079kjgh83run99mi.apps.googleusercontent.com&approval_prompt=force">Login With Google</a>
+                <p>don't have an account <a href="authentication-sign-up-simple.html">create one!</a></p>
             </form>
 
         </header>

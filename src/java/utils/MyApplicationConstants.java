@@ -26,7 +26,12 @@ public class MyApplicationConstants {
         public static final String AD = "AD";
         
     }
-    
+    public class LoginGoogleController {
+        public static final String LOGIN_CONTROLLER = "loginController";
+        public static final String HOME_PAGE = "";
+        public static final String USER_GOOGLE_PAGE = "userGoogle";
+        
+    }
     public class ForgotPasswordFeatures {
         
         public static final String FORGOT_PAGE = "forgotpasswordPage";
