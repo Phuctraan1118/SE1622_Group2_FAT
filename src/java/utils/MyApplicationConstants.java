@@ -13,6 +13,7 @@ public class MyApplicationConstants {
         public static final String HOME_PAGE = ""; 
         public static final String LOGOUT_CONTROLLER = "logoutController";
         public static final String FORGOT_PASSWORD_CONTROLLER = "forgotPasswordController";
+        public static final String SIGN_UP_CONTROLLER = "signUpController";
     }
     
     public class AuthenticationFeatures {
@@ -37,4 +38,9 @@ public class MyApplicationConstants {
         public static final String FORGOT_PAGE = "forgotpasswordPage";
     }
     
+    public class SignUpFeatures {
+        
+        public static final String ERROR_PAGE = "signUpErrorPage";
+        public static final String HOME_PAGE = "";
+    }
 }

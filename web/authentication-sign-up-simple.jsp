@@ -1,3 +1,11 @@
+<%-- 
+    Document   : authentication-sign-up-simple
+    Created on : Jun 4, 2022, 3:20:31 PM
+    Author     : buikh
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en" class="light-theme">
 
@@ -20,7 +28,9 @@
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+
+
+        <title>Dashkotejsp</title>
     </head>
 
     <body>
@@ -74,37 +84,85 @@
                                     <p>Creat New account</p>
                                 </div>
                                 <form action="MainController" method="post" class="form-body row g-3">
+                                    <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
                                     <div class="col-12">
                                         <label for="inputName" class="form-label">UserName</label>
-                                        <input type="text" name="txtUsername" class="form-control" id="inputName" placeholder="(e.g. 6 - 20 chars)">
+                                        <input type="text" name="txtUsername" value="${param.txtUsername}" class="form-control" id="inputName" placeholder="(e.g. 6 - 20 chars)">
+                                        <c:if test="${not empty errors.usernameLengthError}">
+                                            <font color="red">
+                                            ${errors.usernameLengthError}
+                                            </font>
+                                        </c:if>
+                                        <c:if test="${not empty errors.usernameIsExisted}">
+                                            <font color="red">
+                                            ${errors.usernameIsExisted}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label for="inputPassword" class="form-label">Password</label>
-                                        <input type="password" name="txtPassword" class="form-control" id="inputPassword" placeholder="(e.g. 3 - 20 chars)">
+                                        <input type="password" name="txtPassword" value="" class="form-control" id="inputPassword" placeholder="(e.g. 3 - 20 chars)">
+                                        <c:if test="${not empty errors.passwordLengthError}">
+                                            <font color="red">
+                                            ${errors.passwordLengthError}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label for="inputPassword" class="form-label">Confirm Password</label>
-                                        <input type="password" name="txtConfirm" class="form-control" id="inputConfirm">
+                                        <input type="password" name="txtConfirm" value="" class="form-control" id="inputConfirm">
+                                        <c:if test="${not empty errors.confirmNotMatched}">
+                                            <font color="red">
+                                            ${errors.confirmNotMatched}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label for="inputEmail" class="form-label">FullName</label>
-                                        <input type="text" name="txtFullname" class="form-control" id="inputFullName" placeholder="(e.g. 2 - 50 chars)">
+                                        <input type="text" name="txtFullname" value="${param.txtFullname}" class="form-control" id="inputFullName" placeholder="(e.g. 2 - 50 chars)">
+                                        <c:if test="${not empty errors.fullnameLengthError}">
+                                            <font color="red">
+                                            ${errors.fullnameLengthError}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label">Email</label>
-                                        <input type="email" name="txtEmail" class="form-control" id="inputEmail" placeholder="(e.g. 6 - 400 chars)">
+                                        <input type="email" name="txtEmail" value="${param.txtEmail}" class="form-control" id="inputEmail" placeholder="(e.g. 6 - 400 chars)">
+                                        <c:if test="${not empty errors.emailLengthError}">
+                                            <font color="red">
+                                            ${errors.emailLengthError}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label">Address</label>
-                                        <input type="text" name="txtAddress" class="form-control" id="inputAddress" placeholder="(e.g. 3 - 50 chars)">
+                                        <input type="text" name="txtAddress" value="${param.txtAddress}" class="form-control" id="inputAddress" placeholder="(e.g. 3 - 50 chars)">
+                                        <c:if test="${not empty errors.addressLengthError}">
+                                            <font color="red">
+                                            ${errors.addressLengthError}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label">Phone</label>
-                                        <input type="text" name="txtPhone" class="form-control" id="inputPhone" placeholder="(e.g. 10 chars)">
+                                        <input type="text" name="txtPhone" value="${param.txtPhone}" class="form-control" id="inputPhone" placeholder="(e.g. 10 chars)">
+                                        <c:if test="${not empty errors.phoneLengthError}">
+                                            <font color="red">
+                                            ${errors.phoneLengthError}
+                                            </font>
+                                        </c:if>
                                     </div>
                                     <div class="col-12">
                                         <label class="form-label">Citizen Idetification Number</label>
-                                        <input type="text" name="txtCitizenIdetification" class="form-control" id="inputCitizenIdetification" placeholder="(e.g. 12 chars)">
+                                        <input type="text" name="txtCitizenIdetification" value="${param.txtCitizenIdetification}" class="form-control" id="inputPhone" placeholder="(e.g. 10 chars)">
+                                        <c:if test="${not empty errors.citizenIdentificationLengthError}">
+                                            <font color="red">
+                                            ${errors.citizenIdentificationLengthError}
+                                            </font>
+                                        </c:if>
+
+
                                     </div>
                                     <div class="col-12 col-lg-12">
                                         <div class="d-grid">

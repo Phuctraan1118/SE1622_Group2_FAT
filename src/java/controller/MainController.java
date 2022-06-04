@@ -35,16 +35,20 @@ public class MainController extends HttpServlet {
         ServletContext context = this.getServletContext();
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
         String url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.HOME_PAGE);
-
+        String button = request.getParameter("btn");
         try {
-            String button = request.getParameter("btn");
-            if (button.equals("login now")) {
+            if(button == null){
+                
+            }else if (button.equals("login now")) {
                 url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.LOGIN_CONTROLLER);
-            }else if(button.equals("Logout")){
+            } else if (button.equals("Logout")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.LOGOUT_CONTROLLER);
-            }else if(button.equals("Retrieve")){
+            } else if (button.equals("Retrieve")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.FORGOT_PASSWORD_CONTROLLER);
+            } else if (button.equals("Sign Up")) {
+                url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.SIGN_UP_CONTROLLER);
             }
+            
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
