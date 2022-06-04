@@ -9,7 +9,6 @@ package dto;
  * @author buikh
  */
 public class UserDTO extends Entity{
-    private String username;
     private String password;
     private String address;
     private String phone;
@@ -23,9 +22,8 @@ public class UserDTO extends Entity{
         super();
     }
 
-    public UserDTO(String username, String password, String address, String phone, String citizenIdentification, boolean status, String role, String id, String name, String email, String img) {
-        super(id, name);
-        this.username = username;
+    public UserDTO(String username, String password, String address, String phone, String citizenIdentification, boolean status, String role, String name, String email, String img) {
+        super(username, name);
         this.password = password;
         this.address = address;
         this.phone = phone;
@@ -35,34 +33,7 @@ public class UserDTO extends Entity{
         this.email = email;
         this.img = img;
     }
-
-    public UserDTO(String address, String phone, String citizenIdentification, boolean status, String role, String id, String name, String email, String img) {
-        super(id, name);
-        this.address = address;
-        this.phone = phone;
-        this.citizenIdentification = citizenIdentification;
-        this.status = status;
-        this.role = role;
-        this.email = email;
-        this.img = img;
-    }
     
-    
-    
-    /**
-     * @return the username
-     */
-    public String getUsername() {
-        return username;
-    }
-
-    /**
-     * @param username the username to set
-     */
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     /**
      * @return the password
      */

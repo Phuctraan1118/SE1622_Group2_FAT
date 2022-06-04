@@ -32,16 +32,17 @@ public class UserDAO {
                 stm.setString(2, password);
                 rs = stm.executeQuery();
                 if(rs.next()){
-                    String idUser = rs.getString("IdUser");
-                    String address = rs.getString("Address");
-                    String phone = rs.getString("Phone");
-                    String citizenIdetification = rs.getString("CitizenIdetification");
-                    boolean status = rs.getBoolean("Status");
-                    String role = rs.getString("Role");
-                    String fullName = rs.getString("FullName");
-                    String email = rs.getString("Email");
-                    String img = rs.getString("Image");
-                    dto = new UserDTO(address, phone, citizenIdetification, status, role, idUser, fullName, email, img);
+                     String UserName = rs.getString("UserName");
+                    String Password = rs.getString("Password");
+                    String FullName = rs.getString("FullName");
+                    String Email = rs.getString("Email");
+                    String Address = rs.getString("Address");
+                    String Phone = rs.getString("Phone");
+                    String CitizenIdetification = rs.getString("CitizenIdetification");
+                    String Role = rs.getString("Role");
+                    Boolean Status = rs.getBoolean("Status");
+                    String Image = rs.getString("Image");
+                    dto = new UserDTO(UserName, Password, Address, Phone, CitizenIdetification, Status, Role, FullName, Email, Image);
                 } 
             }
         } finally {
@@ -72,7 +73,6 @@ public class UserDAO {
                 ptm.setString(2, email);
                 rs = ptm.executeQuery();
                 if (rs.next()) {
-                    String IdUser = rs.getString("IdUser");
                     String UserName = rs.getString("UserName");
                     String Password = rs.getString("Password");
                     String FullName = rs.getString("FullName");
@@ -83,7 +83,7 @@ public class UserDAO {
                     String Role = rs.getString("Role");
                     Boolean Status = rs.getBoolean("Status");
                     String Image = rs.getString("Image");
-                    account = new UserDTO(UserName, Password, Address, Phone, CitizenIdetification, Status, Role, IdUser, FullName, Email, Image);
+                    account = new UserDTO(UserName, Password, Address, Phone, CitizenIdetification, Status, Role, FullName, Email, Image);
                 }
             }
         } finally {

@@ -10,10 +10,10 @@ package utils;
  */
 public class MySqlQueryConstants {
     public class LoginFeature{
-        public static final String AUTHENTICATION_QUERY = "Select IdUser, Address, Phone, CitizenIdetification, Status, Role, FullName, Email, Image "
+        public static final String AUTHENTICATION_QUERY = "Select UserName, Password, FullName, Email, Address, Phone , CitizenIdetification, Status, Role, Image "
                                                        + "From tblUser "
                                                        + "Where Username = ? AND Password = ? AND Status = 1 ";
-        public static final String FIND_BY_USERNAME_EMAIL = "Select IdUser, UserName, Password, FullName, Email, Address, Phone , CitizenIdetification, Status, Role, Image "
+        public static final String FIND_BY_USERNAME_EMAIL = "Select UserName, Password, FullName, Email, Address, Phone , CitizenIdetification, Status, Role, Image "
                                                         + "From tblUser "
                                                         + "Where Username = ? AND Email = ?";
     }
