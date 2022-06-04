@@ -43,7 +43,7 @@
 
         <!--start wrapper-->
         <div class="wrapper">
-            <c:set var="User" value="${sessionScope.USER}"/>
+            <c:set var="UserProfile" value="${sessionScope.UserProfile}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <!--navigation-->
-                
+
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
@@ -290,29 +290,33 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown dropdown-user-setting">
-                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                    <div class="user-setting">
-                                        <img src="${User.picture}" class="user-img" alt="">
-                                    </div>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="${User.picture}" alt="" class="rounded-circle" width="54" height="54">
-                                                <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">${User.name} ${User.given_name} ${User.family_name}</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
+                            <c:if test="${not empty UserProfile}">
+                                <li class="nav-item dropdown dropdown-user-setting">
+                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+                                        <div class="user-setting">
+                                            <img src="${UserProfile.picture}" class="user-img" alt="">
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+
+                                        <li>
+                                            <a class="dropdown-item" href="javascript:;">
+                                                <div class="d-flex flex-row align-items-center gap-2">
+                                                    <img src="${UserProfile.picture}" alt="" class="rounded-circle" width="54" height="54">
+                                                    <div class="">
+                                                        <h6 class="mb-0 dropdown-user-name">${UserProfile.given_name}</h6>
+                                                        <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    </li>
+                                            </a>
+                                        </li>
+                                    </c:if>
+
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user-email-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
                                                     <ion-icon name="person-outline"></ion-icon>

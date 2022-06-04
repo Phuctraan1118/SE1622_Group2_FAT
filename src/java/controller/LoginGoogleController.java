@@ -46,10 +46,10 @@ public class LoginGoogleController extends HttpServlet {
         UserGoogleDTO user = new UserGoogleDTO();
         user = GoogleDAO.getUserInfo(accessToken);
         System.out.println("user");
-        HttpSession session = request.getSession();
+        HttpSession session = request.getSession(true);
         if (user != null) {
             url = siteMaps.getProperty(MyApplicationConstants.LoginGoogleController.USER_GOOGLE_PAGE);
-            session.setAttribute("User", user);
+            session.setAttribute("UserProfile", user);
         }
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
