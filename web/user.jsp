@@ -58,7 +58,7 @@
                     </div>
                 </div>
                 <!--navigation-->
-                
+
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
@@ -69,14 +69,17 @@
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages-edit-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
-                    </li>
+                    <c:if test="${not empty User}">
+                        <li>
+                            <a href="pages-edit-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
+
                 </ul>
                 <!--end navigation-->
             </aside>

@@ -51,7 +51,7 @@
                         <img src="images/good1.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">User</h4>
+                        <h4 class="logo-text">Staff</h4>
                     </div>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>

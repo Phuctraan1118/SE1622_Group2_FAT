@@ -69,14 +69,6 @@
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="pages-edit-user1-profile.html">
-                            <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
-                    </li>
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -316,7 +308,7 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-email-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
                                                     <ion-icon name="person-outline"></ion-icon>

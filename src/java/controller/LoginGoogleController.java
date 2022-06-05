@@ -44,6 +44,7 @@ public class LoginGoogleController extends HttpServlet {
         String accessToken = GoogleDAO.getToken(code);
         UserGoogleDTO user = new UserGoogleDTO();
         user = GoogleDAO.getUserInfo(accessToken);
+        System.out.println(user);
         HttpSession session = request.getSession(true);
         if (user != null) {
             url = siteMaps.getProperty(MyApplicationConstants.LoginGoogleController.USER_GOOGLE_PAGE);
