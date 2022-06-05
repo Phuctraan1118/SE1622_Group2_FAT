@@ -148,4 +148,44 @@ public class UserDAO {
         }
         return false;
     }
+    
+    public UserDTO updateAccount(String username, String password, String fullname, String email, String address, String phone, String citizenIdentification, String role, boolean status, String img) throws NamingException, SQLException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        UserDTO user = new UserDTO();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+
+                String sql = "Update tblUser "
+                        + "SET Password = ? "
+                        + ", FullName = ? "
+                        + ", Email = ? "
+                        + ", Address = ? "
+                        + ", Phone = ? "
+                        + ", CitizenIdetification = ? "
+                        + "WHERE Username = ?";
+                stm = con.prepareStatement(sql);
+                stm.setString(1, password);
+                stm.setString(2, fullname);
+                stm.setString(3, email);
+                stm.setString(4, address);
+                stm.setString(5, phone);
+                stm.setString(6, citizenIdentification);
+                stm.setString(7, username);
+                int effectRow = stm.executeUpdate();
+                if (effectRow > 0) {
+                    user = new UserDTO(username, password, address, phone, citizenIdentification, status, role, fullname, email, img);
+                }
+            }
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return user;
+    }
 }

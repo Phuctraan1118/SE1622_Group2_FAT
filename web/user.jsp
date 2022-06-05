@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages-edit-user1-profile.html">
+                        <a href="pages-edit-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="create-sharp"></ion-icon>
                             </div>

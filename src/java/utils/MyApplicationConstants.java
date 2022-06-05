@@ -14,6 +14,7 @@ public class MyApplicationConstants {
         public static final String LOGOUT_CONTROLLER = "logoutController";
         public static final String FORGOT_PASSWORD_CONTROLLER = "forgotPasswordController";
         public static final String SIGN_UP_CONTROLLER = "signUpController";
+        public static final String UDPATE_ACCOUNT_CONTROLLER = "updateAccountController";
     }
     
     public class AuthenticationFeatures {
@@ -42,5 +43,13 @@ public class MyApplicationConstants {
         
         public static final String ERROR_PAGE = "signUpErrorPage";
         public static final String HOME_PAGE = "";
+    }
+    
+     public class UpdateAccountFeatures {
+        
+        public static final String ERROR_PAGE = "editProfilePage";
+        public static final String USER_PAGE = "userPage";
+        public static final String ADMIN_PAGE = "adminPage";
+        public static final String STAFF_PAGE = "staffPage";
     }
 }

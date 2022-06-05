@@ -63,10 +63,10 @@
                 <div class="flex">
                     <input type="checkbox" name="txtRemember" id="remember-me">
                     <label for="remember-me">remember me</label>
-                    <a href="authentication-reset-password-simple.jsp">ForgetPassword?</a>
+                    <a href="authentication-reset-password-simple.jsp">Forgot Password?</a>
                 </div>
                 <input type="submit" name="btn" value="login now" class="btn">
-                <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/HostelManagementSystem/LoginGoogleController&response_type=code&client_id=439305708712-m7f3ru5gmloasv1n079kjgh83run99mi.apps.googleusercontent.com&approval_prompt=force">Login With Google</a>
+                <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/HostelManagementSystem/LoginGoogleController&response_type=code&client_id=439305708712-m7f3ru5gmloasv1n079kjgh83run99mi.apps.googleusercontent.com&approval_prompt=force" style="background: red; color: white" class="btn">Login With Google</a>
                 <p>don't have an account <a href="authentication-sign-up-simple.html">create one!</a></p>
             </form>
 

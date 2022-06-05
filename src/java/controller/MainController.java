@@ -47,6 +47,8 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.FORGOT_PASSWORD_CONTROLLER);
             } else if (button.equals("Sign Up")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.SIGN_UP_CONTROLLER);
+            } else if(button.equals("Save Changes")){
+                url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.UDPATE_ACCOUNT_CONTROLLER);
             }
             
         } finally {
