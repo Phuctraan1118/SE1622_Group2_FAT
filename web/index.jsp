@@ -55,13 +55,35 @@
                 <input type="search" name="txtSearch" placeholder="search here..." id="search-box">
                 <label for="search-box" class="fas fa-search"></label>
             </form>
+            <%
+                String username = "", password = "", remember = "";
+                Cookie[] cookies = request.getCookies();
+                if (cookies != null) {
+                    for (Cookie cookie : cookies) {
+                        if (cookie.getName().equals("USERNAME")) {
+                            username = cookie.getValue();
+                        } else if (cookie.getName().equals("PASSWORD")) {
+                            password = cookie.getValue();
+                        } else if (cookie.getName().equals("REMEMBER")) {
+                            remember = cookie.getValue();
+                        }
+                    }
+                }
+            %>
 
             <form action="MainController" class="login-form" method="POST">
                 <h3>login form</h3>
-                <input type="text" name="txtUsername" value="${param.txtUsername}" placeholder="enter your email" class="box">
-                <input type="password" name="txtPassword" value="${param.txtPassword}" placeholder="enter your password" class="box">
+                <input type="text" name="txtUsername" value="<%=username%>" placeholder="enter your email" class="box">
+                <input type="password" name="txtPassword" value="<%=password%>" placeholder="enter your password" class="box">
                 <div class="flex">
-                    <input type="checkbox" name="txtRemember" id="remember-me">
+                    <input type="checkbox" name="txtRemember" id="remember-me" value="1" 
+                           <% if ("1".equals(remember)) {
+                                %>
+                                    checked="checked"
+                                <%
+                            }%>
+                           />
+
                     <label for="remember-me">remember me</label>
                     <a href="authentication-reset-password-simple.jsp">Forgot Password?</a>
                 </div>

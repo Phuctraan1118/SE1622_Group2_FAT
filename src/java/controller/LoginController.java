@@ -14,6 +14,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,7 @@ import utils.MyApplicationConstants;
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -40,38 +41,73 @@ public class LoginController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = this.getServletContext();
-        Properties siteMaps = (Properties)context.getAttribute("SITEMAPS");
+        Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
         String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.HOME_PAGE);
         try {
-           String username = request.getParameter("txtUsername");
-           String password = request.getParameter("txtPassword");
-           UserDAO dao = new UserDAO();
-           UserDTO dto = dao.checkLogin(username, password);
-           HttpSession session = request.getSession();
-           if(dto != null){
-               session.setAttribute("USER", dto);
-               String role = dto.getRole();
-               switch (role) {
-                   case MyApplicationConstants.AuthenticationFeatures.AD:
-                       url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.ADMIN_PAGE);
-                       session.setAttribute("USER", dto);
-                       break;
-                   case MyApplicationConstants.AuthenticationFeatures.US:
-                       url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
-                       session.setAttribute("USER", dto);
-                       break;
-                   case MyApplicationConstants.AuthenticationFeatures.STAFF:
-                       url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
-                       session.setAttribute("USER", dto);
-                       break;
-                   default:
-                       session.setAttribute("ERROR", "USERNAME OR PASSWORD IS INVALID");
-                       break;
-               }
-           }
-        }catch(NamingException | SQLException ex){
+            String username = request.getParameter("txtUsername");
+            String password = request.getParameter("txtPassword");
+            String remember = request.getParameter("txtRemember");
+
+            UserDAO dao = new UserDAO();
+            UserDTO dto = dao.checkLogin(username, password);
+            HttpSession session = request.getSession();
+            if (dto != null) {
+                session.setAttribute("USER", dto);
+                String role = dto.getRole();
+                switch (role) {
+                    case MyApplicationConstants.AuthenticationFeatures.AD:
+                        if (remember != null) {
+                            Cookie cookieUsername = new Cookie("USERNAME", username);
+                            cookieUsername.setMaxAge(10);
+                            Cookie cookiePassword = new Cookie("PASSWORD", password);
+                            cookiePassword.setMaxAge(10);
+                            Cookie cookieRemember = new Cookie("REMEMBER", remember);
+                            cookieRemember.setMaxAge(10);
+                            response.addCookie(cookieUsername);
+                            response.addCookie(cookiePassword);
+                            response.addCookie(cookieRemember);
+                        }
+                        url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.ADMIN_PAGE);
+                        session.setAttribute("USER", dto);
+                        break;
+                    case MyApplicationConstants.AuthenticationFeatures.US:
+                        if (remember != null) {
+                            Cookie cookieUsername = new Cookie("USERNAME", username);
+                            cookieUsername.setMaxAge(10);
+                            Cookie cookiePassword = new Cookie("PASSWORD", password);
+                            cookiePassword.setMaxAge(10);
+                            Cookie cookieRemember = new Cookie("REMEMBER", remember);
+                            cookieRemember.setMaxAge(10);
+                            response.addCookie(cookieUsername);
+                            response.addCookie(cookiePassword);
+                            response.addCookie(cookieRemember);
+                        }
+                        url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
+                        session.setAttribute("USER", dto);
+                        break;
+                    case MyApplicationConstants.AuthenticationFeatures.STAFF:
+                        if (remember != null) {
+                            Cookie cookieUsername = new Cookie("USERNAME", username);
+                            cookieUsername.setMaxAge(10);
+                            Cookie cookiePassword = new Cookie("PASSWORD", password);
+                            cookiePassword.setMaxAge(10);
+                            Cookie cookieRemember = new Cookie("REMEMBER", remember);
+                            cookieRemember.setMaxAge(10);
+                            response.addCookie(cookieUsername);
+                            response.addCookie(cookiePassword);
+                            response.addCookie(cookieRemember);
+                        }
+                        url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+                        session.setAttribute("USER", dto);
+                        break;
+                    default:
+                        session.setAttribute("ERROR", "USERNAME OR PASSWORD IS INVALID");
+                        break;
+                }
+            }
+        } catch (NamingException | SQLException ex) {
             log(ex + " at Login Controller" + ex.getMessage());
-        }finally{
+        } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         }
