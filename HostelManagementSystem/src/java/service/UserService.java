@@ -16,7 +16,7 @@ import java.util.List;
  * @author hungp
  */
 public interface UserService {
-    
+
     boolean isDupplicated(String username);
 
     UserCreateDto createUser(UserCreateForm form);
@@ -26,4 +26,6 @@ public interface UserService {
     boolean deleteUser(String userId);
 
     List<UserDisplayForm> searchUser(String fullName);
+
+    List<UserDisplayForm> viewAllUser();
 }

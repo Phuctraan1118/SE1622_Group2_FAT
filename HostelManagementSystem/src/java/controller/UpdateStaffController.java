@@ -25,8 +25,8 @@ import service.impl.UserServiceImpl;
 @WebServlet(name = "UpdateStaffController", urlPatterns = {"/UpdateStaffController"})
 public class UpdateStaffController extends HttpServlet {
 
-    private static final String ERROR = "StaffDisplayController";
-    private static final String SUCCESS = "StaffDisplayController";
+    private static final String ERROR = "staff.jsp";
+    private static final String SUCCESS = "staff.jsp";
     private UserService userService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -35,10 +35,10 @@ public class UpdateStaffController extends HttpServlet {
         String url = ERROR;
 
         UserUpdateForm userUpdateForm = getUserForm(request);
-
         userService = new UserServiceImpl();
         UserCreateDto userDto = userService.updateUser(userUpdateForm);
         if (userDto != null) {
+            request.setAttribute("UPDATED", userUpdateForm.getUsername());
             url = SUCCESS;
         }
         RequestDispatcher rd = request.getRequestDispatcher(url);

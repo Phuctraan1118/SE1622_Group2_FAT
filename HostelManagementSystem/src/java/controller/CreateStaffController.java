@@ -5,6 +5,7 @@
 package controller;
 
 import dto.UserCreateDto;
+import enumeration.UserRole;
 import form.UserCreateForm;
 import form.UserError;
 import java.io.IOException;
@@ -24,32 +25,41 @@ import service.impl.UserValidationServiceImpl;
  */
 public class CreateStaffController extends HttpServlet {
 
-    private static final String SUCCESS = "admin1.jsp";
-    private static final String FAIL = "admin.jsp";
+    private static final String FAIL = "staff.jsp";
+
     private UserService userService;
     private UserValidationService userValidationService;
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = FAIL;
+        boolean check = true;
+
+        String lastSearchValue = request.getParameter("search");
         UserCreateForm userCreateForm = getUserForm(request);
         userValidationService = new UserValidationServiceImpl();
         UserError userError = userValidationService.createUserValidation(userCreateForm);
-        if(userError != null){
+        if (userError != null) {
+            check = false;
             request.setAttribute("USER_ERROR", userError);
             forwardToJsp(request, url, response);
         }
-        userService = new UserServiceImpl();
-        if(userService.isDupplicated(userCreateForm.getUsername())){
-            request.setAttribute("USER_DUPPLICATE", userCreateForm.getUsername());
-            forwardToJsp(request, url, response);
+        if (check) {
+            userService = new UserServiceImpl();
+            if (userService.isDupplicated(userCreateForm.getUsername())) {
+                request.setAttribute("USER_DUPPLICATE", userCreateForm.getUsername());
+                forwardToJsp(request, url, response);
+            } else {
+                UserCreateDto userCreateDto = userService.createUser(userCreateForm);
+                if (userCreateDto != null) {
+                    request.setAttribute("CREATED", userCreateForm.getUsername());
+                    url = "MainController?btn=Search Staff&search=" + lastSearchValue;
+                    forwardToJsp(request, url, response);
+                }
+            }
         }
-        UserCreateDto userCreateDto = userService.createUser(userCreateForm);
-        if(userCreateDto != null){
-            url = SUCCESS;
-        }
-        forwardToJsp(request, url, response);
+
     }
 
     private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {

@@ -21,9 +21,10 @@ import utils.MyApplicationConstants;
 public class MainController extends HttpServlet {
 
     private static final String CREATE_STAFF = "CreateStaffController";
-    private static final String SEARCH_STAFF = "StaffDisplayController";
+    private static final String SEARCH_STAFF = "SearchStaffController";
     private static final String UPDATE_STAFF = "UpdateStaffController";
     private static final String DELETE_STAFF = "DeleteStaffController";
+    private static final String VIEW_ALL_STAFF = "StaffDisplayController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -43,6 +44,8 @@ public class MainController extends HttpServlet {
                 url = UPDATE_STAFF;
             } else if (button.equals("Delete Staff")) {
                 url = DELETE_STAFF;
+            } else if (button.equals("View All")) {
+                url = VIEW_ALL_STAFF;
             }
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);

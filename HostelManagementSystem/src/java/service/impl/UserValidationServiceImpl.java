@@ -7,12 +7,12 @@ package service.impl;
 import form.UserCreateForm;
 import form.UserError;
 import service.UserValidationService;
-import static validation.Validator.checkAddress;
-import static validation.Validator.checkCitizenIndentification;
-import static validation.Validator.checkEmail;
-import static validation.Validator.checkFullname;
-import static validation.Validator.checkPhoneNumber;
-import static validation.Validator.checkUsername;
+import static validator.Validation.checkAddress;
+import static validator.Validation.checkCitizenIndentification;
+import static validator.Validation.checkEmail;
+import static validator.Validation.checkFullname;
+import static validator.Validation.checkPhoneNumber;
+import static validator.Validation.checkUsername;
 
 /**
  *
@@ -34,13 +34,13 @@ public class UserValidationServiceImpl implements UserValidationService{
             if(userError == null) {
                 userError = new UserError();
             }
-            userError.setFullNameError("Full Name lenght must be [5,20]");
+            userError.setFullNameError("Full Name must be character [5,20]");
         }
         if (!checkPhoneNumber(userCreateForm.getPhone())) {
             if(userError == null) {
                 userError = new UserError();
             }
-            userError.setPhoneNumError("Phone Number lenght must be [2,50]");
+            userError.setPhoneNumError("Phone number must be numeric and have 10 numbers! ");
         }
         if (!checkAddress(userCreateForm.getAddress())) {
             if(userError == null) {
@@ -52,13 +52,13 @@ public class UserValidationServiceImpl implements UserValidationService{
             if(userError == null) {
                 userError = new UserError();
             }
-            userError.setEmailError("Email lenght must be follow format abcdef@gmail.com");
+            userError.setEmailError("Email must be follow format example@gmail.com");
         }
         if (!checkCitizenIndentification(userCreateForm.getCitizenIdentification())) {
             if(userError == null) {
                 userError = new UserError();
             }
-            userError.setCitizenIndentification("Citizen Indentification lenght must be [9,12]");
+            userError.setCitizenIndentification("Citizen Indentification included 9 or 12 numbers");
         }
        
         return userError;

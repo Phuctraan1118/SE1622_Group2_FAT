@@ -6,6 +6,7 @@ package controller;
 
 import form.UserDisplayForm;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,27 +35,20 @@ public class StaffDisplayController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
 
-        String fullName = getUserFullName(request);
         userService = new UserServiceImpl();
-        List<UserDisplayForm> userDisplayForms = userService.searchUser(fullName);
+        List<UserDisplayForm> userDisplayForms = userService.viewAllUser();
         sortUserDisplayForms(userDisplayForms);
-        
-        request.setAttribute("LIST_USER",userDisplayForms);
+
+        request.setAttribute("LIST_ALL", userDisplayForms);
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
-
     }
 
-    private String getUserFullName(HttpServletRequest request) {
-        String fullName = request.getParameter("search");
-        return fullName;
-    }
-    
     private void sortUserDisplayForms(List<UserDisplayForm> userDisplayForms) {
         userDisplayForms.stream().sorted(Comparator.comparing(UserDisplayForm::getUsername)).collect(Collectors.toList());
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -93,7 +87,5 @@ public class StaffDisplayController extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
-    
 
 }

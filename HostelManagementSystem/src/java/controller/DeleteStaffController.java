@@ -22,8 +22,8 @@ import service.impl.UserServiceImpl;
 @WebServlet(name = "DeleteStaffController", urlPatterns = {"/DeleteStaffController"})
 public class DeleteStaffController extends HttpServlet {
 
-    private static final String ERROR = "admin.jsp";
-    private static final String SUCCESS = "StaffDisplayController";
+    private static final String ERROR = "staff.jsp";
+    private static final String SUCCESS = "staff.jsp";
     private UserService userService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)

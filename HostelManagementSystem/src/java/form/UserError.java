@@ -9,31 +9,27 @@ package form;
  * @author hungp
  */
 public class UserError {
-    
+
     private String usernameError;
     private String fullNameError;
-    private String roleIdError;
     private String passwordError;
     private String addressError;
     private String citizenIndentification;
     private String emailError;
     private String phoneNumError;
-    private String confirmError;
     private String messageError;
 
     public UserError() {
     }
 
-    public UserError(String usernameError, String fullNameError, String roleIdError, String passwordError, String addressError, String citizenIndentification, String emailError, String phoneNumError, String confirmError, String messageError) {
+    public UserError(String usernameError, String fullNameError, String passwordError, String addressError, String citizenIndentification, String emailError, String phoneNumError, String messageError) {
         this.usernameError = usernameError;
         this.fullNameError = fullNameError;
-        this.roleIdError = roleIdError;
         this.passwordError = passwordError;
         this.addressError = addressError;
         this.citizenIndentification = citizenIndentification;
         this.emailError = emailError;
         this.phoneNumError = phoneNumError;
-        this.confirmError = confirmError;
         this.messageError = messageError;
     }
 
@@ -44,21 +40,13 @@ public class UserError {
     public void setFullNameError(String fullNameError) {
         this.fullNameError = fullNameError;
     }
-    
+
     public String getUsernameError() {
         return usernameError;
     }
 
     public void setUsernameError(String usernameError) {
         this.usernameError = usernameError;
-    }
-
-    public String getRoleIdError() {
-        return roleIdError;
-    }
-
-    public void setRoleIdError(String roleIdError) {
-        this.roleIdError = roleIdError;
     }
 
     public String getPasswordError() {
@@ -101,14 +89,6 @@ public class UserError {
         this.phoneNumError = phoneNumError;
     }
 
-    public String getConfirmError() {
-        return confirmError;
-    }
-
-    public void setConfirmError(String confirmError) {
-        this.confirmError = confirmError;
-    }
-
     public String getMessageError() {
         return messageError;
     }
@@ -116,7 +96,5 @@ public class UserError {
     public void setMessageError(String messageError) {
         this.messageError = messageError;
     }
-    
-    
-    
+
 }

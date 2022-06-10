@@ -27,6 +27,7 @@ public class UserDao {
             + "phone, citizenIndentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
     private static final String ID_USER = "idUser";
     private static final String SEARCH_STAFFUSER_BY_FULLNAME = "SELECT idUser, username, fullName, email, address, phone, citizenIndentification,image FROM tblUser WHERE fullName like ? AND role like 'STAFF'";
+    private static final String GET_ALL_USER = "SELECT idUser, username, fullName, email, address, phone, citizenIndentification,image FROM tblUser WHERE role like 'STAFF'";
     private static final String REMOVE_BY_ID = "DELETE tblUser WHERE idUser=?";
     private static final String UPDATE_USER = "UPDATE tblUser SET fullName=?, email=?, address=?, phone=?,citizenIndentification=? WHERE username=?";
     private static final String DUPLICATE = "SELECT username FROM tblUser WHERE username=?";
@@ -96,6 +97,41 @@ public class UserDao {
             if (connection != null) {
                 preparedStatement = connection.prepareStatement(SEARCH_STAFFUSER_BY_FULLNAME);
                 preparedStatement.setString(1, "%" + searchedFullName + "%");
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    String userId = resultSet.getString("idUser");
+                    String username = resultSet.getString("username");
+                    String fullName = resultSet.getString("fullName");
+                    String address = resultSet.getString("address");
+                    String phone = resultSet.getString("phone");
+                    String cmnd = resultSet.getString("citizenIndentification");
+                    String email = resultSet.getString("email");
+                    String img = resultSet.getString("image");
+                    list.add(new UserDisplayForm(userId, username, fullName, address, phone, cmnd, email, img));
+                }
+            }
+        } catch (SQLException | NamingException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+        return list;
+    }
+    
+    public List<UserDisplayForm> getAll() throws SQLException {
+        List<UserDisplayForm> list = new ArrayList();
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(GET_ALL_USER);
                 resultSet = preparedStatement.executeQuery();
                 while (resultSet.next()) {
                     String userId = resultSet.getString("idUser");
@@ -200,6 +236,57 @@ public class UserDao {
             }
         }
         return check;
+    }
+
+    public int getNumberOfPage() {
+        String query = "select count(*) from tblUser";
+        try {
+            connection = DBHelper.makeConnection();
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int total = resultSet.getInt(1);
+                int countPage = total / 3;
+                if (total % 3 != 0) {
+                    countPage ++;
+                }
+                return countPage;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    public List<UserDisplayForm> getPaging(int index) {
+        List<UserDisplayForm> list = new ArrayList();
+        String query = "select * from tblUser\n"
+                + "order by idUser\n"
+                + "OFFSET ? ROWS\n"
+                + "FETCH FIRST 3 ROW ONLY";
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setInt(1, (index - 1) * 3);
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    String userId = resultSet.getString("idUser");
+                    String username = resultSet.getString("username");
+                    String fullName = resultSet.getString("fullName");
+                    String address = resultSet.getString("address");
+                    String phone = resultSet.getString("phone");
+                    String cmnd = resultSet.getString("citizenIndentification");
+                    String email = resultSet.getString("email");
+                    String img = resultSet.getString("image");
+                    list.add(new UserDisplayForm(userId, username, fullName, address, phone, cmnd, email, img));
+                }
+            }
+        } catch (SQLException | NamingException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 
 }

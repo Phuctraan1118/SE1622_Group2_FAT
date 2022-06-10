@@ -115,4 +115,16 @@ public class UserServiceImpl implements UserService {
         return isDupplicated;
     }
 
+    @Override
+    public List<UserDisplayForm> viewAllUser() {
+        userDao = new UserDao();
+        List<UserDisplayForm> listUser = null;
+        try {
+            listUser = userDao.getAll();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listUser;
+    }
+
 }
