@@ -20,40 +20,51 @@ import utils.MyApplicationConstants;
  */
 public class MainController extends HttpServlet {
 
-    private static final String CREATE_STAFF = "CreateStaffController";
-    private static final String SEARCH_STAFF = "SearchStaffController";
-    private static final String UPDATE_STAFF = "UpdateStaffController";
-    private static final String DELETE_STAFF = "DeleteStaffController";
-    private static final String VIEW_ALL_STAFF = "StaffDisplayController";
-
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = this.getServletContext();
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
-        String url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.HOME_PAGE);
-        String button = request.getParameter("btn");
+        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+    
         try {
-            if (button.equals("login now")) {
-                url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.LOGIN_CONTROLLER);
-            } else if (button.equals("Search Customer")) {
-                url = SEARCH_STAFF;
-            } else if (button.equals("Add Customer")) {
-                url = CREATE_STAFF;
-            } else if (button.equals("Update Customer")) {
-                url = UPDATE_STAFF;
-            } else if (button.equals("Delete Customer")) {
-                url = DELETE_STAFF;
-            } else if (button.equals("View All")) {
-                url = VIEW_ALL_STAFF;
-            }
+            String button = request.getParameter("btn");
+//            if(button.equals("login now")) {
+//                url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.LOGIN_CONTROLLER);
+            if (button.equals("SEARCH ROOM")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
+            }else if (button.equals("SEARCH OWNED ROOM")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_BOOKED_ROOM_CONTROLLER);
+            }  else if (button.equals("Update Room")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.UPDATE_ROOM_CONTROLLER);
+            } else if (button.equals("Delete Room")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_ROOM_CONTROLLER);
+            } else if (button.equals("ADD ROOM")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.ADD_ROOM_CONTROLLER);
+            } else if (button.equals("Search room for customer")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_FOR_CUSTOMER_CONTROLLER);
+            } else if (button.equals("Update Booked Room")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.UPDATE_BOOKED_ROOM_CONTROLLER);
+            } else if (button.equals("Delete Booked Room")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_BOOKED_ROOM_CONTROLLER);
+            } 
+
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
             rd.forward(request, response);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
