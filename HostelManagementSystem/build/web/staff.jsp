@@ -1,5 +1,5 @@
 <%-- 
-    Document   : staff
+    Document   : Customer
     Created on : May 30, 2022, 10:32:42 PM
     Author     : buikh
 --%>
@@ -42,7 +42,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <title>Staff Management</title>
+        <title>Customer Management</title>
         <style>
             .error{
                 color: red;
@@ -50,13 +50,17 @@
             .success{
                 color: green;
             }
-            .userError{
-                color: red;
-            }
         </style>
     </head>
 
     <body>
+
+        <%
+            UserError userError = (UserError) request.getAttribute("USER_ERROR");
+            if (userError == null) {
+                userError = new UserError();
+            }
+        %>
         <!--start wrapper-->
         <div class="wrapper">
 
@@ -67,7 +71,7 @@
                         <img src="assets/images/good1.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">Staff</h4>
+                        <h4 class="logo-text">Customer</h4>
                     </div>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -84,7 +88,7 @@
                         </a>
                         <ul>
                             <li> <a href="staff.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
+                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
                                 </a>
                             </li>
                         </ul>
@@ -144,7 +148,7 @@
                             <ion-icon name="search-sharp"></ion-icon>
                         </div>
                         <input class="form-control" type="text" name="search" value="${param.search}" placeholder="Search for anything">
-                        <input type="hidden" value="Search Staff" name="btn" />
+                        <input type="hidden" value="Search Customer" name="btn" />
                         <div class="position-absolute top-50 translate-middle-y search-close-icon">
                             <ion-icon name="close-sharp"></ion-icon>
                         </div>
@@ -247,7 +251,7 @@
                                                     <ion-icon name="person-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Staffs<span class="msg-time float-end">14 Sec
+                                                    <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
                                                             ago</span></h6>
                                                     <p class="msg-info">5 new user registered</p>
                                                 </div>
@@ -297,7 +301,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
                                                             ago</span></h6>
-                                                    <p class="msg-info">New staff comments recived</p>
+                                                    <p class="msg-info">New Customer comments recived</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -453,7 +457,7 @@
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Staff Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Management</li>
                                 </ol>
                             </nav>
                         </div>
@@ -477,7 +481,7 @@
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h6 class="mb-0">List Of Staff</h6>
+                                <h6 class="mb-0">List Of Customer</h6>
                                 <div class="fs-5 ms-auto dropdown">
                                     <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
                                             class="bi bi-three-dots"></i></div>
@@ -535,7 +539,7 @@
                                                 <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                        <button type="submit" name="btn" value="Update Customer" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                 title="" data-bs-original-title="Update info" aria-label="Update">
                                                             <ion-icon name="pencil-sharp"></ion-icon>
                                                         </button> 
@@ -545,7 +549,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                        <button type="submit" name="btn" value="Delete Customer" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                 title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
                                                             <ion-icon name="trash-sharp"></ion-icon>
                                                         </button>
@@ -559,10 +563,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <c:set var="updated" value="${requestScope.UPDATED}"/>
-                            <c:if test="${not empty created}">
-                                <p class="success">Username ${updated} is updated</p>
-                            </c:if>
                             <div class="card-body">
                                 <div class="card-title">
                                     <hr>
@@ -583,67 +583,68 @@
                                 </div>
                             </div>
                         </div>
-                        <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">Add Staff</button>
+                        <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">Add Customer</button>
                     </div>
                     <!-- end page content-->
                     <div id="showOrHide">
                         <div class="card radius-10 w-100">
                             <div class="card-body">
                                 <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">Add Staff</h6>
+                                    <h6 class="mb-0">Add Customer</h6>
                                 </div>
                                 <div class="table-responsive mt-2">
                                     <table class="table align-middle mb-0">
-                                        <tbody>
                                         <div class="row">
                                             <div class="col-xl-12 mx-auto">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="p-4 border rounded">
                                                             <form class="row g-3" action="MainController" method="POST">
+                                                                <div class="row align-content-center">
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault01" class="form-label">User name</label>
                                                                     <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="" required="">
-                                                                    <p class="userError">${requestScope.USER_ERROR.usernameError}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.usernameError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault02" class="form-label">Password</label>
                                                                     <input type="password" class="form-control" id="validationDefault02" name="txtPassword" value="" required="">
-                                                                    <p class="userError">${requestScope.USER_ERROR.passwordError}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.passwordError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault02" class="form-label">Full name</label>
                                                                     <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="" required="">
-                                                                    <p class="userError">${requestScope.USER_ERROR.fullNameError}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault03" class="form-label">Email</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtEmail" value="" required="">
-                                                                    <p class="userError">${requestScope.USER_ERROR.emailError}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.emailError}</p>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <label for="validationDefault03" class="form-label">Address</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtAddress" value="" required="">
-                                                                    <p class="userError">${requestScope.USER_ERROR.addressError}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.addressError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault03" class="form-label">Phone</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtPhone" value="" required="">
-                                                                    <p class="userError">${requestScope.USER_ERROR.phoneNumError}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault03" class="form-label">Citizen Identification</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtCitizenIdentification" value="" required="">
-                                                                    <p class="userError"> ${requestScope.USER_ERROR.citizenIndentification}</p>
+                                                                    <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault03" class="form-label">Image</label>
                                                                     <input type="file"  name="txtImg" class="form-control" aria-label="file example" required>
                                                                 </div>
                                                                 <div class="col-12">
-                                                                    <button type="submit" class="btn btn-primary" name="btn" value="Add Staff">Add New Staff</button>
+                                                                    <button type="submit" class="btn btn-primary" name="btn" value="Add Customer">Add Customer</button>
                                                                 </div>
-                                                                ${requestScope.USER_ERROR.messageError}
+                                                        </div>
+                                                                <p class="error">${requestScope.USER_ERROR.messageError}</p>
                                                             </form>
                                                         </div>
                                                     </div>
@@ -655,11 +656,9 @@
                                                     <c:if test="${not empty dupplicate}">
                                                         <p class="error">User `${dupplicate}` is existed</p>
                                                     </c:if> 
-
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--                                    </form>-->
                                         </tbody>
                                     </table>
                                 </div>

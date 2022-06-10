@@ -36,13 +36,13 @@ public class MainController extends HttpServlet {
         try {
             if (button.equals("login now")) {
                 url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.LOGIN_CONTROLLER);
-            } else if (button.equals("Search Staff")) {
+            } else if (button.equals("Search Customer")) {
                 url = SEARCH_STAFF;
-            } else if (button.equals("Add Staff")) {
+            } else if (button.equals("Add Customer")) {
                 url = CREATE_STAFF;
-            } else if (button.equals("Update Staff")) {
+            } else if (button.equals("Update Customer")) {
                 url = UPDATE_STAFF;
-            } else if (button.equals("Delete Staff")) {
+            } else if (button.equals("Delete Customer")) {
                 url = DELETE_STAFF;
             } else if (button.equals("View All")) {
                 url = VIEW_ALL_STAFF;

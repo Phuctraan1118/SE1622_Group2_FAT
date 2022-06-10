@@ -54,7 +54,8 @@ public class CreateStaffController extends HttpServlet {
                 UserCreateDto userCreateDto = userService.createUser(userCreateForm);
                 if (userCreateDto != null) {
                     request.setAttribute("CREATED", userCreateForm.getUsername());
-                    url = "MainController?btn=Search Staff&search=" + lastSearchValue;
+                    url = "MainController?btn=Search Customer&search=" + lastSearchValue;
+//                    url = "staff.jsp";
                     forwardToJsp(request, url, response);
                 }
             }
@@ -76,7 +77,7 @@ public class CreateStaffController extends HttpServlet {
         String phone = request.getParameter("txtPhone");
         String citizenIdentification = request.getParameter("txtCitizenIdentification");
         String img = request.getParameter("txtImg");
-        return new UserCreateForm(username, password, fullName, address, phone, citizenIdentification, true, "STAFF", email, img);
+        return new UserCreateForm(username, password, fullName, address, phone, citizenIdentification, true, "US", email, img);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
