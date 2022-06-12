@@ -28,6 +28,7 @@ public class GoogleDAO {
                 .execute().returnContent().asString();
         JsonObject jobj = new Gson().fromJson(response, JsonObject.class);
         String accessToken = jobj.get("access_token").toString().replaceAll("\"", "");
+        System.out.println(accessToken);
         return accessToken;
     }
 
@@ -35,6 +36,7 @@ public class GoogleDAO {
         String link = Constant.GOOGLE_LINK_GET_USER_INFO + accessToken;
         String response = Request.Get(link).execute().returnContent().asString();
         UserGoogleDTO googlePojo = new Gson().fromJson(response, UserGoogleDTO.class);
+        System.out.println(googlePojo);
         return googlePojo;
     }
 }

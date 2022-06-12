@@ -204,7 +204,7 @@ section {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   width: 80rem;
-  height: 40rem;
+  height: 45rem;
   background: var(--white);
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);

@@ -379,14 +379,15 @@
                                 <div class="card-body">
                                     <c:if test="${not empty USER}">
                                         <form action="MainController" method="post">
+                                            <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
                                             <h5 class="mb-3">Edit Profile</h5>
                                             <div class="mb-4 d-flex flex-column gap-3 align-items-center justify-content-center">
                                                 <div class="user-change-photo shadow">
                                                     <img src="${USER.img}" alt="...">
                                                     <input type="hidden" name="txtImg" value="${USER.img}" class="form-control">
-                                                    <input type="hidden" name="txtImg" value="${USER.img}" class="form-control">
                                                     <input type="hidden" name="txtStatus" value="${USER.status}" class="form-control">
                                                     <input type="hidden" name="txtRole" value="${USER.role}" class="form-control">
+                                                    <input type="hidden" name="txtUsername" value="${USER.id}" class="form-control">
                                                 </div>
                                             </div>
                                             <h5 class="mb-0 mt-4">User Information</h5>
@@ -394,16 +395,39 @@
                                             <div class="row g-3">
                                                 <div class="col-6">
                                                     <label class="form-label">Password</label>
-                                                    <input type="password" name="txtPassword" value="${USER.password}" class="form-control">
-                                                    <input type="hidden" name="txtUsername" value="${USER.id}" class="form-control">
+                                                    <input type="password" name="txtPassword" value="" class="form-control">
+                                                    <c:if test="${not empty errors.passwordLengthError}">
+                                                        <font color="red">
+                                                        ${errors.passwordLengthError}
+                                                        </font>
+                                                    </c:if>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label class="form-label">Confirm Password</label>
+                                                    <input type="password" name="txtConfirm" value="" class="form-control">
+                                                    <c:if test="${not empty errors.confirmNotMatched}">
+                                                        <font color="red">
+                                                        ${errors.confirmNotMatched}
+                                                        </font>
+                                                    </c:if>
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Full Name</label>
                                                     <input type="text" name="txtFullname" value="${USER.name}" class="form-control" value="">
+                                                    <c:if test="${not empty errors.fullnameLengthError}">
+                                                        <font color="red">
+                                                        ${errors.fullnameLengthError}
+                                                        </font>
+                                                    </c:if>
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Email address</label>
                                                     <input type="email" name="txtEmail" value="${USER.email}" class="form-control">
+                                                    <c:if test="${not empty errors.emailLengthError}">
+                                                        <font color="red">
+                                                        ${errors.emailLengthError}
+                                                        </font>
+                                                    </c:if>
                                                 </div>
                                             </div>
 
@@ -413,14 +437,29 @@
                                                 <div class="col-12">
                                                     <label class="form-label">Address</label>
                                                     <input type="text" name="txtAddress" value="${USER.address}" class="form-control">
+                                                    <c:if test="${not empty errors.addressLengthError}">
+                                                        <font color="red">
+                                                        ${errors.addressLengthError}
+                                                        </font>
+                                                    </c:if>
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Phone</label>
                                                     <input type="text" name="txtPhone" value="${USER.phone}" class="form-control">
+                                                    <c:if test="${not empty errors.phoneLengthError}">
+                                                        <font color="red">
+                                                        ${errors.phoneLengthError}
+                                                        </font>
+                                                    </c:if>
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Citizen Identification Number</label>
                                                     <input type="text" name="txtCitizenIdetification" value="${USER.citizenIdentification}" class="form-control">
+                                                    <c:if test="${not empty errors.citizenIdentificationLengthError}">
+                                                        <font color="red">
+                                                        ${errors.citizenIdentificationLengthError}
+                                                        </font>
+                                                    </c:if>
                                                 </div>
                                             </div>
                                             <div class="text-start mt-3">

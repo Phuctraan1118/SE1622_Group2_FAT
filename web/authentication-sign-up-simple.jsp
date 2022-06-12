@@ -154,7 +154,7 @@
                                         </c:if>
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">Citizen Idetification Number</label>
+                                        <label class="form-label">Citizen Identification Number</label>
                                         <input type="text" name="txtCitizenIdetification" value="${param.txtCitizenIdetification}" class="form-control" id="inputPhone" placeholder="(e.g. 10 chars)">
                                         <c:if test="${not empty errors.citizenIdentificationLengthError}">
                                             <font color="red">

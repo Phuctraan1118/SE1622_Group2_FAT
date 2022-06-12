@@ -1,6 +1,6 @@
 <%-- 
-    Document   : user-email
-    Created on : Jun 4, 2022, 2:12:48 AM
+    Document   : staff
+    Created on : May 30, 2022, 10:32:42 PM
     Author     : buikh
 --%>
 
@@ -43,7 +43,7 @@
 
         <!--start wrapper-->
         <div class="wrapper">
-            <c:set var="UserProfile" value="${sessionScope.UserProfile}"/>
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
@@ -51,7 +51,7 @@
                         <img src="images/good1.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">User</h4>
+                        <h4 class="logo-text">Staff</h4>
                     </div>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -67,6 +67,14 @@
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">User Profile</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="pages-edit-profile.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
                 </ul>
@@ -282,28 +290,24 @@
                                     </a>
                                 </div>
                             </li>
-                            <c:if test="${not empty UserProfile}">
-                                <li class="nav-item dropdown dropdown-user-setting">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                        <div class="user-setting">
-                                            <img src="${UserProfile.picture}" class="user-img" alt="">
-                                        </div>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-
-                                        <li>
-                                            <a class="dropdown-item" href="javascript:;">
-                                                <div class="d-flex flex-row align-items-center gap-2">
-                                                    <img src="${UserProfile.picture}" alt="" class="rounded-circle" width="54" height="54">
-                                                    <div class="">
-                                                        <h6 class="mb-0 dropdown-user-name">${UserProfile.given_name}</h6>
-                                                        <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
-                                                    </div>
+                            <li class="nav-item dropdown dropdown-user-setting">
+                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+                                    <div class="user-setting">
+                                        <img src="${User.img}" class="user-img" alt="">
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="javascript:;">
+                                            <div class="d-flex flex-row align-items-center gap-2">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
+                                                <div class="">
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
-                                            </a>
-                                        </li>
-                                    </c:if>
-
+                                            </div>
+                                        </a>
+                                    </li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

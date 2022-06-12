@@ -54,56 +54,59 @@ public class LoginController extends HttpServlet {
             if (dto != null) {
                 session.setAttribute("USER", dto);
                 String role = dto.getRole();
-                switch (role) {
-                    case MyApplicationConstants.AuthenticationFeatures.AD:
-                        if (remember != null) {
-                            Cookie cookieUsername = new Cookie("USERNAME", username);
-                            cookieUsername.setMaxAge(10);
-                            Cookie cookiePassword = new Cookie("PASSWORD", password);
-                            cookiePassword.setMaxAge(10);
-                            Cookie cookieRemember = new Cookie("REMEMBER", remember);
-                            cookieRemember.setMaxAge(10);
-                            response.addCookie(cookieUsername);
-                            response.addCookie(cookiePassword);
-                            response.addCookie(cookieRemember);
-                        }
-                        url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.ADMIN_PAGE);
-                        session.setAttribute("USER", dto);
-                        break;
-                    case MyApplicationConstants.AuthenticationFeatures.US:
-                        if (remember != null) {
-                            Cookie cookieUsername = new Cookie("USERNAME", username);
-                            cookieUsername.setMaxAge(10);
-                            Cookie cookiePassword = new Cookie("PASSWORD", password);
-                            cookiePassword.setMaxAge(10);
-                            Cookie cookieRemember = new Cookie("REMEMBER", remember);
-                            cookieRemember.setMaxAge(10);
-                            response.addCookie(cookieUsername);
-                            response.addCookie(cookiePassword);
-                            response.addCookie(cookieRemember);
-                        }
-                        url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
-                        session.setAttribute("USER", dto);
-                        break;
-                    case MyApplicationConstants.AuthenticationFeatures.STAFF:
-                        if (remember != null) {
-                            Cookie cookieUsername = new Cookie("USERNAME", username);
-                            cookieUsername.setMaxAge(10);
-                            Cookie cookiePassword = new Cookie("PASSWORD", password);
-                            cookiePassword.setMaxAge(10);
-                            Cookie cookieRemember = new Cookie("REMEMBER", remember);
-                            cookieRemember.setMaxAge(10);
-                            response.addCookie(cookieUsername);
-                            response.addCookie(cookiePassword);
-                            response.addCookie(cookieRemember);
-                        }
-                        url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
-                        session.setAttribute("USER", dto);
-                        break;
-                    default:
-                        session.setAttribute("ERROR", "USERNAME OR PASSWORD IS INVALID");
-                        break;
+                if (role != null) {
+                    switch (role) {
+                        case MyApplicationConstants.AuthenticationFeatures.AD:
+                            if (remember != null) {
+                                Cookie cookieUsername = new Cookie("USERNAME", username);
+                                cookieUsername.setMaxAge(10);
+                                Cookie cookiePassword = new Cookie("PASSWORD", password);
+                                cookiePassword.setMaxAge(10);
+                                Cookie cookieRemember = new Cookie("REMEMBER", remember);
+                                cookieRemember.setMaxAge(10);
+                                response.addCookie(cookieUsername);
+                                response.addCookie(cookiePassword);
+                                response.addCookie(cookieRemember);
+                            }
+                            url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.ADMIN_PAGE);
+                            session.setAttribute("USER", dto);
+                            break;
+                        case MyApplicationConstants.AuthenticationFeatures.US:
+                            if (remember != null) {
+                                Cookie cookieUsername = new Cookie("USERNAME", username);
+                                cookieUsername.setMaxAge(10);
+                                Cookie cookiePassword = new Cookie("PASSWORD", password);
+                                cookiePassword.setMaxAge(10);
+                                Cookie cookieRemember = new Cookie("REMEMBER", remember);
+                                cookieRemember.setMaxAge(10);
+                                response.addCookie(cookieUsername);
+                                response.addCookie(cookiePassword);
+                                response.addCookie(cookieRemember);
+                            }
+                            url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
+                            session.setAttribute("USER", dto);
+                            break;
+                        case MyApplicationConstants.AuthenticationFeatures.STAFF:
+                            if (remember != null) {
+                                Cookie cookieUsername = new Cookie("USERNAME", username);
+                                cookieUsername.setMaxAge(10);
+                                Cookie cookiePassword = new Cookie("PASSWORD", password);
+                                cookiePassword.setMaxAge(10);
+                                Cookie cookieRemember = new Cookie("REMEMBER", remember);
+                                cookieRemember.setMaxAge(10);
+                                response.addCookie(cookieUsername);
+                                response.addCookie(cookiePassword);
+                                response.addCookie(cookieRemember);
+                            }
+                            url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+                            session.setAttribute("USER", dto);
+                            break;
+                    }
+                } else {
+                    request.setAttribute("ERROR", "Username or password is invalid");
                 }
+            } else {
+                request.setAttribute("ERROR", "Username or password is invalid");
             }
         } catch (NamingException | SQLException ex) {
             log(ex + " at Login Controller" + ex.getMessage());
