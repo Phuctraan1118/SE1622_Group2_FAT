@@ -5,9 +5,15 @@
 package controller;
 
 import dao.GoogleDAO;
+import dao.UserDAO;
+import dto.UserDTO;
 import dto.UserGoogleDTO;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -39,19 +45,42 @@ public class LoginGoogleController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = this.getServletContext();
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
-        String url = siteMaps.getProperty(MyApplicationConstants.LoginGoogleController.HOME_PAGE);
+        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
         String code = request.getParameter("code");
         String accessToken = GoogleDAO.getToken(code);
-        UserGoogleDTO user = new UserGoogleDTO();
-        user = GoogleDAO.getUserInfo(accessToken);
-        System.out.println(user);
-        HttpSession session = request.getSession(true);
-        if (user != null) {
-            url = siteMaps.getProperty(MyApplicationConstants.LoginGoogleController.USER_GOOGLE_PAGE);
-            session.setAttribute("UserProfile", user);
+        try {
+            UserGoogleDTO user = GoogleDAO.getUserInfo(accessToken);
+            HttpSession session = request.getSession(true);
+            UserDAO dao = new UserDAO();
+            boolean result = dao.checkUsernameIsExiste(user.getEmail(), user.getEmail());
+            if (user != null) {
+                if (result == true) {
+                    url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
+                    UserDTO dto = dao.findByUsernameAndEmail(user.getEmail(), user.getEmail());
+                    if(dto != null){
+                        session.setAttribute("USER", dto);
+                        session.setAttribute("UserProfile", user);
+                    }
+                    
+                } else {
+                    UserDTO dto = new UserDTO(user.getEmail(), "1", "", "", "", true, "US", "", user.getEmail(), user.getPicture());
+                    boolean createResult = dao.createNewAccount(dto);
+                    if (createResult) {
+                        url = siteMaps.getProperty(MyApplicationConstants.LoginGoogleController.USER_GOOGLE_PAGE);
+                        session.setAttribute("USER", dto);
+                        session.setAttribute("UserProfile", user);
+                    }
+                }
+            }
+        } catch (NamingException ex) {
+            log("LoginGoogleController _ Naming " + ex.getMessage());
+        } catch (SQLException ex) {
+            log("LoginGoogleController _ SQLException " + ex.getMessage());
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
         }
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -67,6 +96,7 @@ public class LoginGoogleController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**

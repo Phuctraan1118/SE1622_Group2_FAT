@@ -78,22 +78,27 @@
                 <div class="flex">
                     <input type="checkbox" name="txtRemember" id="remember-me" value="1" 
                            <% if ("1".equals(remember)) {
-                                %>
-                                    checked="checked"
-                                <%
-                            }%>
+                           %>
+                           checked="checked"
+                           <%
+                               }%>
                            />
 
                     <label for="remember-me">remember me</label>
                     <a href="authentication-reset-password-simple.jsp">Forgot Password?</a>
                 </div>
                 <input type="submit" name="btn" value="login now" class="btn">
-                <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/HostelManagementSystem/LoginGoogleController&response_type=code&client_id=439305708712-m7f3ru5gmloasv1n079kjgh83run99mi.apps.googleusercontent.com&approval_prompt=force" style="background: red; color: white" class="btn">Login With Google</a>
+                <c:set var="error" value="${requestScope.ERROR}"/>
+                <c:if test="${not empty error}">
+                    <p style="color: red;">${error}</p>
+                </c:if>
+                <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/HostelManagementSystem/LoginGoogleController&response_type=code&client_id=439305708712-m7f3ru5gmloasv1n079kjgh83run99mi.apps.googleusercontent.com&approval_prompt=force" style="background: red; color: white" class="btn">Login With Google</a>
+                <input type="hidden" name="txtGoogleProfile" value="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:8080/HostelManagementSystem/LoginGoogleController&response_type=code&client_id=439305708712-m7f3ru5gmloasv1n079kjgh83run99mi.apps.googleusercontent.com&approval_prompt=force" />
                 <p>don't have an account <a href="authentication-sign-up-simple.html">create one!</a></p>
-            </form>
+            </form>           
 
         </header>
-
+        
         <div class="contact-info">
 
             <div id="close-contact-info" class="fas fa-times"></div>

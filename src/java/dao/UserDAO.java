@@ -17,17 +17,21 @@ import utils.DBHelper;
  * @author buikh
  */
 public class UserDAO {
-    private final String AUTHENTICATION_QUERY = "Select UserName, Password, FullName, Email, Address, Phone , CitizenIdetification, Status, Role, Image "
-                                                       + "From tblUser "
-                                                       + "Where Username = ? AND Password = ? AND Status = 1 ";
+    private final String AUTHENTICATION_QUERY = "Select username, password, fullName, email, address, phone , citizenIdentification, status, role, image "
+                                                       + "From tblUsers "
+                                                       + "Where username = ? AND password = ? AND status = 1 ";
     
-    private final String FIND_BY_USERNAME_EMAIL = "Select UserName, Password, FullName, Email, Address, Phone , CitizenIdetification, Status, Role, Image "
-                                                        + "From tblUser "
-                                                        + "Where Username = ? AND Email = ?";
+    private final String FIND_BY_USERNAME_EMAIL = "Select username, password, fullName, email, address, phone , citizenIdentification, status, role, image "
+                                                        + "From tblUsers "
+                                                        + "Where username = ? AND email = ?";
     
-    private final String INSERT_NEW_USER = "Insert Into tblUser("
-                                            + "Username, Password, FullName, Email, Address, Phone, CitizenIdetification, Status, Role, Image"
+    private final String INSERT_NEW_USER = "Insert Into tblUsers("
+                                            + "username, password, fullName, email, address, phone, citizenIdentification, status, role, image"
                                             + ") Values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private final String CHECKING_EMAIL_EXISTED = "Select username, email "
+                                                         + "From tblUsers "
+                                                         + "Where username = ? AND email = ?";
+
     public UserDTO checkLogin(String username, String password)
             throws SQLException, NamingException{
         Connection con = null;
@@ -42,16 +46,16 @@ public class UserDAO {
                 stm.setString(2, password);
                 rs = stm.executeQuery();
                 if(rs.next()){
-                     String UserName = rs.getString("UserName");
-                    String Password = rs.getString("Password");
-                    String FullName = rs.getString("FullName");
-                    String Email = rs.getString("Email");
-                    String Address = rs.getString("Address");
-                    String Phone = rs.getString("Phone");
-                    String CitizenIdetification = rs.getString("CitizenIdetification");
-                    String Role = rs.getString("Role");
-                    Boolean Status = rs.getBoolean("Status");
-                    String Image = rs.getString("Image");
+                     String UserName = rs.getString("username");
+                    String Password = rs.getString("password");
+                    String FullName = rs.getString("fullName");
+                    String Email = rs.getString("email");
+                    String Address = rs.getString("address");
+                    String Phone = rs.getString("phone");
+                    String CitizenIdetification = rs.getString("citizenIdentification");
+                    String Role = rs.getString("role");
+                    Boolean Status = rs.getBoolean("status");
+                    String Image = rs.getString("image");
                     dto = new UserDTO(UserName, Password, Address, Phone, CitizenIdetification, Status, Role, FullName, Email, Image);
                 } 
             }
@@ -83,16 +87,16 @@ public class UserDAO {
                 ptm.setString(2, email);
                 rs = ptm.executeQuery();
                 if (rs.next()) {
-                    String UserName = rs.getString("UserName");
-                    String Password = rs.getString("Password");
-                    String FullName = rs.getString("FullName");
-                    String Email = rs.getString("Email");
-                    String Address = rs.getString("Address");
-                    String Phone = rs.getString("Phone");
-                    String CitizenIdetification = rs.getString("CitizenIdetification");
-                    String Role = rs.getString("Role");
-                    Boolean Status = rs.getBoolean("Status");
-                    String Image = rs.getString("Image");
+                    String UserName = rs.getString("username");
+                    String Password = rs.getString("password");
+                    String FullName = rs.getString("fullName");
+                    String Email = rs.getString("email");
+                    String Address = rs.getString("address");
+                    String Phone = rs.getString("phone");
+                    String CitizenIdetification = rs.getString("citizenIdentification");
+                    String Role = rs.getString("role");
+                    Boolean Status = rs.getBoolean("status");
+                    String Image = rs.getString("image");
                     account = new UserDTO(UserName, Password, Address, Phone, CitizenIdetification, Status, Role, FullName, Email, Image);
                 }
             }
@@ -157,14 +161,14 @@ public class UserDAO {
             con = DBHelper.makeConnection();
             if (con != null) {
 
-                String sql = "Update tblUser "
-                        + "SET Password = ? "
-                        + ", FullName = ? "
-                        + ", Email = ? "
-                        + ", Address = ? "
-                        + ", Phone = ? "
-                        + ", CitizenIdetification = ? "
-                        + "WHERE Username = ?";
+                String sql = "Update tblUsers "
+                        + "SET password = ? "
+                        + ", fullName = ? "
+                        + ", email = ? "
+                        + ", address = ? "
+                        + ", phone = ? "
+                        + ", citizenIdentification = ? "
+                        + "WHERE username = ?";
                 stm = con.prepareStatement(sql);
                 stm.setString(1, password);
                 stm.setString(2, fullname);
@@ -187,5 +191,36 @@ public class UserDAO {
             }
         }
         return user;
+    }
+    public boolean checkUsernameIsExiste(String username, String email) throws NamingException, SQLException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        boolean flag = false;
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+
+                String sql = CHECKING_EMAIL_EXISTED;
+                stm = con.prepareStatement(sql);
+                stm.setString(1, email);
+                stm.setString(2, username);
+                rs = stm.executeQuery();
+                if (rs.next()) {
+                    flag = true;
+                }
+            }
+        } finally {
+            if(rs != null){
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return flag;
     }
 }

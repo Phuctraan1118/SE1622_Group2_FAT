@@ -267,27 +267,6 @@
                                     </a>
                                 </div>
                             </li>
-                            <c:set var="UserProfile" value="${sessionScope.UserProfile}"/>
-                            <c:if test="${not empty UserProfile}">
-                                <li class="nav-item dropdown dropdown-user-setting">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                        <div class="user-setting">
-                                            <img src="${UserProfile.picture}" class="user-img" alt="">
-                                        </div>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-
-                                        <li>
-                                            <a class="dropdown-item" href="#">
-                                                <div class="d-flex flex-row align-items-center gap-2">
-                                                    <img src="${UserProfile.picture}" alt="" class="rounded-circle" width="54" height="54">
-                                                    <div class="">
-                                                        <h6 class="mb-0 dropdown-user-name">${UserProfile.given_name}</h6>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </c:if>
                                     <c:if test="${not empty User}">
                                         <li class="nav-item dropdown dropdown-user-setting">
                                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
@@ -403,37 +382,6 @@
                                         <!--end breadcrumb-->
 
                                         <div class="row">
-                                            <c:if test="${not empty UserProfile}">
-                                                <div class="col-12 col-lg-8 col-xl-9">
-                                                    <div class="card overflow-hidden radius-10">
-                                                        <div class="profile-cover bg-dark position-relative mb-4">
-                                                            <div class="user-profile-avatar shadow position-absolute top-50 start-0 translate-middle-x">
-                                                                <img src="${UserProfile.picture}" class="user-img" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="card-body">
-                                                            <div class="mt-5 d-flex align-items-start justify-content-between">
-                                                                <div class="">
-                                                                    <h3 class="mb-2">${UserProfile.name}</h3>
-                                                                    <p>${UserProfile.given_name}</p>
-                                                                </div>
-                                                                <div class="">
-                                                                    <a href="javascript:;" class="btn btn-primary"><ion-icon name="send-sharp"></ion-icon>Send Message</a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <h4 class="mb-2">About Me</h4>
-                                                            <p class="">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
-                                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-                                                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </c:if>
-
                                             <c:if test="${not empty User}">
                                                 <div class="col-12 col-lg-8 col-xl-9">
                                                     <div class="card overflow-hidden radius-10">
