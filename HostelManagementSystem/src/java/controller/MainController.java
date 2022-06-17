@@ -20,11 +20,11 @@ import utils.MyApplicationConstants;
  */
 public class MainController extends HttpServlet {
 
-    private static final String CREATE_STAFF = "CreateStaffController";
-    private static final String SEARCH_STAFF = "SearchStaffController";
-    private static final String UPDATE_STAFF = "UpdateStaffController";
-    private static final String DELETE_STAFF = "DeleteStaffController";
-    private static final String VIEW_ALL_STAFF = "StaffDisplayController";
+    private static final String CREATE_CUSTOMER = "CreateCustomerController";
+    private static final String SEARCH_CUSTOMER = "SearchCustomerController";
+    private static final String UPDATE_CUSTOMER = "UpdateCustomerController";
+    private static final String DELETE_CUSTOMER = "DeleteCustomerController";
+    private static final String VIEW_ALL_CUSTOMER = "CustomerDisplayController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -36,16 +36,16 @@ public class MainController extends HttpServlet {
         try {
             if (button.equals("login now")) {
                 url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.LOGIN_CONTROLLER);
-            } else if (button.equals("Search Staff")) {
-                url = SEARCH_STAFF;
-            } else if (button.equals("Add Staff")) {
-                url = CREATE_STAFF;
-            } else if (button.equals("Update Staff")) {
-                url = UPDATE_STAFF;
-            } else if (button.equals("Delete Staff")) {
-                url = DELETE_STAFF;
+            } else if (button.equals("Search Customer")) {
+                url = SEARCH_CUSTOMER;
+            } else if (button.equals("Add Customer")) {
+                url = CREATE_CUSTOMER;
+            } else if (button.equals("Update Customer")) {
+                url = UPDATE_CUSTOMER;
+            } else if (button.equals("Delete Customer")) {
+                url = DELETE_CUSTOMER;
             } else if (button.equals("View All")) {
-                url = VIEW_ALL_STAFF;
+                url = VIEW_ALL_CUSTOMER;
             }
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);

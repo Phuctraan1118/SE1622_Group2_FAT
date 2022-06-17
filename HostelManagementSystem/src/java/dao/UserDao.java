@@ -26,7 +26,7 @@ public class UserDao {
     private static final String ADD_STAFF_QUERY = "INSERT into tblUser(idUser, username, password, fullName, email, address, "
             + "phone, citizenIndentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
     private static final String ID_USER = "idUser";
-    private static final String SEARCH_STAFFUSER_BY_FULLNAME = "SELECT idUser, username, fullName, email, address, phone, citizenIndentification,image FROM tblUser WHERE fullName like ? AND role like 'STAFF'";
+    private static final String SEARCH_STAFFUSER_BY_FULLNAME = "SELECT idUser, username, fullName, email, address, phone, citizenIndentification,image FROM tblUser WHERE fullName like ? AND role like 'US'";
     private static final String GET_ALL_USER = "SELECT idUser, username, fullName, email, address, phone, citizenIndentification,image FROM tblUser WHERE role like 'STAFF'";
     private static final String REMOVE_BY_ID = "DELETE tblUser WHERE idUser=?";
     private static final String UPDATE_USER = "UPDATE tblUser SET fullName=?, email=?, address=?, phone=?,citizenIndentification=? WHERE username=?";

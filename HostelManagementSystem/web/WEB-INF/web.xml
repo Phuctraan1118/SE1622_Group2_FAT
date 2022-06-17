@@ -13,16 +13,16 @@
         <servlet-class>controller.MainController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>CreateStaffController</servlet-name>
-        <servlet-class>controller.CreateStaffController</servlet-class>
+        <servlet-name>CreateCustomerController</servlet-name>
+        <servlet-class>controller.CreateCustomerController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>CreateStaffController</servlet-name>
-        <url-pattern>/CreateStaffController</url-pattern>
+        <servlet-name>CreateCustomerController</servlet-name>
+        <url-pattern>/CreateCustomerController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
