@@ -84,7 +84,10 @@ ion-icon {
     transition: .7s all;
 }
 
-
+.tbody img{
+    width: 120px;
+    height: 120px;
+}
 
 
 /* Sidebar */
