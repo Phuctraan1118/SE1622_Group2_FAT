@@ -39,7 +39,7 @@ public class RoomAddController extends HttpServlet {
         String roomPrice = request.getParameter("txtCreateRoomPrice");
         float price = 0;
         String image = request.getParameter("txtCreateImage");
-        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
         RoomInsertError errors = new RoomInsertError();
         try {
 
@@ -57,8 +57,7 @@ public class RoomAddController extends HttpServlet {
             } else {
                 price = Float.parseFloat(roomPrice);
                 RoomDAO dao = new RoomDAO();
-                roomId = dao.getLastIdRoom() + 1;
-                RoomDTO dto = new RoomDTO(roomId, roomDescription, price, image, "NB");
+                RoomDTO dto = new RoomDTO(roomDescription, price, image, "NB");
                 boolean result = dao.create(dto);
                 if (result) {
                     url = "MainController?txtSearchValue=&btn=SEARCH+ROOM";

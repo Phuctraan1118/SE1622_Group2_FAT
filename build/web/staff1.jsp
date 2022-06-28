@@ -55,7 +55,7 @@
                                 <img src=images/${dto.image}  width="90"/>
                             </td>   
                             <td>
-                                <a  href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
+                                <a href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
                                     &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}">Edit</a>
                                 <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
 

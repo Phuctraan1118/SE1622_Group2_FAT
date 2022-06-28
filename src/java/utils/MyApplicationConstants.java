@@ -34,6 +34,9 @@ public class MyApplicationConstants {
         public static final String US = "US";
         public static final String AD = "AD";
         public static final String USGG = "USGOOGLE";
+        public static final String MANAGEMENT_ROOM_PAGE = "managementRoomPage";
+        
+        
     }
 
     public class LoginGoogleController {

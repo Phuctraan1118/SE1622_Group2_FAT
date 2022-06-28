@@ -46,7 +46,7 @@ public class RoomSearchController extends HttpServlet {
         String searchValue = request.getParameter("txtSearchValue");
         ServletContext context = this.getServletContext();
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
-        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
 
         try {
             //SEARCH NOT BOOKED
@@ -54,14 +54,14 @@ public class RoomSearchController extends HttpServlet {
             List<RoomDTO> result = dao.searchAllNotBooked();
             if (result != null) {
                 request.setAttribute("SEARCHRESULT", result);
-                url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+                url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
             }
 
             if (searchValue.trim().length() > 0) {
                 List<RoomDTO> result1 = dao.searchNotBooked(searchValue); //SEARCH BY DESCRIPTION
                 if (!result1.isEmpty()) {
                     request.setAttribute("SEARCHRESULT", result1);
-                    url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+                    url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
                 }
             }
 

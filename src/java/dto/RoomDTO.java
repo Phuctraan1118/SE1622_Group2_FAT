@@ -41,8 +41,6 @@ public class RoomDTO implements Serializable {
         this.image = image;
         this.status = status;
     }
-    
-    
 
     public RoomDTO(int roomId, String roomDescription, float roomPrice, String image,
             int bookingId, String bookingDate, String checkinDate, String checkoutDate, String username, String status) {
@@ -63,6 +61,14 @@ public class RoomDTO implements Serializable {
         this.roomDescription = roomDescription;
         this.roomPrice = roomPrice;
         this.image = image;
+    }
+
+   public RoomDTO( String roomDescription, float roomPrice, String image, String status) {
+        
+        this.roomDescription = roomDescription;
+        this.roomPrice = roomPrice;
+        this.image = image;
+        this.status = status;
     }
 
     /**

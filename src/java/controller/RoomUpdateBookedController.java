@@ -85,7 +85,7 @@ public class RoomUpdateBookedController extends HttpServlet {
                 RoomDTO dto = new RoomDTO(roomId, roomDescription, price, image, bookingId, bookingDate, checkInDate, checkOutDate, username, status);
                 boolean check = dao.updateBookedRoom(dto);
                 if (check) {
-                    url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+                    url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
                 }
             }
         } catch (NamingException | NumberFormatException | SQLException e) {

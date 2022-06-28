@@ -91,6 +91,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Staff Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="managementRoom.jsp">
+                                        <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -109,17 +114,7 @@
                             <div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
-                    <li>
-
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
-                            <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Room</div>
-                        </a>
-
-                    </li> 
-<!--                    <li class="menu-label">STAFF</li>-->
+                    <!--                    <li class="menu-label">STAFF</li>-->
                     <!--                    <li>
                                             <a class="has-arrow" href="javascript:;">
                                                 <div class="parent-icon">
@@ -331,7 +326,7 @@ thentication</div>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                   <li>
+                                    <li>
                                         <a class="dropdown-item" href="pages-user1-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
@@ -420,7 +415,7 @@ thentication</div>
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Staff Management</li>
                                 </ol>
                             </nav>
                         </div>

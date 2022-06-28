@@ -27,17 +27,17 @@ public class RoomDAO implements Serializable {
     private static final String SEARCH_ALL_NOT_BOOKED = "select roomId, roomDescription , roomPrice , image from tblRoom "
             + "where status like 'NB' ";
 
-private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate  "
-            + ", b.checkinDate,b.checkoutDate , b.username, r.status "
-            + "from tblRoom r, tblBooking b , tblBookingDetail bd "
-            + " where r.roomId = bd.roomId and  bd.bookingId = b.bookingId  and r.status like 'B' and b.username like ?  ";
+private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
+        + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
+        + "from tblRoom r, tblBooking b , tblBookingDetail bd "
+        + "where r.roomId = bd.roomId and  bd.bookingId = b.bookingId  and r.status like 'B' and b.username like ?  ";
 
 
 
-    private static final String SEARCH_ALL_BOOKED = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate  "
-            + ", b.checkinDate,b.checkoutDate , b.username, r.status "
-            + "from tblRoom r, tblBooking b , tblBookingDetail bd "
-            + " where r.roomId = bd.roomId and  bd.bookingId = b.bookingId  and r.status like 'B' ";
+    private static final String SEARCH_ALL_BOOKED = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
+        + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
+        + "from tblRoom r, tblBooking b , tblBookingDetail bd "
+        + "where r.roomId = bd.roomId and  bd.bookingId = b.bookingId  and r.status like 'B' ";
 
     private static final String DELETE = "DELETE tblRoom WHERE roomId = ? ";
     private static final String DELETE_BOOKED = "UPDATE tblRoom SET status = 'NB'"
@@ -53,7 +53,7 @@ private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.room
             + "SET bookingDate = ?, checkinDate = ? , checkoutDate = ? "
             + "WHERE bookingId = ? ";
     
-    private static final String INSERT = "INSERT into tblRoom(roomId,roomDescription,roomPrice,image,status) VALUES (?,?,?,?,?)";
+    private static final String INSERT = "INSERT into tblRoom(roomDescription,roomPrice,image,status) VALUES (?,?,?,?) ";
     private static final String LAST_ID_ROOM = " select top 1 roomId from tblRoom order by roomId desc ";
 
     public List<RoomDTO> searchNotBooked(String searchValue)
@@ -365,11 +365,10 @@ private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.room
             con = DBHelper.makeConnection();
             if (con != null) {
                 stm = con.prepareStatement(INSERT);
-                stm.setInt(1, room.getRoomId());
-                stm.setString(2, room.getRoomDescription());
-                stm.setFloat(3, room.getRoomPrice());
-                stm.setString(4, room.getImage());
-                stm.setString(5, room.getStatus());
+                stm.setString(1, room.getRoomDescription());
+                stm.setFloat(2, room.getRoomPrice());
+                stm.setString(3, room.getImage());
+                stm.setString(4, room.getStatus());
                 row = stm.executeUpdate() > 0;
 
             }//end if connection has opened
