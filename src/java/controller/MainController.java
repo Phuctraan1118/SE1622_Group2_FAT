@@ -34,7 +34,7 @@ public class MainController extends HttpServlet {
     private static final String SEARCH_NOTIFICATION = "NotificationDisplayController";
     private static final String UPDATE_NOTIFICATION = "NotificationUpdateController";
     private static final String DELETE_NOTIFICATION = "NotificationDeleteController";
-
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -103,7 +103,7 @@ public class MainController extends HttpServlet {
                 url = SEARCH_NOTIFICATION;
             } else if (button.equals("Update Notification")) {
                 url = UPDATE_NOTIFICATION;
-            } else if (button.equals("Delete Notification")) {
+            } else if (button.equals("Remove Notification")) {
                 url = DELETE_NOTIFICATION;
             }
 
