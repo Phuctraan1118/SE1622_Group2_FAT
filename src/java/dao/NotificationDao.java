@@ -26,6 +26,8 @@ public class NotificationDao {
 
     private static final String ADD_NOTIFICATION = "INSERT INTO tblNotification(notificationName,detail,username) VALUES (?,?,?)";
     private static final String GET_NOTIFICATION = "SELECT notificationId,notificationName,detail,username FROM tblNotification WHERE notificationName like ?";
+    private static final String UPDATE_NOTIFICATION = "UPDATE tblNotification SET notificationName=?, detail=?, username=? where notificationId=?";
+    private static final String DELETE = "DELETE tblNotification WHERE notificationId=?";
 
     public boolean addNewNotification(NotificationCreateForm notificationForm) throws NamingException, SQLException {
         boolean check = false;
@@ -82,4 +84,47 @@ public class NotificationDao {
         return list;
     }
 
+    public int updateNotification(int id, String name, String detail, String username) throws SQLException, NamingException, NamingException {
+
+        try {
+            connection = DBHelper.makeConnection();
+            preparedStatement = connection.prepareStatement(UPDATE_NOTIFICATION);
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, detail);
+            preparedStatement.setString(3, username);
+            preparedStatement.setInt(4, id);
+            preparedStatement.executeUpdate();
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+        return 0;
+    }
+
+    public boolean deleteNotification(String notificationId) throws SQLException {
+        boolean check = false;
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(DELETE);
+                preparedStatement.setString(1, notificationId);
+                int value = preparedStatement.executeUpdate();
+                check = value > 0;
+            }
+        } catch (SQLException | NamingException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+        return check;
+    }
 }
