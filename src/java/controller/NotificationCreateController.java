@@ -4,64 +4,43 @@
  */
 package controller;
 
-import dto.UserCreateDto;
-import form.UserCreateForm;
-import form.UserError;
+import dto.NotificationDto;
+import form.NotificationCreateForm;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.UserService;
-import service.UserValidationService;
-import service.impl.UserServiceImpl;
-import service.impl.UserValidationServiceImpl;
+import service.NotificationService;
+import service.impl.NotificationServerImpl;
 
 /**
  *
  * @author hungp
  */
-@WebServlet(name = "CreateCustomerController", urlPatterns = {"/CreateCustomerController"})
-public class CreateCustomerController extends HttpServlet {
+@WebServlet(name = "NotificationCreateController", urlPatterns = {"/NotificationCreateController"})
+public class NotificationCreateController extends HttpServlet {
 
-    private static final String FAIL = "customer.jsp";
-
-    private UserService userService;
-    private UserValidationService userValidationService;
+    private static final String FAIL = "notifi.jsp";
+    private NotificationService notificationService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = FAIL;
-        boolean check = true;
-
-        String lastSearchValue = request.getParameter("search");
-        UserCreateForm userCreateForm = getUserForm(request);
-        userValidationService = new UserValidationServiceImpl();
-        UserError userError = userValidationService.createUserValidation(userCreateForm);
-        if (userError != null) {
-            check = false;
-            request.setAttribute("USER_ERROR", userError);
+        
+        NotificationCreateForm notificationForm = getNotificationForm(request);
+        notificationService = new NotificationServerImpl();
+        NotificationDto notificationDto = notificationService.createNoti(notificationForm);
+        if (notificationDto != null) {
+            request.setAttribute("CREATED", notificationDto.getName());
+            url = "notifi.jsp";
             forwardToJsp(request, url, response);
         }
-        if (check) {
-            userService = new UserServiceImpl();
-            if (userService.isDupplicated(userCreateForm.getUsername())) {
-                request.setAttribute("USER_DUPPLICATE", userCreateForm.getUsername());
-                forwardToJsp(request, url, response);
-            } else {
-                UserCreateDto userCreateDto = userService.createUser(userCreateForm);
-                if (userCreateDto != null) {
-                    request.setAttribute("CREATED", userCreateForm.getUsername());
-                    url = "MainController?btn=Search Customer&search=" + lastSearchValue;
-//                    url = "customer.jsp";
-                    forwardToJsp(request, url, response);
-                }
-            }
-        }
-
+        
     }
 
     private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {
@@ -69,16 +48,11 @@ public class CreateCustomerController extends HttpServlet {
         rd.forward(request, response);
     }
 
-    private UserCreateForm getUserForm(HttpServletRequest request) {
+    private NotificationCreateForm getNotificationForm(HttpServletRequest request) {
+        String notificationName = request.getParameter("txtNotificationName");
+        String notificationDetail = request.getParameter("txtNotificationDetail");
         String username = request.getParameter("txtUsername");
-        String password = request.getParameter("txtPassword");
-        String fullName = request.getParameter("txtFullName");
-        String email = request.getParameter("txtEmail");
-        String address = request.getParameter("txtAddress");
-        String phone = request.getParameter("txtPhone");
-        String citizenIdentification = request.getParameter("txtCitizenIdentification");
-        String img = request.getParameter("txtImg");
-        return new UserCreateForm(username, password, fullName, address, phone, citizenIdentification, true, "US", email, img);
+        return new NotificationCreateForm(notificationName, notificationDetail, username);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

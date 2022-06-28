@@ -30,6 +30,11 @@ public class MainController extends HttpServlet {
     private static final String UPDATE_STAFF = "UpdateStaffController";
     private static final String DELETE_STAFF = "DeleteStaffController";
 
+    private static final String CREATE_NOTIFICATION = "NotificationCreateController";
+    private static final String SEARCH_NOTIFICATION = "NotificationDisplayController";
+    private static final String UPDATE_NOTIFICATION = "NotificationUpdateController";
+    private static final String DELETE_NOTIFICATION = "NotificationDeleteController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -64,9 +69,9 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.ADD_ROOM_CONTROLLER);
             } else if (button.equals("Search room for customer")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_FOR_CUSTOMER_CONTROLLER);
-            }else if(button.equals("Search room for customer google")){
+            } else if (button.equals("Search room for customer google")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER);
-            }else if (button.equals("Update Owned Room")) {
+            } else if (button.equals("Update Owned Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.UPDATE_BOOKED_ROOM_CONTROLLER);
             } else if (button.equals("Delete Booked Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_BOOKED_ROOM_CONTROLLER);
@@ -92,6 +97,14 @@ public class MainController extends HttpServlet {
                 url = UPDATE_STAFF;
             } else if (button.equals("Delete Staff")) {
                 url = DELETE_STAFF;
+            } else if (button.equals("Add Notification")) {
+                url = CREATE_NOTIFICATION;
+            } else if (button.equals("Search Notification")) {
+                url = SEARCH_NOTIFICATION;
+            } else if (button.equals("Update Notification")) {
+                url = UPDATE_NOTIFICATION;
+            } else if (button.equals("Delete Notification")) {
+                url = DELETE_NOTIFICATION;
             }
 
         } finally {

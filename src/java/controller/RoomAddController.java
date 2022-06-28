@@ -4,7 +4,7 @@
  */
 package controller;
 
-import Validation.Validate;
+import validator.Validate;
 import dao.RoomDAO;
 import dto.RoomDTO;
 import dto.RoomInsertError;

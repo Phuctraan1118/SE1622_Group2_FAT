@@ -47,7 +47,7 @@ public class UserDao {
     private static final String DUPLICATE = "SELECT username FROM tblUser WHERE username=?";
 
     private static final String ADD_STAFF_QUERY = "INSERT into tblUser(idUser, username, password, fullName, email, address, "
-            + "phone, citizenIndentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+            + "phone, citizenIdentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
     private static final String SEARCH_STAFF_BY_NAME = "SELECT idUser, username, fullName, email, address, phone, citizenIdentification,image FROM tblUser WHERE fullName like ? AND role like 'STAFF'";
 
     private Connection connection;
@@ -272,7 +272,7 @@ public class UserDao {
         return list;
     }
 
-    public boolean addStaff(UserCreateForm userCreateForm) throws NamingException, SQLException {
+    public boolean addUser(UserCreateForm userCreateForm) throws NamingException, SQLException {
         boolean check = false;
 
         try {
