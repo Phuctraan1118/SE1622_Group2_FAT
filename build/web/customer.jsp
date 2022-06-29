@@ -63,7 +63,7 @@
         %>
         <!--start wrapper-->
         <div class="wrapper">
-
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
@@ -71,7 +71,7 @@
                         <img src="assets/images/good1.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">Customer</h4>
+                        <h4 class="logo-text">Staff</h4>
                     </div>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -79,7 +79,7 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li>
+                    <li class="mm-active">
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
@@ -87,51 +87,40 @@
                             <div class="menu-title">Management</div>
                         </a>
                         <ul>
-                            <li> <a href="customer.jsp">
+                            <li> <a href="staff.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="customer.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Customer Management
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li class="menu-label">Pages</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon">
-                                <ion-icon name="lock-closed-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Authentication</div>
-                        </a>
-                        <ul>
-                            <li> <a href="authentication-sign-in-simple.html" target="_blank">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Sign In Simple
-                                </a>
-                            </li>
-                            <li> <a href="authentication-sign-up-simple.html" target="_blank">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Sign Up Simple
-                                </a>
-                            </li>
-                            <li> <a href="authentication-reset-password-simple.html" target="_blank">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Reset Password Simple
+                            <li>
+                                <a href="managementRoom.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="pages-staff-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
+                    <c:if test="${not empty User}">
                     <li>
-                        <a href="pages-edit-profile.jsp"">
-                            <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
-                    </li>
+                            <a href="pages-edit-profile.jsp"">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -350,17 +339,17 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                        <img src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -422,7 +411,7 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
                                                     <ion-icon name="log-out-outline"></ion-icon>

@@ -22,68 +22,37 @@ import utils.DBHelper;
  * @author buikh
  */
 public class UserDao {
+
     private final String AUTHENTICATION_QUERY = "Select username, password, fullName, email, address, phone , citizenIdentification, status, role, image "
-                                                       + "From tblUser "
-                                                       + "Where username = ? AND password = ? AND status = 1 ";
-    
+            + "From tblUser "
+            + "Where username = ? AND password = ? AND status = 1 ";
+
     private final String FIND_BY_USERNAME_EMAIL = "Select username, password, fullName, email, address, phone , citizenIdentification, status, role, image "
-                                                        + "From tblUser "
-                                                        + "Where username = ? AND email = ?";
-    
+            + "From tblUser "
+            + "Where username = ? AND email = ?";
+
     private final String INSERT_NEW_USER = "Insert Into tblUser("
-                                            + "username, password, fullName, email, address, phone, citizenIdentification, status, role, image"
-                                            + ") Values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            + "username, password, fullName, email, address, phone, citizenIdentification, status, role, image"
+            + ") Values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private final String CHECKING_EMAIL_EXISTED = "Select username, email "
-                                                         + "From tblUser "
-                                                         + "Where username = ? AND email = ?";
-    
-     private static final String GET_LASTED_ID_QUERY = "SELECT top 1 idUser FROM tblUser order by idUser desc";
-    private static final String ADD_CUSTOMER_QUERY = "INSERT into tblUser(idUser, username, password, fullName, email, address, "
-            + "phone, citizenIndentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+            + "From tblUser "
+            + "Where username = ? AND email = ?";
+
+    private static final String GET_LASTED_ID_QUERY = "SELECT top 1 idUser FROM tblUser order by idUser desc";
     private static final String ID_USER = "idUser";
     private static final String SEARCH_CUSTOMER_BY_FULLNAME = "SELECT idUser, username, fullName, email, address, phone, citizenIdentification,image FROM tblUser WHERE fullName like ? AND role like 'US'";
     private static final String REMOVE_BY_ID = "DELETE tblUser WHERE idUser=?";
-    private static final String UPDATE_CUSTOMER = "UPDATE tblUser SET fullName=?, email=?, address=?, phone=?,citizenIndentification=? WHERE username=?";
+    private static final String UPDATE_CUSTOMER = "UPDATE tblUser SET fullName=?, email=?, address=?, phone=?,citizenIdentification=? WHERE username=?";
     private static final String DUPLICATE = "SELECT username FROM tblUser WHERE username=?";
 
-    private static final String ADD_STAFF_QUERY = "INSERT into tblUser(idUser, username, password, fullName, email, address, "
-            + "phone, citizenIdentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?,?);";
+    private static final String ADD_USER_QUERY = "INSERT into tblUser (username, password, fullName, email, address, "
+            + "phone, citizenIdentification, status, role,image) VALUES (?,?,?,?,?,?,?,?,?,?)";
     private static final String SEARCH_STAFF_BY_NAME = "SELECT idUser, username, fullName, email, address, phone, citizenIdentification,image FROM tblUser WHERE fullName like ? AND role like 'STAFF'";
 
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
-    public boolean addCustomer(UserCreateForm userCreateForm) throws NamingException, SQLException {
-        boolean check = false;
-
-        try {
-            connection = DBHelper.makeConnection();
-            preparedStatement = connection.prepareStatement(ADD_CUSTOMER_QUERY);
-            preparedStatement.setString(1, userCreateForm.getId());
-            preparedStatement.setString(2, userCreateForm.getUsername());
-            preparedStatement.setString(3, userCreateForm.getPassword());
-            preparedStatement.setString(4, userCreateForm.getFullName());
-            preparedStatement.setString(5, userCreateForm.getEmail());
-            preparedStatement.setString(6, userCreateForm.getAddress());
-            preparedStatement.setString(7, userCreateForm.getPhone());
-            preparedStatement.setString(8, userCreateForm.getCitizenIdentification());
-            preparedStatement.setBoolean(9, userCreateForm.getStatus());
-            preparedStatement.setString(10, userCreateForm.getRole());
-            preparedStatement.setString(11, userCreateForm.getImage());
-            check = preparedStatement.executeUpdate() > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            if (preparedStatement != null) {
-                preparedStatement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
-        }
-        return check;
-    }
 
     public int getlastedId() throws NamingException, SQLException {
         int lastedId = 0;
@@ -277,18 +246,17 @@ public class UserDao {
 
         try {
             connection = DBHelper.makeConnection();
-            preparedStatement = connection.prepareStatement(ADD_STAFF_QUERY);
-            preparedStatement.setString(1, userCreateForm.getId());
-            preparedStatement.setString(2, userCreateForm.getUsername());
-            preparedStatement.setString(3, userCreateForm.getPassword());
-            preparedStatement.setString(4, userCreateForm.getFullName());
-            preparedStatement.setString(5, userCreateForm.getEmail());
-            preparedStatement.setString(6, userCreateForm.getAddress());
-            preparedStatement.setString(7, userCreateForm.getPhone());
-            preparedStatement.setString(8, userCreateForm.getCitizenIdentification());
-            preparedStatement.setBoolean(9, userCreateForm.getStatus());
-            preparedStatement.setString(10, userCreateForm.getRole());
-            preparedStatement.setString(11, userCreateForm.getImage());
+            preparedStatement = connection.prepareStatement(ADD_USER_QUERY);
+            preparedStatement.setString(1, userCreateForm.getUsername());
+            preparedStatement.setString(2, userCreateForm.getPassword());
+            preparedStatement.setString(3, userCreateForm.getFullName());
+            preparedStatement.setString(4, userCreateForm.getEmail());
+            preparedStatement.setString(5, userCreateForm.getAddress());
+            preparedStatement.setString(6, userCreateForm.getPhone());
+            preparedStatement.setString(7, userCreateForm.getCitizenIdentification());
+            preparedStatement.setBoolean(8, userCreateForm.getStatus());
+            preparedStatement.setString(9, userCreateForm.getRole());
+            preparedStatement.setString(10, userCreateForm.getImage());
             check = preparedStatement.executeUpdate() > 0;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -339,22 +307,21 @@ public class UserDao {
         return list;
     }
 
-
     public UserDTO checkLogin(String username, String password)
-            throws SQLException, NamingException{
+            throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
         ResultSet rs = null;
         UserDTO dto = new UserDTO();
         try {
             con = DBHelper.makeConnection();
-            if(con != null){
+            if (con != null) {
                 stm = con.prepareStatement(AUTHENTICATION_QUERY);
                 stm.setString(1, username);
                 stm.setString(2, password);
                 rs = stm.executeQuery();
-                if(rs.next()){
-                     String UserName = rs.getString("username");
+                if (rs.next()) {
+                    String UserName = rs.getString("username");
                     String Password = rs.getString("password");
                     String FullName = rs.getString("fullName");
                     String Email = rs.getString("email");
@@ -365,23 +332,23 @@ public class UserDao {
                     Boolean Status = rs.getBoolean("status");
                     String Image = rs.getString("image");
                     dto = new UserDTO(UserName, Password, Address, Phone, CitizenIdetification, Status, Role, FullName, Email, Image);
-                } 
+                }
             }
         } finally {
-            if(rs != null){
+            if (rs != null) {
                 rs.close();
             }
-            if(stm != null){
+            if (stm != null) {
                 stm.close();
             }
-            if(con != null){
+            if (con != null) {
                 con.close();
             }
         }
         return dto;
     }
-    
-    public UserDTO findByUsernameAndEmail(String userName, String email) 
+
+    public UserDTO findByUsernameAndEmail(String userName, String email)
             throws SQLException, NamingException {
         UserDTO account = null;
         Connection conn = null;
@@ -422,7 +389,7 @@ public class UserDao {
         }
         return account;
     }
-    
+
     public boolean createNewAccount(UserDTO dto) throws NamingException, SQLException {
         if (dto == null) {
             return false;
@@ -460,7 +427,7 @@ public class UserDao {
         }
         return false;
     }
-    
+
     public UserDTO updateAccount(String username, String password, String fullname, String email, String address, String phone, String citizenIdentification, String role, boolean status, String img) throws NamingException, SQLException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -500,6 +467,7 @@ public class UserDao {
         }
         return user;
     }
+
     public boolean checkUsernameIsExisted(String username, String email) throws NamingException, SQLException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -519,7 +487,7 @@ public class UserDao {
                 }
             }
         } finally {
-            if(rs != null){
+            if (rs != null) {
                 rs.close();
             }
             if (stm != null) {

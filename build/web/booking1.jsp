@@ -1,5 +1,3 @@
-
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -42,52 +40,75 @@
 
         <!--start wrapper-->
         <div class="wrapper">
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <div>
-                        <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
+                        <img src="images/good1.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">Dashkote</h4>
+                        <h4 class="logo-text">User</h4>
                     </div>
-                    <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
+                    <div class="toggle-icon ms-auto">
+                        <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
+
                 <ul class="metismenu" id="menu">
+                    <li class="menu-label">Pages</li>
                     <li>
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon>
+                        <a href="pages-user-google-profile.jsp">
+                            <div class="parent-icon">
+<ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Dashboard</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
-                        <ul>
-                            <li> <a href="index.html">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Default
-                                </a>
-                            </li>
-                            <li> <a href="index2.html">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Alternate
-                                </a>
-                            </li>
-                        </ul>
                     </li>
+                    <c:if test="${not empty User}">
+                        <li>
+                            <a href="page-edit-profile-user-google.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
+                    <li>
 
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Room</div>
+                        </a>
 
-                    <!--end navigation-->
+                    </li>
+                      
+                </ul>
+                <!--end navigation-->
             </aside>
             <!--end sidebar -->
 
             <!--start top header-->
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
-                    <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
-                    <form class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
-                        <input class="form-control" type="text" placeholder="Search for anything">
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
+                    <div class="mobile-menu-button">
+                        <ion-icon name="menu-sharp"></ion-icon>
+                    </div>
+                    <form action="MainController" method="POST" class="searchbar">
+                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
+                            <ion-icon name="search-sharp"></ion-icon>
+                        </div>
+                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search for detail of room">
+                        <input type="hidden" value="Search room for customer" name="btn" />
+                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
+                            <ion-icon name="close-sharp"></ion-icon>
+                        </div>
                     </form>
+                    
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">
@@ -100,8 +121,8 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
-                                    <div class="mode-icon">
-                                        <ion-icon name="moon-sharp"></ion-icon> 
+<div class="mode-icon">
+                                        <ion-icon name="moon-sharp"></ion-icon>
                                     </div>
                                 </a>
                             </li>
@@ -114,32 +135,38 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                     <div class="row row-cols-3 g-3 p-3">
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-purple text-white">
+                                                <ion-icon name="cart-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Orders</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-info text-white">
+                                                <ion-icon name="people-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Teams</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-success text-white">
+                                                <ion-icon name="shield-checkmark-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Tasks</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-danger text-white">
+                                                <ion-icon name="videocam-sharp"></ion-icon>
                                             </div>
-                                            <div class="app-title">Media</div>  
+                                            <div class="app-title">Media</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-warning text-white">
+                                                <ion-icon name="file-tray-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Files</div>
-                                        </div>
+</div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-branding text-white">
+                                                <ion-icon name="notifications-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Alerts</div>
                                         </div>
@@ -163,7 +190,8 @@
                                     <div class="header-notifications-list">
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary"><ion-icon name="cart-outline"></ion-icon>
+                                                <div class="notify text-primary">
+                                                    <ion-icon name="cart-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
@@ -174,9 +202,10 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
+                                                <div class="notify text-danger">
+                                                    <ion-icon name="person-outline"></ion-icon>
                                                 </div>
-                                                <div class="flex-grow-1">
+<div class="flex-grow-1">
                                                     <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
                                                             ago</span></h6>
                                                     <p class="msg-info">5 new user registered</p>
@@ -185,7 +214,8 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-success"><ion-icon name="document-outline"></ion-icon>
+                                                <div class="notify text-success">
+                                                    <ion-icon name="document-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
@@ -197,29 +227,31 @@
 
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-info"><ion-icon name="checkmark-done-outline"></ion-icon>
+                                                <div class="notify text-info">
+                                                    <ion-icon name="checkmark-done-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Product Approved <span
-                                                            class="msg-time float-end">2 hrs ago</span></h6>
+                                                    <h6 class="msg-name">New Product Approved <span class="msg-time float-end">2 hrs ago</span></h6>
                                                     <p class="msg-info">Your new product has approved</p>
                                                 </div>
                                             </div>
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-warning"><ion-icon name="send-outline"></ion-icon>
+                                                <div class="notify text-warning">
+                                                    <ion-icon name="send-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
                                                             ago</span></h6>
-                                                    <p class="msg-info">5.1 min avarage time response</p>
+<p class="msg-info">5.1 min avarage time response</p>
                                                 </div>
                                             </div>
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                                                <div class="notify text-danger">
+                                                    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
@@ -230,7 +262,8 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
+                                                <div class="notify text-primary">
+                                                    <ion-icon name="albums-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -241,7 +274,8 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-success"><ion-icon name="shield-outline"></ion-icon>
+                                                <div class="notify text-success">
+                                                    <ion-icon name="shield-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
@@ -249,10 +283,11 @@
                                                     <p class="msg-info">Successfully shipped your item</p>
                                                 </div>
                                             </div>
-                                        </a>
+</a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-warning"><ion-icon name="cafe-outline"></ion-icon>
+                                                <div class="notify text-warning">
+                                                    <ion-icon name="cafe-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
@@ -270,68 +305,84 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                        <img src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
-                                    <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-profile.html">
-                                            <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="person-outline"></ion-icon></div>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
+<div class="d-flex align-items-center">
+                                                <div class="">
+                                                    <ion-icon name="person-outline"></ion-icon>
+                                                </div>
                                                 <div class="ms-3"><span>Profile</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="settings-outline"></ion-icon></div>
+                                                <div class="">
+                                                    <ion-icon name="settings-outline"></ion-icon>
+                                                </div>
                                                 <div class="ms-3"><span>Setting</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="index2.html">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Dashboard</span></div>
+                                                <div class="">
+                                                    <ion-icon name="speedometer-outline"></ion-icon>
+                                                </div>
+                                                <div class="ms-3"><span>Management</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
+                                                <div class="">
+                                                    <ion-icon name="wallet-outline"></ion-icon>
+                                                </div>
                                                 <div class="ms-3"><span>Earnings</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
+                                                <div class="">
+                                                    <ion-icon name="cloud-download-outline"></ion-icon>
+                                                </div>
                                                 <div class="ms-3"><span>Downloads</span></div>
-                                            </div>
+</div>
                                         </a>
                                     </li>
-                                    <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Logout</span></div>
+                                                <div class="">
+                                                    <ion-icon name="log-out-outline"></ion-icon>
+                                                </div>
+                                                <div class="ms-3"><span name="btn">Logout</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -371,7 +422,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
                                     <a class="dropdown-item" href="javascript:;">Another action</a>
                                     <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+<div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
                                 </div>
                             </div>
                         </div>
@@ -395,11 +446,11 @@
                                                 <input type="hidden" name="txtUsername" value="${param.txtUsername}" />
                                                 <div class="mb-3">
                                                     <label class="form-label">Check In Date</label>
-                                                    <input type="date"  name="txtCheckInDate" value="" class="form-control datepicker"    />
+                                                    <input type="date"  name="txtCheckInDate" value="${param.txtCheckInDate}" class="form-control datepicker"    />
                                                 </div>
                                                 <div class="mb-3">
                                                     <label  class="form-label">Check Out Date</label>
-                                                    <input type="date" name="txtCheckOutDate" value="" class="form-control datepicker"   />
+                                                    <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker"   />
                                                 </div>
                                                 <input type="submit" value="Confirm" name="btn" />
                                             </div>
@@ -412,7 +463,7 @@
                     </c:if>
                     <c:if test="${not empty Success}">
                         <H1 style="color: greenyellow">${Success}</H1>
-                        <a href="user.jsp">click here to order new room</a>
+                        <a href="user-google.jsp">click here to order new room</a>
                     </c:if>
                     <c:set var="Error" value="${requestScope.ERROR}"/>
                     <c:if test="${not empty Error}">
@@ -428,7 +479,7 @@
 
 
             <!--Start Back To Top Button-->
-            <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+<a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
             <!--End Back To Top Button-->
 
             <!--start switcher-->
@@ -470,7 +521,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="indigator headercolor4" id="headercolor4"></div>
-                                </div>
+</div>
                                 <div class="col">
                                     <div class="indigator headercolor5" id="headercolor5"></div>
                                 </div>

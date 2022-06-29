@@ -9,7 +9,7 @@ package form;
  * @author hungp
  */
 public class UserCreateForm {
-    private String id;
+    private int id;
     private String username;
     private String password;
     private String fullName;
@@ -20,6 +20,9 @@ public class UserCreateForm {
     private String role;
     private String email;
     private String image;
+
+    public UserCreateForm() {
+    }
 
     public UserCreateForm(String username, String password, String fullName, String address, String phone, String citizenIdentification, Boolean status, String role, String email, String image) {
         this.username = username;
@@ -34,11 +37,29 @@ public class UserCreateForm {
         this.image = image;
     }
 
-    public String getId() {
+    
+    
+    public UserCreateForm(int id, String username, String password, String fullName, String address, String phone, String citizenIdentification, Boolean status, String role, String email, String image) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.fullName = fullName;
+        this.address = address;
+        this.phone = phone;
+        this.citizenIdentification = citizenIdentification;
+        this.status = status;
+        this.role = role;
+        this.email = email;
+        this.image = image;
+    }
+
+   
+
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

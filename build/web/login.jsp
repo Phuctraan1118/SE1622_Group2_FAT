@@ -103,6 +103,9 @@
                                                             </div>
                                                             <div class="hr"></div>
                                                             <div class="foot">
+                                                                <a href="authentication-sign-up-simple.jsp">Sign Up</a>
+                                                            </div>
+                                                            <div class="foot">
                                                                 <a href="authentication-reset-password-simple.jsp">Forgot Password?</a>
                                                             </div>
                                                         </div>

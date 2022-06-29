@@ -84,7 +84,7 @@ public class LoginController extends HttpServlet {
                                 response.addCookie(cookieRemember);
                             }
                             url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_PAGE);
-                            session.setAttribute("CUSTOMER", dto);
+                            session.setAttribute("USER", dto);
                             break;
                         case MyApplicationConstants.AuthenticationFeatures.STAFF:
                             if (remember != null) {
@@ -101,10 +101,6 @@ public class LoginController extends HttpServlet {
                             url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
                             session.setAttribute("USER", dto);
                             break;
-                        case MyApplicationConstants.AuthenticationFeatures.USGG:
-                            url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.USER_GOOGLE_PAGE);
-                            session.setAttribute("USER", dto);
-                            break;
                     }
                 } else {
                     request.setAttribute("ERROR", "Username or password is invalid");
@@ -119,8 +115,8 @@ public class LoginController extends HttpServlet {
             rd.forward(request, response);
         }
     }
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

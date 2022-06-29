@@ -63,7 +63,7 @@
         %>
         <!--start wrapper-->
         <div class="wrapper">
-
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
@@ -92,27 +92,34 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="customer.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
+                                </a>
+                            </li>
+                            <li>
                                 <a href="managementRoom.jsp">
-                                        <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="pages-staff-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">User Profile</div>
+                            <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
                     <li>
-                        <a href="pages-edit-profile.html">
-                            <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
+                        <c:if test="${not empty User}">
+                            <a href="pages-edit-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </c:if>
                     </li>
                     <!--                    <li class="menu-label">STAFF</li>-->
                     <!--                    <li>

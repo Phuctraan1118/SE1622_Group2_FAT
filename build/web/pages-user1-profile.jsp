@@ -49,7 +49,7 @@
                         <img src="images/good1.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">Staff</h4>
+                        <h4 class="logo-text">User</h4>
                     </div>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -61,14 +61,14 @@
                         <a href="pages-user1-profile.jsp">
                             <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Staff Profile</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
                     </li>
                     <c:if test="${not empty User}">
                         <li>
                             <a href="pages-edit-profile.jsp">
                                 <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
-                                </div>
+</div>
                                 <div class="menu-title">Edit Profile</div>
                             </a>
                         </li>
@@ -123,7 +123,7 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                     <div class="row row-cols-3 g-3 p-3">
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
+<div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Orders</div>
                                         </div>
@@ -163,7 +163,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:;">
+<a href="javascript:;">
                                         <div class="msg-header">
                                             <p class="msg-header-title">Notifications</p>
                                             <p class="msg-header-clear ms-auto">Marks all as read</p>
@@ -201,7 +201,7 @@
                                                             ago</span></h6>
                                                     <p class="msg-info">The pdf files generated</p>
                                                 </div>
-                                            </div>
+</div>
                                         </a>
 
                                         <a class="dropdown-item" href="javascript:;">
@@ -239,7 +239,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
+<div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -278,7 +278,7 @@
                             </li>
                             <c:if test="${not empty User}">
                                 <li class="nav-item dropdown dropdown-user-setting">
-                                    <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                         <div class="user-setting">
                                             <img src="${User.img}" class="user-img" alt="">
                                         </div>
@@ -322,7 +322,7 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
+<li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
@@ -371,13 +371,13 @@
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Staff Profile</li>
+                                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
                                 </ol>
                             </nav>
                         </div>
                         <div class="ms-auto">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
+<button type="button" class="btn btn-outline-primary">Settings</button>
                                 <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
@@ -415,7 +415,7 @@
                                     <div class="card-body">
                                         <h4 class="mb-2">About Me</h4>
                                         <p class="">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.</p>
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
                                         <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
                                     </div>
                                 </div>
@@ -453,7 +453,7 @@
                                         <div class="progress" style="height: 5px;">
                                             <div class="progress-bar" role="progressbar" style="width: 55%"></div>
                                         </div>
-                                    </div>
+</div>
                                     <div class="mb-3">
                                         <p class="mb-1">PHP7</p>
                                         <div class="progress" style="height: 5px;">
@@ -509,7 +509,7 @@
                             <label class="form-check-label" for="LightTheme">Light</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+<input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
                             <label class="form-check-label" for="DarkTheme">Dark</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -570,7 +570,7 @@
         <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
         <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <!--plugins-->
         <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 

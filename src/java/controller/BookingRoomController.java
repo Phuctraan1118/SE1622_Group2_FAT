@@ -51,6 +51,7 @@ public class BookingRoomController extends HttpServlet {
         String checkInDate = request.getParameter("txtCheckInDate");
         String checkOutDate = request.getParameter("txtCheckOutDate");
         String notification = "Can not skip checkInDate or checkOutDate!";
+        boolean flag = false;
         try {
             if (checkInDate.trim().length() > 0 && checkOutDate.trim().length() > 0) {
                 if (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(checkInDate)) > 0) {
@@ -66,42 +67,42 @@ public class BookingRoomController extends HttpServlet {
                         if (bookingDTO != null) {
                             dao.showBookingDetail_CheckInDate_Or_CheckOutDate(roomID);
                             List<BookingDetailDTO> bookingDetailDTO1 = dao.getBookingDetails();
-                            if (bookingDetailDTO1.size() > 0) {
+                            if (bookingDetailDTO1 != null) {
                                 for (BookingDetailDTO b : bookingDetailDTO1) {
+                                    flag = false;
                                     if (LocalDate.parse(b.getCheckInDate()).getMonthValue() == LocalDate.parse(checkInDate).getMonthValue()
                                             && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
                                         if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                 && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
                                             request.setAttribute("ERROR", "Add room Failed");
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-
-                                        } else if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
-                                            BookingDetailDTO dto = new BookingDetailDTO(Integer.parseInt(roomID), bookingDTO.getBookingID(), checkInDate, checkOutDate);
-                                            boolean result = dao.AddBookingDetail(dto);
-                                            if (result) {
-                                                request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
-                                                url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-                                            } else {
-                                                request.setAttribute("ERROR", "Add room Failed");
-                                            }
+                                            break;
                                         }
-                                    } else if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
+                                        if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            flag = true;
+                                        }
+                                    }
+                                    if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                             || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
                                         if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                 && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
                                             request.setAttribute("ERROR", "Add room Failed");
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-
-                                        } else if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
-                                            BookingDetailDTO dto = new BookingDetailDTO(Integer.parseInt(roomID), bookingDTO.getBookingID(), checkInDate, checkOutDate);
-                                            boolean result = dao.AddBookingDetail(dto);
-                                            if (result) {
-                                                request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
-                                                url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-                                            } else {
-                                                request.setAttribute("ERROR", "Add room Failed");
-                                            }
+                                            break;
                                         }
+                                        if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            flag = true;
+                                        }
+                                    }
+                                }
+                                if (flag) {
+                                    BookingDetailDTO dto = new BookingDetailDTO(Integer.parseInt(roomID), bookingDTO.getBookingID(), checkInDate, checkOutDate);
+                                    boolean result = dao.AddBookingDetail(dto);
+                                    if (result) {
+                                        request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
+                                        url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
+                                    } else {
+                                        request.setAttribute("ERROR", "Add room Failed");
                                     }
                                 }
                             } else {
@@ -118,8 +119,9 @@ public class BookingRoomController extends HttpServlet {
                         } else {
                             dao.showBookingDetail_CheckInDate_Or_CheckOutDate(roomID);
                             List<BookingDetailDTO> bookingDetailDTO2 = dao.getBookingDetails();
-                            if (bookingDetailDTO2.size() > 0) {
+                            if (bookingDetailDTO2 != null) {
                                 for (BookingDetailDTO b : bookingDetailDTO2) {
+                                    flag = false;
                                     if (LocalDate.parse(b.getCheckInDate()).getMonthValue() == LocalDate.parse(checkInDate).getMonthValue()
                                             && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
                                         if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
@@ -128,26 +130,12 @@ public class BookingRoomController extends HttpServlet {
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
                                             request.getRequestDispatcher(url).forward(request, response);
 
-                                        } else if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
-                                            boolean resultBooking = dao.AddBooking(new BookingDTO(bookingDate, username));
-                                            if (resultBooking) {
-                                                BookingDTO dto = dao.showBooking(username, bookingDate);
-                                                if (dto != null) {
-                                                    resultBooking = dao.AddBookingDetail(new BookingDetailDTO(Integer.parseInt(roomID), dto.getBookingID(), checkInDate, checkOutDate));
-                                                    if (resultBooking) {
-                                                        request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
-                                                        url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-                                                    } else {
-                                                        request.setAttribute("ERROR", "Add room Failed");
-                                                    }
-                                                } else {
-                                                    request.setAttribute("ERROR", "Add room Failed");
-                                                }
-                                            } else {
-                                                request.setAttribute("ERROR", "Add room Failed");
-                                            }
                                         }
-                                    } else if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
+                                        if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            flag = true;
+                                        }
+                                    }
+                                    if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                             || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
                                         if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                 && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
@@ -155,25 +143,29 @@ public class BookingRoomController extends HttpServlet {
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
                                             request.getRequestDispatcher(url).forward(request, response);
 
-                                        } else if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
-                                            boolean resultBooking = dao.AddBooking(new BookingDTO(bookingDate, username));
+                                        }
+                                        if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            flag = true;
+                                        }
+                                    }
+                                }
+                                if (flag) {
+                                    boolean resultBooking = dao.AddBooking(new BookingDTO(bookingDate, username));
+                                    if (resultBooking) {
+                                        BookingDTO dto = dao.showBooking(username, bookingDate);
+                                        if (dto != null) {
+                                            resultBooking = dao.AddBookingDetail(new BookingDetailDTO(Integer.parseInt(roomID), dto.getBookingID(), checkInDate, checkOutDate));
                                             if (resultBooking) {
-                                                BookingDTO dto = dao.showBooking(username, bookingDate);
-                                                if (dto != null) {
-                                                    resultBooking = dao.AddBookingDetail(new BookingDetailDTO(Integer.parseInt(roomID), dto.getBookingID(), checkInDate, checkOutDate));
-                                                    if (resultBooking) {
-                                                        request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
-                                                        url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-                                                    } else {
-                                                        request.setAttribute("ERROR", "Add room Failed");
-                                                    }
-                                                } else {
-                                                    request.setAttribute("ERROR", "Add room Failed");
-                                                }
+                                                request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
+                                                url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
                                             } else {
                                                 request.setAttribute("ERROR", "Add room Failed");
                                             }
+                                        } else {
+                                            request.setAttribute("ERROR", "Add room Failed");
                                         }
+                                    } else {
+                                        request.setAttribute("ERROR", "Add room Failed");
                                     }
                                 }
                             } else {

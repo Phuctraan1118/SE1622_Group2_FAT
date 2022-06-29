@@ -56,7 +56,7 @@
     <body>
         <!--start wrapper-->
         <div class="wrapper">
-
+<c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
@@ -99,14 +99,16 @@
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
+                    <c:if test="${not empty User}">
                     <li>
-                        <a href="pages-edit-profile.html">
+                        <a href="pages-edit-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="create-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
+                    </c:if>
                 </ul>
                 <!--end navigation-->
             </aside>

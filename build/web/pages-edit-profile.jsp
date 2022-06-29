@@ -67,7 +67,7 @@
                         <a href="pages-edit-profile.jsp">
                             <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Edit Profile</div>
+<div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
                     <li>
@@ -118,7 +118,7 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                     <div class="row row-cols-3 g-3 p-3">
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
+<div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Orders</div>
                                         </div>
@@ -158,7 +158,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:;">
+<a href="javascript:;">
                                         <div class="msg-header">
                                             <p class="msg-header-title">Notifications</p>
                                             <p class="msg-header-clear ms-auto">Marks all as read</p>
@@ -196,7 +196,7 @@
                                                             ago</span></h6>
                                                     <p class="msg-info">The pdf files generated</p>
                                                 </div>
-                                            </div>
+</div>
                                         </a>
 
                                         <a class="dropdown-item" href="javascript:;">
@@ -234,7 +234,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
+<div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -273,7 +273,7 @@
                             </li>
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                    <div class="user-setting">
+<div class="user-setting">
                                         <img src="${USER.img}" class="user-img" alt="">
                                     </div>
                                 </a>
@@ -316,7 +316,7 @@
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
+<div class=""><ion-icon name="wallet-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Earnings</span></div>
                                             </div>
                                         </a>
@@ -369,7 +369,7 @@
                         <div class="ms-auto">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+<button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
                                     <a class="dropdown-item" href="javascript:;">Another action</a>
@@ -403,16 +403,16 @@
                                             <div class="row g-3">
                                                 <div class="col-6">
                                                     <label class="form-label">Password</label>
-                                                    <input type="password" name="txtPassword" value="" class="form-control">
+                                                    <input type="password" name="txtPassword" value="${USER.password}" class="form-control">
                                                     <c:if test="${not empty errors.passwordLengthError}">
-                                                        <font color="red">
+<font color="red">
                                                         ${errors.passwordLengthError}
                                                         </font>
                                                     </c:if>
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Confirm Password</label>
-                                                    <input type="password" name="txtConfirm" value="" class="form-control">
+                                                    <input type="password" name="txtConfirm" value="${USER.password}" class="form-control">
                                                     <c:if test="${not empty errors.confirmNotMatched}">
                                                         <font color="red">
                                                         ${errors.confirmNotMatched}
@@ -421,7 +421,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Full Name</label>
-                                                    <input type="text" name="txtFullname" value="${USER.name}" class="form-control" value="">
+                                                    <input type="text" name="txtFullname" value="${param.txtFullname}" class="form-control" value="">
                                                     <c:if test="${not empty errors.fullnameLengthError}">
                                                         <font color="red">
                                                         ${errors.fullnameLengthError}
@@ -430,7 +430,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Email address</label>
-                                                    <input type="email" name="txtEmail" value="${USER.email}" class="form-control">
+                                                    <input type="email" name="txtEmail" value="${param.txtEmail}" class="form-control">
                                                     <c:if test="${not empty errors.emailLengthError}">
                                                         <font color="red">
                                                         ${errors.emailLengthError}
@@ -444,7 +444,7 @@
                                             <div class="row g-3">
                                                 <div class="col-12">
                                                     <label class="form-label">Address</label>
-                                                    <input type="text" name="txtAddress" value="${USER.address}" class="form-control">
+<input type="text" name="txtAddress" value="${param.txtAddress}" class="form-control">
                                                     <c:if test="${not empty errors.addressLengthError}">
                                                         <font color="red">
                                                         ${errors.addressLengthError}
@@ -453,7 +453,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Phone</label>
-                                                    <input type="text" name="txtPhone" value="${USER.phone}" class="form-control">
+                                                    <input type="text" name="txtPhone" value="${param.txtPhone}" class="form-control">
                                                     <c:if test="${not empty errors.phoneLengthError}">
                                                         <font color="red">
                                                         ${errors.phoneLengthError}
@@ -462,7 +462,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Citizen Identification Number</label>
-                                                    <input type="text" name="txtCitizenIdetification" value="${USER.citizenIdentification}" class="form-control">
+                                                    <input type="text" name="txtCitizenIdetification" value="${param.txtCitizenIdetification}" class="form-control">
                                                     <c:if test="${not empty errors.citizenIdentificationLengthError}">
                                                         <font color="red">
                                                         ${errors.citizenIdentificationLengthError}
@@ -492,7 +492,7 @@
 
             <!--start switcher-->
             <div class="switcher-body">
-                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+<button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
                 <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
                     <div class="offcanvas-header border-bottom">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
@@ -533,7 +533,7 @@
                                 <div class="col">
                                     <div class="indigator headercolor5" id="headercolor5"></div>
                                 </div>
-                                <div class="col">
+<div class="col">
                                     <div class="indigator headercolor6" id="headercolor6"></div>
                                 </div>
                                 <div class="col">

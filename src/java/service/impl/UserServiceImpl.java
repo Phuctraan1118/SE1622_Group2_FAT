@@ -29,8 +29,6 @@ public class UserServiceImpl implements UserService {
         boolean isCreated = false;
         userDao = new UserDao();
         try {
-            int newId = userDao.getlastedId() + 1;
-            userCreateForm.setId(String.valueOf(newId));
             isCreated = userDao.addUser(userCreateForm);
         } catch (NamingException | SQLException ex) {
             Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);

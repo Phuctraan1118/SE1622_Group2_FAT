@@ -34,7 +34,7 @@ public class DeleteStaffController extends HttpServlet {
 
         userService = new UserServiceImpl();
         boolean isDeleted = userService.deleteUser(userId);
-        
+
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
