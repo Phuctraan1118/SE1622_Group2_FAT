@@ -41,7 +41,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+        <link rel="icon" type="image/x-icon" href="asset2/images/img-2.png">
         <title>Staff Management</title>
         <style>
             .error{
@@ -98,6 +98,11 @@
                             </li>
                             <li>
                                 <a href="managementRoom.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="bookingManagement.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>

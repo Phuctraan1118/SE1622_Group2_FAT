@@ -6,6 +6,7 @@ package dao;
 
 import dto.BookingDTO;
 import dto.BookingDetailDTO;
+import dto.BookingInformationDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -30,8 +31,9 @@ public class BookingDAO {
     private static final String BOOKING_ROOM = "Update tblRoom "
             + "SET status = ? "
             + "WHERE roomId = ?";
-    private static final String SHOW_BOOKING_ROOM = "Select bookingId, username, bookingDate "
-            + "From tblBooking";
+    private static final String SHOW_BOOKING_ROOM = "Select b.bookingId, b.username, bd.roomId, b.bookingDate, bd.checkinDate, bd.checkoutDate "
+            + "From tblBooking b, tblBookingDetail bd "
+            + "Where b.bookingId = bd.bookingId";
     private static final String SHOW_OWN_BOOKING_ROOM = "Select b.bookingId, b.username, b.bookingDate "
             + "From tblBooking b, tblUser u "
             + "Where b.username = ? And b.bookingDate = ? And b.username = u.username";
@@ -42,6 +44,8 @@ public class BookingDAO {
     
     private List<BookingDetailDTO> bookingDetails;
     
+    private List<BookingInformationDTO> bookingInformation;
+    
     public List<BookingDTO> getBookings() {
         return bookings;
     }
@@ -50,6 +54,11 @@ public class BookingDAO {
         return bookingDetails;
     }
 
+    public List<BookingInformationDTO> getBookingInformation() {
+        return bookingInformation;
+    }
+
+    
     public boolean AddBooking(BookingDTO dto) throws NamingException, SQLException {
         if (dto == null) {
             return false;
@@ -134,9 +143,12 @@ public class BookingDAO {
                     String checkinDate = rs.getString("checkinDate");
                     String checkoutDate = rs.getString("checkoutDate");
 
-                    if (this.bookings == null) {
-                        this.bookings = new ArrayList<>();
+                    BookingInformationDTO dto = new BookingInformationDTO(bookingId, username, roomId, bookingDate, checkinDate, checkoutDate);
+                    if (this.bookingInformation == null) {
+                        this.bookingInformation = new ArrayList<>();
                     }
+                    
+                    this.bookingInformation.add(dto);
                 }
             }
         } finally {

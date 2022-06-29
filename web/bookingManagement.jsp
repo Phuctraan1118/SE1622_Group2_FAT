@@ -41,8 +41,8 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <link rel="icon" type="image/x-icon" href="asset2/images/img-2.png">
-        <title>Staff Management</title>
+
+        <title>Room Management</title>
         <style>
             .error{
                 color: red;
@@ -54,13 +54,6 @@
     </head>
 
     <body>
-
-        <%
-            UserError userError = (UserError) request.getAttribute("USER_ERROR");
-            if (userError == null) {
-                userError = new UserError();
-            }
-        %>
         <!--start wrapper-->
         <div class="wrapper">
             <c:set var="User" value="${sessionScope.USER}"/>
@@ -79,12 +72,12 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li>
+                    <li class="mm-active">
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Management</div>
+                            <div class="menu-title">Room Management</div>
                         </a>
                         <ul>
                             <li> <a href="staff.jsp">
@@ -101,11 +94,6 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
-                            <li>
-                                <a href="bookingManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>
@@ -116,39 +104,17 @@
                             <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
-                    <li>
-                        <c:if test="${not empty User}">
+                    <c:if test="${not empty User}">
+                        <li>
                             <a href="pages-edit-profile.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
                                 <div class="menu-title">Edit Profile</div>
                             </a>
-                        </c:if>
-                    </li>
-                    <!--                    <li class="menu-label">STAFF</li>-->
-                    <!--                    <li>
-                                            <a class="has-arrow" href="javascript:;">
-                                                <div class="parent-icon">
-                                                    <ion-icon name="lock-closed-sharp"></ion-icon>
-                                                <div class="menu-title">Au                                                </div>
-thentication</div>
-                                            </a>
-                                            <ul>
-                                                <li> <a href="authentication-sign-in-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign In Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-sign-up-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign Up Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-reset-password-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Reset Password Simple
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>-->
+                        </li>
+                    </c:if>
+                    
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -164,8 +130,8 @@ thentication</div>
                         <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
                             <ion-icon name="search-sharp"></ion-icon>
                         </div>
-                        <input class="form-control" type="text" name="search" value="${param.search}" placeholder="Search Staff">
-                        <input type="hidden" value="Search Staff" name="btn" />
+                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search description">
+                        <input type="hidden" value="SEARCH ROOM" name="btn" />
                         <div class="position-absolute top-50 translate-middle-y search-close-icon">
                             <ion-icon name="close-sharp"></ion-icon>
                         </div>
@@ -364,7 +330,7 @@ thentication</div>
                                                 <div class="">
                                                     <ion-icon name="speedometer-outline"></ion-icon>
                                                 </div>
-                                                <div class="ms-3"><span>Management</span></div>
+                                                <div class="ms-3"><span>Room Management</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -427,7 +393,7 @@ thentication</div>
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Staff Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Booking Management</li>
                                 </ol>
                             </nav>
                         </div>
@@ -451,87 +417,55 @@ thentication</div>
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h6 class="mb-0">List Of Staff</h6>
-                                <div class="fs-5 ms-auto dropdown">
-                                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                            class="bi bi-three-dots"></i></div>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
+                                <h6 class="mb-0">List Of Booking</h6>
+                                <a href="MainController?btn=ViewBooking">View Booking</a>
                             </div>
                             <div class="table-responsive mt-2">
-                                <table class="table align-middle mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Name</th>
-                                            <th>Full Name</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>CMND/CCCD</th>
-                                            <th>Email</th>
-                                            <th>Image</th>
-                                            <th>&nbsp;</th>
-                                            <th>&nbsp;</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="user" items="${requestScope.LIST_USER}" varStatus="counter">
-                                        <form action="MainController">
+                                <c:set var="orders" value="${requestScope.BOOKINGS}"/>
+                                <c:if test="${not empty orders}">
+                                    <table border="1">
+                                        <thead>
                                             <tr>
-                                                <td>${counter.count}</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${user.username}"></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${user.fullName}">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${user.address}">
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" required="" value="${user.phone}"></td>
-                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" required="" value="${user.citizenIdentification}"></td>
-                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" required="" value="${user.email}"></td>
-                                                <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Update info" aria-label="Update">
-                                                            <ion-icon name="pencil-sharp"></ion-icon>
-                                                        </button> 
-                                                        <input type="hidden" name="search" value="${param.search}"/>
-                                                        <input type="hidden" name="userId" value="${user.id}"/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
-                                                        </button>
-                                                        <input type="hidden" name="search" value="${param.search}"/>
-                                                        <input type="hidden" name="userId" value="${user.id}"/>
-                                                    </div>
-                                                </td>
+                                                <th>No.</th>
+                                                <th>Booking ID</th>
+                                                <th>Username</th>
+                                                <th>Room ID</th>
+                                                <th>Booking Date</th>
+                                                <th>Check In Date</th>
+                                                <th>Check Out Date</th>
+
                                             </tr>
-                                        </form>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="order" items="${orders}" varStatus="counter">
+                                                <tr>
+                                                    <td>
+                                                        ${counter.count}
+                                                    </td>
+                                                    <td>
+                                                        ${order.bookingId}
+                                                    </td>
+                                                    <td>
+                                                        ${order.username}
+                                                    </td>
+                                                    <td>
+                                                        ${order.roomId}
+                                                    </td>
+                                                    <td>
+                                                        ${order.bookingDate}
+
+                                                    </td>
+                                                    <td>
+                                                        ${order.checkInDate}
+                                                    </td>
+                                                    <td>
+                                                        ${order.checkOutDate}
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </c:if>
                             </div>
                             <div class="card-body">
                                 <div class="card-title">
@@ -553,213 +487,140 @@ thentication</div>
                                 </div>
                             </div>
                         </div>
-                        <button onclick="showOrHideDiv()" style="display: none;" class="row col-md-3 btn btn-primary" name="btn">Add Staff</button>
+
                     </div>
+                    <br/>
+
                     <!-- end page content-->
-                    <div id="showOrHide">
-                        <div class="card radius-10 w-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">Add Staff</h6>
-                                </div>
-                                <div class="table-responsive mt-2">
-                                    <table class="table align-middle mb-0">
-                                        <div class="row">
-                                            <div class="col-xl-12 mx-auto">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="p-4 border rounded">
-                                                            <form class="row g-3" action="MainController" method="POST">
-                                                                <div class="row align-content-center">
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault01" class="form-label">User name</label>
-                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.usernameError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault02" class="form-label">Password</label>
-                                                                        <input type="password" class="form-control" id="validationDefault02" name="txtPassword" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.passwordError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault02" class="form-label">Full name</label>
-                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Email</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtEmail" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.emailError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="validationDefault03" class="form-label">Address</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtAddress" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.addressError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Phone</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtPhone" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Citizen Identification</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtCitizenIdentification" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Image</label>
-                                                                        <input type="file"  name="txtImg" class="form-control" aria-label="file example" required>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <button type="submit" class="btn btn-primary" name="btn" value="Add Staff">Add Staff</button>
-                                                                    </div>
-                                                                </div>
-                                                                <p class="error">${requestScope.USER_ERROR.messageError}</p>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <c:set var="created" value="${requestScope.CREATED}"/>
-                                                    <c:if test="${not empty created}">
-                                                        <p class="success">Username ${created} is created</p>
-                                                    </c:if>
-                                                    <c:set var="dupplicate" value="${requestScope.USER_DUPPLICATE}"/>
-                                                    <c:if test="${not empty dupplicate}">
-                                                        <p class="error">User `${dupplicate}` is existed</p>
-                                                    </c:if> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
-                <!--end page content wrapper-->
-                <!--start footer-->
-                <footer class="footer">
-                    <div class="footer-text">
-                        Copyright © 2021. All right reserved.
-                    </div>
-                </footer>
-                <!--end footer-->
-
-
-                <!--Start Back To Top Button-->
-                <a href="javaScript:;" class="back-to-top">
-                    <ion-icon name="arrow-up-outline"></ion-icon>
-                </a>
-                <!--End Back To Top Button-->
-
-                <!--start switcher-->
-                <div class="switcher-body">
-                    <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                        <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
-                    </button>
-                    <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
-                         tabindex="-1" id="offcanvasScrolling">
-                        <div class="offcanvas-header border-bottom">
-                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <h6 class="mb-0">Theme Variation</h6>
-                            <hr>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                                <label class="form-check-label" for="LightTheme">Light</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                                <label class="form-check-label" for="DarkTheme">Dark</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
-                                       checked>
-                                <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                            </div>
-                            <hr />
-                            <h6 class="mb-0">Header Colors</h6>
-                            <hr />
-                            <div class="header-colors-indigators">
-                                <div class="row row-cols-auto g-3">
-                                    <div class="col">
-                                        <div class="indigator headercolor1" id="headercolor1"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor2" id="headercolor2"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor3" id="headercolor3"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor4" id="headercolor4"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor5" id="headercolor5"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor6" id="headercolor6"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor7" id="headercolor7"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor8" id="headercolor8"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!--end switcher-->
-
-
-                <!--start overlay-->
-                <div class="overlay nav-toggle-icon"></div>
-                <!--end overlay-->
-
             </div>
-            <!--end wrapper-->
+
+
+            <!--end page content wrapper-->
+            <!--start footer-->
+            <footer class="footer">
+                <div class="footer-text">
+                    Copyright © 2021. All right reserved.
+                </div>
+            </footer>
+            <!--end footer-->
+
+
+            <!--Start Back To Top Button-->
+            <a href="javaScript:;" class="back-to-top">
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </a>
+            <!--End Back To Top Button-->
+
+            <!--start switcher-->
+            <div class="switcher-body">
+                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                    <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
+                </button>
+                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
+                     tabindex="-1" id="offcanvasScrolling">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <h6 class="mb-0">Theme Variation</h6>
+                        <hr>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                            <label class="form-check-label" for="LightTheme">Light</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                            <label class="form-check-label" for="DarkTheme">Dark</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
+                                   checked>
+                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                        </div>
+                        <hr />
+                        <h6 class="mb-0">Header Colors</h6>
+                        <hr />
+                        <div class="header-colors-indigators">
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <div class="indigator headercolor1" id="headercolor1"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor2" id="headercolor2"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor3" id="headercolor3"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor4" id="headercolor4"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor5" id="headercolor5"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor6" id="headercolor6"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor7" id="headercolor7"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor8" id="headercolor8"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end switcher-->
+
+
+            <!--start overlay-->
+            <div class="overlay nav-toggle-icon"></div>
+            <!--end overlay-->
+
+        </div>
+        <!--end wrapper-->
 
 
 
-            <!-- JS Files-->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-            <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-            <script src="assets/js/bootstrap.bundle.min.js"></script>
-            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-            <!--plugins-->
-            <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-            <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-            <script src="assets/plugins/chartjs/chart.min.js"></script>
-            <script src="assets/js/index.js"></script>
-            <!-- Main JS-->
-            <script src="assets/js/main.js"></script>
+        <!-- JS Files-->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!--plugins-->
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+        <script src="assets/plugins/chartjs/chart.min.js"></script>
+        <script src="assets/js/index.js"></script>
+        <!-- Main JS-->
+        <script src="assets/js/main.js"></script>
 
-            <!--        <script>
-                        function ConfirmDelete(){
-                            return confirm("Are you sure you want to delete?");
-                        }
-                    </script>-->
+        <!--        <script>
+                    function ConfirmDelete(){
+                        return confirm("Are you sure you want to delete?");
+                    }
+                </script>-->
 
-            <script>
-                            function showOrHideDiv() {
-                                var show = document.getElementById("showOrHide");
-                                if (show.style.display === "none") {
-                                    show.style.display = "block";
-                                } else {
-                                    show.style.display = "none";
-                                }
-                            }
-                            function ConfirmDelete() {
-                                return confirm("Are you sure you want to delete?");
-                            }
-            </script>
+        <script>
+            function showOrHideDiv() {
+                var show = document.getElementById("showOrHide");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                } else {
+                    show.style.display = "none";
+                }
+            }
+            function ConfirmDelete() {
+                return confirm("Are you sure you want to delete?");
+            }
+        </script>
     </body>
 
 </html>

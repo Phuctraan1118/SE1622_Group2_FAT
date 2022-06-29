@@ -6,6 +6,7 @@ package controller;
 
 import dao.BookingDAO;
 import dto.BookingDTO;
+import dto.BookingInformationDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -41,11 +42,11 @@ public class ShowBookingController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext context = this.getServletContext();
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
-        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.STAFF_PAGE);
+        String url = "bookingManagement.jsp";
         try {
             BookingDAO dao = new BookingDAO();
             dao.showBooking();
-            List<BookingDTO> bookings = dao.getBookings();
+            List<BookingInformationDTO> bookings = dao.getBookingInformation();
             request.setAttribute("BOOKINGS", bookings);
         }catch(NamingException ex){
             log("ShowBookingController _ NamingException " + ex.getMessage());
