@@ -3,14 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/src/java/dao/UserDao.java</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/src/java/controller/MainController.java</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/src/java/form/UserCreateForm.java</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/src/java/controller/CreateStaffController.java</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/authentication-sign-up-simple.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/login.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/src/java/service/impl/UserServiceImpl.java</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/src/java/service/UserService.java</file>
+            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/managementRoom.jsp</file>
+            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/images/client-logo-1.png</file>
+            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/bookingManagement.jsp</file>
         </group>
     </open-files>
 </project-private>

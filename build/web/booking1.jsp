@@ -61,7 +61,7 @@
                     <li>
                         <a href="pages-user-google-profile.jsp">
                             <div class="parent-icon">
-<ion-icon name="person-circle-sharp"></ion-icon>
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">User Profile</div>
                         </a>
@@ -86,7 +86,7 @@
                         </a>
 
                     </li>
-                      
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -108,7 +108,7 @@
                             <ion-icon name="close-sharp"></ion-icon>
                         </div>
                     </form>
-                    
+
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">
@@ -121,7 +121,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
-<div class="mode-icon">
+                                    <div class="mode-icon">
                                         <ion-icon name="moon-sharp"></ion-icon>
                                     </div>
                                 </a>
@@ -163,7 +163,7 @@
                                                 <ion-icon name="file-tray-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Files</div>
-</div>
+                                        </div>
                                         <div class="col text-center">
                                             <div class="app-box mx-auto bg-gradient-branding text-white">
                                                 <ion-icon name="notifications-sharp"></ion-icon>
@@ -205,7 +205,7 @@
                                                 <div class="notify text-danger">
                                                     <ion-icon name="person-outline"></ion-icon>
                                                 </div>
-<div class="flex-grow-1">
+                                                <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
                                                             ago</span></h6>
                                                     <p class="msg-info">5 new user registered</p>
@@ -244,7 +244,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
                                                             ago</span></h6>
-<p class="msg-info">5.1 min avarage time response</p>
+                                                    <p class="msg-info">5.1 min avarage time response</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -283,7 +283,7 @@
                                                     <p class="msg-info">Successfully shipped your item</p>
                                                 </div>
                                             </div>
-</a>
+                                        </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
                                                 <div class="notify text-warning">
@@ -325,7 +325,7 @@
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="pages-user1-profile.jsp">
-<div class="d-flex align-items-center">
+                                            <div class="d-flex align-items-center">
                                                 <div class="">
                                                     <ion-icon name="person-outline"></ion-icon>
                                                 </div>
@@ -370,7 +370,7 @@
                                                     <ion-icon name="cloud-download-outline"></ion-icon>
                                                 </div>
                                                 <div class="ms-3"><span>Downloads</span></div>
-</div>
+                                            </div>
                                         </a>
                                     </li>
                                     <li>
@@ -422,7 +422,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
                                     <a class="dropdown-item" href="javascript:;">Another action</a>
                                     <a class="dropdown-item" href="javascript:;">Something else here</a>
-<div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+                                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
                                 </div>
                             </div>
                         </div>
@@ -479,7 +479,7 @@
 
 
             <!--Start Back To Top Button-->
-<a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+            <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
             <!--End Back To Top Button-->
 
             <!--start switcher-->
@@ -521,7 +521,7 @@
                                 </div>
                                 <div class="col">
                                     <div class="indigator headercolor4" id="headercolor4"></div>
-</div>
+                                </div>
                                 <div class="col">
                                     <div class="indigator headercolor5" id="headercolor5"></div>
                                 </div>

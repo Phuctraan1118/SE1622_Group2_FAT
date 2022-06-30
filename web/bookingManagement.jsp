@@ -94,6 +94,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="bookingManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -439,28 +444,26 @@
                                         <tbody>
                                             <c:forEach var="order" items="${orders}" varStatus="counter">
                                                 <tr>
-                                                    <td>
-                                                        ${counter.count}
-                                                    </td>
-                                                    <td>
-                                                        ${order.bookingId}
-                                                    </td>
-                                                    <td>
-                                                        ${order.username}
-                                                    </td>
-                                                    <td>
-                                                        ${order.roomId}
-                                                    </td>
-                                                    <td>
-                                                        ${order.bookingDate}
-
-                                                    </td>
-                                                    <td>
-                                                        ${order.checkInDate}
-                                                    </td>
-                                                    <td>
-                                                        ${order.checkOutDate}
-                                                    </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center gap-3">
+                                                        <div class="product-info">
+                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${order.bookingId}"></h6>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="box-input">
+                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${order.username}">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="box-input">
+                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${order.roomId}">
+                                                    </div>
+                                                </td>
+                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" required="" value="${order.bookingDate}"></td>
+                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" required="" value="${order.checkInDate}"></td>
+                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" required="" value="${order.checkOutDate}"></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

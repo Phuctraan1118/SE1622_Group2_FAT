@@ -78,6 +78,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="bookingManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
                         </ul>
                         <a href="pages-staff-profile.jsp">
                             <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>

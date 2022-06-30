@@ -1303,9 +1303,9 @@ DatePicker.defaults = (function( prefix ) {
         updateInput: true,
 
         // The format to show on the `input` element
-        format: 'yyyy-mmmm-d',
+        format: 'yyyy-mm-dd',
 
-        // Classes
+        // Classes  
         klass: {
 
             table: prefix + 'table',

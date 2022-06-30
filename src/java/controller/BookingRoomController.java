@@ -128,7 +128,6 @@ public class BookingRoomController extends HttpServlet {
                                                 && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
                                             request.setAttribute("ERROR", "Add room Failed");
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-                                            request.getRequestDispatcher(url).forward(request, response);
 
                                         }
                                         if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
@@ -141,7 +140,6 @@ public class BookingRoomController extends HttpServlet {
                                                 && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
                                             request.setAttribute("ERROR", "Add room Failed");
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-                                            request.getRequestDispatcher(url).forward(request, response);
 
                                         }
                                         if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {

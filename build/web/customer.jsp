@@ -101,6 +101,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="bookingManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
