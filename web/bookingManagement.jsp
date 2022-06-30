@@ -119,7 +119,7 @@
                             </a>
                         </li>
                     </c:if>
-                    
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -428,46 +428,49 @@
                             <div class="table-responsive mt-2">
                                 <c:set var="orders" value="${requestScope.BOOKINGS}"/>
                                 <c:if test="${not empty orders}">
-                                    <table border="1">
-                                        <thead>
-                                            <tr>
-                                                <th>No.</th>
-                                                <th>Booking ID</th>
-                                                <th>Username</th>
-                                                <th>Room ID</th>
-                                                <th>Booking Date</th>
-                                                <th>Check In Date</th>
-                                                <th>Check Out Date</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="order" items="${orders}" varStatus="counter">
+                                    <div class="table-responsive mt-2">
+                                        <table class="table align-middle mb-0">
+                                            <thead>
                                                 <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${order.bookingId}"></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${order.username}">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${order.roomId}">
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" required="" value="${order.bookingDate}"></td>
-                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" required="" value="${order.checkInDate}"></td>
-                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" required="" value="${order.checkOutDate}"></td>
+                                                    <th>No.</th>
+                                                    <th>Booking ID</th>
+                                                    <th>Username</th>
+                                                    <th>Room ID</th>
+                                                    <th>Booking Date</th>
+                                                    <th>Check In Date</th>
+                                                    <th>Check Out Date</th>
+
                                                 </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="order" items="${orders}" varStatus="counter">
+                                                    <tr>
+                                                        <td>${counter.count}</td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <div class="product-info">
+                                                                    <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${order.bookingId}"></h6>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${order.username}">
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${order.roomId}">
+                                                            </div>
+                                                        </td>
+                                                        <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${order.bookingDate}"></td>
+                                                        <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${order.checkInDate}"></td>
+                                                        <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${order.checkOutDate}"></td>
+                                                    </tr>
+                                                </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </c:if>
                             </div>
                             <div class="card-body">
@@ -604,26 +607,6 @@
         <script src="assets/js/index.js"></script>
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>
-
-        <!--        <script>
-                    function ConfirmDelete(){
-                        return confirm("Are you sure you want to delete?");
-                    }
-                </script>-->
-
-        <script>
-            function showOrHideDiv() {
-                var show = document.getElementById("showOrHide");
-                if (show.style.display === "none") {
-                    show.style.display = "block";
-                } else {
-                    show.style.display = "none";
-                }
-            }
-            function ConfirmDelete() {
-                return confirm("Are you sure you want to delete?");
-            }
-        </script>
     </body>
 
 </html>
