@@ -39,6 +39,7 @@ public class SearchCustomerController extends HttpServlet {
         List<UserDisplayForm> userDisplayForms = userService.searchCustomer(fullName);
         sortUserDisplayForms(userDisplayForms);
 
+     
         request.setAttribute("LIST_USER", userDisplayForms);
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);

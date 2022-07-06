@@ -93,6 +93,7 @@ public class UserServiceImpl implements UserService {
         userDao = new UserDao();
         List<UserDisplayForm> listUser = null;
         try {
+
             listUser = userDao.getListOfStaff(fullName);
         } catch (SQLException ex) {
             Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -123,6 +124,17 @@ public class UserServiceImpl implements UserService {
         }
 
         return isDupplicated;
+    }
+
+    @Override
+    public int getEndPage() {
+        userDao = new UserDao();
+        int count = userDao.getTotalStaff();
+        int endPage = count / 3;
+        if (count % 3 != 0) {
+            endPage += 1;
+        }
+        return endPage;
     }
 
 }

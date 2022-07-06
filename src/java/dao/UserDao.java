@@ -53,7 +53,6 @@ public class UserDao {
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
 
-
     public int getlastedId() throws NamingException, SQLException {
         int lastedId = 0;
         try {
@@ -498,5 +497,45 @@ public class UserDao {
             }
         }
         return flag;
+    }
+
+    public int getTotalStaff() {
+        String query = "SELECT count(*) from tblUser where role like 'STAFF'";
+        try {
+            connection = DBHelper.makeConnection();
+            preparedStatement = connection.prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public List<UserDisplayForm> pagingStaff(int index) {
+        List<UserDisplayForm> list = new ArrayList<>();
+        String query = "SELECT * FROM tblUser WHERE role like 'STAFF' \n"
+                + "ORDER BY idUser\n"
+                + "OFFSET ? ROWS FETCH NEXT 3 ROWS ONLY;";
+        try {
+            connection = DBHelper.makeConnection();
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, (index - 1) * 3);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                String userId = resultSet.getString("idUser");
+                String username = resultSet.getString("username");
+                String fullName = resultSet.getString("fullName");
+                String address = resultSet.getString("address");
+                String phone = resultSet.getString("phone");
+                String cmnd = resultSet.getString("citizenIdentification");
+                String email = resultSet.getString("email");
+                String img = resultSet.getString("image");
+                list.add(new UserDisplayForm(userId, username, fullName, address, phone, cmnd, email, img));
+            }
+        } catch (Exception e) {
+        }
+        return list;
     }
 }

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.UserDao;
 import form.UserDisplayForm;
 import java.io.IOException;
 import java.util.Comparator;
@@ -26,19 +27,29 @@ import service.impl.UserServiceImpl;
 public class SearchStaffController extends HttpServlet {
 
     private static final String ERROR = "staff.jsp";
-    private static final String SUCCESS = "staff.jsp";
+    private static final String SUCCESS = "testPaging.jsp";
     private UserService userService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+        UserDao userDao;
+        userDao = new UserDao();
+
+        String indexPage = request.getParameter("index");
+        if(indexPage == null){
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
 
         String fullName = getUserFullName(request);
         userService = new UserServiceImpl();
         List<UserDisplayForm> userDisplayForms = userService.searchStaff(fullName);
         sortUserDisplayForms(userDisplayForms);
-
+        userDisplayForms = userDao.getPaging(index);
+        int endPage = userService.getEndPage();
+        request.setAttribute("endP", endPage);
         request.setAttribute("LIST_USER", userDisplayForms);
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);

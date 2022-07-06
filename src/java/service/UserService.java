@@ -28,5 +28,7 @@ public interface UserService {
     List<UserDisplayForm> searchStaff(String fullName);
 
     List<UserDisplayForm> searchCustomer(String fullName);
+    
+    int getEndPage();
 
 }
