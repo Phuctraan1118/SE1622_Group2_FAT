@@ -48,26 +48,55 @@
                         <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
                     </div>
                     <div>
-                        <h4 class="logo-text">User2</h4>
+                        <h4 class="logo-text">Staff</h4>
                     </div>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
+                    <li class="mm-active">
+                        <a href="javascript:;" class="has-arrow">
+                            <div class="parent-icon">
+                                <ion-icon name="home-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Management</div>
+                        </a>
+                        <ul>
+                            <li> <a href="staff.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="customer.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="managementRoom.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="bookingManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="menu-label">Pages</li>
                     <li>
                         <a href="pages-user1-profile.jsp">
                             <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">User Profile</div>
+                            <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
                     <li>
                         <a href="pages-edit-profile.jsp">
                             <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
                             </div>
-<div class="menu-title">Edit Profile</div>
+                            <div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
                     <li>
@@ -118,7 +147,7 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                     <div class="row row-cols-3 g-3 p-3">
                                         <div class="col text-center">
-<div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Orders</div>
                                         </div>
@@ -158,7 +187,7 @@
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
-<a href="javascript:;">
+                                    <a href="javascript:;">
                                         <div class="msg-header">
                                             <p class="msg-header-title">Notifications</p>
                                             <p class="msg-header-clear ms-auto">Marks all as read</p>
@@ -196,7 +225,7 @@
                                                             ago</span></h6>
                                                     <p class="msg-info">The pdf files generated</p>
                                                 </div>
-</div>
+                                            </div>
                                         </a>
 
                                         <a class="dropdown-item" href="javascript:;">
@@ -234,7 +263,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-<div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
+                                                <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -273,7 +302,7 @@
                             </li>
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-<div class="user-setting">
+                                    <div class="user-setting">
                                         <img src="${USER.img}" class="user-img" alt="">
                                     </div>
                                 </a>
@@ -316,7 +345,7 @@
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-<div class=""><ion-icon name="wallet-outline"></ion-icon></div>
+                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Earnings</span></div>
                                             </div>
                                         </a>
@@ -369,7 +398,7 @@
                         <div class="ms-auto">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-primary">Settings</button>
-<button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
                                     <a class="dropdown-item" href="javascript:;">Another action</a>
@@ -405,7 +434,7 @@
                                                     <label class="form-label">Password</label>
                                                     <input type="password" name="txtPassword" value="${USER.password}" class="form-control">
                                                     <c:if test="${not empty errors.passwordLengthError}">
-<font color="red">
+                                                        <font color="red">
                                                         ${errors.passwordLengthError}
                                                         </font>
                                                     </c:if>
@@ -444,7 +473,7 @@
                                             <div class="row g-3">
                                                 <div class="col-12">
                                                     <label class="form-label">Address</label>
-<input type="text" name="txtAddress" value="${param.txtAddress}" class="form-control">
+                                                    <input type="text" name="txtAddress" value="${param.txtAddress}" class="form-control">
                                                     <c:if test="${not empty errors.addressLengthError}">
                                                         <font color="red">
                                                         ${errors.addressLengthError}
@@ -492,7 +521,7 @@
 
             <!--start switcher-->
             <div class="switcher-body">
-<button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
                 <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
                     <div class="offcanvas-header border-bottom">
                         <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
@@ -533,7 +562,7 @@
                                 <div class="col">
                                     <div class="indigator headercolor5" id="headercolor5"></div>
                                 </div>
-<div class="col">
+                                <div class="col">
                                     <div class="indigator headercolor6" id="headercolor6"></div>
                                 </div>
                                 <div class="col">

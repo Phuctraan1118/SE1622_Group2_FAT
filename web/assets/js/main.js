@@ -1,4 +1,4 @@
-january$(function() {
+$(function() {
 
 
 

@@ -106,7 +106,7 @@
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">User Profile</div>
+                            <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
                     <c:if test="${not empty User}">

@@ -1285,7 +1285,7 @@ DatePicker.defaults = (function( prefix ) {
         labelYearSelect: 'Select a year',
 
         // Months and weekdays
-        monthsFull: [ '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12' ],
+        monthsFull: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ],
         monthsShort: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ],
         weekdaysFull: [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' ],
         weekdaysShort: [ 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat' ],
@@ -1303,9 +1303,9 @@ DatePicker.defaults = (function( prefix ) {
         updateInput: true,
 
         // The format to show on the `input` element
-        format: 'yyyy-mm-dd',
+        format: 'd mmmm, yyyy',
 
-        // Classes  
+        // Classes
         klass: {
 
             table: prefix + 'table',
