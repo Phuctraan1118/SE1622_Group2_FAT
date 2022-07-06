@@ -67,12 +67,7 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <div>
-                        <img src="assets/images/good1.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Staff</h4>
-                    </div>
+                    <h6>Welcome ${USER.name} (STAFF)</h6>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -117,8 +112,8 @@
                         </a>
                     </li>
                     <c:if test="${not empty User}">
-                    <li>
-                            <a href="pages-edit-profile.jsp"">
+                        <li>
+                            <a href="pages-edit-staff-profile.jsp"">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -388,7 +383,7 @@
                                                 <div class="">
                                                     <ion-icon name="speedometer-outline"></ion-icon>
                                                 </div>
-                                                <div class="ms-3"><span>Management</span></div>
+                                                <div class="ms-3"><span>Customer Management</span></div>
                                             </div>
                                         </a>
                                     </li>

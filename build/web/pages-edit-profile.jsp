@@ -45,51 +45,20 @@
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <div>
-                        <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Staff</h4>
+                          <h6>Welcome ${USER.name} (USER)</h6>
                     </div>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li class="mm-active">
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon">
-                                <ion-icon name="home-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Management</div>
-                        </a>
-                        <ul>
-                            <li> <a href="staff.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="customer.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="managementRoom.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="bookingManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                  
                     <li class="menu-label">Pages</li>
                     <li>
                         <a href="pages-user1-profile.jsp">
                             <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Staff Profile</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
                     </li>
                     <li>

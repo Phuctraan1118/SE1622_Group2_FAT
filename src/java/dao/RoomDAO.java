@@ -29,15 +29,15 @@ public class RoomDAO implements Serializable {
 
 private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
         + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
-        + "from tblRoom r, tblBooking b , tblBookingDetail bd "
-        + "where r.roomId = bd.roomId and  bd.bookingId = b.bookingId  and r.status like 'B' and b.username like ?  ";
+        + "from tblBooking b	, tblBookingDetail bd, tblRoom r "
+        + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId and b.username like ?  ";
 
 
 
     private static final String SEARCH_ALL_BOOKED = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
         + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
-        + "from tblRoom r, tblBooking b , tblBookingDetail bd "
-        + "where r.roomId = bd.roomId and  bd.bookingId = b.bookingId  and r.status like 'B' ";
+        + "from tblBooking b, tblBookingDetail bd, tblRoom r "
+        + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId ";
 
     private static final String DELETE = "DELETE tblRoom WHERE roomId = ? ";
     private static final String DELETE_BOOKED = "UPDATE tblRoom SET status = 'NB'"

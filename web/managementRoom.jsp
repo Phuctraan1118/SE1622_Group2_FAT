@@ -61,10 +61,7 @@
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <div>
-                        <img src="assets/images/good1.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Staff</h4>
+                         <h6>Welcome ${USER.name} (STAFF)</h6>
                     </div>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -77,7 +74,7 @@
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Room Management</div>
+                            <div class="menu-title">Management</div>
                         </a>
                         <ul>
                             <li> <a href="staff.jsp">
@@ -111,7 +108,7 @@
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="pages-edit-profile.jsp">
+                            <a href="pages-edit-staff-profile.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -444,7 +441,7 @@ thentication</div>
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h6 class="mb-0">List Of Staff</h6>
+                                <h6 class="mb-0">View Room Not Booked</h6>
                             </div>
                             <div class="table-responsive mt-2">
                                 <table class="table align-middle mb-0">
@@ -466,21 +463,24 @@ thentication</div>
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <div class="product-info">
+<!--                                                    <div class="d-flex align-items-center gap-3">-->
+                                                        ${dto.roomId}
+<!--                                                        <div class="product-info">
                                                             <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${dto.roomId}"></h6>
-                                                        </div>
-                                                    </div>
+                                                        </div>-->
+<!--                                                    </div>-->
                                                 </td>
                                                 <td>
-                                                    <div class="box-input">
+                                                    ${dto.roomDescription}
+<!--                                                    <div class="box-input">
                                                         <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${dto.roomDescription}">
-                                                    </div>
+                                                    </div>-->
                                                 </td>
                                                 <td>
-                                                    <div class="box-input">
+                                                    ${dto.roomPrice}
+<!--                                                    <div class="box-input">
                                                         <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${dto.roomPrice}">
-                                                    </div>
+                                                    </div>-->
                                                 </td>
                                                 <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
                                                 <td>
@@ -577,8 +577,13 @@ thentication</div>
                             </div>
                         </div>
                     </div>
-
-                    <!--                    <div class="card-body">
+                                                              </br>   </br>   </br>
+                                    <div class="card-body">
+                                            <h6 class="mb-0">View Room Booked</h6>
+                                            </br>  </br>
+                                          
+                                           
+                                            
                                             <form action="MainController" class="searchbar">
                                                 <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
                                                     <ion-icon name="search-sharp"></ion-icon>
@@ -590,7 +595,7 @@ thentication</div>
                                                                         </div>
                                             </form>
                                             <div class="d-flex align-items-center">
-                                                <h6 class="mb-0">View Booked Room</h6>
+
                                                 <div class="fs-5 ms-auto dropdown">
                                                     <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
                                                             class="bi bi-three-dots"></i></div>
@@ -603,8 +608,8 @@ thentication</div>
                                                         <li><a class="dropdown-item" href="#">Something else here</a></li>
                                                     </ul>
                                                 </div>
-                                            </div>-->
-                    <!--                        <div class="table-responsive mt-2">
+                                            </div>
+                                           <div class="table-responsive mt-2">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <div class="p-4 border rounded">
@@ -619,10 +624,7 @@ thentication</div>
                                                                         <th>CHECK IN DATE</th>
                                                                         <th>CHECK OUT DATE</th>
                                                                         <th>USERNAME</th>
-                                                                        <th>STATUS</th>
                                                                         <th>IMAGE</th>
-                                                                        <th>EDIT</th>
-                                                                        <th>DELETE</th>
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
@@ -634,9 +636,7 @@ thentication</div>
                             <td>
                                 <div class="d-flex align-items-center gap-3">
                                     <div class="product-info">
-                                        <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${dtoBooked.roomId}"></h6>
-                                        <input type="hidden" name="txtRoomId1" required="" value="${dtoBooked.roomId}"/>
-                                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}" />
+                                        ${dtoBooked.roomId}
                                     </div>
                                 </div>
 
@@ -644,40 +644,47 @@ thentication</div>
                             </td>
                             <td>
                                 <div class="box-input">
-                                    <input type="text" class="form-control" id="validationDefault02" required="" value="${dtoBooked.roomDescription}">
+                                    ${dtoBooked.roomDescription}
+                                 
                                 </div>
                             </td>
                             <td>
                                 <div class="box-input">
-                                    <input type="text" class="form-control" id="validationDefault02" required="" value="${dtoBooked.roomPrice}">
+                                    ${dtoBooked.roomPrice}
+                                   
                                 </div>
                             </td>
                             <td>
                                 <div class="box-input">
-                                    <input type="text"  class="form-control" id="validationDefault02" required="" value="${dtoBooked.bookingDate}">
+                                    ${dtoBooked.bookingDate}
+                                   
                                 </div>
                             </td>
                             <td>
                                 <div class="box-input">
-                                    <input type="text" class="form-control" id="validationDefault02" required="" value="${dtoBooked.checkinDate}">
+                                    ${dtoBooked.checkinDate}
+                                    
                                 </div>
                             </td>
                             <td>
                                 <div class="box-input">
-                                    <input type="text" class="form-control" id="validationDefault02" required="" value="${dtoBooked.checkoutDate}">
+                                    ${dtoBooked.checkoutDate}
+                                   
                                 </div>
                             </td>
                             <td>
                                 <div class="box-input">
-                                    <input type="text" class="form-control" id="validationDefault02" required="" value=" ${dtoBooked.username}">
+                                    ${dtoBooked.username}
+                                   
                                 </div>
                             </td>
-                            <td>
+                            <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                         <!-- comment   <td>
                         <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
                         <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
 
                     </td>
-                    <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                    
                     <td>
 
                         <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
@@ -694,6 +701,7 @@ thentication</div>
                         <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
                         <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
                     </td>
+                               -->
                 </tr>
             </form>
                     </c:forEach>
@@ -721,7 +729,7 @@ thentication</div>
             </ul>
         </nav>
     </div>
-</div>-->
+</div>
                 </div>
             </div>
 
