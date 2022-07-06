@@ -456,70 +456,81 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="table-responsive mt-2">
+                            <c:if test = "${not empty requestScope.SEARCHRESULT}">
+                                <table class="table align-middle mb-0">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>No</th>
+                                            <th>ID ROOM</th>
+                                            <th>DESCRIPTION</th>
+                                            <th>PRICE</th>
+                                            <th>IMAGE</th>
+                                            <th>BOOKING</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
+                                <form action="MainController" method="post">
+                                    <tr>
+                                        <td>
+                                    ${counter.count}
+                                </td>
+                                <td>
+                                    ${dto.roomId}
+                                </td>
+                                <td>
+                                    ${dto.roomDescription}
+                                </td>
+                                <td>
+                                    ${dto.roomPrice}$
+                                </td>
+                                <td>
+                                    <img src=images/${dto.image}  width="90"/>
+                                </td>
+                                <td>
+                                    <input type="hidden" name="txtUsername" value="${User.id}" />
+                                    <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
+                                    <input type="submit" name="btn" value="Booking"/>
+                                </td>
+
+                            </tr>
+                        </form>
+                                </c:forEach>
+
+                                </tbody>
+                            </table>
+                            </c:if>
+                        </div>-->
+                            <div class="row row-cols-1 row-cols-lg-3">
                                 <c:if test = "${not empty requestScope.SEARCHRESULT}">
-                                    <table class="table align-middle mb-0">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>No</th>
-                                                <th>ID ROOM</th>
-                                                <th>DESCRIPTION</th>
-                                                <th>PRICE</th>
-                                                <th>IMAGE</th>
-                                                <th>BOOKING</th>
+                                    <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
+                                        <div class="card radius-10">
+                                            <div class="card-body">
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                            <form action="MainController" method="post">
-                                                <tr>
-                                                    <td>
-                                                        ${counter.count}
-                                                    </td>
-                                                    <td>
-                                                        ${dto.roomId}
-                                                        
-                                                    </td>
-                                                    <td>
-                                                        ${dto.roomDescription}
-                                                    </td>
-                                                    <td>
-                                                        ${dto.roomPrice}$
-                                                    </td>
-                                                    <td>
-                                                        <img src=images/${dto.image}  width="90"/>
-                                                    </td>
-                                                    <td>
-                                                        <input type="hidden" name="txtUsername" value="${User.id}" />
-                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                        <input type="submit" name="btn" value="Booking"/>
-                                                    </td>
-  
-                                                </tr>
+                                                <form action="MainController" method="post">
+                                                    <img src="images/${dto.image}" class="img-fluid radius-10" alt="...">
+                                                    <div class="text-center mt-4">
+                                                        <h5 class="card-title">${dto.roomDescription}</h5>
+                                                        <h4 class="card-title">${dto.roomId}</h4>
+                                                        <h6 class="card-title">${dto.roomPrice}$</h6>
+                                                        <td>
+                                                            <input type="hidden" name="txtUsername" value="${User.id}" />
+                                                            <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
+                                                            <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
+                                                        </td>
+                                                    </div>
                                                 </form>
-                                            </c:forEach>
+                                            </div>
+                                        </div>
 
-                                        </tbody>
-                                    </table>
+                                    </c:forEach>
                                 </c:if>
                             </div>
                         </div>
                     </div>
-                    <h6>Owned Room</h6>
                 </div>
-                <!-- end page content-->
             </div>
-            <!--end page content wrapper-->
-
-
-            <!--start footer-->
-            <footer class="footer">
-                <div class="footer-text">
-                    Copyright © 2021. All right reserved.
-                </div>
-            </footer>
-            <!--end footer-->
 
 
             <!--Start Back To Top Button-->
