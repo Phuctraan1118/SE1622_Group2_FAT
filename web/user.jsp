@@ -1,14 +1,7 @@
-<%-- 
-    Document   : user.jsp
-    Created on : Jun 1, 2022, 9:52:18 PM
-    Author     : buikh
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en" class="semi-dark">
-
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -19,9 +12,10 @@
         <script src="assets/js/pace.min.js"></script>
 
         <!--plugins-->
-        <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
         <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+        <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
         <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+        <link href="assets/plugins/nouislider/nouislider.min.css" rel="stylesheet" />
 
         <!-- CSS Files -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -37,7 +31,6 @@
 
         <title>Dashkote - Bootstrap5 Admin Template</title>
     </head>
-
     <body>
 
 
@@ -47,7 +40,7 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                     <h6>Welcome ${USER.name} (USER)</h6>
+                    <h6>Welcome ${USER.name} (USER)</h6>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -93,19 +86,7 @@
             <!--start top header-->
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
-                    <div class="mobile-menu-button">
-                        <ion-icon name="menu-sharp"></ion-icon>
-                    </div>
-                    <form action="MainController" method="POST" class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                            <ion-icon name="search-sharp"></ion-icon>
-                        </div>
-                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search for detail of room">
-                        <input type="hidden" value="Search room for customer" name="btn" />
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                            <ion-icon name="close-sharp"></ion-icon>
-                        </div>
-                    </form>
+                    <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
 
                     <div class="top-navbar-right ms-auto">
 
@@ -120,7 +101,7 @@
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
                                     <div class="mode-icon">
-                                        <ion-icon name="moon-sharp"></ion-icon>
+                                        <ion-icon name="moon-sharp"></ion-icon> 
                                     </div>
                                 </a>
                             </li>
@@ -133,38 +114,32 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                     <div class="row row-cols-3 g-3 p-3">
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white">
-                                                <ion-icon name="cart-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Orders</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-info text-white">
-                                                <ion-icon name="people-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Teams</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-success text-white">
-                                                <ion-icon name="shield-checkmark-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Tasks</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-danger text-white">
-                                                <ion-icon name="videocam-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
                                             </div>
-                                            <div class="app-title">Media</div>
+                                            <div class="app-title">Media</div>  
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-warning text-white">
-                                                <ion-icon name="file-tray-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Files</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-branding text-white">
-                                                <ion-icon name="notifications-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Alerts</div>
                                         </div>
@@ -188,8 +163,7 @@
                                     <div class="header-notifications-list">
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary">
-                                                    <ion-icon name="cart-outline"></ion-icon>
+                                                <div class="notify text-primary"><ion-icon name="cart-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
@@ -200,8 +174,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-danger">
-                                                    <ion-icon name="person-outline"></ion-icon>
+                                                <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
@@ -212,8 +185,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-success">
-                                                    <ion-icon name="document-outline"></ion-icon>
+                                                <div class="notify text-success"><ion-icon name="document-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
@@ -225,19 +197,18 @@
 
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-info">
-                                                    <ion-icon name="checkmark-done-outline"></ion-icon>
+                                                <div class="notify text-info"><ion-icon name="checkmark-done-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Product Approved <span class="msg-time float-end">2 hrs ago</span></h6>
+                                                    <h6 class="msg-name">New Product Approved <span
+                                                            class="msg-time float-end">2 hrs ago</span></h6>
                                                     <p class="msg-info">Your new product has approved</p>
                                                 </div>
                                             </div>
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-warning">
-                                                    <ion-icon name="send-outline"></ion-icon>
+                                                <div class="notify text-warning"><ion-icon name="send-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
@@ -248,8 +219,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-danger">
-                                                    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                                                <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
@@ -260,8 +230,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary">
-                                                    <ion-icon name="albums-outline"></ion-icon>
+                                                <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -272,8 +241,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-success">
-                                                    <ion-icon name="shield-outline"></ion-icon>
+                                                <div class="notify text-success"><ion-icon name="shield-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
@@ -284,8 +252,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-warning">
-                                                    <ion-icon name="cafe-outline"></ion-icon>
+                                                <div class="notify text-warning"><ion-icon name="cafe-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
@@ -318,75 +285,58 @@
                                             </div>
                                         </a>
                                     </li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user-profile.html">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="person-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="settings-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="settings-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Setting</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="index2.html">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="speedometer-outline"></ion-icon>
-                                                </div>
-                                                <div class="ms-3"><span>Management</span></div>
+                                                <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Dashboard</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="wallet-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Earnings</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="cloud-download-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Downloads</span></div>
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="log-out-outline"></ion-icon>
-                                                </div>
-                                                <div class="ms-3"><span name="btn">Logout</span></div>
+                                                <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Logout</span></div>
                                             </div>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
-
                         </ul>
 
                     </div>
@@ -402,181 +352,285 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Management</div>
+                        <div class="breadcrumb-title pe-3">View Room</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
-                                    <li class="breadcrumb-item"><a href="javascript:;">
-                                            <ion-icon name="home-outline"></ion-icon>
-                                        </a>
+                                    <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Booking</li>
                                 </ol>
                             </nav>
                         </div>
                         <div class="ms-auto">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button"
-                                        class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
+                                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                                                                                                        href="javascript:;">Action</a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
                                     <a class="dropdown-item" href="javascript:;">Another action</a>
                                     <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
+                                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--end breadcrumb-->
-                    <!--end breadcrumb-->
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
-                                    <h6 class="mb-0">View List Room</h6>
-                                </a>
-                                <div class="fs-5 ms-auto dropdown">
-                                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                            class="bi bi-three-dots"></i></div>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row row-cols-1 row-cols-lg-3">
-                                <c:if test = "${not empty requestScope.SEARCHRESULT}">
-                                    <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                        <div class="card radius-10">
-                                            <div class="card-body">
 
-                                                <form action="MainController" method="post">
-                                                    <img src="images/${dto.image}" class="img-fluid radius-10" alt="...">
-                                                    <div class="text-center mt-4">
-                                                        <h5 class="card-title">${dto.roomDescription}</h5>
-                                                        <h4 class="card-title">${dto.roomId}</h4>
-                                                        <h6 class="card-title">${dto.roomPrice}$</h6>
-                                                        <td>
-                                                            <input type="hidden" name="txtUsername" value="${User.id}" />
-                                                            <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                            <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
-                                                        </td>
-                                                    </div>
-                                                </form>
+                    <!--start shop area-->
+                    <section class="shop-page">
+                        <div class="shop-container">
+                            <div class="card shadow-sm border-0">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-12">
+
+                                            <div class="card">
+                                                <div class="card-body">
+
+                                                    <div class="row g-3">
+                                                        <div class="col-12 col-lg">
+                                                            <select class="form-select">
+                                                                <option selected="selected">Size</option>
+                                                                <option>Small</option>
+                                                                <option>Small</option>
+                                                                <option>Small</option>
+                                                                <option>Extra Large</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 col-lg">
+                                                            <select class="form-select">
+                                                                <option selected="selected">Color</option>
+                                                                <option>Red</option>
+                                                                <option>Yellow</option>
+                                                                <option>Black</option>
+                                                                <option>White</option>
+                                                                <option>Green</option>
+                                                                <option>Blue</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 col-lg">
+                                                            <select class="form-select">
+                                                                <option selected="selected">Price</option>
+                                                                <option>$5 to $49</option>
+                                                                <option>$49 to $99</option>
+                                                                <option>$99 to $149</option>
+                                                                <option>$149 to $300</option>
+                                                                <option>$300 to $500</option>
+                                                                <option>Above $1000</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 col-lg">
+                                                            <select class="form-select">
+                                                                <option value="menu_order" selected="selected">Default sorting</option>
+                                                                <option value="popularity">Sort by popularity</option>
+                                                                <option value="rating">Sort by average rating</option>
+                                                                <option value="date">Sort by newness</option>
+                                                                <option value="price">Sort by price: low to high</option>
+                                                                <option value="price-desc">Sort by price: high to low</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-12 col-lg">
+                                                            <button type="button" class="btn btn-primary">Search</button>
+                                                        </div>
+                                                    </div><!--end row-->
+
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="col-12 col-xl-12">
+                                            <div class="product-wrapper">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <form action="MainController" method="POST" class="searchbar">
+                                                            <div class="position-relative">
+                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Product...">
+                                                                <input type="hidden" value="Search room for customer" name="btn" />
+                                                                <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class="product-grid">
 
-                                    </c:forEach>
-                                </c:if>
+                                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                                                        <c:if test = "${not empty requestScope.SEARCHRESULT}">
+                                                            <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
+                                                                <div class="col">
+                                                                    <div class="card product-card">
+                                                                        <div class="card-header bg-transparent border-bottom-0">
+                                                                            <div class="d-flex align-items-center justify-content-end">
+                                                                                <a href="javascript:;">
+                                                                                    <div class="product-wishlist"> <i class="bx bx-heart"></i>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <form action="MainController" method="post">
+                                                                            <img src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                            <div class="card-body">
+                                                                                <div class="product-info">
+                                                                                    <a href="javascript:;">
+                                                                                        <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
+                                                                                    </a>
+                                                                                    <a href="ecommerce-product-details.html">
+                                                                                        <h6 class="product-name mb-2">${dto.roomDescription}</h6>
+                                                                                    </a>
+                                                                                    <div class="d-flex align-items-center">
+                                                                                        <div class="mb-1 product-price">
+                                                                                            <span class="fs-5">${dto.roomPrice}$</span>
+                                                                                        </div>
+                                                                                        <div class="cursor-pointer ms-auto">
+                                                                                            <i class="bx bxs-star text-warning"></i>
+                                                                                            <i class="bx bxs-star text-warning"></i>
+                                                                                            <i class="bx bxs-star text-warning"></i>
+                                                                                            <i class="bx bxs-star text-warning"></i>
+                                                                                            <i class="bx bxs-star text-warning"></i>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="product-action mt-2">
+                                                                                        <div class="d-grid">
+                                                                                            <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class="bx bxs-cart-add"></i>Booking</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </c:forEach>
+                                                        </c:if>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--end row-->
+                                    </div>
+                                    <hr>
+                                    <nav class="d-flex justify-content-between" aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li class="page-item"><a class="page-link" href="javascript:;"><i class='bx bx-chevron-left'></i> Prev</a>
+                                            </li>
+                                        </ul>
+                                        <ul class="pagination">
+                                            <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span>
+                                            </li>
+                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">2</a>
+                                            </li>
+                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">3</a>
+                                            </li>
+                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">4</a>
+                                            </li>
+                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">5</a>
+                                            </li>
+                                        </ul>
+                                        <ul class="pagination">
+                                            <li class="page-item"><a class="page-link" href="javascript:;" aria-label="Next">Next <i class='bx bx-chevron-right'></i></a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
-                        </div>
+                        </div><!--end row-->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--end shop area-->
+
+</div>
+<!-- end page content-->
+</div>
+
+
+
+<!--Start Back To Top Button-->
+<a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+<!--End Back To Top Button-->
+
+<!--start switcher-->
+<div class="switcher-body">
+    <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+    <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
+        <div class="offcanvas-header border-bottom">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h6 class="mb-0">Theme Variation</h6>
+            <hr>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                <label class="form-check-label" for="LightTheme">Light</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                <label class="form-check-label" for="DarkTheme">Dark</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3" checked>
+                <label class="form-check-label" for="SemiDark">Semi Dark</label>
+            </div>
+            <hr/>
+            <h6 class="mb-0">Header Colors</h6>
+            <hr/>
+            <div class="header-colors-indigators">
+                <div class="row row-cols-auto g-3">
+                    <div class="col">
+                        <div class="indigator headercolor1" id="headercolor1"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor2" id="headercolor2"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor3" id="headercolor3"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor4" id="headercolor4"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor5" id="headercolor5"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor6" id="headercolor6"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor7" id="headercolor7"></div>
+                    </div>
+                    <div class="col">
+                        <div class="indigator headercolor8" id="headercolor8"></div>
                     </div>
                 </div>
             </div>
-
-
-            <!--Start Back To Top Button-->
-            <a href="javaScript:;" class="back-to-top">
-                <ion-icon name="arrow-up-outline"></ion-icon>
-            </a>
-            <!--End Back To Top Button-->
-
-            <!--start switcher-->
-            <div class="switcher-body">
-                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                    <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
-                </button>
-                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
-                     tabindex="-1" id="offcanvasScrolling">
-                    <div class="offcanvas-header border-bottom">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <h6 class="mb-0">Theme Variation</h6>
-                        <hr>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                            <label class="form-check-label" for="LightTheme">Light</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                            <label class="form-check-label" for="DarkTheme">Dark</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
-                                   checked>
-                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                        </div>
-                        <hr />
-                        <h6 class="mb-0">Header Colors</h6>
-                        <hr />
-                        <div class="header-colors-indigators">
-                            <div class="row row-cols-auto g-3">
-                                <div class="col">
-                                    <div class="indigator headercolor1" id="headercolor1"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor2" id="headercolor2"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor3" id="headercolor3"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor4" id="headercolor4"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor5" id="headercolor5"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor6" id="headercolor6"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor7" id="headercolor7"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor8" id="headercolor8"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--end switcher-->
-
-
-            <!--start overlay-->
-            <div class="overlay nav-toggle-icon"></div>
-            <!--end overlay-->
 
         </div>
-        <!--end wrapper-->
+    </div>
+</div>
+<!--end switcher-->
 
 
-        <!-- JS Files-->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <!--plugins-->
-        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-        <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-        <script src="assets/plugins/chartjs/chart.min.js"></script>
-        <script src="assets/js/index.js"></script>
-        <!-- Main JS-->
-        <script src="assets/js/main.js"></script>
+<!--start overlay-->
+<div class="overlay nav-toggle-icon"></div>
+<!--end overlay-->
+
+</div>
+<!--end wrapper-->
 
 
-    </body>
 
+<!-- JS Files-->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<!--plugins-->
+<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+
+<!-- Main JS-->
+<script src="assets/js/main.js"></script>
+
+
+</body>
 </html>
