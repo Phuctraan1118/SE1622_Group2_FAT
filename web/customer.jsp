@@ -35,13 +35,14 @@
 
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
+
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
+        <link href="assets/css/pagination.css" rel="stylesheet" />
         <title>Customer Management</title>
         <style>
             .error{
@@ -485,6 +486,13 @@
                                 </div>
                             </div>
                             <div class="table-responsive mt-2">
+                                <div id="gallery-items" class="gallery-items">
+                                        <div class="pagination">
+                                            <div class="prev">Prev</div>
+                                            <div class="page">Page <span class="page-num"></span></div>
+                                            <div class="next">Next</div>
+                                        </div>
+                                    </div>
                                 <table class="table align-middle mb-0">
                                     <thead class="table-light">
                                         <tr>
@@ -501,8 +509,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="user" items="${requestScope.LIST_USER}" varStatus="counter">
+                                    <c:forEach var="user" items="${requestScope.LIST_USER}" varStatus="counter">
                                         <form action="MainController">
+
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>
@@ -547,238 +556,223 @@
                                                     </div>
                                                 </td>
                                             </tr>
+
                                         </form>
                                     </c:forEach>
+                            </div>
+                            </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">Add Customer</button>
+                </div>
+                <!-- end page content-->
+                <div id="showOrHide">
+                    <div class="card radius-10 w-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <h6 class="mb-0">Add Customer</h6>
+                            </div>
+                            <div class="table-responsive mt-2">
+                                <table class="table align-middle mb-0">
+                                    <div class="row">
+                                        <div class="col-xl-12 mx-auto">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <div class="p-4 border rounded">
+                                                        <form class="row g-3" action="MainController" method="POST">
+                                                            <div class="row align-content-center">
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault01" class="form-label">User name</label>
+                                                                    <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.usernameError}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault02" class="form-label">Password</label>
+                                                                    <input type="password" class="form-control" id="validationDefault02" name="txtPassword" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.passwordError}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault02" class="form-label">Full name</label>
+                                                                    <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault03" class="form-label">Email</label>
+                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtEmail" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.emailError}</p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label for="validationDefault03" class="form-label">Address</label>
+                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtAddress" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.addressError}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault03" class="form-label">Phone</label>
+                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtPhone" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault03" class="form-label">Citizen Identification</label>
+                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtCitizenIdentification" value="" required="">
+                                                                    <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <label for="validationDefault03" class="form-label">Image</label>
+                                                                    <input type="file"  name="txtImg" class="form-control" aria-label="file example" required>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <button type="submit" class="btn btn-primary" name="btn" value="Add Customer">Add Customer</button>
+                                                                </div>
+                                                            </div>
+                                                            <p class="error">${requestScope.USER_ERROR.messageError}</p>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <c:set var="created" value="${requestScope.CREATED}"/>
+                                                <c:if test="${not empty created}">
+                                                    <p class="success">Username ${created} is created</p>
+                                                </c:if>
+                                                <c:set var="dupplicate" value="${requestScope.USER_DUPPLICATE}"/>
+                                                <c:if test="${not empty dupplicate}">
+                                                    <p class="error">User `${dupplicate}` is existed</p>
+                                                </c:if> 
+                                            </div>
+                                        </div>
+                                    </div>
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <hr>
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                        <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">Add Customer</button>
-                    </div>
-                    <!-- end page content-->
-                    <div id="showOrHide">
-                        <div class="card radius-10 w-100">
-                            <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <h6 class="mb-0">Add Customer</h6>
-                                </div>
-                                <div class="table-responsive mt-2">
-                                    <table class="table align-middle mb-0">
-                                        <div class="row">
-                                            <div class="col-xl-12 mx-auto">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="p-4 border rounded">
-                                                            <form class="row g-3" action="MainController" method="POST">
-                                                                <div class="row align-content-center">
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault01" class="form-label">User name</label>
-                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.usernameError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault02" class="form-label">Password</label>
-                                                                        <input type="password" class="form-control" id="validationDefault02" name="txtPassword" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.passwordError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault02" class="form-label">Full name</label>
-                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Email</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtEmail" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.emailError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label for="validationDefault03" class="form-label">Address</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtAddress" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.addressError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Phone</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtPhone" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Citizen Identification</label>
-                                                                        <input type="text" class="form-control" id="validationDefault03" name="txtCitizenIdentification" value="" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
-                                                                    </div>
-                                                                    <div class="col-md-3">
-                                                                        <label for="validationDefault03" class="form-label">Image</label>
-                                                                        <input type="file"  name="txtImg" class="form-control" aria-label="file example" required>
-                                                                    </div>
-                                                                    <div class="col-12">
-                                                                        <button type="submit" class="btn btn-primary" name="btn" value="Add Customer">Add Customer</button>
-                                                                    </div>
-                                                                </div>
-                                                                <p class="error">${requestScope.USER_ERROR.messageError}</p>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <c:set var="created" value="${requestScope.CREATED}"/>
-                                                    <c:if test="${not empty created}">
-                                                        <p class="success">Username ${created} is created</p>
-                                                    </c:if>
-                                                    <c:set var="dupplicate" value="${requestScope.USER_DUPPLICATE}"/>
-                                                    <c:if test="${not empty dupplicate}">
-                                                        <p class="error">User `${dupplicate}` is existed</p>
-                                                    </c:if> 
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
-                <!--end page content wrapper-->
-                <!--start footer-->
-                <footer class="footer">
-                    <div class="footer-text">
-                        Copyright © 2021. All right reserved.
-                    </div>
-                </footer>
-                <!--end footer-->
-
-
-                <!--Start Back To Top Button-->
-                <a href="javaScript:;" class="back-to-top">
-                    <ion-icon name="arrow-up-outline"></ion-icon>
-                </a>
-                <!--End Back To Top Button-->
-
-                <!--start switcher-->
-                <div class="switcher-body">
-                    <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                        <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
-                    </button>
-                    <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
-                         tabindex="-1" id="offcanvasScrolling">
-                        <div class="offcanvas-header border-bottom">
-                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                        </div>
-                        <div class="offcanvas-body">
-                            <h6 class="mb-0">Theme Variation</h6>
-                            <hr>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                                <label class="form-check-label" for="LightTheme">Light</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                                <label class="form-check-label" for="DarkTheme">Dark</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
-                                       checked>
-                                <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                            </div>
-                            <hr />
-                            <h6 class="mb-0">Header Colors</h6>
-                            <hr />
-                            <div class="header-colors-indigators">
-                                <div class="row row-cols-auto g-3">
-                                    <div class="col">
-                                        <div class="indigator headercolor1" id="headercolor1"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor2" id="headercolor2"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor3" id="headercolor3"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor4" id="headercolor4"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor5" id="headercolor5"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor6" id="headercolor6"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor7" id="headercolor7"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor8" id="headercolor8"></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!--end switcher-->
-
-
-                <!--start overlay-->
-                <div class="overlay nav-toggle-icon"></div>
-                <!--end overlay-->
-
             </div>
-            <!--end wrapper-->
+            <!--end page content wrapper-->
+            <!--start footer-->
+            <footer class="footer">
+                <div class="footer-text">
+                    Copyright © 2021. All right reserved.
+                </div>
+            </footer>
+            <!--end footer-->
+
+
+            <!--Start Back To Top Button-->
+            <a href="javaScript:;" class="back-to-top">
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </a>
+            <!--End Back To Top Button-->
+
+            <!--start switcher-->
+            <div class="switcher-body">
+                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                    <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
+                </button>
+                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
+                     tabindex="-1" id="offcanvasScrolling">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <h6 class="mb-0">Theme Variation</h6>
+                        <hr>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                            <label class="form-check-label" for="LightTheme">Light</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                            <label class="form-check-label" for="DarkTheme">Dark</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
+                                   checked>
+                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                        </div>
+                        <hr />
+                        <h6 class="mb-0">Header Colors</h6>
+                        <hr />
+                        <div class="header-colors-indigators">
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <div class="indigator headercolor1" id="headercolor1"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor2" id="headercolor2"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor3" id="headercolor3"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor4" id="headercolor4"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor5" id="headercolor5"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor6" id="headercolor6"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor7" id="headercolor7"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor8" id="headercolor8"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--end switcher-->
+
+
+            <!--start overlay-->
+            <div class="overlay nav-toggle-icon"></div>
+            <!--end overlay-->
+
+        </div>
+        <!--end wrapper-->
 
 
 
-            <!-- JS Files-->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-            <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-            <script src="assets/js/bootstrap.bundle.min.js"></script>
-            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-            <!--plugins-->
-            <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-            <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-            <script src="assets/plugins/chartjs/chart.min.js"></script>
-            <script src="assets/js/index.js"></script>
-            <!-- Main JS-->
-            <script src="assets/js/main.js"></script>
+        <!-- JS Files-->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!--plugins-->
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+        <script src="assets/plugins/chartjs/chart.min.js"></script>
+        <script src="assets/js/index.js"></script>
+        <!-- Main JS-->
+        <script src="assets/js/main.js"></script>
+        <script src="PaginationJquery/app.js"></script>
 
-            <!--        <script>
-                        function ConfirmDelete(){
+        <!--        <script>
+                    function ConfirmDelete(){
+                        return confirm("Are you sure you want to delete?");
+                    }
+                </script>-->
+
+        <script>
+                        function showOrHideDiv() {
+                            var show = document.getElementById("showOrHide");
+                            if (show.style.display === "none") {
+                                show.style.display = "block";
+                            } else {
+                                show.style.display = "none";
+                            }
+                        }
+                        function ConfirmDelete() {
                             return confirm("Are you sure you want to delete?");
                         }
-                    </script>-->
-
-            <script>
-                            function showOrHideDiv() {
-                                var show = document.getElementById("showOrHide");
-                                if (show.style.display === "none") {
-                                    show.style.display = "block";
-                                } else {
-                                    show.style.display = "none";
-                                }
-                            }
-                            function ConfirmDelete() {
-                                return confirm("Are you sure you want to delete?");
-                            }
-            </script>
+        </script>
     </body>
 
 </html>

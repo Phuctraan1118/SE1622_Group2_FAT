@@ -123,29 +123,6 @@
                             </a>
                         </c:if>
                     </li>
-                    <!--                    <li class="menu-label">STAFF</li>-->
-                    <!--                    <li>
-                                            <a class="has-arrow" href="javascript:;">
-                                                <div class="parent-icon">
-                                                    <ion-icon name="lock-closed-sharp"></ion-icon>
-                                                <div class="menu-title">Au                                                </div>
-thentication</div>
-                                            </a>
-                                            <ul>
-                                                <li> <a href="authentication-sign-in-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign In Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-sign-up-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign Up Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-reset-password-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Reset Password Simple
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>-->
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -737,6 +714,7 @@ thentication</div>
             <script src="assets/js/index.js"></script>
             <!-- Main JS-->
             <script src="assets/js/main.js"></script>
+            <script src="PaginationJquery/app.js"></script>
 
             <!--        <script>
                         function ConfirmDelete(){

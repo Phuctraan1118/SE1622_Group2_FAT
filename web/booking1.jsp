@@ -78,7 +78,7 @@
                     </c:if>
                     <li>
 
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
