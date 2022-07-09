@@ -490,7 +490,9 @@
                                                                                     </div>
                                                                                     <div class="product-action mt-2">
                                                                                         <div class="d-grid">
-                                                                                            <a href="javascript:;" class="btn btn-primary btn-ecomm"><i class="bx bxs-cart-add"></i>Booking</a>
+                                                                                            <input type="hidden" name="txtUsername" value="${User.id}" />
+                                                                                            <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
+                                                                                            <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
