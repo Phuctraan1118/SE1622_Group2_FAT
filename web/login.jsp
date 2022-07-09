@@ -65,7 +65,7 @@
                                                 <div class="login-snip">
                                                     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
                                                         for="tab-1" class="tab">Login</label>
-                                                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+                                                    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab"></label>
                                                     <div class="login-space">
                                                         <div class="login">
                                                             <div class="group">
@@ -102,13 +102,14 @@
                                                                 </a>
                                                             </div>
                                                             <div class="hr"></div>
-                                                            <div class="foot">
-                                                                <a href="authentication-sign-up-simple.jsp">Sign Up</a>
-                                                            </div>
-                                                            <div class="foot">
-                                                                <a href="authentication-reset-password-simple.jsp">Forgot Password?</a>
+                                                            <div class="container">
+                                                                <div class="section-content">
+                                                                    <a class="btn btn-shadow-2" href="authentication-sign-up-simple.jsp">Sign Up <i class="icon-next"></i></a>
+                                                                    <a class="btn btn-shadow-2" href="authentication-reset-password-simple.jsp">Forgot Password? <i class="icon-next"></i></a>
+                                                                </div>
                                                             </div>
                                                         </div>
+
                                                         <form action="MainController" method="post" class="form-body row g-3">
                                                             <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
                                                             <div class="sign-up-form">
