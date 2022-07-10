@@ -93,4 +93,10 @@ public class MyApplicationConstants {
         public static final String BOOKING_CONTROLLER = "bookingRoomController";
         public static final String SHOW_BOOKING = "showBookingController";
     }
+    
+    public class ManageRevenue {
+        public static final String REVENUE_PAGE="revenueManagementPage";
+        public static final String VIEW_REVENUE_CONTROLLER="revenueShowController";
+        
+    }
 }

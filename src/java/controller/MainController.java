@@ -105,6 +105,8 @@ public class MainController extends HttpServlet {
                 url = UPDATE_NOTIFICATION;
             } else if (button.equals("Remove Notification")) {
                 url = DELETE_NOTIFICATION;
+            }else if (button.equals("View Revenue")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             }
 
         } finally {
