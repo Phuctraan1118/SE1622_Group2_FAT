@@ -270,7 +270,7 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${User.img}" class="user-img" alt="">
+                                        <img  src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -387,159 +387,140 @@
 
                                             <div class="card">
                                                 <div class="card-body">
+                                                    <form action="MainController">
+                                                        <div class="row g-3">
+                                                            <div class="col-12 col-lg">
 
-                                                    <div class="row g-3">
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option selected="selected">Size</option>
-                                                                <option>Small</option>
-                                                                <option>Small</option>
-                                                                <option>Small</option>
-                                                                <option>Extra Large</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option selected="selected">Color</option>
-                                                                <option>Red</option>
-                                                                <option>Yellow</option>
-                                                                <option>Black</option>
-                                                                <option>White</option>
-                                                                <option>Green</option>
-                                                                <option>Blue</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option selected="selected">Price</option>
-                                                                <option>$5 to $49</option>
-                                                                <option>$49 to $99</option>
-                                                                <option>$99 to $149</option>
-                                                                <option>$149 to $300</option>
-                                                                <option>$300 to $500</option>
-                                                                <option>Above $1000</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                                <option value="popularity">Sort by popularity</option>
-                                                                <option value="rating">Sort by average rating</option>
-                                                                <option value="date">Sort by newness</option>
-                                                                <option value="price">Sort by price: low to high</option>
-                                                                <option value="price-desc">Sort by price: high to low</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <button type="button" class="btn btn-primary">Search</button>
-                                                        </div>
-                                                    </div><!--end row-->
+                                                                <select name="txtSize"class="form-select">
+                                                                    <option value="" selected="selected">Size</option>
+                                                                    <option value="1 giuong">Small(1 bed)</option>
+                                                                    <option value="2 giuong">Large(2 bed)</option>
+                                                                    <option value="3 giuong">Extra Large(3 bed)</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12 col-lg">
+                                                                <select name="txtPrice"class="form-select">
+                                                                    <option value="" selected="selected">Price</option>
+                                                                    <option value="4-50">$5 to $49</option>
+                                                                    <option value="49-100">$50 to $99</option>
+                                                                    <option value="99-301">$100 to $300</option>
+                                                                    <option value="299-1000"> Above $300</option>
+                                                                </select>
+                                                            </div>
 
-                                                </div>
+                                                            <div class="col-12 col-lg">
+                                                                <!-- comment           <button name="btn" value="Search room for sort" type="button" class="btn btn-primary">Search</button> --> 
+                                                                <input type="submit" value="Sort Room" name="btn"> 
+                                                            </div>
+                                                    </form>
+                                                </div><!--end row-->
+
                                             </div>
                                         </div>
-                                        <div class="col-12 col-xl-12">
-                                            <div class="product-wrapper">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <form action="MainController" method="POST" class="searchbar">
-                                                            <div class="position-relative">
-                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Product...">
-                                                                <input type="hidden" value="Search room for customer" name="btn" />
-                                                                <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                    </div>
+                                    <div class="col-12 col-xl-12">
+                                        <div class="product-wrapper">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <form action="MainController" method="GET" class="searchbar">
+                                                        <div class="position-relative">
+                                                            <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Room Description...">
+                                                            <input type="hidden" value="Search room for customer" name="btn" />
+                                                            <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
+                                                        </div>
+                                                    </form>
                                                 </div>
-                                                <div class="product-grid">
+                                            </div>
+                                            <div class="product-grid">
 
-                                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                                                        <c:if test = "${not empty requestScope.SEARCHRESULT}">
-                                                            <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                                                <div class="col">
-                                                                    <div class="card product-card">
-                                                                        <div class="card-header bg-transparent border-bottom-0">
-                                                                            <div class="d-flex align-items-center justify-content-end">
-                                                                                <a href="javascript:;">
-                                                                                    <div class="product-wishlist"> <i class="bx bx-heart"></i>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </div>
+                                                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+                                                    <c:if test = "${ empty requestScope.SEARCHRESULT}"> NO RESULT</c:if>
+                                                    <c:if test = "${not empty requestScope.SEARCHRESULT}">
+                                                        <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
+                                                            <div class="col">
+                                                                <div class="card product-card">
+                                                                    <div class="card-header bg-transparent border-bottom-0">
+                                                                        <div class="d-flex align-items-center justify-content-end">
+                                                                            <a href="javascript:;">
+                                                                                <div class="product-wishlist"> <i class="bx bx-heart"></i>
+                                                                                </div>
+                                                                            </a>
                                                                         </div>
-                                                                        <form action="MainController" method="post">
-                                                                            <img src="images/${dto.image}" class="card-img-top" alt="...">
-                                                                            <div class="card-body">
-                                                                                <div class="product-info">
-                                                                                    <a href="javascript:;">
-                                                                                        <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
-                                                                                    </a>
-                                                                                    <a href="ecommerce-product-details.html">
-                                                                                        <h6 class="product-name mb-2">${dto.roomDescription}</h6>
-                                                                                    </a>
-                                                                                    <div class="d-flex align-items-center">
-                                                                                        <div class="mb-1 product-price">
-                                                                                            <span class="fs-5">${dto.roomPrice}$</span>
-                                                                                        </div>
-                                                                                        <div class="cursor-pointer ms-auto">
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                        </div>
+                                                                    </div>
+                                                                    <form action="MainController" method="post">
+                                                                        <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                        <div class="card-body">
+                                                                            <div class="product-info">
+                                                                                <a href="javascript:;">
+                                                                                    <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
+                                                                                </a>
+                                                                                <a href="ecommerce-product-details.html">
+                                                                                    <h6 class="product-name mb-2">${dto.roomDescription}</h6>
+                                                                                </a>
+                                                                                <div class="d-flex align-items-center">
+                                                                                    <div class="mb-1 product-price">
+                                                                                        <span class="fs-5">${dto.roomPrice}$</span>
                                                                                     </div>
-                                                                                    <div class="product-action mt-2">
-                                                                                        <div class="d-grid">
-                                                                                            <input type="hidden" name="txtUsername" value="${User.id}" />
-                                                                                            <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                                                            <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
-                                                                                        </div>
+                                                                                    <div class="cursor-pointer ms-auto">
+                                                                                        <i class="bx bxs-star text-warning"></i>
+                                                                                        <i class="bx bxs-star text-warning"></i>
+                                                                                        <i class="bx bxs-star text-warning"></i>
+                                                                                        <i class="bx bxs-star text-warning"></i>
+                                                                                        <i class="bx bxs-star text-warning"></i>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="product-action mt-2">
+                                                                                    <div class="d-grid">
+                                                                                        <input type="hidden" name="txtUsername" value="${User.id}" />
+                                                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
+                                                                                        <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </form>
-                                                                    </div>
+                                                                        </div>
+                                                                    </form>
                                                                 </div>
-                                                            </c:forEach>
-                                                        </c:if>
-                                                    </div>
-
+                                                            </div>
+                                                        </c:forEach>
+                                                    </c:if>
                                                 </div>
+
                                             </div>
                                         </div>
-                                        <!--end row-->
                                     </div>
-                                    <hr>
-                                    <nav class="d-flex justify-content-between" aria-label="Page navigation">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;"><i class='bx bx-chevron-left'></i> Prev</a>
-                                            </li>
-                                        </ul>
-                                        <ul class="pagination">
-                                            <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">2</a>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">3</a>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">4</a>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">5</a>
-                                            </li>
-                                        </ul>
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;" aria-label="Next">Next <i class='bx bx-chevron-right'></i></a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                    <!--end row-->
                                 </div>
+                                <hr>
+                                <nav class="d-flex justify-content-between" aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="javascript:;"><i class='bx bx-chevron-left'></i> Prev</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="pagination">
+                                        <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span>
+                                        </li>
+                                        <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">2</a>
+                                        </li>
+                                        <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">3</a>
+                                        </li>
+                                        <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">4</a>
+                                        </li>
+                                        <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">5</a>
+                                        </li>
+                                    </ul>
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="javascript:;" aria-label="Next">Next <i class='bx bx-chevron-right'></i></a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
-                        </div><!--end row-->
-                </div>
+                        </div>
+                </div><!--end row-->
             </div>
         </div>
-    </section>
-    <!--end shop area-->
+    </div>
+</section>
+<!--end shop area-->
 
 </div>
 <!-- end page content-->

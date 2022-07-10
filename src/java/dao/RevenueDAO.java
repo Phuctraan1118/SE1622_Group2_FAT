@@ -21,7 +21,7 @@ import utils.DBHelper;
 public class RevenueDAO {
     private final String SHOW_REVENUE ="select b.billId,bd.roomId,bd.serviceId, bd.feeId ,  b.billName,  bd.date ,  s.waterPrice , s.electronicPrice, r.roomPrice, f.feesPrice "
             + "from tblBill b , tblBillDetail bd , tblService s , tblRoom  r , tblFees f "
-            + "where b.billId = bd.billId and bd.roomId = r.roomId and s.serviceId = bd.serviceId and f.feesId = bd.feeId  ";
+            + "where b.billId = bd.billId and bd.roomId = r.roomId and s.serviceId = bd.serviceId and f.feeId = bd.feeId  ";
      public List<RevenueDTO> showRevenue()
             throws SQLException, NamingException {
         Connection con = null;

@@ -68,13 +68,15 @@ public class MyApplicationConstants {
         public static final String ERROR_GOOGLE_PAGE = "editProfileGooglePage";
     }
 
-    public class ManageRooms {
+ public class ManageRooms {
 
         public static final String SEARCH_ROOM_CONTROLLER = "roomSearchController";
         public static final String SEARCH_BOOKED_ROOM_CONTROLLER = "roomSearchBookedController";
         public static final String SEARCH_ROOM_FOR_CUSTOMER_CONTROLLER = "roomSearchCustomerController";
-        public static final String SEARCH_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER="searchRoomForCustomerGoogleController";
-        
+        public static final String SEARCH_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER = "searchRoomForCustomerGoogleController";
+        public static final String SEARCH_SORT_ROOM_FOR_CUSTOMER_CONTROLLER = "roomSearchSortCustomerController";
+        public static final String SEARCH_SORT_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER = "roomSearchSortCustomerGoogleController";
+
         public static final String DELETE_ROOM_CONTROLLER = "roomDeleteController";
         public static final String DELETE_BOOKED_ROOM_CONTROLLER = "roomDeleteBookedController";
 

@@ -38,7 +38,19 @@ private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.room
         + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
         + "from tblBooking b, tblBookingDetail bd, tblRoom r "
         + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId ";
-
+    private static final String SEARCH_SORT_BY_DESC_AND_PRICE = "select roomId, roomDescription , roomPrice , image from tblRoom "
+            + "where roomPrice > ? and roomPrice < ? and roomDescription like ? "
+            + "order by roomPrice ";
+    private static final String SEARCH_SORT_BY_PRICE ="select roomId, roomDescription , roomPrice , image from tblRoom "
+            + "where roomPrice > ? and roomPrice < ? "
+            + "order by roomPrice ";
+    
+    private static final String SEARCH_SORT_BY_ID_ASC = "select roomId, roomDescription , roomPrice , image from tblRoom "
+            + "order by roomId ";
+    
+    private static final String SEARCH_SORT_BY_ID_DESC = "select roomId, roomDescription , roomPrice , image from tblRoom "
+            + "order by roomId desc ";
+    
     private static final String DELETE = "DELETE tblRoom WHERE roomId = ? ";
     private static final String DELETE_BOOKED = "UPDATE tblRoom SET status = 'NB'"
             + "WHERE roomId = ? ";
@@ -381,5 +393,150 @@ private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.room
             }
         }
         return row;
+    }
+    
+     public List<RoomDTO> searchSortByPrice(float priceMin, float priceMax)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(SEARCH_SORT_BY_PRICE);
+                stm.setFloat(1, priceMin);
+                stm.setFloat(2, priceMax);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int roomId = rs.getInt("roomId");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
+    }
+     
+    public List<RoomDTO> searchSortById()
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(SEARCH_SORT_BY_ID_ASC);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int roomId = rs.getInt("roomId");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
+    }
+    
+     public List<RoomDTO> searchSortByIdDesc()
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(SEARCH_SORT_BY_ID_DESC);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int roomId = rs.getInt("roomId");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
+    }
+     
+     public List<RoomDTO> searchSortByDescAndPrice(String size ,float priceMin, float priceMax)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(SEARCH_SORT_BY_DESC_AND_PRICE);
+                stm.setFloat(1, priceMin);
+                stm.setFloat(2, priceMax);
+                stm.setString(3, "%" + size + "%");
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int roomId = rs.getInt("roomId");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
     }
 }

@@ -71,7 +71,12 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_FOR_CUSTOMER_CONTROLLER);
             } else if (button.equals("Search room for customer google")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER);
-            } else if (button.equals("Update Owned Room")) {
+            } else if (button.equals("Sort Room")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_SORT_ROOM_FOR_CUSTOMER_CONTROLLER);
+            } else if (button.equals("Sort Room For Google")) {
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_SORT_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER);
+            } 
+            else if (button.equals("Update Owned Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.UPDATE_BOOKED_ROOM_CONTROLLER);
             } else if (button.equals("Delete Booked Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_BOOKED_ROOM_CONTROLLER);
