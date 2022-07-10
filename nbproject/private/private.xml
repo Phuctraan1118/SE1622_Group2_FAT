@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/service/impl/RegulationServiceImpl.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/dto/RegulationDto.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/notifi.jsp</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/MainController.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/user.jsp</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/NotificationDisplayController.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/dao/RegulationDao.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/dao/NotificationDao.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/service/impl/NotificationServerImpl.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RegulationDisplayController.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/SearchStaffController.java</file>
+            <file>file:/C:/Users/hungp/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/regulation.jsp</file>
+        </group>
     </open-files>
 </project-private>

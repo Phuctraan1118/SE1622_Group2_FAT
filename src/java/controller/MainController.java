@@ -34,7 +34,9 @@ public class MainController extends HttpServlet {
     private static final String SEARCH_NOTIFICATION = "NotificationDisplayController";
     private static final String UPDATE_NOTIFICATION = "NotificationUpdateController";
     private static final String DELETE_NOTIFICATION = "NotificationDeleteController";
-    
+
+    private static final String SEARCH_REGULATION = "RegulationDisplayController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -75,8 +77,7 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_SORT_ROOM_FOR_CUSTOMER_CONTROLLER);
             } else if (button.equals("Sort Room For Google")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_SORT_ROOM_FOR_CUSTOMER_GOOGLE_CONTROLLER);
-            } 
-            else if (button.equals("Update Owned Room")) {
+            } else if (button.equals("Update Owned Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.UPDATE_BOOKED_ROOM_CONTROLLER);
             } else if (button.equals("Delete Booked Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_BOOKED_ROOM_CONTROLLER);
@@ -106,11 +107,13 @@ public class MainController extends HttpServlet {
                 url = CREATE_NOTIFICATION;
             } else if (button.equals("Search Notification")) {
                 url = SEARCH_NOTIFICATION;
+            } else if (button.equals("Search Regulation")) {
+                url = SEARCH_REGULATION;
             } else if (button.equals("Update Notification")) {
                 url = UPDATE_NOTIFICATION;
             } else if (button.equals("Remove Notification")) {
                 url = DELETE_NOTIFICATION;
-            }else if (button.equals("View Revenue")) {
+            } else if (button.equals("View Revenue")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             }
 

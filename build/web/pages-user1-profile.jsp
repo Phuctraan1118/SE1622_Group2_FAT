@@ -45,7 +45,10 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                     <h6>Welcome ${USER.name} (USER)</h6>
+                    <font color="green">
+                    <div>
+                        <h6>Welcome ${USER.name} (USER)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>

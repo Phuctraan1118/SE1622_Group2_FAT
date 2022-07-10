@@ -40,9 +40,9 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="green">
-                     <div>
-                      <h6>Welcome ${USER.name} (USER)</h6>
+                    <font color="green">
+                    <div>
+                        <h6>Welcome ${USER.name} (USER)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -77,6 +77,17 @@
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Room</div>
+                        </a>
+
+                    </li>
+                    
+                    <li>
+
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Regulation</div>
                         </a>
 
                     </li>
