@@ -47,7 +47,10 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <h6>Welcome ${USER.name} (ADMIN)</h6>
+                    <font color="red">
+                     <div>
+                      <h6>Welcome ${USER.name} (ADMIN)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
