@@ -42,7 +42,7 @@
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-        <title>Room Management</title>
+        <title>Edit Management</title>
         <style>
             .error{
                 color: red;
@@ -51,6 +51,7 @@
                 color: green;
             }
         </style>
+
     </head>
 
     <body>
@@ -61,8 +62,8 @@
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <font color="yellow">
-                     <div>
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
+                    <div>
+                        <h6>Welcome ${USER.name} (STAFF)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -70,7 +71,7 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li class="mm-active">
+                    <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
@@ -83,33 +84,23 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="customer.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
-                                </a>
-                            </li>
-                            <li>
                                 <a href="managementRoom.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="bookingManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages-staff-profile.jsp">
+                        <a href="pages-user1-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Staff Profile</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="pages-edit-staff-profile.jsp">
+                            <a href="pages-edit-profile.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -117,29 +108,6 @@
                             </a>
                         </li>
                     </c:if>
-                    <!--                    <li class="menu-label">STAFF</li>-->
-                    <!--                    <li>
-                                            <a class="has-arrow" href="javascript:;">
-                                                <div class="parent-icon">
-                                                    <ion-icon name="lock-closed-sharp"></ion-icon>
-                                                <div class="menu-title">Au                                                </div>
-thentication</div>
-                                            </a>
-                                            <ul>
-                                                <li> <a href="authentication-sign-in-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign In Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-sign-up-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign Up Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-reset-password-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Reset Password Simple
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>-->
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -151,16 +119,6 @@ thentication</div>
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    <form action="MainController" class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                            <ion-icon name="search-sharp"></ion-icon>
-                        </div>
-                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search description">
-                        <input type="hidden" value="SEARCH ROOM" name="btn" />
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                            <ion-icon name="close-sharp"></ion-icon>
-                        </div>
-                    </form>
 
                     <div class="top-navbar-right ms-auto">
 
@@ -355,7 +313,7 @@ thentication</div>
                                                 <div class="">
                                                     <ion-icon name="speedometer-outline"></ion-icon>
                                                 </div>
-                                                <div class="ms-3"><span>Room Management</span></div>
+                                                <div class="ms-3"><span>Management</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -418,323 +376,98 @@ thentication</div>
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Room Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Room</li>
                                 </ol>
                             </nav>
                         </div>
-                        <div class="ms-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button"
-                                        class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                                                                                                        href="javascript:;">Action</a>
-                                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!--end breadcrumb-->
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <h6 class="mb-0">View Room Not Booked</h6>
-                            </div>
-                            <div class="table-responsive mt-2">
-                                <table class="table align-middle mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>No</th>
-                                            <th>ID ROOM</th>
-                                            <th>DESCRIPTION</th>
-                                            <th>PRICE</th>
-                                            <th>IMAGE</th>
-                                            <th>EDIT</th>
-                                            <th>DELETE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                        <form action="MainController" method="POST">
-                                            <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
-                                            <tr>
-                                                <td>${counter.count}</td>
-                                                <td>
-<!--                                                    <div class="d-flex align-items-center gap-3">-->
-                                                        ${dto.roomId}
-<!--                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${dto.roomId}"></h6>
-                                                        </div>-->
-<!--                                                    </div>-->
-                                                </td>
-                                                <td>
-                                                    ${dto.roomDescription}
-<!--                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${dto.roomDescription}">
-                                                    </div>-->
-                                                </td>
-                                                <td>
-                                                    ${dto.roomPrice}
-<!--                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${dto.roomPrice}">
-                                                    </div>-->
-                                                </td>
-                                                <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-original-title="Update info" aria-label="Update">
-                                                                                                                    <ion-icon name="pencil-sharp"></ion-icon>
-                                                                                                                </button> -->
-                                                        <a href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
-                                                           &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}"><ion-icon name="pencil-sharp"></ion-icon></a>
-                                                        <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Room" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
-                                                        </button>
-                                                        <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
-                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </form>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <hr>
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+                </div>
+                <!-- end page content-->
+                <div class="card radius-10 w-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">Edit</h6>
                         </div>
-
-                    </div>
-                    <br/>
-                    <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">ADD NEW ROOM</button>
-                    <!-- end page content-->
-                    <div id="showOrHide">
-                        <div class="card-body">
-
-                            <div class="table-responsive mt-2">
-                                <table class="table align-middle mb-0">
-                                    <div class="row">
-                                        <div class="col-xl-12 mx-auto">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="p-4 border rounded">
-                                                        <form class="row g-3" action="MainController" method="POST">
-                                                            <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
-                                                            <div class="row align-content-center">
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault01" class="form-label">Room Description</label>
-                                                                    <input type="text" class="form-control" id="validationDefault01" name="txtCreateRoomDescription" value="${param.txtCreateRoomDescription}" required="">
-                                                                    <p class="error">${errors.roomDescriptionLengthError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault02" class="form-label">Price</label>
-                                                                    <input type="text" class="form-control" name="txtCreateRoomPrice" value="${param.txtCreateRoomPrice}" required="">
-                                                                    <p class="error">${errors.priceStringError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Image</label>
-                                                                    <input type="file"  name="txtCreateImage" value="${param.txtCreateImage}" class="form-control" aria-label="file example" required>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <button type="submit" class="btn btn-primary" name="btn" value="ADD ROOM">ADD ROOM</button>
-                                                                </div>
+                        <div class="table-responsive mt-2">
+                            <table class="table align-middle mb-0">
+                                <div class="row">
+                                    <div class="col-xl-12 mx-auto">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="p-4 border rounded">
+                                                    <form class="row g-3" action="MainController" method="POST">
+                                                        <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
+                                                        <div class="row align-content-center">
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault01" class="form-label">Name</label>
+                                                                <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${param.txtUsername}" required="">
+                                                                </br> ${param.txtRoomId}
                                                             </div>
-                                                        </form>
-                                                    </div>
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault02" class="form-label">Full Name</label>
+                                                                <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="${param.txtFullName}" required="">
+                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
+                                                                    <font color="red"> 
+                                                                    ${errors1.roomDescriptionLengthError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault02" class="form-label">Address</label>
+                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
+                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
+                                                                    <font color="red"> 
+                                                                    ${errors1.roomDescriptionLengthError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault02" class="form-label">Phone</label>
+                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
+                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
+                                                                    <font color="red"> 
+                                                                    ${errors1.roomDescriptionLengthError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault02" class="form-label">CMND/CCCD</label>
+                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
+                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
+                                                                    <font color="red"> 
+                                                                    ${errors1.roomDescriptionLengthError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label for="validationDefault02" class="form-label">Email</label>
+                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomPrice" value="${param.txtRoomPrice}" required="">
+                                                                <c:if test="${not empty errors1.priceStringError}">
+                                                                    <font color="red">
+                                                                    ${errors1.priceStringError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault03" class="form-label">Image</label>
+                                                                <input type="file"  name="txtImage" value="${param.txtImage}" class="form-control" aria-label="file example">
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Staff">Update Staff</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </div>
+                            </table>
                         </div>
                     </div>
-                                                              </br>   </br>   </br>
-                                    <div class="card-body">
-                                            <h6 class="mb-0">View Room Booked</h6>
-                                            </br>  </br>
-                                          
-                                           
-                                            
-                                            <form action="MainController" class="searchbar">
-                                                <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                                                    <ion-icon name="search-sharp"></ion-icon>
-                                                </div>
-                                                <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
-                                                <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
-                                                                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                                                                            <ion-icon name="close-sharp"></ion-icon>
-                                                                        </div>
-                                            </form>
-                                            <div class="d-flex align-items-center">
-
-                                                <div class="fs-5 ms-auto dropdown">
-                                                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                                            class="bi bi-three-dots"></i></div>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li>
-                                                            <hr class="dropdown-divider">
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           <div class="table-responsive mt-2">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="p-4 border rounded">
-                                                            <table class="table align-middle mb-0">
-                                                                <thead class="table-light">
-                                                                    <tr>
-                                                                        <th>No</th>
-                                                                        <th>ID ROOM</th>
-                                                                        <th>DESCRIPTION</th>
-                                                                        <th>PRICE</th>
-                                                                        <th>BOOKING DATE</th>
-                                                                        <th>CHECK IN DATE</th>
-                                                                        <th>CHECK OUT DATE</th>
-                                                                        <th>USERNAME</th>
-                                                                        <th>IMAGE</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                    <c:forEach var="dtoBooked" items="${requestScope.SEARCH_BOOKED}" varStatus="counter">
-                    <form action="MainController" method="POST">
-                        <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="product-info">
-                                        ${dtoBooked.roomId}
-                                    </div>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.roomDescription}
-                                 
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.roomPrice}
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.bookingDate}
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.checkinDate}
-                                    
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.checkoutDate}
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.username}
-                                   
-                                </div>
-                            </td>
-                            <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
-                         <!-- comment   <td>
-                        <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
-                        <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
-
-                    </td>
-                    
-                    <td>
-
-                        <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
-                            &txtRoomPrice1=${dtoBooked.roomPrice}&txtBookingDate=${dtoBooked.bookingDate}
-                            &txtCheckInDate=${dtoBooked.checkinDate}
-                            &txtCheckOutDate=${dtoBooked.checkoutDate}
-                            &txtUsername=${dtoBooked.username}&txtStatus1=${dtoBooked.status}
-                            &txtImage1=${dtoBooked.image}&txtBookingId=${dtoBooked.bookingId}"
-                            >Edit</a>
-
-                    </td> 
-                    <td>
-                        <input type="submit" name="btn" value="Delete Booked Room" />
-                        <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
-                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
-                    </td>
-                               -->
-                </tr>
-            </form>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="card-body">
-    <div class="card-title">
-        <hr>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
                 </div>
             </div>
-
-
             <!--end page content wrapper-->
             <!--start footer-->
             <footer class="footer">
@@ -847,17 +580,17 @@ thentication</div>
                 </script>-->
 
         <script>
-                    function showOrHideDiv() {
-                        var show = document.getElementById("showOrHide");
-                        if (show.style.display === "none") {
-                            show.style.display = "block";
-                        } else {
-                            show.style.display = "none";
-                        }
-                    }
-                    function ConfirmDelete() {
-                        return confirm("Are you sure you want to delete?");
-                    }
+            function showOrHideDiv() {
+                var show = document.getElementById("showOrHide");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                } else {
+                    show.style.display = "none";
+                }
+            }
+            function ConfirmDelete() {
+                return confirm("Are you sure you want to delete?");
+            }
         </script>
     </body>
 

@@ -27,7 +27,7 @@ import service.impl.UserServiceImpl;
 public class SearchStaffController extends HttpServlet {
 
     private static final String ERROR = "staff.jsp";
-    private static final String SUCCESS = "testPaging.jsp";
+    private static final String SUCCESS = "staff.jsp";
     private UserService userService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
