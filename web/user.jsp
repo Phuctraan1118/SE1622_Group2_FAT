@@ -83,7 +83,7 @@
                     
                     <li>
 
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                        <a href="regulation.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>

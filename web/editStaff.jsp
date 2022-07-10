@@ -376,7 +376,7 @@
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Edit Room</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Staff</li>
                                 </ol>
                             </nav>
                         </div>
