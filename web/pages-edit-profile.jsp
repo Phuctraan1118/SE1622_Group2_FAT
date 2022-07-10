@@ -77,11 +77,22 @@
                             <div class="menu-title">View Room</div>
                         </a>
                     </li>
+
                     <li>
 
-                        <a href="regulation.jsp">
+                        <a href="ownedRoom.jsp">
                             <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>

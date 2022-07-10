@@ -80,6 +80,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
+                              <li>
+                                <a href="regulationManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>

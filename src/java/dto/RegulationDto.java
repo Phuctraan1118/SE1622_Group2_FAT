@@ -21,6 +21,10 @@ public class RegulationDto {
         this.regulationName = regulationName;
         this.regulationDetail = regulationDetail;
     }
+     public RegulationDto(String regulationName, String regulationDetail) {
+        this.regulationName = regulationName;
+        this.regulationDetail = regulationDetail;
+    }
 
     public int getRegulationId() {
         return regulationId;

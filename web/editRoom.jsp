@@ -84,30 +84,45 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="customer.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
+                                </a>
+                            </li>
+                            <li>
                                 <a href="managementRoom.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="bookingManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="RegulationDisplayForStaffController">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="pages-staff-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">User Profile</div>
+                            <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
-                    <c:if test="${not empty User}">
                     <li>
-                        <a href="pages-edit-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
+                        <c:if test="${not empty User}">
+                            <a href="pages-edit-staff-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </c:if>
                     </li>
-                    </c:if>
                 </ul>
                 <!--end navigation-->
             </aside>

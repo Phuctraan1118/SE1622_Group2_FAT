@@ -83,9 +83,19 @@
                     
                     <li>
 
-                        <a href="regulation.jsp">
+                        <a href="RoomOwnedViewController">
                             <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
@@ -366,7 +376,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">View Room</div>
+                       <h6 class="mb-0 text-uppercase">View Room</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">

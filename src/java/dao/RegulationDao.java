@@ -23,11 +23,69 @@ public class RegulationDao {
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
-
+    
+    private static final String UPDATE = "update tblRegulation "
+            + "set  regulationName = ? , regualtionDetail = ? "
+            + "where regulationId = ? ";
     private static final String GET_ALL_REGULATION = "SELECT regulationId,regulationName,regualtionDetail FROM tblRegulation";
-    private static final String UPDATE_NOTIFICATION = "UPDATE tblNotification SET notificationName=?, detail=?, username=? where notificationId=?";
-    private static final String DELETE = "DELETE tblNotification WHERE notificationId=?";
+//    private static final String UPDATE_NOTIFICATION = "UPDATE tblNotification SET notificationName=?, detail=?, username=? where notificationId=?";
+    private static final String DELETE = "delete tblRegulation where regulationId =? ";
+    private static final String INSERT = "insert into tblRegulation( regulationName,  regualtionDetail ) "
+            + "values (?,?) ";
+    
+    
+       public boolean update(RegulationDto regu)
+            throws SQLException, NamingException {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement stm = null;
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(UPDATE);
+                stm.setString(1, regu.getRegulationName());
+                stm.setString(2, regu.getRegulationDetail());
+                stm.setInt(3, regu.getRegulationId());
+                int value = stm.executeUpdate();
+                check = value > 0;
 
+            }
+        } finally {
+
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
+    
+       public boolean create(RegulationDto regu)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        boolean row = false;
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(INSERT);
+                stm.setString(1, regu.getRegulationName());
+                stm.setString(2, regu.getRegulationDetail());
+                row = stm.executeUpdate() > 0;
+
+            }//end if connection has opened
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return row;
+    }
     public List<RegulationDto> getRegulations() throws SQLException {
         List<RegulationDto> list = new ArrayList();
         try {
@@ -57,5 +115,29 @@ public class RegulationDao {
         }
         return list;
     }
+    public boolean deleteRegulationById(int regulationId) throws SQLException, NamingException {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement stm = null;
 
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(DELETE);
+                stm.setInt(1, regulationId);
+                int value = stm.executeUpdate();
+                check = value > 0;
+
+            }
+        } finally {
+
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
 }
