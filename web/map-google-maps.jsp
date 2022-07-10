@@ -26,14 +26,14 @@
     <link href="assets/css/semi-dark.css" rel="stylesheet" />
     <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-    <title>Dashkote - Bootstrap5 Admin Template</title>
+    <title>Map</title>
   </head>
-  <body>
+  <body">
     
 
  <!--start wrapper-->
-    <div class="wrapper">
-       <!--start sidebar -->
+<!--    <div class="wrapper">-->
+<!--       start sidebar 
        <aside class="sidebar-wrapper" data-simplebar="true">
         <div class="sidebar-header">
           <div>
@@ -45,20 +45,20 @@
           <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
           </div>
         </div>
-        <!--navigation-->
+        navigation
         
           
-     </aside>
+     </aside>-->
 
 
 
-        <!-- start page content wrapper-->
-        <div class="page-content-wrapper">
+<!--         start page content wrapper
+        <div class="page-content-wrapper">-->
           <!-- start page content-->
-         <div class="page-content">
+<!--         <div class="page-content">-->
 
              <!--start breadcrumb-->
-            <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+<!--            <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
               <div class="breadcrumb-title pe-3">Maps</div>
               <div class="ps-3">
                 <nav aria-label="breadcrumb">
@@ -69,15 +69,13 @@
                   </ol>
                 </nav>
               </div>
-            </div>
+            </div>-->
             <!--end breadcrumb-->
 
 
-            <div class="row">
-              <div class="col-xl-12 mx-auto">
+            <div>
+              <div>
                     <div id="simple-map" class="gmaps"  style="visibility: hidden; display:inline;"></div>
-                <h6 class="text-uppercase">Map With Marker</h6>
-                <hr/>
                 <div class="card">
                   <div class="card-body">
                     <div id="marker-map" class="gmaps"></div>
@@ -87,9 +85,9 @@
             </div>
             <!--end row-->
 
-          </div>
-          <!-- end page content-->
-         </div>
+<!--          </div>-->
+<!--           end page content
+         </div>-->
          
 
 
@@ -106,7 +104,7 @@
           <div class="overlay nav-toggle-icon"></div>
          <!--end overlay-->
 
-     </div>
+<!--     </div>-->
   <!--end wrapper-->
 
 

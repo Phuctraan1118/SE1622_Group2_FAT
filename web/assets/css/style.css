@@ -49,7 +49,6 @@ ion-icon {
 ::placeholder {
     opacity: 0.5 !important;
 }
-
 .wrapper {
     position: relative;
     width: 100%;
@@ -910,7 +909,7 @@ ion-icon {
 }
 
 .gmaps, .gmaps-panaroma {
-    height: 400px;
+    height: 900px;
     background: #eee;
     border-radius: 3px;
 }
