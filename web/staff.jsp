@@ -67,9 +67,9 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="yellow">
-                     <div>
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
+                    <font color="yellow">
+                    <div>
+                        <h6>Welcome ${USER.name} (STAFF)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -484,10 +484,11 @@
                                                 <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Update info" aria-label="Update">
-                                                            <ion-icon name="pencil-sharp"></ion-icon>
-                                                        </button> 
+                                                        <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                        title="" data-bs-original-title="Update info" aria-label="Update">
+                                                                                                                    <ion-icon name="pencil-sharp"></ion-icon>
+                                                                                                                </button> -->
+                                                        <a href="editStaff.jsp"> <ion-icon name="pencil-sharp"></ion-icon></a>
                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                         <input type="hidden" name="userId" value="${user.id}"/>
                                                     </div>
