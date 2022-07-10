@@ -416,7 +416,16 @@
                         </div>
                     </div>
                 </section>
-
+                
+                <section class="experience section">
+                    <div class="container">
+                        <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
+                            <div class="text-parallax-content">10</div>
+                        </div>
+                        <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
+                    </div>
+                </section>
+                
                 <section class="contacts section">
                     <div class="container">
                         <header class="section-header">
@@ -425,13 +434,11 @@
                         </header>
                         <div class="section-content">
                             <div class="row-base row">
-                                <div class="col-address col-base col-md-4">
-                                    +84 845-646-648<br>
-                                    +84 969-999-094<br>
-                                    HostelVN@gmail.com<br>
-                                    FPT, Viet Nam, D1 Quan 9
+                                <div class="col-address col-base col-md-6">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6099414916966!2d106.8076943152606!3d10.841132860959346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1657436844268!5m2!1sen!2s" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
                                 </div>
-                                <div class="col-base  col-md-8">
+                                <div class="col-base  col-md-6">
                                     <form class="js-ajax-form">
                                         <div class="row-field row">
                                             <div class="col-field col-sm-6 col-md-4">
@@ -470,84 +477,78 @@
                     </div>
                 </section>
 
-                <section class="experience section">
-                    <div class="container">
-                        <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
-                            <div class="text-parallax-content">10</div>
-                        </div>
-                        <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
-                    </div>
-                </section>
 
+
+
+            </div>
+
+            <footer id="footer" class="footer">
+                <div class="container">
+                    <div class="row-base row">
+                        <div class="col-base text-left-md col-md-4">
+                            <a href="#" class="brand">
+                                Hostel<span class="text-primary">.</span>Management
+                            </a>
+                        </div>
+                        <div class="text-center-md col-base col-md-4">
+                            <a href="https://themeforest.net/user/murren20" class="author-link">
+                                by DevFPT
+                            </a>
+                        </div>
+                        <div class="text-right-md col-base col-md-4">
+                            Hostel.Management 2022. All Rights Reserved.
+                        </div>
+                    </div>
                 </div>
+            </footer>
 
-                <footer id="footer" class="footer">
-                    <div class="container">
-                        <div class="row-base row">
-                            <div class="col-base text-left-md col-md-4">
-                                <a href="#" class="brand">
-                                    Hostel<span class="text-primary">.</span>Management
-                                </a>
-                            </div>
-                            <div class="text-center-md col-base col-md-4">
-                                <a href="https://themeforest.net/user/murren20" class="author-link">
-                                    by DevFPT
-                                </a>
-                            </div>
-                            <div class="text-right-md col-base col-md-4">
-                                 Hostel.Management 2022. All Rights Reserved.
-                            </div>
-                        </div>
+            <div class="page-lines">
+                <div class="container">
+                    <div class="col-line col-xs-4">
+                        <div class="line"></div>
                     </div>
-                </footer>
-
-                <div class="page-lines">
-                    <div class="container">
-                        <div class="col-line col-xs-4">
-                            <div class="line"></div>
-                        </div>
-                        <div class="col-line col-xs-4">
-                            <div class="line"></div>
-                        </div>
-                        <div class="col-line col-xs-4">
-                            <div class="line"></div>
-                            <div class="line"></div>
-                        </div>
+                    <div class="col-line col-xs-4">
+                        <div class="line"></div>
+                    </div>
+                    <div class="col-line col-xs-4">
+                        <div class="line"></div>
+                        <div class="line"></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/smoothscroll.js"></script>
-        <script src="js/jquery.validate.min.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/jquery.stellar.min.js"></script>
-        <script src="js/jquery.magnific-popup.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
+    <script data-cfasync="false" src="js/email-decode.min.js"></script><script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
 
-        <script src="js/jquery.themepunch.tools.min.js"></script>
-        <script src="js/jquery.themepunch.revolution.min.js"></script>
+    <script src="js/jquery.themepunch.tools.min.js"></script>
+    <script src="js/jquery.themepunch.revolution.min.js"></script>
 
-        <script src="js/revolution.extension.actions.min.js"></script>
-        <script src="js/revolution.extension.carousel.min.js"></script>
-        <script src="js/revolution.extension.kenburn.min.js"></script>
-        <script src="js/revolution.extension.layeranimation.min.js"></script>
-        <script src="js/revolution.extension.migration.min.js"></script>
-        <script src="js/revolution.extension.navigation.min.js"></script>
-        <script src="js/revolution.extension.parallax.min.js"></script>
-        <script src="js/revolution.extension.slideanims.min.js"></script>
-        <script src="js/revolution.extension.video.min.js"></script>
-        <script src="js/interface.js"></script>
+    <script src="js/revolution.extension.actions.min.js"></script>
+    <script src="js/revolution.extension.carousel.min.js"></script>
+    <script src="js/revolution.extension.kenburn.min.js"></script>
+    <script src="js/revolution.extension.layeranimation.min.js"></script>
+    <script src="js/revolution.extension.migration.min.js"></script>
+    <script src="js/revolution.extension.navigation.min.js"></script>
+    <script src="js/revolution.extension.parallax.min.js"></script>
+    <script src="js/revolution.extension.slideanims.min.js"></script>
+    <script src="js/revolution.extension.video.min.js"></script>
+    <script src="js/interface.js"></script>
 
-        <!-- Google Maps -->
-        <!--plugins-->
-        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-        <!-- google maps api -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKXKdHQdtqgPVl2HI2RnUa_1bjCxRCQo4&callback=initMap" async defer></script>
-        <script src="assets/plugins/gmaps/map-custom-script.js"></script>
+    <!-- Google Maps -->
+    <!--plugins-->
+    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <!-- google maps api -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKXKdHQdtqgPVl2HI2RnUa_1bjCxRCQo4&callback=initMap" async defer></script>
+    <script src="assets/plugins/gmaps/map-custom-script.js"></script>
 
-        <script src="assets/js/main.js"></script>
-    </body>
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
