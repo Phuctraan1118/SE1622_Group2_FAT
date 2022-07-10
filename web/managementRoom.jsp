@@ -468,33 +468,16 @@ thentication</div>
                                             <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
                                             <tr>
                                                 <td>${counter.count}</td>
-                                                <td>
-<!--                                                    <div class="d-flex align-items-center gap-3">-->
-                                                        ${dto.roomId}
-<!--                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${dto.roomId}"></h6>
-                                                        </div>-->
-<!--                                                    </div>-->
-                                                </td>
+                                                <td> ${dto.roomId}</td>
                                                 <td>
                                                     ${dto.roomDescription}
-<!--                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${dto.roomDescription}">
-                                                    </div>-->
                                                 </td>
                                                 <td>
                                                     ${dto.roomPrice}
-<!--                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${dto.roomPrice}">
-                                                    </div>-->
                                                 </td>
                                                 <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-original-title="Update info" aria-label="Update">
-                                                                                                                    <ion-icon name="pencil-sharp"></ion-icon>
-                                                                                                                </button> -->
                                                         <a href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
                                                            &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}"><ion-icon name="pencil-sharp"></ion-icon></a>
                                                         <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>

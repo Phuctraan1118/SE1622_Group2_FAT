@@ -69,7 +69,8 @@
                 <div class="sidebar-header">
                     <font color="yellow">
                     <div>
-                        <h6>Welcome ${USER.name} (STAFF)</h6>
+                        <h6>Welcome
+                            ${USER.name} (STAFF) </h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -399,7 +400,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                         <h6 class="mb-0 text-uppercase">Management</h6>
+                        <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">

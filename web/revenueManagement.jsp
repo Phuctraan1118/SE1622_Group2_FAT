@@ -48,8 +48,8 @@
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <font color="red">
-                     <div>
-                      <h6>Welcome ${USER.name} (ADMIN)</h6>
+                    <div>
+                        <h6>Welcome ${USER.name} (ADMIN)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -78,7 +78,7 @@
                     <li>
                         <a href="revenueManagement.jsp">
                             <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
+                                <ion-icon name="wallet-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Revenue</div>
                         </a>
@@ -414,67 +414,140 @@
                         </div>
                     </div>
                     <!--end breadcrumb-->
-   <!-- START SHOW REVENUE -->
+                    <!-- START SHOW REVENUE -->
 
-           <form action="MainController" method="GET">
-            <input type="submit" value="View Revenue" name="btn" />
-        </form>
-        <c:if test = "${not empty requestScope.SHOW_REVENUE}">
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>NO</th>
-                        <th>BILL ID</th>
-                        <th>ROOM ID</th>
-                        <th>BILL NAME</th>
-                        <th>DATE</th>
-                        <th>ROOM PRICE</th>
-                        <th>WATER PRICE</th>
-                        <th>ELECTRONIC PRICE</th>
-                        <th>FEES PRICE</th>
-                        <th>TOTAL PRICE</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <c:forEach var="dto" items="${requestScope.SHOW_REVENUE}" varStatus="counter" >
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>${dto.billId}</td>
-                            <td>${dto.roomId}</td>
-                            <td>
-                                ${dto.billName}
-                            </td>
-                            <td>
-                                ${dto.billDate}
-                            </td>
-                            <td>
-                                ${dto.roomPrice}
-                            </td>
-                            <td>
-                                ${dto.electronicPrice}
-                            </td>
-                            <td>
-                                ${dto.waterPrice}
-                            </td>
-                            <td>
-                                ${dto.feesPrice}
-                            </td>
-                            <td>
-                                <c:set var="total" value="${dto.roomPrice + dto.electronicPrice + dto.waterPrice + dto.feesPrice}" />
-                                ${total}
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-        </c:if>
+                   
 
-               
-                <!-- END SHOW REVENUE -->
+                    <!-- END SHOW REVENUE -->
+                    <!-- start test layout -->
+                    <div class="card-body">
+                        </br>  </br>
+                        <form action="MainController" class="searchbar">
+                            <input type="submit" value="View Revenue" name="btn" />
+                        </form>
+                        <div class="d-flex align-items-center">
+
+                            <div class="fs-5 ms-auto dropdown">
+                                <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
+                                        class="bi bi-three-dots"></i></div>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="p-4 border rounded">
+                                        <table class="table align-middle mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>NO</th>
+                                                    <th>BILL ID</th>
+                                                    <th>ROOM ID</th>
+                                                    <th>BILL NAME</th>
+                                                    <th>DATE</th>
+                                                    <th>ROOM PRICE</th>
+                                                    <th>WATER PRICE</th>
+                                                    <th>ELECTRONIC PRICE</th>
+                                                    <th>FEES PRICE</th>
+                                                    <th>TOTAL PRICE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="dto" items="${requestScope.SHOW_REVENUE}" varStatus="counter">
+                                                <form action="MainController" method="POST">
+                                                    <tr>
+                                                        <td>${counter.count}</td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <div class="product-info">
+                                                                    ${dto.billId}
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <div class="product-info">
+                                                                    ${dto.roomId}
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dto.billName}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dto.billDate}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="product-info">
+                                                                ${dto.roomPrice}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="product-info">
+                                                                ${dto.electronicPrice}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="product-info">
+                                                                ${dto.waterPrice}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="product-info">
+                                                                ${dto.feesPrice}
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="product-info">
+                                                                <c:set var="total" value="${dto.roomPrice + dto.electronicPrice + dto.waterPrice + dto.feesPrice}" />
+                                                                ${total}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </form>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">
+                                <hr>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;">2</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;">3</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end test layout -->
 
 
                 </div>
-             
+
 
                 <!-- end page content-->
             </div>
