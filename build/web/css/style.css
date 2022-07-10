@@ -240,6 +240,11 @@ a:focus{
 /* 1.3 Fields */
 
 
+.map{
+    flex:1 1 45rem;
+    width: 100%;
+    object-fit: cover;
+}
 
 .form-control,
 textarea.form-control{

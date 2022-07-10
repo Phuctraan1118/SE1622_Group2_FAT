@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet" media="screen">
+
     </head>
     <body>
 
@@ -80,21 +81,13 @@
                             <a href="about.html">About us</a>
                         </li>
                         <li>
-                            <a href="projects.html">Projects</a>
-                            <ul>
-                                <li><a href="projects.html">Projects - List</a></li>
-                                <li>
-                                    <a href="project.html">Project - details</a>
-                                </li>
-                            </ul>
+                            <a  href="map-google-maps.jsp">Map</a>
                         </li>
                         <li>
                             <a href="blog.html">Contacts</a>
                             <ul>
-                                <li><a href="blog.html">Blog - List</a></li>
-                                <li>
-                                    <a href="blog-details.html">Blog - Post</a>
-                                </li>
+                                <li><a>+84 845-646-648</a></li>
+                                <li><a>HostelVN@gmail.com</a></li>
                             </ul>
                         </li>
                         <li>
@@ -245,7 +238,7 @@
                     <div class="section-content">
                         <div class="projects-carousel js-projects-carousel js-projects-gallery">
                             <div class="project project-light">
-                                <a href="img/projects/1-480x880.jpg" title="project 1">
+                                <a href="images/1.1.jpg" title="Photo 1">
                                     <figure>
                                         <img alt src="images/1-480x880.jpg">
                                         <figcaption>
@@ -261,7 +254,7 @@
                                 </a>
                             </div>
                             <div class="project project-light">
-                                <a href="img/projects/2-480x880.jpg" title="project 2">
+                                <a href="images/1.2.jpg" title="Photo 2">
                                     <figure>
                                         <img alt src="images/2-480x880.jpg">
                                         <figcaption>
@@ -277,7 +270,7 @@
                                 </a>
                             </div>
                             <div class="project">
-                                <a href="img/projects/3-480x880.jpg" title="project 3">
+                                <a href="images/1.3.jpg" title="Photo 3">
                                     <figure>
                                         <img alt src="images/3-480x880.jpg">
                                         <figcaption>
@@ -293,7 +286,7 @@
                                 </a>
                             </div>
                             <div class="project">
-                                <a href="img/projects/4-480x880.jpg" title="project 4">
+                                <a href="images/1.4.jpg" title="Photo 4">
                                     <figure>
                                         <img alt src="images/4-480x880.jpg">
                                         <figcaption>
@@ -309,7 +302,7 @@
                                 </a>
                             </div>
                             <div class="project">
-                                <a href="img/projects/5-480x880.jpg" title="project 5">
+                                <a href="images/1.5.jpg" title="Photo 5">
                                     <figure>
                                         <img alt src="images/5-480x880.jpg">
                                         <figcaption>
@@ -325,7 +318,7 @@
                                 </a>
                             </div>
                             <div class="project">
-                                <a href="img/projects/6-480x880.jpg" title="project 6">
+                                <a href="images/1.6.jpg" title="Photo 6">
                                     <figure>
                                         <img alt src="images/6-480x880.jpg">
                                         <figcaption>
@@ -341,7 +334,7 @@
                                 </a>
                             </div>
                             <div class="project">
-                                <a href="img/projects/7-480x880.jpg" title="project 7">
+                                <a href="images/1.7.jpg" title="Photo 7">
                                     <figure>
                                         <img alt src="images/7-480x880.jpg">
                                         <figcaption>
@@ -357,7 +350,7 @@
                                 </a>
                             </div>
                             <div class="project">
-                                <a href="img/projects/8-480x880.jpg" title="project 8">
+                                <a href="images/1.8.jpg" title="Photo 8">
                                     <figure>
                                         <img alt src="images/8-480x880.jpg">
                                         <figcaption>
@@ -376,14 +369,7 @@
                     </div>
                 </section>
 
-                <section class="experience section">
-                    <div class="container">
-                        <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
-                            <div class="text-parallax-content">12</div>
-                        </div>
-                        <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
-                    </div>
-                </section>
+
 
                 <section class="clients section">
                     <div class="container">
@@ -440,10 +426,10 @@
                         <div class="section-content">
                             <div class="row-base row">
                                 <div class="col-address col-base col-md-4">
-                                    +7 (212) 654-33-35<br>
-                                    +7 (212) 287-85-22<br>
-                                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="046d6a626b44636b6576676c2a676b69">[email&#160;protected]</a><br>
-                                    USA, New York, 57 Quigley Bridge
+                                    +84 845-646-648<br>
+                                    +84 969-999-094<br>
+                                    HostelVN@gmail.com<br>
+                                    FPT, Viet Nam, D1 Quan 9
                                 </div>
                                 <div class="col-base  col-md-8">
                                     <form class="js-ajax-form">
@@ -484,6 +470,17 @@
                     </div>
                 </section>
 
+                <section class="experience section">
+                    <div class="container">
+                        <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
+                            <div class="text-parallax-content">10</div>
+                        </div>
+                        <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
+                    </div>
+                </section>
+
+                </div>
+
                 <footer id="footer" class="footer">
                     <div class="container">
                         <div class="row-base row">
@@ -494,11 +491,11 @@
                             </div>
                             <div class="text-center-md col-base col-md-4">
                                 <a href="https://themeforest.net/user/murren20" class="author-link">
-                                    by Murren20
+                                    by DevFPT
                                 </a>
                             </div>
                             <div class="text-right-md col-base col-md-4">
-                                © Hostel.Management 2022. All Rights Reserved.
+                                 Hostel.Management 2022. All Rights Reserved.
                             </div>
                         </div>
                     </div>
@@ -543,5 +540,14 @@
         <script src="js/revolution.extension.slideanims.min.js"></script>
         <script src="js/revolution.extension.video.min.js"></script>
         <script src="js/interface.js"></script>
+
+        <!-- Google Maps -->
+        <!--plugins-->
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <!-- google maps api -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKXKdHQdtqgPVl2HI2RnUa_1bjCxRCQo4&callback=initMap" async defer></script>
+        <script src="assets/plugins/gmaps/map-custom-script.js"></script>
+
+        <script src="assets/js/main.js"></script>
     </body>
 </html>
