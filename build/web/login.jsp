@@ -78,7 +78,7 @@
                                                                 <input id="pass" type="password" class="input" name="txtPassword" value="<%=password%>" data-type="password" placeholder="Enter your password">
                                                             </div>
                                                             <div class="group">
-                                                                <input id="check" type="checkbox" name="txtRemember" id="remember-me" value="1" class="check" checked
+                                                                <input id="check" type="checkbox" name="txtRemember" id="remember-me" value="1" class="check"
                                                                        <% if ("1".equals(remember)) {
                                                                        %>
                                                                        checked="checked"
