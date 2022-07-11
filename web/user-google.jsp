@@ -409,8 +409,8 @@
 
                                                         <div class="col-12 col-lg">
                                                             <!-- comment           <button name="btn" value="Search room for sort" type="button" class="btn btn-primary">Search</button> --> 
-<!--                                                            <input type="submit" class="btn btn-primary"  value="Sort Room For Google" name="btn">-->
-<button type="submit" name="btn" value="Sort Room For Google" class="btn btn-primary" style="text-align: center;"
+                                                            <!--                                                            <input type="submit" class="btn btn-primary"  value="Sort Room For Google" name="btn">-->
+                                                            <button type="submit" name="btn" value="Sort Room For Google" class="btn btn-primary" style="text-align: center;"
                                                                     title="">
                                                                 <ion-icon name="send-outline"></ion-icon>
                                                             </button>
