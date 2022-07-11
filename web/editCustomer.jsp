@@ -35,15 +35,14 @@
 
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
-
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <link href="assets/css/pagination.css" rel="stylesheet" />
-        <title>Customer Management</title>
+
+        <title>Edit Management</title>
         <style>
             .error{
                 color: red;
@@ -52,32 +51,27 @@
                 color: green;
             }
         </style>
+
     </head>
 
     <body>
-
-        <%
-            UserError userError = (UserError) request.getAttribute("USER_ERROR");
-            if (userError == null) {
-                userError = new UserError();
-            }
-        %>
         <!--start wrapper-->
         <div class="wrapper">
             <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="yellow">
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
-                      </font>
+                    <font color="yellow">
+                    <div>
+                        <h6>Welcome ${USER.name} (STAFF)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li class="mm-active">
+                    <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
@@ -90,38 +84,23 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="customer.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
-                                </a>
-                            </li>
-                            <li>
                                 <a href="managementRoom.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="bookingManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
-                                </a>
-                            </li>
-                              <li>
-                                <a href="regulationManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <a href="pages-staff-profile.jsp">
+                        <a href="pages-user1-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Staff Profile</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="pages-edit-staff-profile.jsp"">
+                            <a href="pages-edit-profile.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -140,16 +119,6 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    <form action="MainController" class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                            <ion-icon name="search-sharp"></ion-icon>
-                        </div>
-                        <input class="form-control" type="text" name="search" value="${param.search}" placeholder="Search Customer">
-                        <input type="hidden" value="Search Customer" name="btn" />
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                            <ion-icon name="close-sharp"></ion-icon>
-                        </div>
-                    </form>
 
                     <div class="top-navbar-right ms-auto">
 
@@ -167,53 +136,6 @@
                                         <ion-icon name="moon-sharp"></ion-icon>
                                     </div>
                                 </a>
-                            </li>
-                            <li class="nav-item dropdown dropdown-large dropdown-apps">
-                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                    <div class="">
-                                        <ion-icon name="apps-sharp"></ion-icon>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                    <div class="row row-cols-3 g-3 p-3">
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white">
-                                                <ion-icon name="cart-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Orders</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-info text-white">
-                                                <ion-icon name="people-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Teams</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-success text-white">
-                                                <ion-icon name="shield-checkmark-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Tasks</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-danger text-white">
-                                                <ion-icon name="videocam-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Media</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-warning text-white">
-                                                <ion-icon name="file-tray-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Files</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-branding text-white">
-                                                <ion-icon name="notifications-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Alerts</div>
-                                        </div>
-                                    </div>
-                                </div>
                             </li>
                             <li class="nav-item dropdown dropdown-large">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
@@ -248,7 +170,7 @@
                                                     <ion-icon name="person-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
+                                                    <h6 class="msg-name">New Staffs<span class="msg-time float-end">14 Sec
                                                             ago</span></h6>
                                                     <p class="msg-info">5 new user registered</p>
                                                 </div>
@@ -298,7 +220,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
                                                             ago</span></h6>
-                                                    <p class="msg-info">New Customer comments recived</p>
+                                                    <p class="msg-info">New Staff comments recived</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -366,7 +288,7 @@
                                         <hr class="dropdown-divider">
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
                                                     <ion-icon name="person-outline"></ion-icon>
@@ -391,7 +313,7 @@
                                                 <div class="">
                                                     <ion-icon name="speedometer-outline"></ion-icon>
                                                 </div>
-                                                <div class="ms-3"><span>Customer Management</span></div>
+                                                <div class="ms-3"><span>Management</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -424,7 +346,7 @@
                                                 <div class="">
                                                     <ion-icon name="log-out-outline"></ion-icon>
                                                 </div>
-                                                <div class="ms-3"><span>Logout</span></div>
+                                                <div class="ms-3"><span name="btn">Logout</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -446,7 +368,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                         <h6 class="mb-0 text-uppercase">Management</h6>
+                        <div class="breadcrumb-title pe-3">Management</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -454,204 +376,69 @@
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Customer Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Staff</li>
                                 </ol>
                             </nav>
                         </div>
-                        <div class="ms-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button"
-                                        class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                                                                                                        href="javascript:;">Action</a>
-                                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!--end breadcrumb-->
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <h6 class="mb-0">List Of Customer</h6>
-                                <div class="fs-5 ms-auto dropdown">
-                                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                            class="bi bi-three-dots"></i></div>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="table-responsive mt-2">
-                                <div id="gallery-items" class="gallery-items">
-                                        <div class="pagination">
-                                            <div class="prev">Prev</div>
-                                            <div class="page">Page <span class="page-num"></span></div>
-                                            <div class="next">Next</div>
-                                        </div>
-                                    </div>
-                                <table class="table align-middle mb-0">
-                                    <thead class="table-light">
-                                        <tr>
-                                            <th>STT</th>
-                                            <th>Name</th>
-                                            <th>Full Name</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>CMND/CCCD</th>
-                                            <th>Email</th>
-                                            <th>Image</th>
-                                            <th>&nbsp;</th>
-                                            <th>&nbsp;</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="user" items="${sessionScope.LIST_USER}" varStatus="counter">
-                                        <form action="MainController">
-
-                                            <tr>
-                                                <td>${counter.count}</td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${user.username}"></h6>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${user.fullName}">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${user.address}">
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${user.phone}"></td>
-                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${user.citizenIdentification}"></td>
-                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${user.email}"></td>
-                                                <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-original-title="Update info" aria-label="Update">
-                                                                                                                    <ion-icon name="pencil-sharp"></ion-icon>
-                                                                                                                </button> -->
-                                                        <a href="editCustomer.jsp?userId=${user.id}"> <ion-icon name="pencil-sharp"></ion-icon></a>
-                                                        <input type="hidden" name="search" value="${param.search}"/>
-                                                        <input type="hidden" name="userId" value="${user.id}"/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Customer" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
-                                                        </button>
-                                                        <input type="hidden" name="search" value="${param.search}"/>
-                                                        <input type="hidden" name="userId" value="${user.id}"/>
-                                                    </div>
-                                                </td>
-                                            </tr>
-
-                                        </form>
-                                    </c:forEach>
-                            </div>
-                            </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-                    <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">Add Customer</button>
                 </div>
                 <!-- end page content-->
-                <div id="showOrHide">
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <h6 class="mb-0">Add Customer</h6>
-                            </div>
-                            <div class="table-responsive mt-2">
-                                <table class="table align-middle mb-0">
-                                    <div class="row">
-                                        <div class="col-xl-12 mx-auto">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="p-4 border rounded">
-                                                        <form class="row g-3" action="MainController" method="POST">
-                                                            <div class="row align-content-center">
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault01" class="form-label">User name</label>
-                                                                    <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.usernameError}</p>
+                <div class="card radius-10 w-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">Edit</h6>
+                        </div>
+                        <div class="table-responsive mt-2">
+                            <table class="table align-middle mb-0">
+                                <div class="row">
+                                    <div class="col-xl-12 mx-auto">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="p-4 border rounded">
+                                                    <c:set var="list" value="${sessionScope.LIST_USER}"></c:set>
+                                                    <c:set var="userId" value="${param.userId}"></c:set>
+                                                    <c:forEach var="x" items="${list}">
+                                                        <c:if test="${x.getId() eq userId}">
+                                                            <form action="MainController" method="post">
+                                                                <div class="row align-content-center">
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault01" class="form-label">Username</label>
+                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Full Name</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="${x.fullName}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Address</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtAddress" value="${x.address}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Phone</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Citizen Identification</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label for="validationDefault02" class="form-label">Email</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault02" class="form-label">Password</label>
-                                                                    <input type="password" class="form-control" id="validationDefault02" name="txtPassword" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.passwordError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault02" class="form-label">Full name</label>
-                                                                    <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Email</label>
-                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtEmail" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.emailError}</p>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <label for="validationDefault03" class="form-label">Address</label>
-                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtAddress" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.addressError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Phone</label>
-                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtPhone" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Citizen Identification</label>
-                                                                    <input type="text" class="form-control" id="validationDefault03" name="txtCitizenIdentification" value="" required="">
-                                                                    <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Image</label>
-                                                                    <input type="file"  name="txtImg" class="form-control" aria-label="file example" required>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <button type="submit" class="btn btn-primary" name="btn" value="Add Customer">Add Customer</button>
-                                                                </div>
-                                                            </div>
-                                                            <p class="error">${requestScope.USER_ERROR.messageError}</p>
-                                                        </form>
-                                                    </div>
+                                                            </form>
+                                                        </c:if> 
+                                                    </c:forEach>
                                                 </div>
-                                                <c:set var="created" value="${requestScope.CREATED}"/>
-                                                <c:if test="${not empty created}">
-                                                    <p class="success">Username ${created} is created</p>
-                                                </c:if>
-                                                <c:set var="dupplicate" value="${requestScope.USER_DUPPLICATE}"/>
-                                                <c:if test="${not empty dupplicate}">
-                                                    <p class="error">User `${dupplicate}` is existed</p>
-                                                </c:if> 
                                             </div>
                                         </div>
                                     </div>
-                                    </tbody>
-                                </table>
-                            </div>
+                                </div>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -760,7 +547,6 @@
         <script src="assets/js/index.js"></script>
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>
-        <script src="PaginationJquery/app.js"></script>
 
         <!--        <script>
                     function ConfirmDelete(){
@@ -769,17 +555,17 @@
                 </script>-->
 
         <script>
-                        function showOrHideDiv() {
-                            var show = document.getElementById("showOrHide");
-                            if (show.style.display === "none") {
-                                show.style.display = "block";
-                            } else {
-                                show.style.display = "none";
-                            }
-                        }
-                        function ConfirmDelete() {
-                            return confirm("Are you sure you want to delete?");
-                        }
+            function showOrHideDiv() {
+                var show = document.getElementById("showOrHide");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                } else {
+                    show.style.display = "none";
+                }
+            }
+            function ConfirmDelete() {
+                return confirm("Are you sure you want to delete?");
+            }
         </script>
     </body>
 
