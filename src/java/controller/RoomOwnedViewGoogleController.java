@@ -24,22 +24,21 @@ import utils.MyApplicationConstants;
  *
  * @author Bitano
  */
-@WebServlet(name = "RoomOwnedViewController", urlPatterns = {"/RoomOwnedViewController"})
-public class RoomOwnedViewController extends HttpServlet {
+@WebServlet(name = "RoomOwnedViewGoogleController", urlPatterns = {"/RoomOwnedViewGoogleController"})
+public class RoomOwnedViewGoogleController extends HttpServlet {
 
- 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-                ServletContext context = this.getServletContext();
+        ServletContext context = this.getServletContext();
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
-        String url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_FOR_CUSTOMER_PAGE);
+        String url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER_PAGE);
         try {
             String username = request.getParameter("txtUser");
             RoomDAO dao = new RoomDAO();
             List<RoomDTO> dto = dao.viewOwnedRoom(username);
             request.setAttribute("OWNED_ROOM", dto);
-            url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_FOR_CUSTOMER_PAGE);
+            url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER_PAGE);
         } catch (NamingException ex) {
             log("SearchServlet_SQL " + ex.getMessage());
         } catch (SQLException ex) {

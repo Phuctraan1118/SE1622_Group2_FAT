@@ -1,3 +1,9 @@
+<%-- 
+    Document   : ownedRoomGoogle
+    Created on : Jul 11, 2022, 5:18:19 PM
+    Author     : Bitano
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -40,7 +46,10 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <h6>Welcome ${USER.name} (USER)</h6>
+                    <font color="green">
+                    <div>
+                        <h6>Welcome ${USER.name} (USER)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -87,7 +96,7 @@
                         </a>
 
                     </li>
-                    <li>
+                     <li>
 
                         <a href="regulationGoogle.jsp">
                             <div class="parent-icon">
@@ -290,7 +299,7 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${User.img}" class="user-img" alt="">
+                                        <img  src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -307,7 +316,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user-profile.html">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
@@ -372,17 +381,19 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">View Room</div>
-                        <div class="ps-3">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb mb-0 p-0 align-items-center">
-                                    <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Booking</li>
-                                </ol>
-                            </nav>
+                        <h6 class="mb-0 text-uppercase">Owned Room</h6>
+                        <div class="ms-auto">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-primary">Settings</button>
+                                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
+                                    <a class="dropdown-item" href="javascript:;">Another action</a>
+                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
+                                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                     <!--end breadcrumb-->
 
@@ -392,111 +403,125 @@
                             <div class="card shadow-sm border-0">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-12">
-
-                                            <div class="card">
-                                                <div class="card-body">
-
-                                                    <div class="row g-3">
-                                                        <div class="col-12 col-lg">
-                                                            <form action="MainController" method="Post">
-                                                                <select name="txtSize"class="form-select">
-                                                                    <option value="" selected="selected">Size</option>
-                                                                    <option value="1 giuong">Small(1 bed)</option>
-                                                                    <option value="2 giuong">Large(2 bed)</option>
-                                                                    <option value="3 giuong">Extra Large(3 bed)</option>
-                                                                </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select name="txtPrice"class="form-select">
-                                                                <option value="" selected="selected">Price</option>
-                                                                <option value="4-50">$5 to $49</option>
-                                                                <option value="49-100">$50 to $99</option>
-                                                                <option value="99-301">$100 to $300</option>
-                                                                <option value="299-1000"> Above $300</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-12 col-lg">
-                                                            <!-- comment           <button name="btn" value="Search room for sort" type="button" class="btn btn-primary">Search</button> --> 
-                                                            <!--                                                            <input type="submit" class="btn btn-primary"  value="Sort Room For Google" name="btn">-->
-                                                            <button type="submit" name="btn" value="Sort Room For Google" class="btn btn-primary" style="text-align: center;"
-                                                                    title="">
-                                                                <ion-icon name="send-outline"></ion-icon>
-                                                            </button>
-                                                        </div>
-                                                        </form>
-                                                    </div><!--end row-->
-
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="col-12 col-xl-12">
                                             <div class="product-wrapper">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <form action="MainController" method="POST" class="searchbar">
                                                             <div class="position-relative">
-                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Room Description...">
-                                                                <input type="hidden" value="Search room for customer google" name="btn" />
-                                                                <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
+                                                                <input type="hidden" value="${USER.id}" name="txtUser" />
+                                                                <input type="submit" value="View Owned Room For Google" name="btn"/>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
+                     
                                                 <div class="product-grid">
+                                                    <c:if test="${not empty requestScope.OWNED_ROOM}">
+                                                        <div class="table-responsive mt-2">
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <div class="p-4 border rounded">
+                                                                        <table class="table align-middle mb-0">
+                                                                            <thead class="table-light">
+                                                                                <tr>
+                                                                                    <th>No</th>
+                                                                                    <th>ID ROOM</th>
+                                                                                    <th>DESCRIPTION</th>
+                                                                                    <th>PRICE</th>
+                                                                                    <th>IMAGE</th>
+                                                                                    <th>BOOKING DATE</th>
+                                                                                    <th>CHECK IN DATE</th>
+                                                                                    <th>CHECK OUT DATE</th>
+                                                                                    <th>USERNAME</th>
 
-                                                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                                                        <c:if test = "${not empty requestScope.SEARCHRESULT}">
-                                                            <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                                                <div class="col">
-                                                                    <div class="card product-card">
-                                                                        <div class="card-header bg-transparent border-bottom-0">
-                                                                            <div class="d-flex align-items-center justify-content-end">
-                                                                                <a href="javascript:;">
-                                                                                    <div class="product-wishlist"> <i class="bx bx-heart"></i>
-                                                                                    </div>
-                                                                                </a>
-                                                                            </div>
-                                                                        </div>
-                                                                        <form action="MainController" method="post">
-                                                                            <img src="images/${dto.image}" class="card-img-top" alt="...">
-                                                                            <div class="card-body">
-                                                                                <div class="product-info">
-                                                                                    <a href="javascript:;">
-                                                                                        <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
-                                                                                    </a>
-                                                                                    <a href="ecommerce-product-details.html">
-                                                                                        <h6 class="product-name mb-2">${dto.roomDescription}</h6>
-                                                                                    </a>
-                                                                                    <div class="d-flex align-items-center">
-                                                                                        <div class="mb-1 product-price">
-                                                                                            <span class="fs-5">${dto.roomPrice}$</span>
-                                                                                        </div>
-                                                                                        <div class="cursor-pointer ms-auto">
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                            <i class="bx bxs-star text-warning"></i>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="product-action mt-2">
-                                                                                        <div class="d-grid">
-                                                                                            <input type="hidden" name="txtUsername" value="${User.id}" />
-                                                                                            <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                                                            <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </form>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <c:forEach var="dtoBooked" items="${requestScope.OWNED_ROOM}" varStatus="counter">
+                                                                                <form action="MainController" method="POST">
+                                                                                    <tr>
+                                                                                        <td>${counter.count}</td>
+                                                                                        <td>
+                                                                                            <div class="d-flex align-items-center gap-3">
+                                                                                                <div class="product-info">
+                                                                                                    ${dtoBooked.roomId}
+                                                                                                </div>
+                                                                                            </div>
+
+
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="box-input">
+                                                                                                ${dtoBooked.roomDescription}
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="box-input">
+                                                                                                ${dtoBooked.roomPrice}
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                                                                                        <td>
+                                                                                            <div class="box-input">
+                                                                                                ${dtoBooked.bookingDate}
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="box-input">
+                                                                                                ${dtoBooked.checkinDate}
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="box-input">
+                                                                                                ${dtoBooked.checkoutDate}
+
+                                                                                            </div>
+                                                                                        </td>
+                                                                                        <td>
+                                                                                            <div class="box-input">
+                                                                                                ${dtoBooked.username}
+
+                                                                                            </div>
+                                                                                        </td>
+
+                                                                                        <!-- comment   <td>
+                                                                                        <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
+                                                                                        <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
+                                                                
+                                                                                    </td>
+                                                                                    
+                                                                                    <td>
+                                                                
+                                                                                        <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
+                                                                                            &txtRoomPrice1=${dtoBooked.roomPrice}&txtBookingDate=${dtoBooked.bookingDate}
+                                                                                            &txtCheckInDate=${dtoBooked.checkinDate}
+                                                                                            &txtCheckOutDate=${dtoBooked.checkoutDate}
+                                                                                            &txtUsername=${dtoBooked.username}&txtStatus1=${dtoBooked.status}
+                                                                                            &txtImage1=${dtoBooked.image}&txtBookingId=${dtoBooked.bookingId}"
+                                                                                            >Edit</a>
+                                                                
+                                                                                    </td> 
+                                                                                    <td>
+                                                                                        <input type="submit" name="btn" value="Delete Booked Room" />
+                                                                                        <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
+                                                                                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
+                                                                                    </td>
+                                                                                        -->
+                                                                                    </tr>
+                                                                                </form>
+                                                                            </c:forEach>
+                                                                            </tbody>
+                                                                        </table>
                                                                     </div>
                                                                 </div>
-                                                            </c:forEach>
-                                                        </c:if>
-                                                    </div>
-
+                                                            </div>
+                                                        </div>
+                                                    </c:if>
                                                 </div>
                                             </div>
                                         </div>

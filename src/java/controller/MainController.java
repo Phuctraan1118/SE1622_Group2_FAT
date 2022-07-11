@@ -129,7 +129,9 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             } else if (button.equals("View Owned Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_FOR_CUSTOMER);
-            } 
+            } else if (button.equals("View Owned Room For Google")){
+                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER);
+            }
 
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);
