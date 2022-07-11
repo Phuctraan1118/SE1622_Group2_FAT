@@ -57,6 +57,7 @@ public class ForgotPasswordController extends HttpServlet {
                 StringBuilder sb = new StringBuilder();
                 sb.append("Dear ").append(userName).append("<br>");
                 sb.append("You are used the forgot password funtion. <br> ");
+                sb.append("I am an adminstration in Hostel Management Company <br> ");
                 sb.append("Your password is <b>").append(account.getPassword()).append("</b><br>");
                 sb.append("Regards <br>");
                 sb.append("Administrator.");

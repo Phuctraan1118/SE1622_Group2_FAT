@@ -416,7 +416,7 @@
                     <!--end breadcrumb-->
                     <!-- START SHOW REVENUE -->
 
-                   
+
 
                     <!-- END SHOW REVENUE -->
                     <!-- start test layout -->
@@ -514,10 +514,13 @@
                                                                 ${total}
                                                             </div>
                                                         </td>
+                                                        <c:set var="result" value="${result + total}" />
                                                     </tr>
                                                 </form>
                                             </c:forEach>
                                             </tbody>
+
+                                            <h2>Result : ${result}</h2>
                                         </table>
                                     </div>
                                 </div>

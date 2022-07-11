@@ -32,7 +32,8 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css" />
+        
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
@@ -418,16 +419,17 @@
                                                                         <label for="validationDefault02" class="form-label">Phone</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Citizen Identification</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
                                                                     </div>
-                                                                    <div class="col-md-2">
+                                                                    <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Email</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
                                                                     </div>
                                                                     <div class="col-md-1">
-                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
+                                                                        <button type="button" class="btn btn-success px-5" onclick="success_noti()" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
+                                                                        <button type="submit" class="btn btn-info px-5" style="margin-top: 24px;"  name="btn" value="Update Customer">Back to Customer Management</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -447,7 +449,7 @@
             <!--start footer-->
             <footer class="footer">
                 <div class="footer-text">
-                    Copyright © 2021. All right reserved.
+                    FAT-Group2
                 </div>
             </footer>
             <!--end footer-->
@@ -548,25 +550,10 @@
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>
 
-        <!--        <script>
-                    function ConfirmDelete(){
-                        return confirm("Are you sure you want to delete?");
-                    }
-                </script>-->
+        <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+        <script src="assets/plugins/notifications/js/notifications.min.js"></script>
+        <script src="assets/plugins/notifications/js/notification-custom-script.js"></script>
 
-        <script>
-            function showOrHideDiv() {
-                var show = document.getElementById("showOrHide");
-                if (show.style.display === "none") {
-                    show.style.display = "block";
-                } else {
-                    show.style.display = "none";
-                }
-            }
-            function ConfirmDelete() {
-                return confirm("Are you sure you want to delete?");
-            }
-        </script>
     </body>
 
 </html>

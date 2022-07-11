@@ -44,7 +44,7 @@ public class RevenueDAO {
                     float waterPrice = rs.getFloat("waterPrice");
                     float roomPrice = rs.getFloat("roomPrice");
                     float feesPrice = rs.getFloat("feesPrice");
-                    list.add(new RevenueDTO(billId, roomId, serviceId, feeId, billName, billName, electronicPrice, waterPrice, roomPrice, feesPrice));
+                    list.add(new RevenueDTO(billId, roomId, serviceId, feeId, billName, date, electronicPrice, waterPrice, roomPrice, feesPrice));
 
                 }//End traverse Result Set
             }//end if connection has opened
