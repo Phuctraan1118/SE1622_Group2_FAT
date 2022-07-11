@@ -396,68 +396,43 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="p-4 border rounded">
-                                                    <form class="row g-3" action="MainController" method="POST">
-                                                        <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
-                                                        <div class="row align-content-center">
-                                                            <div class="col-md-3">
-                                                                <label for="validationDefault01" class="form-label">Name</label>
-                                                                <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${param.txtUsername}" required="">
-                                                                </br> ${param.txtRoomId}
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="validationDefault02" class="form-label">Full Name</label>
-                                                                <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="${param.txtFullName}" required="">
-                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
-                                                                    <font color="red"> 
-                                                                    ${errors1.roomDescriptionLengthError}
-                                                                    </font> <br/>
-                                                                </c:if>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="validationDefault02" class="form-label">Address</label>
-                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
-                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
-                                                                    <font color="red"> 
-                                                                    ${errors1.roomDescriptionLengthError}
-                                                                    </font> <br/>
-                                                                </c:if>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="validationDefault02" class="form-label">Phone</label>
-                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
-                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
-                                                                    <font color="red"> 
-                                                                    ${errors1.roomDescriptionLengthError}
-                                                                    </font> <br/>
-                                                                </c:if>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="validationDefault02" class="form-label">CMND/CCCD</label>
-                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
-                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
-                                                                    <font color="red"> 
-                                                                    ${errors1.roomDescriptionLengthError}
-                                                                    </font> <br/>
-                                                                </c:if>
-                                                            </div>
-                                                            <div class="col-md-2">
-                                                                <label for="validationDefault02" class="form-label">Email</label>
-                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomPrice" value="${param.txtRoomPrice}" required="">
-                                                                <c:if test="${not empty errors1.priceStringError}">
-                                                                    <font color="red">
-                                                                    ${errors1.priceStringError}
-                                                                    </font> <br/>
-                                                                </c:if>
-                                                            </div>
-                                                            <div class="col-md-3">
-                                                                <label for="validationDefault03" class="form-label">Image</label>
-                                                                <input type="file"  name="txtImage" value="${param.txtImage}" class="form-control" aria-label="file example">
-                                                            </div>
-                                                            <div class="col-md-1">
-                                                                <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Staff">Update Staff</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
+                                                    <c:set var="list" value="${sessionScope.LIST_USER}"></c:set>
+                                                    <c:set var="userId" value="${param.userId}"></c:set>
+                                                    <c:forEach var="x" items="${list}">
+                                                        <c:if test="${x.getId() eq userId}">
+                                                            <form action="MainController" method="post">
+                                                                <div class="row align-content-center">
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault01" class="form-label">Username</label>
+                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Full Name</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="${x.fullName}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Address</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtAddress" value="${x.address}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Phone</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-3">
+                                                                        <label for="validationDefault02" class="form-label">Citizen Identification</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <label for="validationDefault02" class="form-label">Email</label>
+                                                                        <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Staff">Update Staff</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </c:if> 
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                         </div>

@@ -8,6 +8,7 @@ import java.io.IOException;
 import dao.UserDao;
 import dto.UserCreateDto;
 import form.UserCreateForm;
+import form.UserError;
 import form.UserUpdateForm;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +17,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.UserService;
+import service.UserValidationService;
 import service.impl.UserServiceImpl;
+import service.impl.UserValidationServiceImpl;
 
 /**
  *
@@ -26,21 +29,37 @@ import service.impl.UserServiceImpl;
 public class UpdateStaffController extends HttpServlet {
 
     private static final String ERROR = "staff.jsp";
-    private static final String SUCCESS = "staff.jsp";
+    private static final String SUCCESS = "SearchStaffController?search=";
     private UserService userService;
+    private UserValidationService userValidationService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+        boolean check = true;
 
         UserUpdateForm userUpdateForm = getUserForm(request);
         userService = new UserServiceImpl();
+//        userValidationService = new UserValidationServiceImpl();
+//        UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
+//        if (userError != null) {
+//            check = false;
+//            request.setAttribute("USER_ERROR", userError);
+//            forwardToJsp(request, url, response);
+//        }
+//        if (check) {
         UserCreateDto userDto = userService.updateUser(userUpdateForm);
         if (userDto != null) {
             request.setAttribute("UPDATED", userUpdateForm.getUsername());
             url = SUCCESS;
+            forwardToJsp(request, url, response);
         }
+//        }
+
+    }
+
+    private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
     }

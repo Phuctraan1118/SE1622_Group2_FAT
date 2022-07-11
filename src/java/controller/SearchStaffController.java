@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -36,9 +37,9 @@ public class SearchStaffController extends HttpServlet {
         String url = ERROR;
         UserDao userDao;
         userDao = new UserDao();
-
+        HttpSession session = request.getSession(true);
         String indexPage = request.getParameter("index");
-        if(indexPage == null){
+        if (indexPage == null) {
             indexPage = "1";
         }
         int index = Integer.parseInt(indexPage);
@@ -47,10 +48,12 @@ public class SearchStaffController extends HttpServlet {
         userService = new UserServiceImpl();
         List<UserDisplayForm> userDisplayForms = userService.searchStaff(fullName);
         sortUserDisplayForms(userDisplayForms);
-        userDisplayForms = userDao.getPaging(index);
+//        userDisplayForms = userDao.getPaging(index);
         int endPage = userService.getEndPage();
         request.setAttribute("endP", endPage);
-        request.setAttribute("LIST_USER", userDisplayForms);
+        if (!userDisplayForms.isEmpty()) {
+            session.setAttribute("LIST_USER", userDisplayForms);
+        }
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);

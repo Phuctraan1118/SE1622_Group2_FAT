@@ -6,6 +6,7 @@ package service;
 
 import form.UserCreateForm;
 import form.UserError;
+import form.UserUpdateForm;
 
 /**
  *
@@ -14,4 +15,5 @@ import form.UserError;
 public interface UserValidationService {
     
     UserError createUserValidation(UserCreateForm createForm);
+    UserError UpdateUserValidation(UserUpdateForm userUpdateForm);
 }
