@@ -44,7 +44,7 @@ function success_noti() {
 		continueDelayOnInactiveTab: false,
 		position: 'top right',
 		icon: 'bx bx-check-circle',
-		msg: 'Lorem ipsum dolor sit amet hears farmer indemnity inherent.'
+		msg: 'Update Successfully'
 	});
 }
 /* Rounded corners Notifications */
