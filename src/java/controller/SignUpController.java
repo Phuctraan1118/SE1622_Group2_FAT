@@ -95,7 +95,7 @@ public class SignUpController extends HttpServlet {
                 UserDTO dto = new UserDTO(username, password, address, phone, CitizenIdetification, true, "US", fullname, email, "assets/images/userImage/user-default.png");
                 boolean result = dao.createNewAccount(dto);
                 if (result){
-                    url = siteMaps.getProperty(MyApplicationConstants.SignUpFeatures.HOME_PAGE);
+                    url = siteMaps.getProperty(MyApplicationConstants.SignUpFeatures.LOGIN_PAGE);
                 }
             }
         }catch(SQLException ex){

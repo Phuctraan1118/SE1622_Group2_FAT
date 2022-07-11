@@ -51,6 +51,7 @@
                 color: green;
             }
         </style>
+        
     </head>
 
     <body>
@@ -60,12 +61,10 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <div>
-                        <img src="assets/images/good1.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Staff</h4>
-                    </div>
+                    <font color="yellow">
+                     <div>
+                      <h6>Welcome ${USER.name} (STAFF)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -402,11 +401,12 @@
                                                         <div class="row align-content-center">
                                                             <div class="col-md-3">
                                                                 <label for="validationDefault01" class="form-label">ID Room</label>
-                                                                <input type="text" class="form-control" id="validationDefault01" name="txtRoomId" value="${param.txtRoomId}" required="">
+                                                                <input type="hidden" class="form-control" id="validationDefault01" name="txtRoomId" value="${param.txtRoomId}" required="">
+                                                                </br> ${param.txtRoomId}
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <label for="validationDefault02" class="form-label">Room Description</label>
-                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
+                                                               <input type="text" class="form-control" id="validationDefault02" name="txtRoomDescription" value="${param.txtRoomDescription}" required="">
                                                                 <c:if test="${not empty errors1.roomDescriptionLengthError}">
                                                                     <font color="red"> 
                                                                     ${errors1.roomDescriptionLengthError}

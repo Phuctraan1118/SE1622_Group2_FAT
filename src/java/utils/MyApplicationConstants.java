@@ -55,7 +55,7 @@ public class MyApplicationConstants {
     public class SignUpFeatures {
 
         public static final String ERROR_PAGE = "signUpErrorPage";
-        public static final String HOME_PAGE = "login.jsp";
+        public static final String LOGIN_PAGE = "loginPage";
     }
 
     public class UpdateAccountFeatures {

@@ -7,6 +7,7 @@ package dao;
 import dto.BookingDTO;
 import dto.BookingDetailDTO;
 import dto.BookingInformationDTO;
+import dto.RoomDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,6 +41,9 @@ public class BookingDAO {
     private static final String SHOW_CHECK_IN_OUT_DATE = "Select roomId, bookingId, checkInDate, checkOutDate "
             + "From tblBookingDetail "
             + "Where roomId = ?";
+    private final String GET_ROOM_PRICE = "Select roomId, roomDescription, roomPrice, image, status "
+            + "from tblRoom "
+            + "Where roomId = ?";
     private List<BookingDTO> bookings;
     
     private List<BookingDetailDTO> bookingDetails;
@@ -58,7 +62,40 @@ public class BookingDAO {
         return bookingInformation;
     }
 
-    
+    public RoomDTO GetRoomPrice(int roomId) throws NamingException, SQLException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        try {
+            //1. Connect to DB
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(GET_ROOM_PRICE);
+                stm.setInt(1, roomId);
+                rs = stm.executeQuery();
+                if(rs.next()){
+                    int roomIdDTO = rs.getInt("roomId");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    String status = rs.getString("status");
+                    RoomDTO dto = new RoomDTO(roomIdDTO, roomDescription, roomPrice, image, status);
+                    return dto;
+                }
+            }
+        } finally {
+            if(rs != null){
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return null;
+    } 
     public boolean AddBooking(BookingDTO dto) throws NamingException, SQLException {
         if (dto == null) {
             return false;
@@ -163,6 +200,8 @@ public class BookingDAO {
             }
         }
     }
+    
+    
     
     public BookingDTO showBooking(String username, String bookingDate)
             throws SQLException, NamingException {

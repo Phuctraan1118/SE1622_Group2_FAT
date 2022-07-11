@@ -287,7 +287,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-profile.html">
+                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>

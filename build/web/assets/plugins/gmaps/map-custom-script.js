@@ -1,4 +1,4 @@
-// google map scripts
+
 var map;
 
 function initMap() {
@@ -6,9 +6,9 @@ function initMap() {
 	map = new google.maps.Map(document.getElementById('simple-map'), {
 		center: {
 			lat: 10.84097190181054,
-			lng: 106.80848590174024
+		lng: 106.80848590174024
 		},
-		zoom: 20
+		zoom: 8
 	});
 	// marker map
 	var myLatLng = {
@@ -28,6 +28,22 @@ function initMap() {
 	var overlay;
 	USGSOverlay.prototype = new google.maps.OverlayView();
 	// Initialize the map and the custom overlay.
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('overlay-map'), {
+			zoom: 11,
+			center: {
+				lat: 62.323907,
+				lng: -150.109291
+			},
+			mapTypeId: 'satellite'
+		});
+		var bounds = new google.maps.LatLngBounds(new google.maps.LatLng(62.281819, -150.287132), new google.maps.LatLng(62.400471, -150.005608));
+		// The photograph is courtesy of the U.S. Geological Survey.
+		var srcImage = 'https://developers.google.com/maps/documentation/' + 'javascript/examples/full/images/talkeetna.png';
+		// The custom USGSOverlay object contains the USGS image,
+		// the bounds of the image, and a reference to the map.
+		overlay = new USGSOverlay(bounds, srcImage, map);
+	}
 	/** @constructor */
 	function USGSOverlay(bounds, image, map) {
 		// Initialize all properties.
@@ -86,7 +102,15 @@ function initMap() {
 		this.div_ = null;
 	};
 	google.maps.event.addDomListener(window, 'load', initMap);
-
+	// polygons 
+	var map = new google.maps.Map(document.getElementById('polygons-map'), {
+		zoom: 5,
+		center: {
+			lat: 24.886,
+			lng: -70.268
+		},
+		mapTypeId: 'terrain'
+	});
 	// Define the LatLng coordinates for the polygon's path.
 	var triangleCoords = [{
 		lat: 25.774,
@@ -101,6 +125,130 @@ function initMap() {
 		lat: 25.774,
 		lng: -80.190
 	}];
+	// Construct the polygon.
+	var bermudaTriangle = new google.maps.Polygon({
+		paths: triangleCoords,
+		strokeColor: '#FF0000',
+		strokeOpacity: 0.8,
+		strokeWeight: 2,
+		fillColor: '#FF0000',
+		fillOpacity: 0.35
+	});
+	bermudaTriangle.setMap(map);
+	// Styles a map in night mode.
+	var map = new google.maps.Map(document.getElementById('style-map'), {
+		center: {
+			lat: 40.674,
+			lng: -73.945
+		},
+		zoom: 12,
+		styles: [{
+			elementType: 'geometry',
+			stylers: [{
+				color: '#242f3e'
+			}]
+		}, {
+			elementType: 'labels.text.stroke',
+			stylers: [{
+				color: '#242f3e'
+			}]
+		}, {
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#746855'
+			}]
+		}, {
+			featureType: 'administrative.locality',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#d59563'
+			}]
+		}, {
+			featureType: 'poi',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#d59563'
+			}]
+		}, {
+			featureType: 'poi.park',
+			elementType: 'geometry',
+			stylers: [{
+				color: '#263c3f'
+			}]
+		}, {
+			featureType: 'poi.park',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#6b9a76'
+			}]
+		}, {
+			featureType: 'road',
+			elementType: 'geometry',
+			stylers: [{
+				color: '#38414e'
+			}]
+		}, {
+			featureType: 'road',
+			elementType: 'geometry.stroke',
+			stylers: [{
+				color: '#212a37'
+			}]
+		}, {
+			featureType: 'road',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#9ca5b3'
+			}]
+		}, {
+			featureType: 'road.highway',
+			elementType: 'geometry',
+			stylers: [{
+				color: '#746855'
+			}]
+		}, {
+			featureType: 'road.highway',
+			elementType: 'geometry.stroke',
+			stylers: [{
+				color: '#1f2835'
+			}]
+		}, {
+			featureType: 'road.highway',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#f3d19c'
+			}]
+		}, {
+			featureType: 'transit',
+			elementType: 'geometry',
+			stylers: [{
+				color: '#2f3948'
+			}]
+		}, {
+			featureType: 'transit.station',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#d59563'
+			}]
+		}, {
+			featureType: 'water',
+			elementType: 'geometry',
+			stylers: [{
+				color: '#17263c'
+			}]
+		}, {
+			featureType: 'water',
+			elementType: 'labels.text.fill',
+			stylers: [{
+				color: '#515c6d'
+			}]
+		}, {
+			featureType: 'water',
+			elementType: 'labels.text.stroke',
+			stylers: [{
+				color: '#17263c'
+			}]
+		}]
+	});
 }
 // routes map
 // style map

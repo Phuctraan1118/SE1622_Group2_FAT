@@ -69,7 +69,7 @@
                     </c:if>
                     <li>
 
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
@@ -287,7 +287,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-profile.html">
+                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
@@ -389,50 +389,30 @@
                                                 <div class="card-body">
 
                                                     <div class="row g-3">
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option selected="selected">Size</option>
-                                                                <option>Small</option>
-                                                                <option>Small</option>
-                                                                <option>Small</option>
-                                                                <option>Extra Large</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option selected="selected">Color</option>
-                                                                <option>Red</option>
-                                                                <option>Yellow</option>
-                                                                <option>Black</option>
-                                                                <option>White</option>
-                                                                <option>Green</option>
-                                                                <option>Blue</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option selected="selected">Price</option>
-                                                                <option>$5 to $49</option>
-                                                                <option>$49 to $99</option>
-                                                                <option>$99 to $149</option>
-                                                                <option>$149 to $300</option>
-                                                                <option>$300 to $500</option>
-                                                                <option>Above $1000</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <select class="form-select">
-                                                                <option value="menu_order" selected="selected">Default sorting</option>
-                                                                <option value="popularity">Sort by popularity</option>
-                                                                <option value="rating">Sort by average rating</option>
-                                                                <option value="date">Sort by newness</option>
-                                                                <option value="price">Sort by price: low to high</option>
-                                                                <option value="price-desc">Sort by price: high to low</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-12 col-lg">
-                                                            <button type="button" class="btn btn-primary">Search</button>
-                                                        </div>
+                                                         <div class="col-12 col-lg">
+
+                                                                <select name="txtSize"class="form-select">
+                                                                    <option value="" selected="selected">Size</option>
+                                                                    <option value="1 giuong">Small(1 bed)</option>
+                                                                    <option value="2 giuong">Large(2 bed)</option>
+                                                                    <option value="3 giuong">Extra Large(3 bed)</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-12 col-lg">
+                                                                <select name="txtPrice"class="form-select">
+                                                                    <option value="" selected="selected">Price</option>
+                                                                    <option value="4-50">$5 to $49</option>
+                                                                    <option value="49-100">$50 to $99</option>
+                                                                    <option value="99-301">$100 to $300</option>
+                                                                    <option value="299-1000"> Above $300</option>
+                                                                </select>
+                                                            </div>
+
+                                                            <div class="col-12 col-lg">
+                                                                <!-- comment           <button name="btn" value="Search room for sort" type="button" class="btn btn-primary">Search</button> --> 
+                                                                <input type="submit" value="Sort Room For Google" name="btn"> 
+                                                            </div>
+                                                    </form>
                                                     </div><!--end row-->
 
                                                 </div>
@@ -444,8 +424,8 @@
                                                     <div class="card-body">
                                                         <form action="MainController" method="POST" class="searchbar">
                                                             <div class="position-relative">
-                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Product...">
-                                                                <input type="hidden" value="Search room for customer" name="btn" />
+                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Room Description...">
+                                                                <input type="hidden" value="Search room for customer google" name="btn" />
                                                                 <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
                                                             </div>
                                                         </form>

@@ -66,7 +66,7 @@
                         </ul>
                     </li>
                     <li>
-<a href="javascript:;" class="has-arrow">
+                        <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon"><ion-icon name="bag-handle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">eCommerce</div>
@@ -109,7 +109,7 @@
                             <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Data Widgets</a>
                             </li>
                         </ul>
-</li>
+                    </li>
 
                     <li>
                         <a class="has-arrow" href="javascript:;">
@@ -152,7 +152,7 @@
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:;">
-<div class="parent-icon"><ion-icon name="leaf-sharp"></ion-icon>
+                            <div class="parent-icon"><ion-icon name="leaf-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Icons</div>
                         </a>
@@ -200,7 +200,7 @@
                             </li>
                             <li> <a href="table-datatable.html"><ion-icon name="ellipse-outline"></ion-icon>Data Table</a>
                             </li>
-</ul>
+                        </ul>
                     </li>
                     <li class="menu-label">Pages</li>
                     <li>
@@ -245,7 +245,7 @@
                         </a>
                     </li>
                     <li>
-<a href="pages-invoices.html">
+                        <a href="pages-invoices.html">
                             <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Invoice</div>
@@ -297,7 +297,7 @@
                             <div class="menu-title">Maps</div>
                         </a>
                         <ul>
-<li> <a href="map-google-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Google Maps</a>
+                            <li> <a href="map-google-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Google Maps</a>
                             </li>
                             <li> <a href="map-vector-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Vector Maps</a>
                             </li>
@@ -350,7 +350,7 @@
                         <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
                         <input class="form-control" type="text" placeholder="Search for anything">
                         <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
-</form>
+                    </form>
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">
@@ -394,7 +394,7 @@
                                         <div class="col text-center">
                                             <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
                                             </div>
-<div class="app-title">Media</div>  
+                                            <div class="app-title">Media</div>  
                                         </div>
                                         <div class="col text-center">
                                             <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
@@ -435,7 +435,7 @@
                                                 </div>
                                             </div>
                                         </a>
-<a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
                                                 <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
                                                 </div>
@@ -473,7 +473,7 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="notify text-warning"><ion-icon name="send-outline"></ion-icon>
                                                 </div>
-<div class="flex-grow-1">
+                                                <div class="flex-grow-1">
                                                     <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
                                                             ago</span></h6>
                                                     <p class="msg-info">5.1 min avarage time response</p>
@@ -509,7 +509,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
                                                             ago</span></h6>
-<p class="msg-info">Successfully shipped your item</p>
+                                                    <p class="msg-info">Successfully shipped your item</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -530,10 +530,11 @@
                                     </a>
                                 </div>
                             </li>
+                            <c:set var="User" value="${sessionScope.USER}"/>
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                        <img src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -542,15 +543,15 @@
                                             <div class="d-flex flex-row align-items-center gap-2">
                                                 <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-<a class="dropdown-item" href="pages-user-profile.html">
+                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
@@ -591,8 +592,8 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
-<div class="d-flex align-items-center">
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
+                                            <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Logout</span></div>
                                             </div>
@@ -647,42 +648,38 @@
                         <div class="shop-container">
                             <div class="card shadow-sm border-0">
                                 <div class="card-body">
-<div class="shop-cart">
+                                    <div class="shop-cart">
                                         <div class="row">
                                             <div class="col-12 col-xl-8">
                                                 <div class="checkout-details">
                                                     <div class="card border-0">
                                                         <div class="card-body">
                                                             <div class="steps steps-light">
-                                                                <a class="step-item active" href="ecommerce-shop-cart.html">
-                                                                    <div class="step-progress"><span class="step-count">1</span>
-                                                                    </div>
-                                                                    <div class="step-label"><i class='bx bx-cart'></i>Cart</div>
-                                                                </a>
+                                                                
                                                                 <a class="step-item active current" href="ecommerce-checkout-details.html">
-                                                                    <div class="step-progress"><span class="step-count">2</span>
+                                                                    <div class="step-progress"><span class="step-count">1</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-user-circle'></i>Details</div>
                                                                 </a>
                                                                 <a class="step-item" href="ecommerce-checkout-shipping.html">
-                                                                    <div class="step-progress"><span class="step-count">3</span>
+                                                                    <div class="step-progress"><span class="step-count">2</span>
                                                                     </div>
-                                                                    <div class="step-label"><i class='bx bx-cube'></i>Shipping</div>
+                                                                    <div class="step-label"><i class='bx bx-cube'></i>Deposit</div>
                                                                 </a>
                                                                 <a class="step-item" href="ecommerce-checkout-payment.html">
-                                                                    <div class="step-progress"><span class="step-count">4</span>
+                                                                    <div class="step-progress"><span class="step-count">3</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-credit-card'></i>Payment</div>
                                                                 </a>
                                                                 <a class="step-item" href="ecommerce-checkout-review.html">
-                                                                    <div class="step-progress"><span class="step-count">5</span>
+                                                                    <div class="step-progress"><span class="step-count">4</span>
                                                                     </div>
-<div class="step-label"><i class='bx bx-check-circle'></i>Review</div>
+                                                                    <div class="step-label"><i class='bx bx-check-circle'></i>Review</div>
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <c:set var="User" value="${sessionScope.USER}"/>
+                                                    
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="d-flex align-items-center mb-3">
@@ -698,7 +695,7 @@
                                                             </div>
                                                             <hr>
                                                             <div class="">
-                                                                <h2 class="h5 mb-0">Shipping Address</h2>
+                                                                <h2 class="h5 mb-0">User Information</h2>
                                                                 <div class="my-3 border-bottom"></div>
                                                                 <div class="form-body">
                                                                     <form class="MainController">
@@ -709,17 +706,12 @@
                                                                                 <p class="mb-0">${User.phone}</p>
                                                                             </div>
                                                                         </c:if>
-<c:if test="${not empty User.citizenIdentification}">
+                                                                        <c:if test="${not empty User.citizenIdentification}">
                                                                             <div class="col-md-6">
                                                                                 <label class="form-label">Citizen Identification Number</label>
                                                                                 <p class="mb-0">${User.citizenIdentification}</p>
                                                                             </div>
                                                                         </c:if>
-                                                                        <div class="col-md-6">
-                                                                            <div class="d-grid">
-                                                                                <a href="user-google.jsp" class="btn btn-light btn-ecomm"><i class='bx bx-chevron-left'></i>Back to add a new Room</a>
-                                                                            </div>
-                                                                        </div>
                                                                         <div class="col-md-6">
                                                                             <div class="d-grid">
                                                                                 <a href="ecommerce-checkout-deposit.jsp" class="btn btn-primary btn-ecomm">Proceed to Checkout<i class='bx bx-chevron-right'></i></a>
@@ -738,57 +730,20 @@
                                                         <div class="card-body">
                                                             <div class="card">
                                                                 <div class="card-body">
-                                                                    <p class="fs-5">Apply Discount Code</p>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="Enter discount code">
-<button class="btn btn-primary btn-ecomm" type="button">Apply</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card">
-                                                                <div class="card-body">
                                                                     <p class="fs-5">Order summary</p>
                                                                     <div class="my-3 border-top"></div>
                                                                     <div class="d-flex align-items-center">
                                                                         <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/01.png" width="75" alt="Product">
+                                                                            <img src="${sessionScope.ROOMDTO.image}" width="75" alt="Product">
                                                                         </a>
                                                                         <div class="ps-2">
-                                                                            <h6 class="mb-1">White Polo T-Shirt</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$19.<small>00</small></span><span class="">x 1</span>
+                                                                            <h6 class="mb-1">Room no ${sessionScope.ROOMDTO.roomId}</h6>
+                                                                            <h5 class="mb-1">Description ${sessionScope.ROOMDTO.roomDescription}</h5>
+                                                                            <div class="widget-product-meta"><span class="me-2">$${sessionScope.ROOMDTO.roomPrice}</span><span class="">x 1</span>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/17.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Fancy Red Sneakers</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$16.<small>00</small></span><span class="">x 2</span>
+                                                                            <div class="widget-product-meta"><span class="me-2">Check In Date <small class="date">${sessionScope.CHECKINDATE}</small></span>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-<div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/04.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Yellow Shine Blazer</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$22.<small>00</small></span><span class="">x 1</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/09.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Men Black Hat Cap</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$14.<small>00</small></span><span class="">x 1</span>
+                                                                            <div class="widget-product-meta"><span class="me-2">Check Out Date <small class="date">${sessionScope.CHECKOUTDATE}</small></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -796,16 +751,10 @@
                                                             </div>
                                                             <div class="card mb-0">
                                                                 <div class="card-body">
-                                                                    <p class="mb-2">Subtotal: <span class="float-end">$198.00</span>
-                                                                    </p>
-                                                                    <p class="mb-2">Shipping: <span class="float-end">--</span>
-</p>
-                                                                    <p class="mb-2">Taxes: <span class="float-end">$14.00</span>
-                                                                    </p>
-                                                                    <p class="mb-0">Discount: <span class="float-end">--</span>
+                                                                    <p class="mb-2">Time Booking <span class="float-end">${sessionScope.DISTANCETIME}</span>
                                                                     </p>
                                                                     <div class="my-3 border-top"></div>
-                                                                    <h5 class="mb-0">Order Total: <span class="float-end">$212.00</span></h5>
+                                                                    <h5 class="mb-0">Order Total: <span class="float-end">${sessionScope.TOTALROOMPRICE}</span></h5>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -848,7 +797,7 @@
                             <label class="form-check-label" for="LightTheme">Light</label>
                         </div>
                         <div class="form-check form-check-inline">
-<input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
                             <label class="form-check-label" for="DarkTheme">Dark</label>
                         </div>
                         <div class="form-check form-check-inline">
@@ -909,7 +858,7 @@
         <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
         <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <!--plugins-->
         <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 

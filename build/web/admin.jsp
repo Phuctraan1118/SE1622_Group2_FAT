@@ -47,12 +47,10 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <div>
-                        <img src="images/good1.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Staff</h4>
-                    </div>
+                   <font color="red">
+                     <div>
+                      <h6>Welcome ${USER.name} (ADMIN)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -62,7 +60,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="admin.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
@@ -70,11 +68,19 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages-edit-profile.jsp">
+                        <a href="admin.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="create-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Edit Profile</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="revenueManagement.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Revenue</div>
                         </a>
                     </li>
                 </ul>

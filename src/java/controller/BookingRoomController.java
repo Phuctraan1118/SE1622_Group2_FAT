@@ -7,6 +7,7 @@ package controller;
 import dao.BookingDAO;
 import dto.BookingDTO;
 import dto.BookingDetailDTO;
+import dto.RoomDTO;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -65,7 +66,7 @@ public class BookingRoomController extends HttpServlet {
                             || LocalDate.parse(checkOutDate).compareTo(java.time.LocalDate.now()) < 0) {
                         request.setAttribute("ERROR", "Can not book date in the past");
                         url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-} else {
+                    } else {
                         SimpleDateFormat myFormat = new SimpleDateFormat("dd MM yyyy");
                         String tmp1 = "";
                         tmp1 = tmp1 + checkInDate.charAt(8) + checkInDate.charAt(9) + " " + checkInDate.charAt(5) + checkInDate.charAt(6) + " " + checkInDate.charAt(0) + checkInDate.charAt(1) + checkInDate.charAt(2) + checkInDate.charAt(3);
@@ -99,7 +100,7 @@ public class BookingRoomController extends HttpServlet {
                                             if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
                                                 flag = true;
                                             }
-}
+                                        }
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                                 || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
                                             if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
@@ -119,9 +120,98 @@ public class BookingRoomController extends HttpServlet {
                                         if (result) {
                                             request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
                                             url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.CHECK_OUT_PAGE);
-                                            session.setAttribute("ROOMID", roomID);
+                                            tmp1 = "";
+                                            tmp1 = tmp1 + checkInDate.charAt(5) + checkInDate.charAt(6);
+                                            tmp2 = "";
+                                            tmp2 = tmp2 + checkOutDate.charAt(5) + checkOutDate.charAt(6);
+                                            int distance = 0;
+                                            RoomDTO roomPrice = dao.GetRoomPrice(Integer.parseInt(roomID));
+                                            float total = 0;
+                                            if (LocalDate.parse(checkOutDate).getYear() > LocalDate.parse(checkInDate).getYear()) {
+                                                switch (tmp1) {
+                                                    case "01":
+                                                        distance = (12 - 1) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "02":
+                                                        distance = (12 - 2) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "03":
+                                                        distance = (12 - 3) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "04":
+                                                        distance = (12 - 4) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "05":
+                                                        distance = (12 - 5) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "06":
+                                                        distance = (12 - 6) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "07":
+                                                        distance = (12 - 7) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "08":
+                                                        distance = (12 - 8) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "09":
+                                                        distance = (12 - 9) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "10":
+                                                        distance = (12 - 10) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "11":
+                                                        distance = (12 - 11) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                    case "12":
+                                                        distance = (12 - 12) + Integer.parseInt(tmp2);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                        break;
+                                                }
+                                            } else if (LocalDate.parse(checkOutDate).getYear() == LocalDate.parse(checkOutDate).getYear()) {
+                                                distance = Integer.parseInt(tmp2) - Integer.parseInt(tmp1);
+                                                total = distance * roomPrice.getRoomPrice() *   20 / 100;
+                                                session.setAttribute("TOTALROOMPRICE", total);
+                                            }
+
+                                            session.setAttribute("ROOMDTO", roomPrice);
                                             session.setAttribute("CHECKINDATE", checkInDate);
                                             session.setAttribute("CHECKOUTDATE", checkOutDate);
+
                                         } else {
                                             request.setAttribute("ERROR", "Add room Failed");
                                         }
@@ -132,9 +222,99 @@ public class BookingRoomController extends HttpServlet {
                                     if (result) {
                                         request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
                                         url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.CHECK_OUT_PAGE);
-                                        session.setAttribute("ROOMID", roomID);
-session.setAttribute("CHECKINDATE", checkInDate);
+                                        tmp1 = "";
+                                        tmp1 = tmp1 + checkInDate.charAt(5) + checkInDate.charAt(6);
+                                        tmp2 = "";
+                                        tmp2 = tmp2 + checkOutDate.charAt(5) + checkOutDate.charAt(6);
+                                        int distance = 0;
+                                        RoomDTO roomPrice = dao.GetRoomPrice(Integer.parseInt(roomID));
+                                        float total = 0;
+                                        if (LocalDate.parse(checkOutDate).getYear() > LocalDate.parse(checkInDate).getYear()) {
+                                            switch (tmp1) {
+                                                case "01":
+                                                    distance = (12 - 1) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "02":
+                                                    distance = (12 - 2) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "03":
+                                                    distance = (12 - 3) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "04":
+                                                    distance = (12 - 4) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "05":
+                                                    distance = (12 - 5) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "06":
+                                                    distance = (12 - 6) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "07":
+                                                    distance = (12 - 7) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "08":
+                                                    distance = (12 - 8) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "09":
+                                                    distance = (12 - 9) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "10":
+                                                    distance = (12 - 10) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "11":
+                                                    distance = (12 - 11) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                                case "12":
+                                                    distance = (12 - 12) + Integer.parseInt(tmp2);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                    break;
+                                            }
+                                        } else if (LocalDate.parse(checkOutDate).getYear() == LocalDate.parse(checkOutDate).getYear()) {
+                                            distance = Integer.parseInt(tmp2) - Integer.parseInt(tmp1);
+                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                            session.setAttribute("TOTALROOMPRICE", total);
+                                            session.setAttribute("DISTANCETIME", distance);
+                                        }
+
+                                        session.setAttribute("ROOMDTO", roomPrice);
+                                        session.setAttribute("CHECKINDATE", checkInDate);
                                         session.setAttribute("CHECKOUTDATE", checkOutDate);
+
                                     } else {
                                         request.setAttribute("ERROR", "Add room Failed");
                                     }
@@ -150,7 +330,7 @@ session.setAttribute("CHECKINDATE", checkInDate);
                                                 && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
                                             if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
-                                                request.setAttribute("ERROR", "Add room Failed");
+                                                request.setAttribute("ERROR", "Room is not avaiable");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
 
                                             }
@@ -162,14 +342,14 @@ session.setAttribute("CHECKINDATE", checkInDate);
                                                 || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
                                             if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0) {
-                                                request.setAttribute("ERROR", "Add room Failed");
+                                                request.setAttribute("ERROR", "Room is not avaiable");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
 
                                             }
                                             if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
                                                 flag = true;
                                             }
-}
+                                        }
                                     }
                                     if (flag) {
                                         boolean resultBooking = dao.AddBooking(new BookingDTO(bookingDate, username));
@@ -180,7 +360,97 @@ session.setAttribute("CHECKINDATE", checkInDate);
                                                 if (resultBooking) {
                                                     request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
                                                     url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.CHECK_OUT_PAGE);
-                                                    session.setAttribute("ROOMID", roomID);
+
+                                                    tmp1 = "";
+                                                    tmp1 = tmp1 + checkInDate.charAt(5) + checkInDate.charAt(6);
+                                                    tmp2 = "";
+                                                    tmp2 = tmp2 + checkOutDate.charAt(5) + checkOutDate.charAt(6);
+                                                    int distance = 0;
+                                                    RoomDTO roomPrice = dao.GetRoomPrice(Integer.parseInt(roomID));
+                                                    float total = 0;
+                                                    if (LocalDate.parse(checkOutDate).getYear() > LocalDate.parse(checkInDate).getYear()) {
+                                                        switch (tmp1) {
+                                                            case "01":
+                                                                distance = (12 - 1) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "02":
+                                                                distance = (12 - 2) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "03":
+                                                                distance = (12 - 3) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "04":
+                                                                distance = (12 - 4) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "05":
+                                                                distance = (12 - 5) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "06":
+                                                                distance = (12 - 6) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "07":
+                                                                distance = (12 - 7) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "08":
+                                                                distance = (12 - 8) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "09":
+                                                                distance = (12 - 9) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "10":
+                                                                distance = (12 - 10) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "11":
+                                                                distance = (12 - 11) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                            case "12":
+                                                                distance = (12 - 12) + Integer.parseInt(tmp2);
+                                                                total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                                session.setAttribute("TOTALROOMPRICE", total);
+                                                                session.setAttribute("DISTANCETIME", distance);
+                                                                break;
+                                                        }
+                                                    } else if (LocalDate.parse(checkOutDate).getYear() == LocalDate.parse(checkOutDate).getYear()) {
+                                                        distance = Integer.parseInt(tmp2) - Integer.parseInt(tmp1);
+                                                        total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                        session.setAttribute("TOTALROOMPRICE", total);
+                                                        session.setAttribute("DISTANCETIME", distance);
+                                                    }
+
+                                                    session.setAttribute("ROOMDTO", roomPrice);
                                                     session.setAttribute("CHECKINDATE", checkInDate);
                                                     session.setAttribute("CHECKOUTDATE", checkOutDate);
                                                 } else {
@@ -202,9 +472,98 @@ session.setAttribute("CHECKINDATE", checkInDate);
                                             if (resultBooking) {
                                                 request.setAttribute("SUCCESS", "Booking room " + roomID + "successfully");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.CHECK_OUT_PAGE);
-                                                session.setAttribute("ROOMID", roomID);
+
+                                                tmp1 = "";
+                                                tmp1 = tmp1 + checkInDate.charAt(5) + checkInDate.charAt(6);
+                                                tmp2 = "";
+                                                tmp2 = tmp2 + checkOutDate.charAt(5) + checkOutDate.charAt(6);
+                                                int distance = 0;
+                                                RoomDTO roomPrice = dao.GetRoomPrice(Integer.parseInt(roomID));
+                                                float total = 0;
+                                                if (LocalDate.parse(checkOutDate).getYear() > LocalDate.parse(checkInDate).getYear()) {
+                                                    switch (tmp1) {
+                                                        case "01":
+                                                            distance = (12 - 1) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "02":
+                                                            distance = (12 - 2) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "03":
+                                                            distance = (12 - 3) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "04":
+                                                            distance = (12 - 4) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "05":
+                                                            distance = (12 - 5) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "06":
+                                                            distance = (12 - 6) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "07":
+                                                            distance = (12 - 7) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "08":
+                                                            distance = (12 - 8) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "09":
+                                                            distance = (12 - 9) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "10":
+                                                            distance = (12 - 10) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "11":
+                                                            distance = (12 - 11) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                        case "12":
+                                                            distance = (12 - 12) + Integer.parseInt(tmp2);
+                                                            total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                            session.setAttribute("TOTALROOMPRICE", total);
+                                                            session.setAttribute("DISTANCETIME", distance);
+                                                            break;
+                                                    }
+                                                } else if (LocalDate.parse(checkOutDate).getYear() == LocalDate.parse(checkOutDate).getYear()) {
+                                                    distance = Integer.parseInt(tmp2) - Integer.parseInt(tmp1);
+                                                    total = distance * roomPrice.getRoomPrice() * 20 / 100;
+                                                    session.setAttribute("TOTALROOMPRICE", total);
+                                                    session.setAttribute("DISTANCETIME", distance);
+                                                }
+                                                session.setAttribute("ROOMDTO", roomPrice);
                                                 session.setAttribute("CHECKINDATE", checkInDate);
-session.setAttribute("CHECKOUTDATE", checkOutDate);
+                                                session.setAttribute("CHECKOUTDATE", checkOutDate);
                                             } else {
                                                 request.setAttribute("ERROR", "Add room Failed");
                                             }
