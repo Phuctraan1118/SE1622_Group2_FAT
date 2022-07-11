@@ -372,7 +372,7 @@
                                 </ol>
                             </nav>
                         </div>
-                        
+
                     </div>
                     <!--end breadcrumb-->
 
@@ -389,13 +389,13 @@
 
                                                     <div class="row g-3">
                                                         <div class="col-12 col-lg">
-
-                                                            <select name="txtSize"class="form-select">
-                                                                <option value="" selected="selected">Size</option>
-                                                                <option value="1 giuong">Small(1 bed)</option>
-                                                                <option value="2 giuong">Large(2 bed)</option>
-                                                                <option value="3 giuong">Extra Large(3 bed)</option>
-                                                            </select>
+                                                            <form action="MainController" method="Post">
+                                                                <select name="txtSize"class="form-select">
+                                                                    <option value="" selected="selected">Size</option>
+                                                                    <option value="1 giuong">Small(1 bed)</option>
+                                                                    <option value="2 giuong">Large(2 bed)</option>
+                                                                    <option value="3 giuong">Extra Large(3 bed)</option>
+                                                                </select>
                                                         </div>
                                                         <div class="col-12 col-lg">
                                                             <select name="txtPrice"class="form-select">
@@ -409,7 +409,11 @@
 
                                                         <div class="col-12 col-lg">
                                                             <!-- comment           <button name="btn" value="Search room for sort" type="button" class="btn btn-primary">Search</button> --> 
-                                                            <input type="submit" value="Sort Room For Google" name="btn"> 
+<!--                                                            <input type="submit" class="btn btn-primary"  value="Sort Room For Google" name="btn">-->
+<button type="submit" name="btn" value="Sort Room For Google" class="btn btn-primary" style="text-align: center;"
+                                                                    title="">
+                                                                <ion-icon name="send-outline"></ion-icon>
+                                                            </button>
                                                         </div>
                                                         </form>
                                                     </div><!--end row-->
