@@ -86,7 +86,9 @@ public class MyApplicationConstants {
         public static final String EDIT_OWNED_ROOM_PAGE = "editOwnedRoomPage";
 
         public static final String ADD_ROOM_CONTROLLER = "roomAddController";
-        public static final String ADD_ROOM_ERROR = "addRoomErrorPage";
+        public static final String ADD_ROOM_ERROR = "addRoomErrorPage";   
+        public static final String VIEW_ONWED_ROOM_FOR_CUSTOMER = "roomOwnedViewController";
+        public static final String VIEW_ONWED_ROOM_FOR_CUSTOMER_PAGE = "ownedRoomPage";
     }
     public class BookingRoomUser {
         public static final String CHECK_OUT_PAGE = "checkOutPage";

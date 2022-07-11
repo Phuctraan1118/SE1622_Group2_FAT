@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import service.UserService;
 import service.impl.UserServiceImpl;
 
@@ -33,14 +34,15 @@ public class SearchCustomerController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-
+        HttpSession session = request.getSession(true);
         String fullName = getUserFullName(request);
         userService = new UserServiceImpl();
         List<UserDisplayForm> userDisplayForms = userService.searchCustomer(fullName);
         sortUserDisplayForms(userDisplayForms);
 
-     
-        request.setAttribute("LIST_USER", userDisplayForms);
+        if (!userDisplayForms.isEmpty()) {
+            session.setAttribute("LIST_USER", userDisplayForms);
+        }
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);

@@ -20,20 +20,26 @@ import utils.DBHelper;
  * @author Bitano
  */
 public class RoomDAO implements Serializable {
-
+      
+       private static final String VIEW_OWNED_ROOM_FOR_CUSTOMER = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
+            + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
+            + "from tblRoom r , tblBooking b, tblBookingDetail bd "
+            + "where r.roomId = bd.roomId and b.bookingId = bd.bookingId and username = ? "
+            + "order by checkInDate , r.roomId asc ";
+       
     private static final String SEARCH_NOT_BOOKED = "select roomId, roomDescription , roomPrice , image from tblRoom "
             + "where roomDescription like ? "
             + "and status like 'NB' ";
     private static final String SEARCH_ALL_NOT_BOOKED = "select roomId, roomDescription , roomPrice , image from tblRoom "
             + "where status like 'NB' ";
 
-private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
+     private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
         + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
         + "from tblBooking b	, tblBookingDetail bd, tblRoom r "
         + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId and b.username like ?  ";
 
 
-
+     
     private static final String SEARCH_ALL_BOOKED = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
         + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
         + "from tblBooking b, tblBookingDetail bd, tblRoom r "
@@ -68,6 +74,49 @@ private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.room
     private static final String INSERT = "INSERT into tblRoom(roomDescription,roomPrice,image,status) VALUES (?,?,?,?) ";
     private static final String LAST_ID_ROOM = " select top 1 roomId from tblRoom order by roomId desc ";
 
+    
+    public List<RoomDTO> viewOwnedRoom(String user)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(VIEW_OWNED_ROOM_FOR_CUSTOMER);
+                 stm.setString(1,  user);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int roomId = rs.getInt("roomId");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    int bookingId = rs.getInt("bookingId");
+                    String bookingDate = rs.getString("bookingDate");
+                    String checkinDate = rs.getString("checkinDate");
+                    String checkoutDate = rs.getString("checkoutDate");
+                    String username = rs.getString("username");
+                    String status = rs.getString("status");
+                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image, bookingId, bookingDate,
+                            checkinDate, checkoutDate, username, status));
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
+    }
+    
     public List<RoomDTO> searchNotBooked(String searchValue)
             throws SQLException, NamingException {
         Connection con = null;

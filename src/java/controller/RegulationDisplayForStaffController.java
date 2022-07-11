@@ -4,74 +4,52 @@
  */
 package controller;
 
+import dto.RegulationDto;
 import java.io.IOException;
-import dao.UserDao;
-import dto.UserCreateDto;
-import form.UserCreateForm;
-import form.UserError;
-import form.UserUpdateForm;
+import java.io.PrintWriter;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.UserService;
-import service.UserValidationService;
-import service.impl.UserServiceImpl;
-import service.impl.UserValidationServiceImpl;
+import javax.servlet.http.HttpSession;
+import service.RegulationService;
+import service.impl.RegulationServiceImpl;
 
 /**
  *
- * @author hungp
+ * @author Bitano
  */
-@WebServlet(name = "UpdateStaffController", urlPatterns = {"/UpdateStaffController"})
-public class UpdateStaffController extends HttpServlet {
+@WebServlet(name = "RegulationDisplayForStaffController", urlPatterns = {"/RegulationDisplayForStaffController"})
+public class RegulationDisplayForStaffController extends HttpServlet {
 
-    private static final String ERROR = "staff.jsp";
-    private static final String SUCCESS = "SearchStaffController?search=";
-    private UserService userService;
-    private UserValidationService userValidationService;
+    private static final String ERROR = "regulationManagement.jsp";
+    private static final String SUCCESS = "regulationManagement.jsp";
+    private RegulationService regulationService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-        boolean check = true;
+        HttpSession session = request.getSession(true);
 
-        UserUpdateForm userUpdateForm = getUserForm(request);
-        userService = new UserServiceImpl();
-//        userValidationService = new UserValidationServiceImpl();
-//        UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
-//        if (userError != null) {
-//            check = false;
-//            request.setAttribute("USER_ERROR", userError);
-//            forwardToJsp(request, url, response);
-//        }
-//        if (check) {
-        UserCreateDto userDto = userService.updateUser(userUpdateForm);
-        if (userDto != null) {
-            request.setAttribute("UPDATED", userUpdateForm.getUsername());
-            url = SUCCESS;
-            forwardToJsp(request, url, response);
+        regulationService = new RegulationServiceImpl();
+        List<RegulationDto> regulationDtos = regulationService.getAllRegulation();
+        sortRegulationDisplay(regulationDtos);
+        if (!regulationDtos.isEmpty()) {
+            session.setAttribute("LIST_REGULATION_FOR_STAFF", regulationDtos);
         }
-//        }
-
-    }
-
-    private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {
+        url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);
         rd.forward(request, response);
     }
 
-    private UserUpdateForm getUserForm(HttpServletRequest request) {
-        String username = request.getParameter("txtUsername");
-        String fullName = request.getParameter("txtFullName");
-        String address = request.getParameter("txtAddress");
-        String phone = request.getParameter("txtPhone");
-        String cmnd = request.getParameter("txtCmnd");
-        String email = request.getParameter("txtEmail");
-        return new UserUpdateForm(username, fullName, address, phone, cmnd, email);
+    private void sortRegulationDisplay(List<RegulationDto> regulationDtos) {
+        regulationDtos.stream().sorted(Comparator.comparing(RegulationDto::getRegulationName)).collect(Collectors.toList());
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

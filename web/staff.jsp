@@ -67,9 +67,10 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="yellow">
-                     <div>
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
+                    <font color="yellow">
+                    <div>
+                        <h6>Welcome
+                            ${USER.name} (STAFF) </h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -102,6 +103,11 @@
                             <li>
                                 <a href="bookingManagement.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="RegulationDisplayForStaffController">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
                         </ul>
@@ -394,7 +400,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Management</div>
+                        <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -457,37 +463,38 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="user" items="${requestScope.LIST_USER}" varStatus="counter">
+                                        <c:forEach var="user" items="${sessionScope.LIST_USER}" varStatus="counter">
                                         <form action="MainController">
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3">
                                                         <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${user.username}"></h6>
+                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${user.username}"></h6>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${user.fullName}">
+                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${user.fullName}">
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${user.address}">
+                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${user.address}">
                                                     </div>
                                                 </td>
-                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" required="" value="${user.phone}"></td>
-                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" required="" value="${user.citizenIdentification}"></td>
-                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" required="" value="${user.email}"></td>
+                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${user.phone}"></td>
+                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${user.citizenIdentification}"></td>
+                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled  value="${user.email}"></td>
                                                 <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Update info" aria-label="Update">
-                                                            <ion-icon name="pencil-sharp"></ion-icon>
-                                                        </button> 
+                                                        <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                        title="" data-bs-original-title="Update info" aria-label="Update">
+                                                                                                                    <ion-icon name="pencil-sharp"></ion-icon>
+                                                                                                                </button> -->
+                                                        <a href="editStaff.jsp?userId=${user.id}"> <ion-icon name="pencil-sharp"></ion-icon></a>
                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                         <input type="hidden" name="userId" value="${user.id}"/>
                                                     </div>

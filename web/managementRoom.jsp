@@ -97,6 +97,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
+                              <li>
+                                <a href="regulationManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -410,7 +415,7 @@ thentication</div>
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Management</div>
+                         <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -463,35 +468,18 @@ thentication</div>
                                             <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
                                             <tr>
                                                 <td>${counter.count}</td>
-                                                <td>
-<!--                                                    <div class="d-flex align-items-center gap-3">-->
-                                                        ${dto.roomId}
-<!--                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" required="" value="${dto.roomId}"></h6>
-                                                        </div>-->
-<!--                                                    </div>-->
-                                                </td>
+                                                <td> ${dto.roomId}</td>
                                                 <td>
                                                     ${dto.roomDescription}
-<!--                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" required="" value="${dto.roomDescription}">
-                                                    </div>-->
                                                 </td>
                                                 <td>
                                                     ${dto.roomPrice}
-<!--                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" required="" value="${dto.roomPrice}">
-                                                    </div>-->
                                                 </td>
                                                 <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-original-title="Update info" aria-label="Update">
-                                                                                                                    <ion-icon name="pencil-sharp"></ion-icon>
-                                                                                                                </button> -->
                                                         <a href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
-                                                           &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}">Edit</a>
+                                                           &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}"><ion-icon name="pencil-sharp"></ion-icon></a>
                                                         <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
                                                     </div>
                                                 </td>

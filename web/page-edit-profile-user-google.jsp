@@ -78,6 +78,16 @@
                             <div class="menu-title">View Room</div>
                         </a>
                     </li>
+                    <li>
+
+                        <a href="regulation.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Regulation</div>
+                        </a>
+
+                    </li>
                 </ul>
                 <!--end navigation-->
             </aside>

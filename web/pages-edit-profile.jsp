@@ -44,16 +44,16 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="green">
-                     <div>
-                      <h6>Welcome ${USER.name} (USER)</h6>
+                    <font color="green">
+                    <div>
+                        <h6>Welcome ${USER.name} (USER)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                  
+
                     <li class="menu-label">Pages</li>
                     <li>
                         <a href="pages-user1-profile.jsp">
@@ -76,6 +76,27 @@
                             </div>
                             <div class="menu-title">View Room</div>
                         </a>
+                    </li>
+
+                    <li>
+
+                        <a href="ownedRoom.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Regulation</div>
+                        </a>
+
                     </li>
                 </ul>
                 <!--end navigation-->
