@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en" class="semi-dark">
     <head>
@@ -33,313 +34,75 @@
 
         <!--start wrapper-->
         <div class="wrapper">
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
+                    <font color="green">
                     <div>
-                        <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Dashkote</h4>
-                    </div>
-                    <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
+                        <h6>Welcome ${USER.name} (USER)</h6>
+                    </div></font>
+                    <div class="toggle-icon ms-auto">
+                        <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
-                <ul class="metismenu" id="menu">
-                    <li>
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Dashboard</div>
-                        </a>
-                        <ul>
-                            <li> <a href="index.html">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Default
-                                </a>
-                            </li>
-                            <li> <a href="index2.html">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Alternate
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><ion-icon name="bag-handle-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">eCommerce</div>
-                        </a>
-                        <ul>
-                            <li><a href="ecommerce-shop-grid-view.html"><ion-icon name="ellipse-outline"></ion-icon>Product Grid</a>
-                            </li>
-                            <li><a href="ecommerce-shop-list-view.html"><ion-icon name="ellipse-outline"></ion-icon>Product List</a>
-                            </li>
-                            <li><a href="ecommerce-shop-grid-view-top-filter.html"><ion-icon name="ellipse-outline"></ion-icon>Product Top Filters</a>
-                            </li>
-                            <li><a href="ecommerce-product-details.html"><ion-icon name="ellipse-outline"></ion-icon>Product Details</a>
-                            </li>
-                            <li><a href="ecommerce-product-comparison.html"><ion-icon name="ellipse-outline"></ion-icon>Product Comparison</a>
-                            </li>
-                            <li><a href="ecommerce-shop-cart.html"><ion-icon name="ellipse-outline"></ion-icon>Shoping Cart</a>
-                            </li>
-                            <li><a href="ecommerce-checkout-details.html"><ion-icon name="ellipse-outline"></ion-icon>Checkout</a>
-                            </li>
-                            <li><a href="ecommerce-checkout-shipping.html"><ion-icon name="ellipse-outline"></ion-icon>Shipping</a>
-                            </li>
-                            <li><a href="ecommerce-checkout-payment.html"><ion-icon name="ellipse-outline"></ion-icon>Payment</a>
-                            </li>
-                            <li><a href="ecommerce-checkout-review.html"><ion-icon name="ellipse-outline"></ion-icon>Review Cart</a>
-                            </li>
-                            <li><a href="ecommerce-checkout-complete.html"><ion-icon name="ellipse-outline"></ion-icon>Order Complete</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-label">UI Elements</li>
-                    <li>
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><ion-icon name="briefcase-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Widgets</div>
-                        </a>
-                        <ul>
-                            <li> <a href="widgets-static-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Static Widgets</a>
-                            </li>
-                            <li> <a href="widgets-data-widgets.html"><ion-icon name="ellipse-outline"></ion-icon>Data Widgets</a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="gift-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Components</div>
-                        </a>
-                        <ul>
-                            <li> <a href="component-alerts.html"><ion-icon name="ellipse-outline"></ion-icon>Alerts</a>
-                            </li>
-                            <li> <a href="component-accordions.html"><ion-icon name="ellipse-outline"></ion-icon>Accordions</a>
-                            </li>
-                            <li> <a href="component-badges.html"><ion-icon name="ellipse-outline"></ion-icon>Badges</a>
-                            </li>
-                            <li> <a href="component-buttons.html"><ion-icon name="ellipse-outline"></ion-icon>Buttons</a>
-                            </li>
-                            <li> <a href="component-cards.html"><ion-icon name="ellipse-outline"></ion-icon>Cards</a>
-                            </li>
-                            <li> <a href="component-carousels.html"><ion-icon name="ellipse-outline"></ion-icon>Carousels</a>
-                            </li>
-                            <li> <a href="component-list-groups.html"><ion-icon name="ellipse-outline"></ion-icon>List Groups</a>
-                            </li>
-                            <li> <a href="component-media-object.html"><ion-icon name="ellipse-outline"></ion-icon>Media Objects</a>
-                            </li>
-                            <li> <a href="component-modals.html"><ion-icon name="ellipse-outline"></ion-icon>Modals</a>
-                            </li>
-                            <li> <a href="component-navs-tabs.html"><ion-icon name="ellipse-outline"></ion-icon>Navs & Tabs</a>
-                            </li>
-                            <li> <a href="component-paginations.html"><ion-icon name="ellipse-outline"></ion-icon>Pagination</a>
-                            </li>
-                            <li> <a href="component-popovers-tooltips.html"><ion-icon name="ellipse-outline"></ion-icon>Popovers & Tooltips</a>
-                            </li>
-                            <li> <a href="component-progress-bars.html"><ion-icon name="ellipse-outline"></ion-icon>Progress</a>
-                            </li>
-                            <li> <a href="component-spinners.html"><ion-icon name="ellipse-outline"></ion-icon>Spinners</a>
-                            </li>
-                            <li> <a href="component-notifications.html"><ion-icon name="ellipse-outline"></ion-icon>Notifications</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="leaf-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Icons</div>
-                        </a>
-                        <ul>
-                            <li> <a href="icons-line-icons.html"><ion-icon name="ellipse-outline"></ion-icon>Line Icons</a>
-                            </li>
-                            <li> <a href="icons-boxicons.html"><ion-icon name="ellipse-outline"></ion-icon>Boxicons</a>
-                            </li>
-                            <li> <a href="icons-feather-icons.html"><ion-icon name="ellipse-outline"></ion-icon>Feather Icons</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-label">Forms & Tables</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="newspaper-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Forms</div>
-                        </a>
-                        <ul>
-                            <li> <a href="form-elements.html"><ion-icon name="ellipse-outline"></ion-icon>Form Elements</a>
-                            </li>
-                            <li> <a href="form-input-group.html"><ion-icon name="ellipse-outline"></ion-icon>Input Groups</a>
-                            </li>
-                            <li> <a href="form-layouts.html"><ion-icon name="ellipse-outline"></ion-icon>Forms Layouts</a>
-                            </li>
-                            <li> <a href="form-validations.html"><ion-icon name="ellipse-outline"></ion-icon>Form Validation</a>
-                            </li>
-                            <li> <a href="form-date-time-pickes.html"><ion-icon name="ellipse-outline"></ion-icon>Date Pickers</a>
-                            </li>
-                            <li> <a href="form-select2.html"><ion-icon name="ellipse-outline"></ion-icon>Select2</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="server-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Tables</div>
-                        </a>
-                        <ul>
-                            <li> <a href="table-basic-table.html"><ion-icon name="ellipse-outline"></ion-icon>Basic Table</a>
-                            </li>
-                            <li> <a href="table-advance-tables.html"><ion-icon name="ellipse-outline"></ion-icon>Advance Tables</a>
-                            </li>
-                            <li> <a href="table-datatable.html"><ion-icon name="ellipse-outline"></ion-icon>Data Table</a>
-                            </li>
-                        </ul>
-                    </li>
+                <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="lock-closed-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Authentication</div>
-                        </a>
-                        <ul>
-                            <li> <a href="authentication-sign-in-basic.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Sign In Basic</a>
-                            </li>
-                            <li> <a href="authentication-sign-in-cover.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Sign In Cover</a>
-                            </li>
-                            <li> <a href="authentication-sign-in-simple.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Sign In Simple</a>
-                            </li>
-                            <li> <a href="authentication-sign-up-basic.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Sign Up Basic</a>
-                            </li>
-                            <li> <a href="authentication-sign-up-cover.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Sign Up Cover</a>
-                            </li>
-                            <li> <a href="authentication-sign-up-simple.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Sign Up Simple</a>
-                            </li>
-                            <li> <a href="authentication-reset-password-basic.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Reset Password Basic</a>
-                            </li>
-                            <li> <a href="authentication-reset-password-cover.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Reset Password Cover</a>
-                            </li>
-                            <li> <a href="authentication-reset-password-simple.html" target="_blank"><ion-icon name="ellipse-outline"></ion-icon>Reset Password Simple</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="pages-user-profile.html">
-                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
+                        <a href="pages-user1-profile.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
+                    <c:if test="${not empty User}">
+                        <li>
+                            <a href="pages-edit-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
                     <li>
-                        <a href="pages-edit-profile.html">
-                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
                             </div>
-                            <div class="menu-title">Edit Profile</div>
+                            <div class="menu-title">View Room</div>
                         </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="RoomOwnedViewController">
+                            <div class="parent-icon">
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
                     </li>
                     <li>
-                        <a href="pages-invoices.html">
-                            <div class="parent-icon"><ion-icon name="receipt-sharp"></ion-icon>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
                             </div>
-                            <div class="menu-title">Invoice</div>
+                            <div class="menu-title">View Regulation</div>
                         </a>
+
                     </li>
-                    <li>
-                        <a href="pages-to-do.html">
-                            <div class="parent-icon"><ion-icon name="shield-checkmark-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Invoice</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="copy-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Extra Pages</div>
-                        </a>
-                        <ul>
-                            <li><a href="pages-faq.html"><ion-icon name="ellipse-outline"></ion-icon>FAQ</a>
-                            </li>
-                            <li><a href="pages-pricing-tables.html"><ion-icon name="ellipse-outline"></ion-icon>Pricing</a>
-                            </li>
-                            <li><a href="pages-errors-404-error.html"><ion-icon name="ellipse-outline"></ion-icon>404 Error</a>
-                            </li>
-                            <li><a href="pages-errors-500-error.html"><ion-icon name="ellipse-outline"></ion-icon>500 Error</a></li>
-                            <li><a href="pages-errors-coming-soon.html"><ion-icon name="ellipse-outline"></ion-icon>Coming Soon</a></li>
-                            <li><a href="pages-starter-page.html"><ion-icon name="ellipse-outline"></ion-icon>Blank Page</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-label">Charts & Maps</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="bar-chart-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Charts</div>
-                        </a>
-                        <ul>
-                            <li> <a href="charts-apex-chart.html"><ion-icon name="ellipse-outline"></ion-icon>Apex</a>
-                            </li>
-                            <li> <a href="charts-chartjs.html"><ion-icon name="ellipse-outline"></ion-icon>Chartjs</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="map-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Maps</div>
-                        </a>
-                        <ul>
-                            <li> <a href="map-google-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Google Maps</a>
-                            </li>
-                            <li> <a href="map-vector-maps.html"><ion-icon name="ellipse-outline"></ion-icon>Vector Maps</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-label">Others</li>
-                    <li>
-                        <a class="has-arrow" href="javascript:;">
-                            <div class="parent-icon"><ion-icon name="list-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Menu Levels</div>
-                        </a>
-                        <ul>
-                            <li> <a class="has-arrow" href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Level One</a>
-                                <ul>
-                                    <li> <a class="has-arrow" href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Level Two</a>
-                                        <ul>
-                                            <li> <a href="javascript:;"><ion-icon name="ellipse-outline"></ion-icon>Level Three</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" target="_blank">
-                            <div class="parent-icon"><ion-icon name="document-text-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Documentation</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://themeforest.net/user/codervent" target="_blank">
-                            <div class="parent-icon"><ion-icon name="link-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Support</div>
-                        </a>
-                    </li>
+
                 </ul>
                 <!--end navigation-->
             </aside>
-            <!--end sidebar -->
 
             <!--start top header-->
             <header class="top-header">
@@ -529,20 +292,21 @@
                                     </a>
                                 </div>
                             </li>
+                            <c:set var="User" value="${sessionScope.USER}"/>
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                        <img src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -590,7 +354,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Logout</span></div>
@@ -658,10 +422,10 @@
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-user-circle'></i>Details</div>
                                                                 </a>
-                                                                <a class="step-item" href="ecommerce-checkout-shipping.html">
+                                                                <a class="step-item active current" href="ecommerce-checkout-details.html">
                                                                     <div class="step-progress"><span class="step-count">2</span>
                                                                     </div>
-                                                                    <div class="step-label"><i class='bx bx-cube'></i>Deposit</div>
+                                                                    <div class="step-label"><i class='bx bx-user-circle'></i>Deposit</div>
                                                                 </a>
                                                                 <a class="step-item" href="ecommerce-checkout-payment.html">
                                                                     <div class="step-progress"><span class="step-count">3</span>
@@ -688,16 +452,26 @@
                                                                             <th>image</th>
                                                                             <th>Room Description</th>
                                                                             <th>Room Price</th>
+                                                                            <th>Check In Date</th>
+                                                                            <th>Check Out Date</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td>Flat Rate</td>
-                                                                            <td>2 days</td>
-                                                                            <td>$10.00</td>
+                                                                            <td>${sessionScope.ROOMDTO.roomId}</td>
+                                                                            <td><img src="images/${sessionScope.ROOMDTO.image}" style="width: 100px; height:100px" alt="alt"/></td>
+                                                                            <td>${sessionScope.ROOMDTO.roomDescription}</td>
+                                                                            <td>${sessionScope.ROOMDTO.roomPrice}</td>
+                                                                            <td>${sessionScope.CHECKINDATE}</td>
+                                                                            <td>${sessionScope.CHECKOUTDATE}</td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td>Flat Rate</td>
+                                                                            <th colspan="3">
+                                                                                <input type="text" disabled value="Total deposit per ${sessionScope.DISTANCETIME}" name="btAction" />
+                                                                            </th>
+                                                                            <th>
+                                                                                <input type="text" value="${sessionScope.TOTALROOMPRICE}" disabled name="btAction" />
+                                                                            </th>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -707,10 +481,6 @@
                                                     <div class="card">
                                                         <div class="card-body">
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="d-grid"><a href="javascript:;" class="btn btn-light btn-ecomm"><i class="bx bx-chevron-left"></i>Back to Details</a>
-                                                                    </div>
-                                                                </div>
                                                                 <div class="col-md-6">
                                                                     <div class="d-grid"><a href="javascript:;" class="btn btn-primary btn-ecomm">Proceed to Payment<i class="bx bx-chevron-right"></i></a>
                                                                     </div>
@@ -726,57 +496,20 @@
                                                         <div class="card-body">
                                                             <div class="card">
                                                                 <div class="card-body">
-                                                                    <p class="fs-5">Apply Discount Code</p>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="Enter discount code">
-                                                                        <button class="btn btn-primary btn-ecomm" type="button">Apply</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card">
-                                                                <div class="card-body">
                                                                     <p class="fs-5">Order summary</p>
                                                                     <div class="my-3 border-top"></div>
                                                                     <div class="d-flex align-items-center">
                                                                         <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/01.png" width="75" alt="Product">
+                                                                            <img src="images/${sessionScope.ROOMDTO.image}" width="75" alt="Product">
                                                                         </a>
                                                                         <div class="ps-2">
-                                                                            <h6 class="mb-1">White Polo T-Shirt</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$19.<small>00</small></span><span class="">x 1</span>
+                                                                            <h6 class="mb-1">Room no ${sessionScope.ROOMDTO.roomId}</h6>
+                                                                            <h5 class="mb-1">Description ${sessionScope.ROOMDTO.roomDescription}</h5>
+                                                                            <div class="widget-product-meta"><span class="me-2">$${sessionScope.ROOMDTO.roomPrice}</span><span class="">x 1</span>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/17.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Fancy Red Sneakers</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$16.<small>00</small></span><span class="">x 2</span>
+                                                                            <div class="widget-product-meta"><span class="me-2">Check In Date <small class="date">${sessionScope.CHECKINDATE}</small></span>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/04.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Yellow Shine Blazer</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$22.<small>00</small></span><span class="">x 1</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/09.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Men Black Hat Cap</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$14.<small>00</small></span><span class="">x 1</span>
+                                                                            <div class="widget-product-meta"><span class="me-2">Check Out Date <small class="date">${sessionScope.CHECKOUTDATE}</small></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -784,16 +517,10 @@
                                                             </div>
                                                             <div class="card mb-0">
                                                                 <div class="card-body">
-                                                                    <p class="mb-2">Subtotal: <span class="float-end">$198.00</span>
-                                                                    </p>
-                                                                    <p class="mb-2">Shipping: <span class="float-end">--</span>
-                                                                    </p>
-                                                                    <p class="mb-2">Taxes: <span class="float-end">$14.00</span>
-                                                                    </p>
-                                                                    <p class="mb-0">Discount: <span class="float-end">--</span>
+                                                                    <p class="mb-2">Time Booking <span class="float-end">${sessionScope.DISTANCETIME}</span>
                                                                     </p>
                                                                     <div class="my-3 border-top"></div>
-                                                                    <h5 class="mb-0">Order Total: <span class="float-end">$212.00</span></h5>
+                                                                    <h5 class="mb-0">Order Total: <span class="float-end">${sessionScope.TOTALROOMPRICE}</span></h5>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -801,109 +528,110 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <!--end row-->
                                     </div>
+                                    <!--end row-->
                                 </div>
                             </div>
                         </div>
-                    </section>
-                    <!--end shop cart-->
-
-
                 </div>
-                <!-- end page content-->
+                </section>
+                <!--end shop cart-->
+
+
             </div>
-
-
-
-            <!--Start Back To Top Button-->
-            <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
-            <!--End Back To Top Button-->
-
-            <!--start switcher-->
-            <div class="switcher-body">
-                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
-                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
-                    <div class="offcanvas-header border-bottom">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <h6 class="mb-0">Theme Variation</h6>
-                        <hr>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                            <label class="form-check-label" for="LightTheme">Light</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                            <label class="form-check-label" for="DarkTheme">Dark</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3" checked>
-                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                        </div>
-                        <hr/>
-                        <h6 class="mb-0">Header Colors</h6>
-                        <hr/>
-                        <div class="header-colors-indigators">
-                            <div class="row row-cols-auto g-3">
-                                <div class="col">
-                                    <div class="indigator headercolor1" id="headercolor1"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor2" id="headercolor2"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor3" id="headercolor3"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor4" id="headercolor4"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor5" id="headercolor5"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor6" id="headercolor6"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor7" id="headercolor7"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor8" id="headercolor8"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <!--end switcher-->
-
-
-            <!--start overlay-->
-            <div class="overlay nav-toggle-icon"></div>
-            <!--end overlay-->
-
+            <!-- end page content-->
         </div>
-        <!--end wrapper-->
+
+
+
+        <!--Start Back To Top Button-->
+        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+        <!--End Back To Top Button-->
+
+        <!--start switcher-->
+        <div class="switcher-body">
+            <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+            <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
+                <div class="offcanvas-header border-bottom">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <h6 class="mb-0">Theme Variation</h6>
+                    <hr>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                        <label class="form-check-label" for="LightTheme">Light</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                        <label class="form-check-label" for="DarkTheme">Dark</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3" checked>
+                        <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                    </div>
+                    <hr/>
+                    <h6 class="mb-0">Header Colors</h6>
+                    <hr/>
+                    <div class="header-colors-indigators">
+                        <div class="row row-cols-auto g-3">
+                            <div class="col">
+                                <div class="indigator headercolor1" id="headercolor1"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor2" id="headercolor2"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor3" id="headercolor3"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor4" id="headercolor4"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor5" id="headercolor5"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor6" id="headercolor6"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor7" id="headercolor7"></div>
+                            </div>
+                            <div class="col">
+                                <div class="indigator headercolor8" id="headercolor8"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--end switcher-->
+
+
+        <!--start overlay-->
+        <div class="overlay nav-toggle-icon"></div>
+        <!--end overlay-->
+
+    </div>
+    <!--end wrapper-->
 
 
 
 
 
-        <!-- JS Files-->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <!--plugins-->
-        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <!-- JS Files-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+    <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--plugins-->
+    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 
-        <!-- Main JS-->
-        <script src="assets/js/main.js"></script>
+    <!-- Main JS-->
+    <script src="assets/js/main.js"></script>
 
 
-    </body>
+</body>
 </html>
