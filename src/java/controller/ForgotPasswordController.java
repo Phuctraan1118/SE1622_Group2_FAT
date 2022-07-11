@@ -53,7 +53,7 @@ public class ForgotPasswordController extends HttpServlet {
                 _email.setFrom("nguyenbkse151446@fpt.edu.vn");
                 _email.setFromPassword("khoinguyen712");
                 _email.setTo(email);
-                _email.setSubject("Forgot Password Funtion");
+                _email.setSubject("Forgot Password");
                 StringBuilder sb = new StringBuilder();
                 sb.append("Dear ").append(userName).append("<br>");
                 sb.append("You are used the forgot password funtion. <br> ");
