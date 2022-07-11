@@ -81,6 +81,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
+                              <li>
+                                <a href="regulationManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
                         </ul>
                         <a href="pages-staff-profile.jsp">
                             <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
