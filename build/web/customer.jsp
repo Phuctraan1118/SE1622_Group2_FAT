@@ -68,9 +68,9 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="yellow">
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
-                      </font>
+                    <font color="yellow">
+                    <h6>Welcome ${USER.name} (STAFF)</h6>
+                    </font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -104,7 +104,7 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
-                              <li>
+                            <li>
                                 <a href="regulationManagement.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
@@ -140,16 +140,7 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    <form action="MainController" class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                            <ion-icon name="search-sharp"></ion-icon>
-                        </div>
-                        <input class="form-control" type="text" name="search" value="${param.search}" placeholder="Search Customer">
-                        <input type="hidden" value="Search Customer" name="btn" />
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                            <ion-icon name="close-sharp"></ion-icon>
-                        </div>
-                    </form>
+                    
 
                     <div class="top-navbar-right ms-auto">
 
@@ -446,7 +437,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                         <h6 class="mb-0 text-uppercase">Management</h6>
+                        <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -479,28 +470,15 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <h6 class="mb-0">List Of Customer</h6>
-                                <div class="fs-5 ms-auto dropdown">
-                                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                            class="bi bi-three-dots"></i></div>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                        <li>
-                                            <hr class="dropdown-divider">
-                                        </li>
-                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    </ul>
-                                </div>
+                                <form action="MainController" class="ms-auto position-relative">
+                                    <div class="position-absolute top-50 translate-middle-y search-icon px-3"><ion-icon name="search-sharp"></ion-icon></div>
+                                    <input  class="form-control ps-5" type="text" name="search" value="${param.search}" placeholder="Search Customer">
+                                    <input type="hidden" value="Search Customer" name="btn">
+                                </form>
                             </div>
+                            
                             <div class="table-responsive mt-2">
-                                <div id="gallery-items" class="gallery-items">
-                                        <div class="pagination">
-                                            <div class="prev">Prev</div>
-                                            <div class="page">Page <span class="page-num"></span></div>
-                                            <div class="next">Next</div>
-                                        </div>
-                                    </div>
-                                <table class="table align-middle mb-0">
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead class="table-light">
                                         <tr>
                                             <th>STT</th>
@@ -510,7 +488,6 @@
                                             <th>Phone</th>
                                             <th>CMND/CCCD</th>
                                             <th>Email</th>
-                                            <th>Image</th>
                                             <th>&nbsp;</th>
                                             <th>&nbsp;</th>
                                         </tr>
@@ -519,29 +496,23 @@
                                         <c:forEach var="user" items="${sessionScope.LIST_USER}" varStatus="counter">
                                         <form action="MainController">
 
+
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>
-                                                    <div class="d-flex align-items-center gap-3">
-                                                        <div class="product-info">
-                                                            <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${user.username}"></h6>
+                                                    <div class="d-flex align-items-center gap-3 cursor-pointer">
+                                                        <img src="${user.getImage()}" class="rounded-circle" width="44" height="44" alt="">
+                                                        <div class="">
+                                                            <p class="mb-0">${user.username}</p>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${user.fullName}">
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="box-input">
-                                                        <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${user.address}">
-                                                    </div>
-                                                </td>
-                                                <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${user.phone}"></td>
-                                                <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${user.citizenIdentification}"></td>
-                                                <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${user.email}"></td>
-                                                <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
+
+                                                <td>${user.fullName}</td>
+                                                <td>${user.address}</td>
+                                                <td>${user.phone}</td>
+                                                <td>${user.citizenIdentification}</td>
+                                                <td>${user.email}</td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
                                                         <!--                                                        <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -564,6 +535,55 @@
                                                     </div>
                                                 </td>
                                             </tr>
+
+
+
+
+                                            <!--                                            <tr>
+                                                                                            <td>${counter.count}</td>
+                                                                                            <td>
+                                                                                                <div class="d-flex align-items-center gap-3">
+                                                                                                    <div class="product-info">
+                                                                                                        <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${user.username}"></h6>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${user.fullName}">
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${user.address}">
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${user.phone}"></td>
+                                                                                            <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${user.citizenIdentification}"></td>
+                                                                                            <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${user.email}"></td>
+                                                                                            <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
+                                                                                            <td>
+                                                                                                <div class="d-flex align-items-center gap-3 fs-6">
+                                                                                                                                                            <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                                                                    title="" data-bs-original-title="Update info" aria-label="Update">
+                                                                                                                                                                <ion-icon name="pencil-sharp"></ion-icon>
+                                                                                                                                                            </button> 
+                                                                                                    <a href="editCustomer.jsp?userId=${user.id}"> <ion-icon name="pencil-sharp"></ion-icon></a>
+                                                                                                    <input type="hidden" name="search" value="${param.search}"/>
+                                                                                                    <input type="hidden" name="userId" value="${user.id}"/>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="d-flex align-items-center gap-3 fs-6">
+                                                                                                    <button type="submit" name="btn" value="Delete Customer" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                            title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
+                                                                                                        <ion-icon name="trash-sharp"></ion-icon>
+                                                                                                    </button>
+                                                                                                    <input type="hidden" name="search" value="${param.search}"/>
+                                                                                                    <input type="hidden" name="userId" value="${user.id}"/>
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>-->
 
                                         </form>
                                     </c:forEach>
@@ -761,6 +781,11 @@
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>
         <script src="PaginationJquery/app.js"></script>
+
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+        <script src="assets/js/table-datatable.js"></script>
 
         <!--        <script>
                     function ConfirmDelete(){

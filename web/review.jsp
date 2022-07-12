@@ -20,11 +20,11 @@
                 </tr>
                 <tr>
                     <td>Description</td>
-                    <td>${requestScope.transaction.description}</td>
+                    <td>${transaction.description}</td>
                 </tr>
                 <tr>
                     <td>Sub Total</td>
-                    <td>${requestScope.transaction.amount.details.subtotal}</td>
+                    <td>${transaction.amount.details.subtotal}</td>
                 </tr>
                 
                 
@@ -41,12 +41,12 @@
                 
                 <tr>
                     <td>First Name</td>
-                    <td>${request.PAYER.firstname} + ${request.PAYER.lastname}</td>
+                    <td>${PAYER.firstName}  ${PAYER.lastName}</td>
                 </tr>
                 
                 <tr>
                     <td>Payer Email</td>
-                    <td>${request.PAYER.email}</td>
+                    <td>${PAYER.email}</td>
                 </tr>
             </tbody>
         </table>

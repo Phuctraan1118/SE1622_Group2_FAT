@@ -100,6 +100,8 @@ public class PaymentService {
         return Payment.get(apiContext, paymentId);
     }
     
+    
+    
     private RedirectUrls getRedirectURLs(){
         RedirectUrls redirectUrls = new RedirectUrls();
         redirectUrls.setCancelUrl("http://localhost:8080/HostelManagementSystem/cancelPayment.jsp");
