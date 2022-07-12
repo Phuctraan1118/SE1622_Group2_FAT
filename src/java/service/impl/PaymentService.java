@@ -13,6 +13,7 @@ import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payer;
 import com.paypal.api.payments.PayerInfo;
 import com.paypal.api.payments.Payment;
+import com.paypal.api.payments.PaymentExecution;
 import com.paypal.api.payments.RedirectUrls;
 import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.APIContext;
@@ -100,7 +101,14 @@ public class PaymentService {
         return Payment.get(apiContext, paymentId);
     }
     
-    
+    public Payment executePayment(String paymentId, String payerId) throws PayPalRESTException{
+        PaymentExecution paymentExecution = new PaymentExecution();
+        paymentExecution.setPayerId(payerId);
+        
+        Payment payment = new Payment().setId(paymentId);
+        APIContext apiContext = new APIContext(CLIENT_ID, CLIENT_SECRET, MODE);
+        return payment.execute(apiContext, paymentExecution);
+    }
     
     private RedirectUrls getRedirectURLs(){
         RedirectUrls redirectUrls = new RedirectUrls();

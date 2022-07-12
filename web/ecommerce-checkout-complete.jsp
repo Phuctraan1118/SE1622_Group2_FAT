@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en" class="semi-dark">
     <head>
@@ -26,23 +27,23 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Payment</title>
+        <title>Dashkote - Bootstrap5 Admin Template</title>
     </head>
     <body>
 
 
         <!--start wrapper-->
         <div class="wrapper">
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
+                    <font color="green">
                     <div>
-                        <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">Payment</h4>
-                    </div>
-                    <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
+                        <h6>Welcome ${USER.name} (USER)</h6>
+                    </div></font>
+                    <div class="toggle-icon ms-auto">
+                        <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
@@ -51,7 +52,7 @@
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Payment</div>
+                            <div class="menu-title">Review</div>
                         </a>
                         <ul>
                             <li> <a href="index.html">
@@ -64,7 +65,6 @@
                             </li>
                         </ul>
                     </li>
-                    <!--end navigation-->
             </aside>
             <!--end sidebar -->
 
@@ -259,17 +259,17 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                        <img src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -295,7 +295,7 @@
                                         <a class="dropdown-item" href="index2.html">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Dashboard</span></div>
+                                                <div class="ms-3"><span>Review</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -317,7 +317,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Logout</span></div>
@@ -342,13 +342,13 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Deposit</div>
+                        <div class="breadcrumb-title pe-3">Review</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Deposit</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Review Cart</li>
                                 </ol>
                             </nav>
                         </div>
@@ -371,12 +371,13 @@
                     <!--start shop cart-->
                     <section class="shop-page">
                         <div class="shop-container">
+
                             <div class="card shadow-sm border-0">
                                 <div class="card-body">
                                     <div class="shop-cart">
                                         <div class="row">
                                             <div class="col-12 col-xl-8">
-                                                <div class="checkout-details">
+                                                <div class="shop-cart-list">
                                                     <div class="card border-0">
                                                         <div class="card-body">
                                                             <div class="steps steps-light">
@@ -395,12 +396,12 @@
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-cube'></i>Deposit</div>
                                                                 </a>
-                                                                <a class="step-item" href="ecommerce-checkout-payment.html">
+                                                                <a class="step-item active" href="ecommerce-checkout-payment.html">
                                                                     <div class="step-progress"><span class="step-count">4</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-credit-card'></i>Payment</div>
                                                                 </a>
-                                                                <a class="step-item" href="ecommerce-checkout-review.html">
+                                                                <a class="step-item active" href="ecommerce-checkout-review.html">
                                                                     <div class="step-progress"><span class="step-count">5</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-check-circle'></i>Review</div>
@@ -408,52 +409,29 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <h1>Thank you for your booking</h1>
+                                                    <h5>This is your Transaction Details Information</h5>
+                                                    <hr>
                                                     <div class="card">
                                                         <div class="card-body">
-                                                            <h2 class="h5 mb-0">Choose Deposit Method</h2>
-                                                            <div class="my-3 border-bottom"></div>
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <th>Method</th>
-                                                                            <th>Time</th>
-                                                                            <th>Fee</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>Flat Rate</td>
-                                                                            <td>2 days</td>
-                                                                            <td>$10.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>International Deposit</td>
-                                                                            <td>12 days</td>
-                                                                            <td>$12.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Same day delivery</td>
-                                                                            <td>1 day</td>
-                                                                            <td>$22.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Expedited Deposit</td>
-                                                                            <td>--</td>
-                                                                            <td>$15.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>Local Pickup</td>
-                                                                            <td>--</td>
-                                                                            <td>$0.00</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>UPS Ground</td>
-                                                                            <td>2-5 days</td>
-                                                                            <td>$16.00</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
+                                                            <div class="row align-items-center g-2">
+                                                                <div class="col-12 col-lg-6">
+                                                                    <div class="d-lg-flex align-items-center gap-2">
+                                                                        <div class="cart-img text-center text-lg-start">
+                                                                            <img src="images/${sessionScope.ROOMDTO.image}" width="130" alt="">
+                                                                        </div>
+                                                                        <div class="cart-detail text-center text-lg-start">
+                                                                            <h6 class="mb-2">Transaction Details</h6>
+                                                                            <p class="mb-0">Product: booking room: <span>No ${transaction.description}</span>
+                                                                            </p>
+                                                                            <p class="mb-2">Payer Information: <span>${PAYER.firstName}  ${PAYER.lastName}</span>
+                                                                            </p>
+                                                                            <p class="mb-2">Payer Email: <span>${PAYER.email}</span>
+                                                                            </p>
+                                                                            <h5 class="mb-0">Total: ${transaction.amount.details.subtotal}</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -461,11 +439,9 @@
                                                         <div class="card-body">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <div class="d-grid"><a href="javascript:;" class="btn btn-light btn-ecomm"><i class="bx bx-chevron-left"></i>Back to Details</a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="d-grid"><a href="javascript:;" class="btn btn-primary btn-ecomm">Proceed to Payment<i class="bx bx-chevron-right"></i></a>
+                                                                    <div class="payment-mode">
+                                                                        <h5 class="mb-3">Payment Mode: Pay Pal</h5>
+                                                                        <img src="assets/images/icons/visa.png" width="150" class="p-2 border bg-light rounded" alt="">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -474,80 +450,35 @@
                                                 </div>
                                             </div>
                                             <div class="col-12 col-xl-4">
-                                                <div class="order-summary">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <p class="fs-5">Apply Discount Code</p>
-                                                                    <div class="input-group">
-                                                                        <input type="text" class="form-control" placeholder="Enter discount code">
-                                                                        <button class="btn btn-primary btn-ecomm" type="button">Apply</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <p class="fs-5">Order summary</p>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/01.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">White Polo T-Shirt</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$19.<small>00</small></span><span class="">x 1</span>
-                                                                            </div>
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <p class="fs-5">Order summary</p>
+                                                                <div class="my-3 border-top"></div>
+                                                                <div class="d-flex align-items-center">
+                                                                    <a class="d-block flex-shrink-0" href="javascript:;">
+                                                                        <img src="images/${sessionScope.ROOMDTO.image}" width="75" alt="Product">
+                                                                    </a>
+                                                                    <div class="ps-2">
+                                                                        <h6 class="mb-1">Room no ${sessionScope.ROOMDTO.roomId}</h6>
+                                                                        <h5 class="mb-1">Description ${sessionScope.ROOMDTO.roomDescription}</h5>
+                                                                        <div class="widget-product-meta"><span class="me-2">$${sessionScope.ROOMDTO.roomPrice}</span><span class="">x 1</span>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/17.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Fancy Red Sneakers</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$16.<small>00</small></span><span class="">x 2</span>
-                                                                            </div>
+                                                                        <div class="widget-product-meta"><span class="me-2">Check In Date <small class="date">${sessionScope.CHECKINDATE}</small></span>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/04.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Yellow Shine Blazer</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$22.<small>00</small></span><span class="">x 1</span>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <div class="d-flex align-items-center">
-                                                                        <a class="d-block flex-shrink-0" href="javascript:;">
-                                                                            <img src="assets/images/products/09.png" width="75" alt="Product">
-                                                                        </a>
-                                                                        <div class="ps-2">
-                                                                            <h6 class="mb-1">Men Black Hat Cap</h6>
-                                                                            <div class="widget-product-meta"><span class="me-2">$14.<small>00</small></span><span class="">x 1</span>
-                                                                            </div>
+                                                                        <div class="widget-product-meta"><span class="me-2">Check Out Date <small class="date">${sessionScope.CHECKOUTDATE}</small></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="card mb-0">
-                                                                <div class="card-body">
-                                                                    <p class="mb-2">Subtotal: <span class="float-end">$198.00</span>
-                                                                    </p>
-                                                                    <p class="mb-2">Shipping: <span class="float-end">--</span>
-                                                                    </p>
-                                                                    <p class="mb-2">Taxes: <span class="float-end">$14.00</span>
-                                                                    </p>
-                                                                    <p class="mb-0">Discount: <span class="float-end">--</span>
-                                                                    </p>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <h5 class="mb-0">Order Total: <span class="float-end">$212.00</span></h5>
-                                                                </div>
+                                                        </div>
+                                                        <div class="card mb-0">
+                                                            <div class="card-body">
+                                                                <p class="mb-2">Time Booking <span class="float-end">${sessionScope.DISTANCETIME} months</span>
+                                                                </p>
+                                                                <div class="my-3 border-top"></div>
+                                                                <h5 class="mb-0">Order Total: <span class="float-end">${sessionScope.TOTALROOMPRICE} $</span></h5>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -558,6 +489,7 @@
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </section>
                     <!--end shop cart-->

@@ -402,9 +402,9 @@
                                                             <form action="MainController" method="Post">
                                                                 <select name="txtSize"class="form-select">
                                                                     <option value="" selected="selected">Size</option>
-                                                                    <option value="1 giuong">Small(1 bed)</option>
-                                                                    <option value="2 giuong">Large(2 bed)</option>
-                                                                    <option value="3 giuong">Extra Large(3 bed)</option>
+                                                                    <option value="1 BED">Small(1 bed)</option>
+                                                                    <option value="2 BED">Large(2 bed)</option>
+                                                                    <option value="3 BED">Extra Large(3 bed)</option>
                                                                 </select>
                                                         </div>
                                                         <div class="col-12 col-lg">

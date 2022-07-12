@@ -19,6 +19,7 @@ public class MyApplicationConstants {
         public static final String UDPATE_ACCOUNT_CONTROLLER = "updateAccountController";
         public static final String UDPATE_ACCOUNT_GOOGLE_CONTROLLER = "updateAccountGoogleController";
         public static final String CHECK_OUT_CONTROLLER = "authorizePaymentController";
+        public static final String EXECUTE_PAYMENT_CONTROLLER = "executePaymentController";
     }
 
     public class AuthenticationFeatures {
@@ -103,6 +104,10 @@ public class MyApplicationConstants {
     public class ManageRevenue {
         public static final String REVENUE_PAGE="revenueManagementPage";
         public static final String VIEW_REVENUE_CONTROLLER="revenueShowController";
-        
+    }
+    
+    public class PaymentFeature{
+        public static final String RECEIPT_PAGE = "receiptPage";
+        public static final String ERROR_PAGE = "errorReceiptPage";
     }
 }
