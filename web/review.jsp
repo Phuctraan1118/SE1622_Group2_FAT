@@ -12,6 +12,44 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <table border="1"> 
+            <tbody>
+                <tr>
+                    <td colspan="2">Transaction Details:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>${requestScope.transaction.description}</td>
+                </tr>
+                <tr>
+                    <td>Sub Total</td>
+                    <td>${requestScope.transaction.amount.details.subtotal}</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td colspan="2">Payer Information:</td>
+                    <td></td>
+                </tr>
+                
+                <tr>
+                    <td>Sub Total</td>
+                    <td>${sessionScope.USER.name}</td>
+                </tr>
+                
+                <tr>
+                    <td>First Name</td>
+                    <td>${request.PAYER.firstname} + ${request.PAYER.lastname}</td>
+                </tr>
+                
+                <tr>
+                    <td>Payer Email</td>
+                    <td>${request.PAYER.email}</td>
+                </tr>
+            </tbody>
+        </table>
+
     </body>
 </html>

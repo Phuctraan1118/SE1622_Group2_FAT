@@ -82,7 +82,7 @@ public class PaymentService {
         
         Item item = new Item();
         item.setCurrency("USD")
-                .setName(bill.getRoomId())
+                .setName(" Room no " + bill.getRoomId())
                 .setPrice(bill.getTotal())
                 .setQuantity("1");
         items.add(item);

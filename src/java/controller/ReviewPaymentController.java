@@ -49,7 +49,7 @@ public class ReviewPaymentController extends HttpServlet {
             request.setAttribute("PAYER", payerInfo);
             request.setAttribute("transaction", transaction);
             
-            url = "ecommerce-checkout-review.jsp?paymentId=" + paymentId + "&payerId=" + payerId;
+            url = "review.jsp?paymentId=" + paymentId + "&payerId=" + payerId;
         }catch(PayPalRESTException ex){
             log("ReviewPaymentController _ PayPalRESTException "+ ex.getMessage());
         }finally{
