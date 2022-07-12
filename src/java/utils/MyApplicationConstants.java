@@ -90,7 +90,7 @@ public class MyApplicationConstants {
         public static final String ADD_ROOM_ERROR = "addRoomErrorPage";   
         public static final String VIEW_ONWED_ROOM_FOR_CUSTOMER = "roomOwnedViewController";
         public static final String VIEW_ONWED_ROOM_FOR_CUSTOMER_PAGE = "ownedRoomPage";
-        public static final String VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER = "RoomOwnedViewGoogleController";
+        public static final String VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER = "roomOwnedViewGoogleController";
         public static final String VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER_PAGE = "ownedRoomGooglePage";
     }
     public class BookingRoomUser {

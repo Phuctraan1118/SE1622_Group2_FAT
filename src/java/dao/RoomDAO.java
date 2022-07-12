@@ -25,7 +25,7 @@ public class RoomDAO implements Serializable {
             + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
             + "from tblRoom r , tblBooking b, tblBookingDetail bd "
             + "where r.roomId = bd.roomId and b.bookingId = bd.bookingId and username = ? "
-            + "order by checkInDate , r.roomId asc ";
+                + "order by checkInDate , r.roomId asc ";
        
     private static final String SEARCH_NOT_BOOKED = "select roomId, roomDescription , roomPrice , image from tblRoom "
             + "where roomDescription like ? "

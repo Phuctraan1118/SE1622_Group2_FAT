@@ -37,7 +37,7 @@ public class RoomOwnedViewGoogleController extends HttpServlet {
             String username = request.getParameter("txtUser");
             RoomDAO dao = new RoomDAO();
             List<RoomDTO> dto = dao.viewOwnedRoom(username);
-            request.setAttribute("OWNED_ROOM", dto);
+            request.setAttribute("OWNED_ROOM_GOOGLE", dto);
             url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER_PAGE);
         } catch (NamingException ex) {
             log("SearchServlet_SQL " + ex.getMessage());

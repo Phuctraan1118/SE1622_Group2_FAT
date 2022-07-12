@@ -79,7 +79,7 @@
                     </li>
                     <li>
 
-                        <a href="ownedRoomGoogle.jsp">
+                        <a href="RoomOwnedViewGoogleController">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
@@ -460,7 +460,7 @@
                                                                             </div>
                                                                         </div>
                                                                         <form action="MainController" method="post">
-                                                                            <img src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                            <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
                                                                             <div class="card-body">
                                                                                 <div class="product-info">
                                                                                     <a href="javascript:;">

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : ownedRoomGoogle
-    Created on : Jul 11, 2022, 5:18:19 PM
-    Author     : Bitano
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
@@ -55,11 +49,10 @@
                     </div>
                 </div>
                 <!--navigation-->
-
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="pages-user-google-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
@@ -68,7 +61,7 @@
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="error.jsp">
+                            <a href="page-edit-profile-user-google.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -88,7 +81,7 @@
                     </li>
                     <li>
 
-                        <a href="ownedRoomGoogle.jsp">
+                        <a href="RoomOwnedViewGoogleController">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
@@ -96,7 +89,7 @@
                         </a>
 
                     </li>
-                     <li>
+                    <li>
 
                         <a href="regulationGoogle.jsp">
                             <div class="parent-icon">
@@ -108,6 +101,7 @@
                     </li>
 
                 </ul>
+
                 <!--end navigation-->
             </aside>
             <!--end sidebar -->
@@ -415,9 +409,9 @@
                                                         </form>
                                                     </div>
                                                 </div>
-                     
+
                                                 <div class="product-grid">
-                                                    <c:if test="${not empty requestScope.OWNED_ROOM}">
+                                                    <c:if test="${not empty requestScope.OWNED_ROOM_GOOGLE}">
                                                         <div class="table-responsive mt-2">
                                                             <div class="card">
                                                                 <div class="card-body">
@@ -438,7 +432,7 @@
                                                                                 </tr>
                                                                             </thead>
                                                                             <tbody>
-                                                                                <c:forEach var="dtoBooked" items="${requestScope.OWNED_ROOM}" varStatus="counter">
+                                                                                <c:forEach var="dtoBooked" items="${requestScope.OWNED_ROOM_GOOGLE}" varStatus="counter">
                                                                                 <form action="MainController" method="POST">
                                                                                     <tr>
                                                                                         <td>${counter.count}</td>
