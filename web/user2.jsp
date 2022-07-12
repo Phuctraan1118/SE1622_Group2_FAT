@@ -494,6 +494,7 @@
                                                         <input type="hidden" name="txtUsername" value="${User.id}" />
                                                         <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
                                                         <input type="submit" name="btn" value="Booking"/>
+                                                        <a href="booking.jsp">booking</a>
                                                     </td>
 
                                                 </tr>

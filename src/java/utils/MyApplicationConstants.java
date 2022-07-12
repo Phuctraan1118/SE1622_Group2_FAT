@@ -18,7 +18,7 @@ public class MyApplicationConstants {
         public static final String SIGN_UP_CONTROLLER = "signUpController";
         public static final String UDPATE_ACCOUNT_CONTROLLER = "updateAccountController";
         public static final String UDPATE_ACCOUNT_GOOGLE_CONTROLLER = "updateAccountGoogleController";
-        
+        public static final String CHECK_OUT_CONTROLLER = "authorizePaymentController";
     }
 
     public class AuthenticationFeatures {

@@ -418,22 +418,22 @@
                                                         <div class="card-body">
                                                             <div class="steps steps-light">
                                                                 
-                                                                <a class="step-item active current" href="ecommerce-checkout-details.html">
+                                                                <a class="step-item active current" href="#">
                                                                     <div class="step-progress"><span class="step-count">1</span>
                                                                     </div>
-                                                                    <div class="step-label"><i class='bx bx-user-circle'></i>Details</div>
+                                                                    <div class="step-label"><i class='bx bx-cart'></i>Details</div>
                                                                 </a>
-                                                                <a class="step-item" href="ecommerce-checkout-shipping.html">
+                                                                <a class="step-item" href="#">
                                                                     <div class="step-progress"><span class="step-count">2</span>
                                                                     </div>
-                                                                    <div class="step-label"><i class='bx bx-cube'></i>Deposit</div>
+                                                                    <div class="step-label"><i class='bx bx-user-circle'></i>Deposit</div>
                                                                 </a>
-                                                                <a class="step-item" href="ecommerce-checkout-payment.html">
+                                                                <a class="step-item" href="#">
                                                                     <div class="step-progress"><span class="step-count">3</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-credit-card'></i>Payment</div>
                                                                 </a>
-                                                                <a class="step-item" href="ecommerce-checkout-review.html">
+                                                                <a class="step-item" href="#">
                                                                     <div class="step-progress"><span class="step-count">4</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-check-circle'></i>Review</div>

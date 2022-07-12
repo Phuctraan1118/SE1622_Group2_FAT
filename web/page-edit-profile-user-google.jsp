@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="pages-edit-profile-user-google.jsp">
+                        <a href="page-edit-profile-user-google.jsp">
                             <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Edit Profile</div>

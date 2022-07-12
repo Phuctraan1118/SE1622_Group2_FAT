@@ -131,6 +131,8 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_FOR_CUSTOMER);
             } else if (button.equals("View Owned Room For Google")){
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER);
+            }else if(button.equals("Check Out PayPal")){
+                url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER);
             }
 
         } finally {
