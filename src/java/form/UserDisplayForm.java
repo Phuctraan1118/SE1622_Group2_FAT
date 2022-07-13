@@ -4,11 +4,13 @@
  */
 package form;
 
+import java.io.Serializable;
+
 /**
  *
  * @author hungp
  */
-public class UserDisplayForm {
+public class UserDisplayForm implements Serializable {
     private String id;
     private String username;
     private String fullName;

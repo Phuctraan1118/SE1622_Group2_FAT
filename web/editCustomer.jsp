@@ -33,7 +33,7 @@
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css" />
-        
+
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
@@ -56,6 +56,12 @@
     </head>
 
     <body>
+        <%
+            UserError userError = (UserError) request.getAttribute("USER_ERROR");
+            if (userError == null) {
+                userError = new UserError();
+            }
+        %>
         <!--start wrapper-->
         <div class="wrapper">
             <c:set var="User" value="${sessionScope.USER}"/>
@@ -120,7 +126,12 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-
+                    <p class="error">${requestScope.USER_ERROR.fullNameError}</p> 
+                    <p class="error">${requestScope.USER_ERROR.addressError}</p>
+                    <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
+                    <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
+                    <p class="error">${requestScope.USER_ERROR.emailError}</p>
+                    <p class="error">${requestScope.USER_ERROR.messageError}</p>
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">
@@ -428,6 +439,7 @@
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
                                                                     </div>
                                                                     <div class="col-md-1">
+                                                                        <input type="hidden" name="userId" value="${x.id}">
                                                                         <button type="button" class="btn btn-success px-5" onclick="success_noti()" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
                                                                         <button type="submit" class="btn btn-info px-5" style="margin-top: 24px;"  name="btn" value="Update Customer">Back to Customer Management</button>
                                                                     </div>

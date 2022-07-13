@@ -27,7 +27,7 @@ public class Validation {
     }
 
     public static boolean checkEmail(String email) {
-        return email.matches("[a-zA-Z0-9_-]{3,30}@{1}[a-zA-Z0-9]{5}[.][a-z0-9]{2,5}(.vn)?");
+        return email.matches("[a-zA-Z0-9_-]{3,30}@{1}[a-zA-Z0-9]{2,5}[.][a-z0-9]{2,5}(.vn)?");
     }
 
     public static boolean checkPhoneNumber(String phoneNum) {

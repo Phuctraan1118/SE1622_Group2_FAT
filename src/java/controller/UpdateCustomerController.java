@@ -26,7 +26,7 @@ import service.impl.UserValidationServiceImpl;
 @WebServlet(name = "UpdateCustomerController", urlPatterns = {"/UpdateCustomerController"})
 public class UpdateCustomerController extends HttpServlet {
 
-    private static final String ERROR = "customer.jsp";
+    private static final String ERROR = "editCustomer.jsp?userId=";
     private static final String SUCCESS = "SearchCustomerController?search=";
     private UserService userService;
     private UserValidationService userValidationService;
@@ -41,7 +41,7 @@ public class UpdateCustomerController extends HttpServlet {
         String userId = request.getParameter("userId");
         userValidationService = new UserValidationServiceImpl();
         UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
-        if (userError != null) {
+         if (userError != null) {
             check = false;
             url = ERROR + userId;
             request.setAttribute("USER_ERROR", userError);
@@ -53,7 +53,7 @@ public class UpdateCustomerController extends HttpServlet {
             if (userDto != null) {
                 request.setAttribute("UPDATED", userUpdateForm.getUsername());
                 url = SUCCESS;
-                forwardToJsp(request, url + userId, response);
+                forwardToJsp(request, url, response);
             }
         }
     }
