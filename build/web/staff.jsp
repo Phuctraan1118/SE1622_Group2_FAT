@@ -140,7 +140,10 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    
+                    <c:set var="updated" value="${requestScope.UPDATED}"/>
+                    <c:if test="${not empty updated}">
+                        <p class="success">Username ${updated} is updated</p>
+                    </c:if>
 
                     <div class="top-navbar-right ms-auto">
 
@@ -476,7 +479,7 @@
                                     <input type="hidden" value="Search Staff" name="btn">
                                 </form>
                             </div>
-                            
+
                             <div class="table-responsive mt-2">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead class="table-light">
@@ -493,7 +496,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="user" items="${sessionScope.LIST_USER}" varStatus="counter">
+                                        <c:forEach var="user" items="${sessionScope.LIST_STAFF}" varStatus="counter">
                                         <form action="MainController">
 
 
@@ -666,6 +669,7 @@
                                                 <c:if test="${not empty dupplicate}">
                                                     <p class="error">User `${dupplicate}` is existed</p>
                                                 </c:if> 
+
                                             </div>
                                         </div>
                                     </div>

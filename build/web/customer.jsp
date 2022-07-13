@@ -493,7 +493,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach var="user" items="${sessionScope.LIST_USER}" varStatus="counter">
+                                        <c:forEach var="user" items="${sessionScope.LIST_CUSTOMER}" varStatus="counter">
                                         <form action="MainController">
 
 
