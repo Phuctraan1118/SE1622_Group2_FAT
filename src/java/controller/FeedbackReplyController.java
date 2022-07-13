@@ -4,54 +4,53 @@
  */
 package controller;
 
-import dto.NotificationDto;
-import form.NotificationCreateForm;
+import dao.FeedbackDAO;
+import dto.FeedbackDTO;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import service.NotificationService;
-import service.impl.NotificationServerImpl;
 
 /**
  *
  * @author hungp
  */
-@WebServlet(name = "NotificationCreateController", urlPatterns = {"/NotificationCreateController"})
-public class NotificationCreateController extends HttpServlet {
+//STAFF SEND FEEDBACK FOR USER
+@WebServlet(name = "FeedbackReplyController", urlPatterns = {"/FeedbackReplyController"})
+public class FeedbackReplyController extends HttpServlet {
 
-    private static final String FAIL = "notifi.jsp";
-    private NotificationService notificationService;
-
+    private static final String ERROR = "managementFeedbackRep.jsp";
+    private static final String SUCCESS = "managementFeedback.jsp";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = FAIL;
         
-        NotificationCreateForm notificationForm = getNotificationForm(request);
-        notificationService = new NotificationServerImpl();
-        NotificationDto notificationDto = notificationService.createNoti(notificationForm);
-        if (notificationDto != null) {
-            request.setAttribute("CREATED", notificationDto.getName());
-            url = "notifi.jsp";
-            forwardToJsp(request, url, response);
-        }
-        
-    }
-
-    private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
-    }
-
-    private NotificationCreateForm getNotificationForm(HttpServletRequest request) {
-        String notificationName = request.getParameter("txtNotificationName");
-        String notificationDetail = request.getParameter("txtNotificationDetail");
+        String content = request.getParameter("txtFeedbackContentReply");
+        int feedbackId = Integer.parseInt(request.getParameter("txtFeedbackId")) ; 
         String username = request.getParameter("txtUsername");
-        return new NotificationCreateForm(notificationName, notificationDetail, username);
+        String url = ERROR;
+        try  {
+           FeedbackDAO dao = new FeedbackDAO();
+            FeedbackDTO dto = new FeedbackDTO(feedbackId, content);
+
+            boolean result = dao.replyFeedback(dto);
+            if (result) {
+                url = SUCCESS;
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+        }
+        //user gui feedback toi staff (thong tin user, content, idfeedback , contentId )
+        //staff nhan duoc feedback -> staff reply (thong tin cua staff , content 
+        //user nhan dc feedback
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

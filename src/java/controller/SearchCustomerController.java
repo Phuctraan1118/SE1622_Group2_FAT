@@ -41,7 +41,7 @@ public class SearchCustomerController extends HttpServlet {
         sortUserDisplayForms(userDisplayForms);
 
         if (!userDisplayForms.isEmpty()) {
-            session.setAttribute("LIST_USER", userDisplayForms);
+            session.setAttribute("LIST_CUSTOMER", userDisplayForms);
         }
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);

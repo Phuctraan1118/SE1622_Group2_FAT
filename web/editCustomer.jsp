@@ -397,7 +397,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="p-4 border rounded">
-                                                    <c:set var="list" value="${sessionScope.LIST_USER}"></c:set>
+                                                    <c:set var="list" value="${sessionScope.LIST_CUSTOMER}"></c:set>
                                                     <c:set var="userId" value="${param.userId}"></c:set>
                                                     <c:forEach var="x" items="${list}">
                                                         <c:if test="${x.getId() eq userId}">

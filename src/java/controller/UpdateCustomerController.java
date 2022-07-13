@@ -6,6 +6,7 @@ package controller;
 
 import java.io.IOException;
 import dto.UserCreateDto;
+import form.UserError;
 import form.UserUpdateForm;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import service.UserService;
 import service.UserValidationService;
 import service.impl.UserServiceImpl;
+import service.impl.UserValidationServiceImpl;
 
 /**
  *
@@ -36,23 +38,24 @@ public class UpdateCustomerController extends HttpServlet {
         boolean check = true;
 
         UserUpdateForm userUpdateForm = getUserForm(request);
-        userService = new UserServiceImpl();
-//        userValidationService = new UserValidationServiceImpl();
-//        UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
-//        if (userError != null) {
-//            check = false;
-//            request.setAttribute("USER_ERROR", userError);
-//            forwardToJsp(request, url, response);
-//        }
-//        if (check) {
-        UserCreateDto userDto = userService.updateUser(userUpdateForm);
-        if (userDto != null) {
-            request.setAttribute("UPDATED", userUpdateForm.getUsername());
-            url = SUCCESS;
+        String userId = request.getParameter("userId");
+        userValidationService = new UserValidationServiceImpl();
+        UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
+        if (userError != null) {
+            check = false;
+            url = ERROR + userId;
+            request.setAttribute("USER_ERROR", userError);
             forwardToJsp(request, url, response);
         }
-//        }
-
+        if (check) {
+            userService = new UserServiceImpl();
+            UserCreateDto userDto = userService.updateUser(userUpdateForm);
+            if (userDto != null) {
+                request.setAttribute("UPDATED", userUpdateForm.getUsername());
+                url = SUCCESS;
+                forwardToJsp(request, url + userId, response);
+            }
+        }
     }
 
     private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {

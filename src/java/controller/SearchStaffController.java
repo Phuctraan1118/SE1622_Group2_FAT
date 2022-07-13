@@ -52,7 +52,7 @@ public class SearchStaffController extends HttpServlet {
         int endPage = userService.getEndPage();
         request.setAttribute("endP", endPage);
         if (!userDisplayForms.isEmpty()) {
-            session.setAttribute("LIST_USER", userDisplayForms);
+            session.setAttribute("LIST_STAFF", userDisplayForms);
         }
         url = SUCCESS;
         RequestDispatcher rd = request.getRequestDispatcher(url);

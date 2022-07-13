@@ -28,7 +28,7 @@ import service.impl.UserValidationServiceImpl;
 @WebServlet(name = "UpdateStaffController", urlPatterns = {"/UpdateStaffController"})
 public class UpdateStaffController extends HttpServlet {
 
-    private static final String ERROR = "staff.jsp";
+    private static final String ERROR = "editStaff.jsp?userId=";
     private static final String SUCCESS = "SearchStaffController?search=";
     private UserService userService;
     private UserValidationService userValidationService;
@@ -40,22 +40,24 @@ public class UpdateStaffController extends HttpServlet {
         boolean check = true;
 
         UserUpdateForm userUpdateForm = getUserForm(request);
-        userService = new UserServiceImpl();
-//        userValidationService = new UserValidationServiceImpl();
-//        UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
-//        if (userError != null) {
-//            check = false;
-//            request.setAttribute("USER_ERROR", userError);
-//            forwardToJsp(request, url, response);
-//        }
-//        if (check) {
-        UserCreateDto userDto = userService.updateUser(userUpdateForm);
-        if (userDto != null) {
-            request.setAttribute("UPDATED", userUpdateForm.getUsername());
-            url = SUCCESS;
+        String userId = request.getParameter("userId");
+        userValidationService = new UserValidationServiceImpl();
+        UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
+        if (userError != null) {
+            check = false;
+            url = ERROR + userId;
+            request.setAttribute("USER_ERROR", userError);
             forwardToJsp(request, url, response);
         }
-//        }
+        if (check) {
+            userService = new UserServiceImpl();
+            UserCreateDto userDto = userService.updateUser(userUpdateForm);
+            if (userDto != null) {
+                request.setAttribute("UPDATED", userUpdateForm.getUsername());
+                url = SUCCESS;
+                forwardToJsp(request, url , response);
+            }
+        }
 
     }
 

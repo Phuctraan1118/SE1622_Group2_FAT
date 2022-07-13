@@ -47,14 +47,17 @@
             .error{
                 color: red;
             }
-            .success{
-                color: green;
-            }
         </style>
 
     </head>
 
     <body>
+        <%
+            UserError userError = (UserError) request.getAttribute("USER_ERROR");
+            if (userError == null) {
+                userError = new UserError();
+            }
+        %>
         <!--start wrapper-->
         <div class="wrapper">
             <c:set var="User" value="${sessionScope.USER}"/>
@@ -119,7 +122,12 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-
+                    <p class="error">${requestScope.USER_ERROR.fullNameError}</p> 
+                    <p class="error">${requestScope.USER_ERROR.addressError}</p>
+                    <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
+                    <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
+                    <p class="error">${requestScope.USER_ERROR.emailError}</p>
+                    <p class="error">${requestScope.USER_ERROR.messageError}</p>
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">
@@ -396,7 +404,7 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <div class="p-4 border rounded">
-                                                    <c:set var="list" value="${sessionScope.LIST_USER}"></c:set>
+                                                    <c:set var="list" value="${sessionScope.LIST_STAFF}"></c:set>
                                                     <c:set var="userId" value="${param.userId}"></c:set>
                                                     <c:forEach var="x" items="${list}">
                                                         <c:if test="${x.getId() eq userId}">
@@ -425,16 +433,20 @@
                                                                     <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Email</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
+
                                                                     </div>
                                                                     <div class="col-md-1">
+                                                                        <input type="hidden" name="userId" value="${x.id}">
                                                                         <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Staff">Update Staff</button>
                                                                     </div>
                                                                 </div>
+
                                                             </form>
                                                         </c:if> 
                                                     </c:forEach>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
