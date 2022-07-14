@@ -33,6 +33,18 @@ public class RevenueDTO {
         this.feesPrice = feesPrice;
         
     }
+    public RevenueDTO(int billId, int roomId, int serviceId, int feeId, String billName, String billDate, float electronicPrice, float waterPrice, float roomPrice) {
+        this.billId = billId;
+        this.roomId = roomId;
+        this.serviceId = serviceId;
+        this.feeId = feeId;
+        this.billName = billName;
+        this.billDate = billDate;
+        this.electronicPrice = electronicPrice;
+        this.waterPrice = waterPrice;
+        this.roomPrice = roomPrice;
+        
+    }
 
     public RevenueDTO() {
     }
