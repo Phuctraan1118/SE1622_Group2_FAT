@@ -31,7 +31,7 @@ public class FeedbackCreateController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String username = request.getParameter("txtUsername");
-        String content = request.getParameter("txtContent");
+        String content = request.getParameter("txtContentFeedback");
 
         String url = FAIL;
         try {
