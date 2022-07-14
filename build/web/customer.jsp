@@ -136,6 +136,7 @@
                 </ul>
                 <!--end navigation-->
             </aside>
+        </div>
             <!--end sidebar -->
 
             <!--start top header-->
