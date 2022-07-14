@@ -20,6 +20,7 @@ public class FeedbackDTO {
         this.username = username;
         this.status = status;
     }
+    
 
     public FeedbackDTO(int feedbackId, String feedbackName, String username, boolean status) {
    

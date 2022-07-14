@@ -41,6 +41,8 @@ public class MainController extends HttpServlet {
     private static final String CREATE_REGULATION_CONTROLLER = "RegulationCreateController";
     private static final String EDIT_REGULATION_CONTROLLER = "RegulationUpdateController";
 
+    private static final String CREATE_FEEDBACK = "FeedbackCreateController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -113,27 +115,29 @@ public class MainController extends HttpServlet {
                 url = SEARCH_NOTIFICATION;
             } else if (button.equals("Search Regulation")) {
                 url = SEARCH_REGULATION;
-            } else if (button.equals("Search Regulation Staff")){
+            } else if (button.equals("Search Regulation Staff")) {
                 url = SEARCH_REGULATION_FOR_STAFF;
-            }else if (button.equals("Delete Regulation")) {
+            } else if (button.equals("Delete Regulation")) {
                 url = DELETE_REGULATION_CONTROLLER;
-            }else if (button.equals("Add new regulation")) {
+            } else if (button.equals("Add new regulation")) {
                 url = CREATE_REGULATION_CONTROLLER;
-            }else if (button.equals("Update Regulation")) {
+            } else if (button.equals("Update Regulation")) {
                 url = EDIT_REGULATION_CONTROLLER;
-            }else if (button.equals("Update Notification")) {
+            } else if (button.equals("Update Notification")) {
                 url = UPDATE_NOTIFICATION;
             } else if (button.equals("Remove Notification")) {
                 url = DELETE_NOTIFICATION;
+            } else if (button.equals("Send Feedback")) {
+                url = CREATE_FEEDBACK;
             } else if (button.equals("View Revenue")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             } else if (button.equals("View Owned Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_FOR_CUSTOMER);
-            } else if (button.equals("View Owned Room For Google")){
+            } else if (button.equals("View Owned Room For Google")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER);
-            }else if(button.equals("Check Out PayPal")){
+            } else if (button.equals("Check Out PayPal")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER);
-            }else if(button.equals("Completed")){
+            } else if (button.equals("Completed")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER);
             }
 

@@ -23,7 +23,7 @@ public class FeedbackDAO {
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
-  
+
     private static final String ADD_FEEDBACK = "INSERT INTO tblFeedback(feedbackName,username,status) VALUES (?,?,?)";
     private static final String REPLY_FEEDBACK = "INSERT INTO tblFeedback1(contentReply, feedbackId) "
             + "values (?,?)"
@@ -32,26 +32,25 @@ public class FeedbackDAO {
             + "from tblFeedback "
             + "where status = 1 "
             + "order by feedbackId desc ";
-    
+
     private static final String VIEW_FEEDBACK = "select feedbackId, feedbackName, username, status "
             + "from tblFeedback "
             + "where username = ? ";
 
-   public boolean createFeedback(FeedbackDTO fb)
+    public boolean createFeedback(FeedbackDTO fb)
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
         boolean row = false;
         try {
             con = DBHelper.makeConnection();
-            if (con != null) {
-                stm = con.prepareStatement(ADD_FEEDBACK);
-                stm.setString(1, fb.getFeedbackContent());
-                stm.setString(2, fb.getUsername());
-                stm.setBoolean(3, fb.isStatus());
-                row = stm.executeUpdate() > 0;
-
-            }//end if connection has opened
+            stm = con.prepareStatement(ADD_FEEDBACK);
+            stm.setString(1, fb.getFeedbackContent());
+            stm.setString(2, fb.getUsername());
+            stm.setBoolean(3, fb.isStatus());
+            row = stm.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
             if (stm != null) {
                 stm.close();
@@ -62,8 +61,8 @@ public class FeedbackDAO {
         }
         return row;
     }
-   
-     public List<FeedbackDTO> getFeedback()
+
+    public List<FeedbackDTO> getFeedback()
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -95,8 +94,8 @@ public class FeedbackDAO {
         return list;
 
     }
-     
-       public boolean replyFeedback(FeedbackDTO fb)
+
+    public boolean replyFeedback(FeedbackDTO fb)
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -121,8 +120,8 @@ public class FeedbackDAO {
         }
         return row;
     }
-       
- public List<FeedbackDTO> viewFeedback(String username)
+
+    public List<FeedbackDTO> viewFeedback(String username)
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -135,7 +134,7 @@ public class FeedbackDAO {
                 stm.setString(1, "%" + username + "%");
                 rs = stm.executeQuery();
                 while (rs.next()) {
-                     int feedbackId = rs.getInt("feedbackId");
+                    int feedbackId = rs.getInt("feedbackId");
                     String feedbackContent = rs.getString("feedbackName");
                     String user = rs.getString("username");
                     boolean status = rs.getBoolean("status");
