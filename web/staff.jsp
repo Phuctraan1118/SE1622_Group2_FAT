@@ -66,6 +66,7 @@
                 userError = new UserError();
             }
         %>
+        
         <!--start wrapper-->
         <div class="wrapper">
             <c:set var="User" value="${sessionScope.USER}"/>
@@ -136,6 +137,7 @@
                 </ul>
                 <!--end navigation-->
             </aside>
+        </div>
             <!--end sidebar -->
 
             <!--start top header-->

@@ -78,13 +78,13 @@
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a href="about.html">About us</a>
+                            <a href="#">About us</a>
                         </li>
                         <li>
                             <a  href="map-google-maps.jsp">Map</a>
                         </li>
                         <li>
-                            <a href="blog.html">Contacts</a>
+                            <a href="#">Contacts</a>
                             <ul>
                                 <li><a>+84 845-646-648</a></li>
                                 <li><a>HostelVN@gmail.com</a></li>
@@ -435,7 +435,7 @@
                         <div class="section-content">
                             <div class="row-base row">
                                 <div class="col-address col-base col-md-6">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6099414916966!2d106.8076943152606!3d10.841132860959346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1657436844268!5m2!1sen!2s" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6099414916966!2d106.8076943152606!3d10.841132860959346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1657436844268!5m2!1sen!2s" width="500" height="450" style="border:0; filter: invert(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                                 </div>
                                 <div class="col-base  col-md-6">
