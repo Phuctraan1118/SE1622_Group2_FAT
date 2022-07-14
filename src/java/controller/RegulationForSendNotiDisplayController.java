@@ -4,57 +4,49 @@
  */
 package controller;
 
-import dao.FeedbackDAO;
-import dao.FeedbackReplyDao;
-import dto.FeedbackReplyDto;
+import dto.RegulationDto;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import service.RegulationService;
+import service.impl.RegulationServiceImpl;
 
 /**
  *
  * @author hungp
  */
-//STAFF SEND FEEDBACK FOR USER
-@WebServlet(name = "FeedbackReplyController", urlPatterns = {"/FeedbackReplyController"})
-public class FeedbackReplyController extends HttpServlet {
+@WebServlet(name = "RegulationForSendNotiDisplayController", urlPatterns = {"/RegulationForSendNotiDisplayController"})
+public class RegulationForSendNotiDisplayController extends HttpServlet {
 
-    private static final String ERROR = "replyFeedback.jsp";
-    private static final String SUCCESS = "replyFeedback.jsp";
+    private static final String ERROR = "sendNotification.jsp";
+    private static final String SUCCESS = "sendNotification.jsp?username=";
+    private RegulationService regulationService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        String content = request.getParameter("txtReplyFeedback");
-        String username = request.getParameter("txtUsername");
-        String feedbackId = request.getParameter("txtFeedbackId");
         String url = ERROR;
-        try {
-            FeedbackReplyDao dao = new FeedbackReplyDao();
-            FeedbackReplyDto dto = new FeedbackReplyDto(content, username);
-            boolean result = dao.replyFeedback(dto);
-            FeedbackDAO feedbackDAO = new FeedbackDAO();
-            feedbackDAO.deleteFeedbackAfterReply(feedbackId);
 
-            if (result) {
-                url = SUCCESS;
-                request.setAttribute("REPLY_SUCCESS", dto.getUsername());
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            RequestDispatcher rd = request.getRequestDispatcher(url);
-            rd.forward(request, response);
+        String username = request.getParameter("txtUsername");
+        regulationService = new RegulationServiceImpl();
+        List<RegulationDto> regulationDtos = regulationService.getAllRegulationInSendNotiPage();
+        if (!regulationDtos.isEmpty()) {
+            request.setAttribute("LIST_REGULATION_FOR_SEND_NOTI", regulationDtos);
         }
-        //user gui feedback toi staff (thong tin user, content, idfeedback , contentId )
-        //staff nhan duoc feedback -> staff reply (thong tin cua staff , content 
-        //user nhan dc feedback
+        url = SUCCESS + username;
+        request.setAttribute("username", username);
+        RequestDispatcher rd = request.getRequestDispatcher(url);
+        rd.forward(request, response);
     }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

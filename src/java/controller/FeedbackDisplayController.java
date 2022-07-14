@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -24,17 +25,18 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "FeedbackDisplayController", urlPatterns = {"/FeedbackDisplayController"})
 public class FeedbackDisplayController extends HttpServlet {
 
-    private static final String ERROR = "managementFeedbackSAI.jsp";
-    private static final String SUCCESS = "managementFeedback.jsp";
+    private static final String ERROR = "viewfeedback.jsp";
+    private static final String SUCCESS = "viewfeedback.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
+        HttpSession session = request.getSession(true);
         try {
             FeedbackDAO dao = new FeedbackDAO();
             List<FeedbackDTO> result = dao.getFeedback();
-            request.setAttribute("FEEDBACK", result);
+            session.setAttribute("FEEDBACK", result);
             url = SUCCESS;
 
         } catch (Exception ex) {

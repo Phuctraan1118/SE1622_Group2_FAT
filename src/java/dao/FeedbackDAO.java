@@ -20,14 +20,8 @@ import utils.DBHelper;
  */
 public class FeedbackDAO {
 
-    private Connection connection;
-    private PreparedStatement preparedStatement;
-    private ResultSet resultSet;
-
     private static final String ADD_FEEDBACK = "INSERT INTO tblFeedback(feedbackName,username,status) VALUES (?,?,?)";
-    private static final String REPLY_FEEDBACK = "INSERT INTO tblFeedback1(contentReply, feedbackId) "
-            + "values (?,?)"
-            + "update tblFeedback set status = 0 where feedbackId = ? ";
+    private static final String DELETE_FEEDBACK_AFTER_REPLY = "DELETE FROM tblFeedback WHERE feedbackId = ?";
     private static final String GET_FEEDBACK = "select feedbackId , feedbackName, username "
             + "from tblFeedback "
             + "where status = 1 "
@@ -36,6 +30,30 @@ public class FeedbackDAO {
     private static final String VIEW_FEEDBACK = "select feedbackId, feedbackName, username, status "
             + "from tblFeedback "
             + "where username = ? ";
+
+    public boolean deleteFeedbackAfterReply(String feedbackId)
+            throws SQLException, NamingException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        boolean row = false;
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(DELETE_FEEDBACK_AFTER_REPLY);
+                preparedStatement.setString(1, feedbackId);
+                row = preparedStatement.executeUpdate() > 0;
+
+            }//end if connection has opened
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+        return row;
+    }
 
     public boolean createFeedback(FeedbackDTO fb)
             throws SQLException, NamingException {
@@ -93,32 +111,6 @@ public class FeedbackDAO {
         }
         return list;
 
-    }
-
-    public boolean replyFeedback(FeedbackDTO fb)
-            throws SQLException, NamingException {
-        Connection con = null;
-        PreparedStatement stm = null;
-        boolean row = false;
-        try {
-            con = DBHelper.makeConnection();
-            if (con != null) {
-                stm = con.prepareStatement(REPLY_FEEDBACK);
-                stm.setString(1, fb.getFeedbackContent());
-                stm.setInt(2, fb.getFeedbackId());
-                stm.setInt(3, fb.getFeedbackId());
-                row = stm.executeUpdate() > 0;
-
-            }//end if connection has opened
-        } finally {
-            if (stm != null) {
-                stm.close();
-            }
-            if (con != null) {
-                con.close();
-            }
-        }
-        return row;
     }
 
     public List<FeedbackDTO> viewFeedback(String username)

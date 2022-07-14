@@ -622,6 +622,7 @@ thentication</div>
                                                     <th>CHECK OUT DATE</th>
                                                     <th>USERNAME</th>
                                                     <th>IMAGE</th>
+                                                    <th>Send Notification</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -676,6 +677,11 @@ thentication</div>
                                                             </div>
                                                         </td>
                                                         <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                <a href="sendNotification.jsp?username=${dtoBooked.username}">Send Notification</a>
+                                                            </div>
+                                                        </td>
                                                         <!-- comment   <td>
                                                         <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
                                                         <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
@@ -843,17 +849,17 @@ thentication</div>
                     </script>-->
 
             <script>
-                            function showOrHideDiv() {
-                                var show = document.getElementById("showOrHide");
-                                if (show.style.display === "none") {
-                                    show.style.display = "block";
-                                } else {
-                                    show.style.display = "none";
-                                }
+                        function showOrHideDiv() {
+                            var show = document.getElementById("showOrHide");
+                            if (show.style.display === "none") {
+                                show.style.display = "block";
+                            } else {
+                                show.style.display = "none";
                             }
-                            function ConfirmDelete() {
-                                return confirm("Are you sure you want to delete?");
-                            }
+                        }
+                        function ConfirmDelete() {
+                            return confirm("Are you sure you want to delete?");
+                        }
             </script>
     </body>
 

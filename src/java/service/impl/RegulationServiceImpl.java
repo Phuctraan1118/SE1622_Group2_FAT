@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.naming.NamingException;
 import service.RegulationService;
 
 /**
@@ -23,6 +22,18 @@ public class RegulationServiceImpl implements RegulationService {
 
     @Override
     public List<RegulationDto> getAllRegulation() {
+        regulationDao = new RegulationDao();
+        List<RegulationDto> listRegulation = null;
+        try {
+            listRegulation = regulationDao.getRegulations();
+        } catch (SQLException ex) {
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listRegulation;
+    }
+
+    @Override
+    public List<RegulationDto> getAllRegulationInSendNotiPage() {
         regulationDao = new RegulationDao();
         List<RegulationDto> listRegulation = null;
         try {

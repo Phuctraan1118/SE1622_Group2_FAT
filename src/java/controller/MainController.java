@@ -36,12 +36,14 @@ public class MainController extends HttpServlet {
     private static final String DELETE_NOTIFICATION = "NotificationDeleteController";
 
     private static final String SEARCH_REGULATION = "RegulationDisplayController";
+    private static final String SEARCH_REGULATION_IN_SEND_NOTI_PAGE = "RegulationForSendNotiDisplayController";
     private static final String SEARCH_REGULATION_FOR_STAFF = "RegulationDisplayForStaffController";
     private static final String DELETE_REGULATION_CONTROLLER = "RegulationDeleteController";
     private static final String CREATE_REGULATION_CONTROLLER = "RegulationCreateController";
     private static final String EDIT_REGULATION_CONTROLLER = "RegulationUpdateController";
 
     private static final String CREATE_FEEDBACK = "FeedbackCreateController";
+    private static final String REPLY_FEEDBACK = "FeedbackReplyController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -115,6 +117,8 @@ public class MainController extends HttpServlet {
                 url = SEARCH_NOTIFICATION;
             } else if (button.equals("Search Regulation")) {
                 url = SEARCH_REGULATION;
+            } else if (button.equals("Display Regulation In SendNotiPage")) {
+                url = SEARCH_REGULATION_IN_SEND_NOTI_PAGE;
             } else if (button.equals("Search Regulation Staff")) {
                 url = SEARCH_REGULATION_FOR_STAFF;
             } else if (button.equals("Delete Regulation")) {
@@ -129,6 +133,8 @@ public class MainController extends HttpServlet {
                 url = DELETE_NOTIFICATION;
             } else if (button.equals("Send Feedback")) {
                 url = CREATE_FEEDBACK;
+            } else if (button.equals("Send Feedback Reply")) {
+                url = REPLY_FEEDBACK;
             } else if (button.equals("View Revenue")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             } else if (button.equals("View Owned Room")) {

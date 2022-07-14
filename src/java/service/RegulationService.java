@@ -12,5 +12,8 @@ import java.util.List;
  * @author hungp
  */
 public interface RegulationService {
-     List<RegulationDto> getAllRegulation();
+
+    List<RegulationDto> getAllRegulation();
+
+    List<RegulationDto> getAllRegulationInSendNotiPage();
 }

@@ -4,11 +4,13 @@
  */
 package dto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author hungp
  */
-public class FeedbackDTO {
+public class FeedbackDTO implements Serializable{
 
     private int feedbackId;
     private String feedbackContent;
