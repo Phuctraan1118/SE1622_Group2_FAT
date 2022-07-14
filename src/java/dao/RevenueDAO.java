@@ -19,9 +19,9 @@ import utils.DBHelper;
  * @author Bitano
  */
 public class RevenueDAO {
-    private final String SHOW_REVENUE ="select b.billId,bd.roomId,bd.serviceId, bd.feeId ,  b.billName,  bd.date ,  s.waterPrice , s.electronicPrice, r.roomPrice, f.feesPrice "
-            + "from tblBill b , tblBillDetail bd , tblService s , tblRoom  r , tblFees f "
-            + "where b.billId = bd.billId and bd.roomId = r.roomId and s.serviceId = bd.serviceId and f.feeId = bd.feeId  ";
+    private final String SHOW_REVENUE ="select b.billId,bd.roomId,bd.serviceId, bd.feeId ,  b.billName,  bd.date ,  s.waterPrice , s.electronicPrice, r.roomPrice "
+            + "from tblBill b , tblBillDetail bd , tblService s , tblRoom  r "
+            + "where b.billId = bd.billId and bd.roomId = r.roomId and s.serviceId = bd.serviceId ";
      public List<RevenueDTO> showRevenue()
             throws SQLException, NamingException {
         Connection con = null;
@@ -43,8 +43,7 @@ public class RevenueDAO {
                     float electronicPrice = rs.getFloat("electronicPrice");
                     float waterPrice = rs.getFloat("waterPrice");
                     float roomPrice = rs.getFloat("roomPrice");
-                    float feesPrice = rs.getFloat("feesPrice");
-                    list.add(new RevenueDTO(billId, roomId, serviceId, feeId, billName, date, electronicPrice, waterPrice, roomPrice, feesPrice));
+                    list.add(new RevenueDTO(billId, roomId, serviceId, feeId, billName, date, electronicPrice, waterPrice, roomPrice));
 
                 }//End traverse Result Set
             }//end if connection has opened

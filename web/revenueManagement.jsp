@@ -455,7 +455,6 @@
                                                     <th>ROOM PRICE</th>
                                                     <th>WATER PRICE</th>
                                                     <th>ELECTRONIC PRICE</th>
-                                                    <th>FEES PRICE</th>
                                                     <th>TOTAL PRICE</th>
                                                 </tr>
                                             </thead>
@@ -505,12 +504,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="product-info">
-                                                                ${dto.feesPrice}
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="product-info">
-                                                                <c:set var="total" value="${dto.roomPrice + dto.electronicPrice + dto.waterPrice + dto.feesPrice}" />
+                                                                <c:set var="total" value="${dto.roomPrice + dto.electronicPrice + dto.waterPrice}" />
                                                                 ${total}
                                                             </div>
                                                         </td>
