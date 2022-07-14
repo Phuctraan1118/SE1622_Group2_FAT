@@ -32,7 +32,11 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
 
+         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
 
@@ -69,7 +73,7 @@
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <font color="yellow">
-                    <h6>Welcome ${USER.name} (STAFF)</h6>
+                    <h6  style="font-family: 'Courgette', cursive;">Welcome ${USER.name} (STAFF)</h6>
                     </font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -132,6 +136,7 @@
                 </ul>
                 <!--end navigation-->
             </aside>
+        </div>
             <!--end sidebar -->
 
             <!--start top header-->
@@ -140,7 +145,7 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    
+
 
                     <div class="top-navbar-right ms-auto">
 
@@ -476,7 +481,7 @@
                                     <input type="hidden" value="Search Customer" name="btn">
                                 </form>
                             </div>
-                            
+
                             <div class="table-responsive mt-2">
                                 <table id="example" class="table align-middle" style="width:100%">
                                     <thead class="table-secondary">
@@ -519,16 +524,16 @@
                                                                                                                         title="" data-bs-original-title="Update info" aria-label="Update">
                                                                                                                     <ion-icon name="pencil-sharp"></ion-icon>
                                                                                                                 </button> -->
-                                                        <a href="editCustomer.jsp?userId=${user.id}"> <ion-icon name="pencil-sharp"></ion-icon></a>
+                                                        <a href="editCustomer.jsp?userId=${user.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Update info" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                         <input type="hidden" name="userId" value="${user.id}"/>
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Customer" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                        <button type="submit" name="btn" value="Delete Customer"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                 title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
+                                                            <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
                                                         </button>
                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                         <input type="hidden" name="userId" value="${user.id}"/>

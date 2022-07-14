@@ -32,11 +32,18 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+
 
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+
 
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -61,8 +68,8 @@
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <font color="yellow">
-                     <div>
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
+                    <div>
+                        <h6 style="font-family: 'Courgette', cursive;">Welcome ${USER.name} (STAFF)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -97,7 +104,7 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
-                              <li>
+                            <li>
                                 <a href="regulationManagement.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
@@ -415,7 +422,7 @@ thentication</div>
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                         <h6 class="mb-0 text-uppercase">Management</h6>
+                        <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -479,15 +486,16 @@ thentication</div>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
                                                         <a href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
-                                                           &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}"><ion-icon name="pencil-sharp"></ion-icon></a>
+                                                           &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}"data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Update room" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
                                                         <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
+
                                                     </div>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Room" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <ion-icon name="trash-sharp"></ion-icon>
+                                                        <button type="submit" name="btn" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                title="" data-bs-original-title="Delete room" onclick="return ConfirmDelete();" " aria-label="Delete">
+                                                            <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
                                                         </button>
                                                         <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
                                                         <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
@@ -566,287 +574,287 @@ thentication</div>
                             </div>
                         </div>
                     </div>
-                                                              </br>   </br>   </br>
-                                    <div class="card-body">
-                                            <h6 class="mb-0">View Room Booked</h6>
-                                            </br>  </br>
-                                          
-                                           
-                                            
-                                            <form action="MainController" class="searchbar">
-                                                <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                                                    <ion-icon name="search-sharp"></ion-icon>
-                                                </div>
-                                                <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
-                                                <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
-                                                                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                                                                            <ion-icon name="close-sharp"></ion-icon>
-                                                                        </div>
-                                            </form>
-                                            <div class="d-flex align-items-center">
+                    </br>   </br>   </br>
+                    <div class="card-body">
+                        <h6 class="mb-0">View Room Booked</h6>
+                        </br>  </br>
 
-                                                <div class="fs-5 ms-auto dropdown">
-                                                    <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                                            class="bi bi-three-dots"></i></div>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" href="#">Action</a></li>
-                                                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                                                        <li>
-                                                            <hr class="dropdown-divider">
-                                                        </li>
-                                                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                           <div class="table-responsive mt-2">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <div class="p-4 border rounded">
-                                                            <table class="table align-middle mb-0">
-                                                                <thead class="table-light">
-                                                                    <tr>
-                                                                        <th>No</th>
-                                                                        <th>ID ROOM</th>
-                                                                        <th>DESCRIPTION</th>
-                                                                        <th>PRICE</th>
-                                                                        <th>BOOKING DATE</th>
-                                                                        <th>CHECK IN DATE</th>
-                                                                        <th>CHECK OUT DATE</th>
-                                                                        <th>USERNAME</th>
-                                                                        <th>IMAGE</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                    <c:forEach var="dtoBooked" items="${requestScope.SEARCH_BOOKED}" varStatus="counter">
-                    <form action="MainController" method="POST">
-                        <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>
-                                <div class="d-flex align-items-center gap-3">
-                                    <div class="product-info">
-                                        ${dtoBooked.roomId}
+
+
+                        <form action="MainController" class="searchbar">
+                            <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
+                                <ion-icon name="search-sharp"></ion-icon>
+                            </div>
+                            <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
+                            <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
+                            <div class="position-absolute top-50 translate-middle-y search-close-icon">
+                                <ion-icon name="close-sharp"></ion-icon>
+                            </div>
+                        </form>
+                        <div class="d-flex align-items-center">
+
+                            <div class="fs-5 ms-auto dropdown">
+                                <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
+                                        class="bi bi-three-dots"></i></div>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="table-responsive mt-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="p-4 border rounded">
+                                        <table class="table align-middle mb-0">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>ID ROOM</th>
+                                                    <th>DESCRIPTION</th>
+                                                    <th>PRICE</th>
+                                                    <th>BOOKING DATE</th>
+                                                    <th>CHECK IN DATE</th>
+                                                    <th>CHECK OUT DATE</th>
+                                                    <th>USERNAME</th>
+                                                    <th>IMAGE</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <c:forEach var="dtoBooked" items="${requestScope.SEARCH_BOOKED}" varStatus="counter">
+                                                <form action="MainController" method="POST">
+                                                    <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
+                                                    <tr>
+                                                        <td>${counter.count}</td>
+                                                        <td>
+                                                            <div class="d-flex align-items-center gap-3">
+                                                                <div class="product-info">
+                                                                    ${dtoBooked.roomId}
+                                                                </div>
+                                                            </div>
+
+
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dtoBooked.roomDescription}
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dtoBooked.roomPrice}
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dtoBooked.bookingDate}
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dtoBooked.checkinDate}
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dtoBooked.checkoutDate}
+
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                ${dtoBooked.username}
+
+                                                            </div>
+                                                        </td>
+                                                        <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                                                        <!-- comment   <td>
+                                                        <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
+                                                        <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
+                                
+                                                    </td>
+                                                    
+                                                    <td>
+                                
+                                                        <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
+                                                            &txtRoomPrice1=${dtoBooked.roomPrice}&txtBookingDate=${dtoBooked.bookingDate}
+                                                            &txtCheckInDate=${dtoBooked.checkinDate}
+                                                            &txtCheckOutDate=${dtoBooked.checkoutDate}
+                                                            &txtUsername=${dtoBooked.username}&txtStatus1=${dtoBooked.status}
+                                                            &txtImage1=${dtoBooked.image}&txtBookingId=${dtoBooked.bookingId}"
+                                                            >Edit</a>
+                                
+                                                    </td> 
+                                                    <td>
+                                                        <input type="submit" name="btn" value="Delete Booked Room" />
+                                                        <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
+                                                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
+                                                    </td>
+                                                        -->
+                                                    </tr>
+                                                </form>
+                                            </c:forEach>
+                                            </tbody>
+                                        </table>
                                     </div>
-                                </div>
-
-
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.roomDescription}
-                                 
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.roomPrice}
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.bookingDate}
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.checkinDate}
-                                    
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.checkoutDate}
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div class="box-input">
-                                    ${dtoBooked.username}
-                                   
-                                </div>
-                            </td>
-                            <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
-                         <!-- comment   <td>
-                        <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
-                        <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
-
-                    </td>
-                    
-                    <td>
-
-                        <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
-                            &txtRoomPrice1=${dtoBooked.roomPrice}&txtBookingDate=${dtoBooked.bookingDate}
-                            &txtCheckInDate=${dtoBooked.checkinDate}
-                            &txtCheckOutDate=${dtoBooked.checkoutDate}
-                            &txtUsername=${dtoBooked.username}&txtStatus1=${dtoBooked.status}
-                            &txtImage1=${dtoBooked.image}&txtBookingId=${dtoBooked.bookingId}"
-                            >Edit</a>
-
-                    </td> 
-                    <td>
-                        <input type="submit" name="btn" value="Delete Booked Room" />
-                        <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
-                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
-                    </td>
-                               -->
-                </tr>
-            </form>
-                    </c:forEach>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="card-body">
-    <div class="card-title">
-        <hr>
-        <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-                </div>
-            </div>
-
-
-            <!--end page content wrapper-->
-            <!--start footer-->
-            <footer class="footer">
-                <div class="footer-text">
-                    Copyright © 2021. All right reserved.
-                </div>
-            </footer>
-            <!--end footer-->
-
-
-            <!--Start Back To Top Button-->
-            <a href="javaScript:;" class="back-to-top">
-                <ion-icon name="arrow-up-outline"></ion-icon>
-            </a>
-            <!--End Back To Top Button-->
-
-            <!--start switcher-->
-            <div class="switcher-body">
-                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                    <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
-                </button>
-                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
-                     tabindex="-1" id="offcanvasScrolling">
-                    <div class="offcanvas-header border-bottom">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <h6 class="mb-0">Theme Variation</h6>
-                        <hr>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                            <label class="form-check-label" for="LightTheme">Light</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                            <label class="form-check-label" for="DarkTheme">Dark</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
-                                   checked>
-                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                        </div>
-                        <hr />
-                        <h6 class="mb-0">Header Colors</h6>
-                        <hr />
-                        <div class="header-colors-indigators">
-                            <div class="row row-cols-auto g-3">
-                                <div class="col">
-                                    <div class="indigator headercolor1" id="headercolor1"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor2" id="headercolor2"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor3" id="headercolor3"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor4" id="headercolor4"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor5" id="headercolor5"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor6" id="headercolor6"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor7" id="headercolor7"></div>
-                                </div>
-                                <div class="col">
-                                    <div class="indigator headercolor8" id="headercolor8"></div>
                                 </div>
                             </div>
                         </div>
-
+                        <div class="card-body">
+                            <div class="card-title">
+                                <hr>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;">2</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;">3</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
+                <!--end page content wrapper-->
+                <!--start footer-->
+                <footer class="footer">
+                    <div class="footer-text">
+                        Copyright © 2021. All right reserved.
+                    </div>
+                </footer>
+                <!--end footer-->
+
+
+                <!--Start Back To Top Button-->
+                <a href="javaScript:;" class="back-to-top">
+                    <ion-icon name="arrow-up-outline"></ion-icon>
+                </a>
+                <!--End Back To Top Button-->
+
+                <!--start switcher-->
+                <div class="switcher-body">
+                    <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                        <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
+                    </button>
+                    <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
+                         tabindex="-1" id="offcanvasScrolling">
+                        <div class="offcanvas-header border-bottom">
+                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <h6 class="mb-0">Theme Variation</h6>
+                            <hr>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                                <label class="form-check-label" for="LightTheme">Light</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                                <label class="form-check-label" for="DarkTheme">Dark</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
+                                       checked>
+                                <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                            </div>
+                            <hr />
+                            <h6 class="mb-0">Header Colors</h6>
+                            <hr />
+                            <div class="header-colors-indigators">
+                                <div class="row row-cols-auto g-3">
+                                    <div class="col">
+                                        <div class="indigator headercolor1" id="headercolor1"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor2" id="headercolor2"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor3" id="headercolor3"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor4" id="headercolor4"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor5" id="headercolor5"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor6" id="headercolor6"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor7" id="headercolor7"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="indigator headercolor8" id="headercolor8"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--end switcher-->
+
+
+                <!--start overlay-->
+                <div class="overlay nav-toggle-icon"></div>
+                <!--end overlay-->
+
             </div>
-            <!--end switcher-->
-
-
-            <!--start overlay-->
-            <div class="overlay nav-toggle-icon"></div>
-            <!--end overlay-->
-
-        </div>
-        <!--end wrapper-->
+            <!--end wrapper-->
 
 
 
-        <!-- JS Files-->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <!--plugins-->
-        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-        <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-        <script src="assets/plugins/chartjs/chart.min.js"></script>
-        <script src="assets/js/index.js"></script>
-        <!-- Main JS-->
-        <script src="assets/js/main.js"></script>
+            <!-- JS Files-->
+            <script src="assets/js/jquery.min.js"></script>
+            <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+            <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+            <script src="assets/js/bootstrap.bundle.min.js"></script>
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <!--plugins-->
+            <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+            <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+            <script src="assets/plugins/chartjs/chart.min.js"></script>
+            <script src="assets/js/index.js"></script>
+            <!-- Main JS-->
+            <script src="assets/js/main.js"></script>
 
-        <!--        <script>
-                    function ConfirmDelete(){
-                        return confirm("Are you sure you want to delete?");
-                    }
-                </script>-->
-
-        <script>
-                    function showOrHideDiv() {
-                        var show = document.getElementById("showOrHide");
-                        if (show.style.display === "none") {
-                            show.style.display = "block";
-                        } else {
-                            show.style.display = "none";
+            <!--        <script>
+                        function ConfirmDelete(){
+                            return confirm("Are you sure you want to delete?");
                         }
-                    }
-                    function ConfirmDelete() {
-                        return confirm("Are you sure you want to delete?");
-                    }
-        </script>
+                    </script>-->
+
+            <script>
+                            function showOrHideDiv() {
+                                var show = document.getElementById("showOrHide");
+                                if (show.style.display === "none") {
+                                    show.style.display = "block";
+                                } else {
+                                    show.style.display = "none";
+                                }
+                            }
+                            function ConfirmDelete() {
+                                return confirm("Are you sure you want to delete?");
+                            }
+            </script>
     </body>
 
 </html>
