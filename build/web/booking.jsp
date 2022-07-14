@@ -101,7 +101,7 @@
                             <ion-icon name="search-sharp"></ion-icon>
                         </div>
                         <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search for detail of room">
-                        <input type="hidden" value="Search room for customer" name="btn" />
+                        <input type="hidden" value="Search room for customer google" name="btn" />
                         <div class="position-absolute top-50 translate-middle-y search-close-icon">
                             <ion-icon name="close-sharp"></ion-icon>
                         </div>
@@ -450,7 +450,7 @@
                                                     <label  class="form-label">Check Out Date</label>
                                                     <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker"   />
                                                 </div>
-                                                <input type="submit" value="Confirm" name="btn" />
+                                                <input type="submit" value="Confirm Room" name="btn" />
                                             </div>
                                         </div>
                                     </div>

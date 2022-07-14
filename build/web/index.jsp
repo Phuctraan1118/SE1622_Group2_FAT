@@ -416,7 +416,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="experience section">
                     <div class="container">
                         <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
@@ -425,7 +425,7 @@
                         <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
                     </div>
                 </section>
-                
+
                 <section class="contacts section">
                     <div class="container">
                         <header class="section-header">
@@ -439,7 +439,7 @@
 
                                 </div>
                                 <div class="col-base  col-md-6">
-                                    <form class="js-ajax-form">
+                                    <form class="js-ajax-form" onsubmit="sendEmail(); reset(); return false;">
                                         <div class="row-field row">
                                             <div class="col-field col-sm-6 col-md-4">
                                                 <div class="form-group">
@@ -550,5 +550,22 @@
     <script src="assets/plugins/gmaps/map-custom-script.js"></script>
 
     <script src="assets/js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script >
+                                        Email.send({
+                                            Host: "smtp.yourisp.com",
+                                            Username: "username",
+                                            Password: "password",
+                                            To: 'them@website.com',
+                                            From: "you@isp.com",
+                                            Subject: "This is the subject",
+                                            Body: "And this is the body"
+                                        }).then(
+                                                message => alert(message)
+                                        );
+    </script>
+
+
+
 </body>
 </html>

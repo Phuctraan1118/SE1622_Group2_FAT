@@ -89,7 +89,13 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_BOOKED_ROOM_CONTROLLER);
             } else if (button.equals("Booking")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-            } else if (button.equals("Confirm")) {
+            }else if(button.equals("Booking Room")){
+                url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_PAGE);
+            }else if(button.equals("Confirm Room")){
+                url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_CONTROLLER);
+            }else if(button.equals("CompletedUser")){
+                url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER_USER);
+            }else if (button.equals("Confirm")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_CONTROLLER);
             } else if (button.equals("ViewBooking")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.SHOW_BOOKING);
@@ -137,7 +143,9 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER);
             } else if (button.equals("Check Out PayPal")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER);
-            } else if (button.equals("Completed")) {
+            } else if(button.equals("Check Out")){
+                url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER_USER);
+            }else if (button.equals("Completed")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER);
             }
 

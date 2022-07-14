@@ -27,29 +27,27 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>Payment</title>
     </head>
     <body>
 
 
         <!--start wrapper-->
         <div class="wrapper">
-            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <font color="green">
                     <div>
-                        <h6>Welcome ${USER.name} (USER)</h6>
-                    </div></font>
-                    <div class="toggle-icon ms-auto">
-                        <ion-icon name="menu-sharp"></ion-icon>
+                        <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
+                    </div>
+                    <div>
+                        <h4 class="logo-text">Payment</h4>
+                    </div>
+                    <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
-                <!--navigation-->
-
-                
             </aside>
+            <!--end sidebar -->
 
             <!--start top header-->
             <header class="top-header">
@@ -239,7 +237,7 @@
                                     </a>
                                 </div>
                             </li>
-                            
+                            <c:set var="User" value="${sessionScope.USER}"/>
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
@@ -260,7 +258,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
@@ -326,13 +324,13 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">eCommerce</div>
+                        <div class="breadcrumb-title pe-3">Payment</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Shipping</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Payment</li>
                                 </ol>
                             </nav>
                         </div>
@@ -364,7 +362,7 @@
                                                     <div class="card border-0">
                                                         <div class="card-body">
                                                             <div class="steps steps-light">
-                                                                <a class="step-item active current" href="#">
+                                                                <a class="step-item active" href="#">
                                                                     <div class="step-progress"><span class="step-count">1</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-cart'></i>Details</div>
@@ -374,211 +372,171 @@
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-user-circle'></i>Deposit</div>
                                                                 </a>
-                                                                <a class="step-item" href="#">
+                                                                <a class="step-item active" href="#">
                                                                     <div class="step-progress"><span class="step-count">3</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-credit-card'></i>Payment</div>
-                                                                </a>
+                                                                </a>    
                                                                 <a class="step-item" href="#">
                                                                     <div class="step-progress"><span class="step-count">4</span>
                                                                     </div>
                                                                     <div class="step-label"><i class='bx bx-check-circle'></i>Review</div>
-                                                                </a>  
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <h2 class="h5 mb-0">View Your Booking Bill</h2>
-                                                            <div class="my-3 border-bottom"></div>
-                                                            <div class="table-responsive">
-                                                                <table class="table">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <th>Room ID</th>
-                                                                            <th>image</th>
-                                                                            <th>Room Description</th>
-                                                                            <th>Room Price</th>
-                                                                            <th>Check In Date</th>
-                                                                            <th>Check Out Date</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>${sessionScope.ROOMDTO.roomId}</td>
-                                                                            <td><img src="images/${sessionScope.ROOMDTO.image}" style="width: 100px; height:100px" alt="alt"/></td>
-                                                                            <td>${sessionScope.ROOMDTO.roomDescription}</td>
-                                                                            <td>${sessionScope.ROOMDTO.roomPrice}</td>
-                                                                            <td>${sessionScope.CHECKINDATE}</td>
-                                                                            <td>${sessionScope.CHECKOUTDATE}</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th colspan="3">
-                                                                                <input type="text" disabled value="Total deposit per ${sessionScope.DISTANCETIME}" name="btAction" />
-                                                                            </th>
-                                                                            <th>
-                                                                                <input type="text" value="${sessionScope.TOTALROOMPRICE}" disabled name="btAction" />
-                                                                            </th>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="d-grid"><a href="ecommerce-checkout-payment.jsp" class="btn btn-primary btn-ecomm">Proceed to Payment<i class="bx bx-chevron-right"></i></a>
-                                                                    </div>
-                                                                </div>
+                                                                </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             </div>
-                                            <div class="col-12 col-xl-4">
-                                                <div class="order-summary">
-                                                    <div class="card">
-                                                        <div class="card-body">
+                                        </div>
+                                        <div class="col-12 col-xl-4">
+                                            <div class="order-summary">
+                                                <div class="card">
+                                                    <div class="card-body"> 
+                                                        <form action="MainController">
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <p class="fs-5">Order summary</p>
                                                                     <div class="my-3 border-top"></div>
                                                                     <div class="d-flex align-items-center">
+
                                                                         <a class="d-block flex-shrink-0" href="javascript:;">
                                                                             <img src="images/${sessionScope.ROOMDTO.image}" width="75" alt="Product">
                                                                         </a>
                                                                         <div class="ps-2">
                                                                             <h6 class="mb-1">Room no ${sessionScope.ROOMDTO.roomId}</h6>
-                                                                            <h5 class="mb-1">Description ${sessionScope.ROOMDTO.roomDescription}</h5>
+                                                                            <input type="hidden" name="txtRoomId" value="${sessionScope.ROOMDTO.roomId}" />
+                                                                            <h5 class="mb-1">Description: ${sessionScope.ROOMDTO.roomDescription}.</h5>
                                                                             <div class="widget-product-meta"><span class="me-2">$${sessionScope.ROOMDTO.roomPrice}</span><span class="">x 1</span>
                                                                             </div>
-                                                                            <div class="widget-product-meta"><span class="me-2">Check In Date <small class="date">${sessionScope.CHECKINDATE}</small></span>
+                                                                            <div class="widget-product-meta"><span class="me-2">Check&nbsp; In &nbsp; Date: <small class="date">${sessionScope.CHECKINDATE}</small></span>
                                                                             </div>
-                                                                            <div class="widget-product-meta"><span class="me-2">Check Out Date <small class="date">${sessionScope.CHECKOUTDATE}</small></span>
+                                                                            <input type="hidden" name="txtCheckInDate" value="${sessionScope.CHECKINDATE}"/>
+                                                                            <div class="widget-product-meta"><span class="me-2">Check Out Date: <small class="date">${sessionScope.CHECKOUTDATE}</small></span>
                                                                             </div>
+                                                                            <input type="hidden" name="txtCheckOutDate" value="${sessionScope.CHECKOUTDATE}" />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card mb-0">
+                                                                        <div class="card-body">
+                                                                            <p class="mb-2">Time Booking <span class="float-end">${sessionScope.DISTANCETIME} months</span>
+                                                                            </p>
+                                                                            <div class="my-3 border-top"></div>
+                                                                            <h5 class="mb-0">Order Total: <span class="float-end">${sessionScope.TOTALROOMPRICE} $</span></h5>
+                                                                            <input type="hidden" name="txtTotalPrice" value="${sessionScope.TOTALROOMPRICE}" />
+                                                                            <input type="hidden" name="txtUserId" value="${User.id}" />
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                        <input type="submit" class="btn btn-primary btn-ecomm" value="Check Out" name="btn" />
                                                             </div>
-                                                            <div class="card mb-0">
-                                                                <div class="card-body">
-                                                                    <p class="mb-2">Time Booking <span class="float-end">${sessionScope.DISTANCETIME}</span>
-                                                                    </p>
-                                                                    <div class="my-3 border-top"></div>
-                                                                    <h5 class="mb-0">Order Total: <span class="float-end">${sessionScope.TOTALROOMPRICE}</span></h5>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!--end row-->
                                         </div>
                                     </div>
-                                    <!--end row-->
+                                </div>
+                            </div>
+                    </section>
+                    <!--end shop cart-->
+
+
+                </div>
+                <!-- end page content-->
+            </div>
+
+
+
+            <!--Start Back To Top Button-->
+            <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+            <!--End Back To Top Button-->
+
+            <!--start switcher-->
+            <div class="switcher-body">
+                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <h6 class="mb-0">Theme Variation</h6>
+                        <hr>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                            <label class="form-check-label" for="LightTheme">Light</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                            <label class="form-check-label" for="DarkTheme">Dark</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3" checked>
+                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                        </div>
+                        <hr/>
+                        <h6 class="mb-0">Header Colors</h6>
+                        <hr/>
+                        <div class="header-colors-indigators">
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <div class="indigator headercolor1" id="headercolor1"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor2" id="headercolor2"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor3" id="headercolor3"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor4" id="headercolor4"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor5" id="headercolor5"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor6" id="headercolor6"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor7" id="headercolor7"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor8" id="headercolor8"></div>
                                 </div>
                             </div>
                         </div>
-                </div>
-                </section>
-                <!--end shop cart-->
 
-
-            </div>
-            <!-- end page content-->
-        </div>
-
-
-
-        <!--Start Back To Top Button-->
-        <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
-        <!--End Back To Top Button-->
-
-        <!--start switcher-->
-        <div class="switcher-body">
-            <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
-            <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
-                <div class="offcanvas-header border-bottom">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <h6 class="mb-0">Theme Variation</h6>
-                    <hr>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                        <label class="form-check-label" for="LightTheme">Light</label>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                        <label class="form-check-label" for="DarkTheme">Dark</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3" checked>
-                        <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                    </div>
-                    <hr/>
-                    <h6 class="mb-0">Header Colors</h6>
-                    <hr/>
-                    <div class="header-colors-indigators">
-                        <div class="row row-cols-auto g-3">
-                            <div class="col">
-                                <div class="indigator headercolor1" id="headercolor1"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor2" id="headercolor2"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor3" id="headercolor3"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor4" id="headercolor4"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor5" id="headercolor5"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor6" id="headercolor6"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor7" id="headercolor7"></div>
-                            </div>
-                            <div class="col">
-                                <div class="indigator headercolor8" id="headercolor8"></div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
+            <!--end switcher-->
+
+
+            <!--start overlay-->
+            <div class="overlay nav-toggle-icon"></div>
+            <!--end overlay-->
+
         </div>
-        <!--end switcher-->
-
-
-        <!--start overlay-->
-        <div class="overlay nav-toggle-icon"></div>
-        <!--end overlay-->
-
-    </div>
-    <!--end wrapper-->
+        <!--end wrapper-->
 
 
 
 
 
-    <!-- JS Files-->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-    <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <!--plugins-->
-    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <!-- JS Files-->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!--plugins-->
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 
-    <!-- Main JS-->
-    <script src="assets/js/main.js"></script>
+        <!-- Main JS-->
+        <script src="assets/js/main.js"></script>
 
 
-</body>
+    </body>
 </html>

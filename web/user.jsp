@@ -485,7 +485,7 @@
                                                                                     <div class="d-grid">
                                                                                         <input type="hidden" name="txtUsername" value="${User.id}" />
                                                                                         <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                                                        <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking"/>
+                                                                                        <input type="submit" class="btn btn-dark px-4 radius-10" name="btn" value="Booking Room"/>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

@@ -48,23 +48,57 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
+                    <li class="menu-label">Pages</li>
                     <li>
-                        <a href="javascript:;" class="has-arrow">
-                            <div class="parent-icon"><ion-icon name="home-sharp"></ion-icon>
+                        <a href="pages-user-google-profile.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Review</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
-                        <ul>
-                            <li> <a href="index.html">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Default
-                                </a>
-                            </li>
-                            <li> <a href="index2.html">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Alternate
-                                </a>
-                            </li>
-                        </ul>
                     </li>
+                    <c:if test="${not empty User}">
+                        <li>
+                            <a href="page-edit-profile-user-google.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
+                    <li>
+
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="RoomOwnedViewGoogleController">
+                            <div class="parent-icon">
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="RegulationDisplayGoogleController">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Regulation</div>
+                        </a>
+
+                    </li>
+
+                </ul>
             </aside>
             <!--end sidebar -->
 
@@ -276,7 +310,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-profile.html">
+                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>

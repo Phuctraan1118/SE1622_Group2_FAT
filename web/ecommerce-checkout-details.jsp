@@ -48,60 +48,7 @@
                 </div>
                 <!--navigation-->
 
-                <ul class="metismenu" id="menu">
-                    <li class="menu-label">Pages</li>
-                    <li>
-                        <a href="pages-user1-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">User Profile</div>
-                        </a>
-                    </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="pages-edit-profile.jsp">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
-                    <li>
-
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
-                            <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Room</div>
-                        </a>
-
-                    </li>
-                    
-                    <li>
-
-                        <a href="RoomOwnedViewController">
-                            <div class="parent-icon">
-                                <ion-icon name="planet-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">Owned Room</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="RegulationDisplayController">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Regulation</div>
-                        </a>
-
-                    </li>
-
-                </ul>
-                <!--end navigation-->
+                
             </aside>
 
             <!--start top header-->
