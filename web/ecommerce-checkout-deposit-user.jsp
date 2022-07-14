@@ -47,8 +47,6 @@
                     </div>
                 </div>
                 <!--navigation-->
-
-                
             </aside>
 
             <!--start top header-->
@@ -239,7 +237,7 @@
                                     </a>
                                 </div>
                             </li>
-                            
+
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
@@ -260,7 +258,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user-profile.html">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
@@ -429,7 +427,7 @@
                                                         <div class="card-body">
                                                             <div class="row">
                                                                 <div class="col-md-6">
-                                                                    <div class="d-grid"><a href="ecommerce-checkout-payment.jsp" class="btn btn-primary btn-ecomm">Proceed to Payment<i class="bx bx-chevron-right"></i></a>
+                                                                    <div class="d-grid"><a href="ecommerce-checkout-payment-user.jsp" class="btn btn-primary btn-ecomm">Proceed to Payment<i class="bx bx-chevron-right"></i></a>
                                                                     </div>
                                                                 </div>
                                                             </div>

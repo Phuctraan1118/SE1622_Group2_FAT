@@ -4,10 +4,8 @@
  */
 package controller;
 
-import com.paypal.api.payments.PayerInfo;
-import com.paypal.api.payments.Payment;
-import com.paypal.api.payments.Transaction;
 import com.paypal.base.rest.PayPalRESTException;
+import dto.BillDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -16,13 +14,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.impl.PaymentService;
+import service.impl.PaymentServiceUser;
 
 /**
  *
  * @author buikh
  */
-@WebServlet(name = "ReviewPaymentController", urlPatterns = {"/ReviewPaymentController"})
-public class ReviewPaymentController extends HttpServlet {
+@WebServlet(name = "AuthorizePaymentControllerUser", urlPatterns = {"/AuthorizePaymentControllerUser"})
+public class AuthorizePaymentControllerUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,24 +35,22 @@ public class ReviewPaymentController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String paymentId = request.getParameter("paymentId");
-        String payerId = request.getParameter("PayerID");
-        String url = "error.jsp";
         try {
-            PaymentService paymentService = new PaymentService();
-            Payment payment = paymentService.getPaymentDetails(paymentId);
+            String roomId = request.getParameter("txtRoomId");
+            String checkInDate = request.getParameter("txtCheckInDate");
+            String checkOutDate = request.getParameter("txtCheckOutDate");
+            String totalPrice = request.getParameter("txtTotalPrice");
+            String userId = request.getParameter("txtUserId");
             
-            PayerInfo payerInfo = payment.getPayer().getPayerInfo();
-            Transaction transaction = payment.getTransactions().get(0);
+            BillDTO dto = new BillDTO(roomId, totalPrice, checkInDate, checkOutDate);
             
-            request.setAttribute("PAYER", payerInfo);
-            request.setAttribute("transaction", transaction);
-            
-            url = "ecommerce-checkout-review.jsp?paymentId=" + paymentId + "&PayerID=" + payerId;
+            PaymentServiceUser paymentService = new PaymentServiceUser();
+            String approvalLink = paymentService.authorizePayment(dto);
+            response.sendRedirect(approvalLink);
         }catch(PayPalRESTException ex){
-            log("ReviewPaymentController _ PayPalRESTException "+ ex.getMessage());
-        }finally{
-            request.getRequestDispatcher(url).forward(request, response);
+            ex.printStackTrace();
+            request.setAttribute("errorMessage", ex.getMessage());
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 

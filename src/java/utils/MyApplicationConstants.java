@@ -20,6 +20,8 @@ public class MyApplicationConstants {
         public static final String UDPATE_ACCOUNT_GOOGLE_CONTROLLER = "updateAccountGoogleController";
         public static final String CHECK_OUT_CONTROLLER = "authorizePaymentController";
         public static final String EXECUTE_PAYMENT_CONTROLLER = "executePaymentController";
+        public static final String CHECK_OUT_CONTROLLER_USER = "authorizePaymentControllerUser";
+        public static final String EXECUTE_PAYMENT_CONTROLLER_USER = "executePaymentControllerUser";
     }
 
     public class AuthenticationFeatures {
@@ -99,7 +101,12 @@ public class MyApplicationConstants {
         public static final String BOOKING_CONTROLLER = "bookingRoomController";
         public static final String SHOW_BOOKING = "showBookingController";
     }
-   
+    
+    public class BookingRoom{
+        public static final String BOOKING_PAGE = "bookingPageUser";
+        public static final String BOOKING_CONTROLLER = "bookingRoomControllerUser";
+        public static final String CHECK_OUT_PAGE = "checkOutPageUser";
+    }
  
     public class ManageRevenue {
         public static final String REVENUE_PAGE="revenueManagementPage";
@@ -109,5 +116,10 @@ public class MyApplicationConstants {
     public class PaymentFeature{
         public static final String RECEIPT_PAGE = "receiptPage";
         public static final String ERROR_PAGE = "errorReceiptPage";
+    }
+    
+    public class PaymentFeatureUser{
+        public static final String RECEIPT_PAGE = "receiptPageUser";
+        public static final String ERROR_PAGE = "errorReceiptPageUser";
     }
 }

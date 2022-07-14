@@ -78,13 +78,13 @@
                             <a href="index.html">Home</a>
                         </li>
                         <li>
-                            <a href="about.html">About us</a>
+                            <a href="#">About us</a>
                         </li>
                         <li>
                             <a  href="map-google-maps.jsp">Map</a>
                         </li>
                         <li>
-                            <a href="blog.html">Contacts</a>
+                            <a href="#">Contacts</a>
                             <ul>
                                 <li><a>+84 845-646-648</a></li>
                                 <li><a>HostelVN@gmail.com</a></li>
@@ -416,7 +416,7 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="experience section">
                     <div class="container">
                         <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
@@ -425,7 +425,7 @@
                         <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
                     </div>
                 </section>
-                
+
                 <section class="contacts section">
                     <div class="container">
                         <header class="section-header">
@@ -435,11 +435,11 @@
                         <div class="section-content">
                             <div class="row-base row">
                                 <div class="col-address col-base col-md-6">
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6099414916966!2d106.8076943152606!3d10.841132860959346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1657436844268!5m2!1sen!2s" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6099414916966!2d106.8076943152606!3d10.841132860959346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1657436844268!5m2!1sen!2s" width="500" height="450" style="border:0; filter: invert(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                                 </div>
                                 <div class="col-base  col-md-6">
-                                    <form class="js-ajax-form">
+                                    <form class="js-ajax-form" onsubmit="sendEmail(); reset(); return false;">
                                         <div class="row-field row">
                                             <div class="col-field col-sm-6 col-md-4">
                                                 <div class="form-group">
@@ -550,5 +550,22 @@
     <script src="assets/plugins/gmaps/map-custom-script.js"></script>
 
     <script src="assets/js/main.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script >
+                                        Email.send({
+                                            Host: "smtp.yourisp.com",
+                                            Username: "username",
+                                            Password: "password",
+                                            To: 'them@website.com',
+                                            From: "you@isp.com",
+                                            Subject: "This is the subject",
+                                            Body: "And this is the body"
+                                        }).then(
+                                                message => alert(message)
+                                        );
+    </script>
+
+
+
 </body>
 </html>

@@ -1,4 +1,3 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en" class="semi-dark">
@@ -15,11 +14,6 @@
         <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
         <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
         <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
-        <link href="assets/plugins/datetimepicker/css/classic.css" rel="stylesheet" />
-        <link href="assets/plugins/datetimepicker/css/classic.time.css" rel="stylesheet" />
-        <link href="assets/plugins/datetimepicker/css/classic.date.css" rel="stylesheet" />
-        <link rel="stylesheet" href="assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
         <!-- CSS Files -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -52,80 +46,18 @@
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
-                <!--navigation-->
-
-                <ul class="metismenu" id="menu">
-                    <li class="menu-label">Pages</li>
-                    <li>
-                        <a href="pages-user-google-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">User Profile</div>
-                        </a>
-                    </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="page-edit-profile-user-google.jsp">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
-                    <li>
-
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
-                            <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Room</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="RoomOwnedViewGoogleController">
-                            <div class="parent-icon">
-                                <ion-icon name="planet-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">Owned Room</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="RegulationDisplayGoogleController">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Regulation</div>
-                        </a>
-
-                    </li>
-                </ul>
-                <!--end navigation-->
             </aside>
             <!--end sidebar -->
 
             <!--start top header-->
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
-                    <div class="mobile-menu-button">
-                        <ion-icon name="menu-sharp"></ion-icon>
-                    </div>
-                    <form action="MainController" method="POST" class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                            <ion-icon name="search-sharp"></ion-icon>
-                        </div>
-                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search for detail of room">
-                        <input type="hidden" value="Search room for customer" name="btn" />
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                            <ion-icon name="close-sharp"></ion-icon>
-                        </div>
+                    <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
+                    <form class="searchbar">
+                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
+                        <input class="form-control" type="text" placeholder="Search for anything">
+                        <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
                     </form>
-
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">
@@ -139,7 +71,7 @@
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
                                     <div class="mode-icon">
-                                        <ion-icon name="moon-sharp"></ion-icon>
+                                        <ion-icon name="moon-sharp"></ion-icon> 
                                     </div>
                                 </a>
                             </li>
@@ -152,38 +84,32 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
                                     <div class="row row-cols-3 g-3 p-3">
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white">
-                                                <ion-icon name="cart-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Orders</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-info text-white">
-                                                <ion-icon name="people-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Teams</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-success text-white">
-                                                <ion-icon name="shield-checkmark-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Tasks</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-danger text-white">
-                                                <ion-icon name="videocam-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
                                             </div>
-                                            <div class="app-title">Media</div>
+                                            <div class="app-title">Media</div>  
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-warning text-white">
-                                                <ion-icon name="file-tray-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Files</div>
                                         </div>
                                         <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-branding text-white">
-                                                <ion-icon name="notifications-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Alerts</div>
                                         </div>
@@ -207,8 +133,7 @@
                                     <div class="header-notifications-list">
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary">
-                                                    <ion-icon name="cart-outline"></ion-icon>
+                                                <div class="notify text-primary"><ion-icon name="cart-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
@@ -219,8 +144,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-danger">
-                                                    <ion-icon name="person-outline"></ion-icon>
+                                                <div class="notify text-danger"><ion-icon name="person-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
@@ -231,8 +155,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-success">
-                                                    <ion-icon name="document-outline"></ion-icon>
+                                                <div class="notify text-success"><ion-icon name="document-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
@@ -244,19 +167,18 @@
 
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-info">
-                                                    <ion-icon name="checkmark-done-outline"></ion-icon>
+                                                <div class="notify text-info"><ion-icon name="checkmark-done-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Product Approved <span class="msg-time float-end">2 hrs ago</span></h6>
+                                                    <h6 class="msg-name">New Product Approved <span
+                                                            class="msg-time float-end">2 hrs ago</span></h6>
                                                     <p class="msg-info">Your new product has approved</p>
                                                 </div>
                                             </div>
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-warning">
-                                                    <ion-icon name="send-outline"></ion-icon>
+                                                <div class="notify text-warning"><ion-icon name="send-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
@@ -267,8 +189,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-danger">
-                                                    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                                                <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
@@ -279,8 +200,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-primary">
-                                                    <ion-icon name="albums-outline"></ion-icon>
+                                                <div class="notify text-primary"><ion-icon name="albums-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
@@ -291,8 +211,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-success">
-                                                    <ion-icon name="shield-outline"></ion-icon>
+                                                <div class="notify text-success"><ion-icon name="shield-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
@@ -303,8 +222,7 @@
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
-                                                <div class="notify text-warning">
-                                                    <ion-icon name="cafe-outline"></ion-icon>
+                                                <div class="notify text-warning"><ion-icon name="cafe-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
@@ -327,7 +245,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row align-items-center gap-2">
                                                 <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
@@ -337,69 +255,53 @@
                                             </div>
                                         </a>
                                     </li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user-profile.html">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="person-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="settings-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="settings-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Setting</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="index2.html">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="speedometer-outline"></ion-icon>
-                                                </div>
-                                                <div class="ms-3"><span>Management</span></div>
+                                                <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Review</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="wallet-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Earnings</span></div>
                                             </div>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+                                        <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="cloud-download-outline"></ion-icon>
-                                                </div>
+                                                <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Downloads</span></div>
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
                                     <li>
                                         <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
-                                                <div class="">
-                                                    <ion-icon name="log-out-outline"></ion-icon>
-                                                </div>
-                                                <div class="ms-3"><span name="btn">Logout</span></div>
+                                                <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Logout</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -421,13 +323,13 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Room</div>
+                        <div class="breadcrumb-title pe-3">Review</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Booking Room</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Review Cart</li>
                                 </ol>
                             </nav>
                         </div>
@@ -447,46 +349,137 @@
                     <!--end breadcrumb-->
 
 
-                    <div class="row">
-                        <div class="col-xl-12 mx-auto">
-                            <h6 class="mb-0 text-uppercase">Date Time Pickers</h6>
-                            <hr/>
-                            <c:set var="Success" value="${requestScope.SUCCESS}"/>
-                            <c:if test="${empty Success}">
-                                <form action="MainController" method="POST">
+                    <!--start shop cart-->
+                    <section class="shop-page">
+                        <div class="shop-container">
 
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="border p-3 rounded">
-                                                Room ID ${param.txtRoomId} <br/>
-                                                <input type="hidden" name="txtRoomId" value="${param.txtRoomId}" />
-                                                <input type="hidden" name="txtUsername" value="${param.txtUsername}" />
-                                                <div class="mb-3">
-                                                    <label class="form-label">Check In Date</label>
-                                                    <input type="date"  name="txtCheckInDate" value="${param.txtCheckInDate}" class="form-control datepicker"    />
+                            <div class="card shadow-sm border-0">
+                                <div class="card-body">
+                                    <div class="shop-cart">
+                                        <div class="row">
+                                            <div class="col-12 col-xl-8">
+                                                <div class="shop-cart-list">
+                                                    <div class="card border-0">
+                                                        <div class="card-body">
+                                                            <div class="steps steps-light">
+                                                                <a class="step-item active" href="ecommerce-shop-cart.html">
+                                                                    <div class="step-progress"><span class="step-count">1</span>
+                                                                    </div>
+                                                                    <div class="step-label"><i class='bx bx-cart'></i>Cart</div>
+                                                                </a>
+                                                                <a class="step-item active current" href="ecommerce-checkout-details.html">
+                                                                    <div class="step-progress"><span class="step-count">2</span>
+                                                                    </div>
+                                                                    <div class="step-label"><i class='bx bx-user-circle'></i>Details</div>
+                                                                </a>
+                                                                <a class="step-item active" href="ecommerce-checkout-shipping.html">
+                                                                    <div class="step-progress"><span class="step-count">3</span>
+                                                                    </div>
+                                                                    <div class="step-label"><i class='bx bx-cube'></i>Deposit</div>
+                                                                </a>
+                                                                <a class="step-item active" href="ecommerce-checkout-payment.html">
+                                                                    <div class="step-progress"><span class="step-count">4</span>
+                                                                    </div>
+                                                                    <div class="step-label"><i class='bx bx-credit-card'></i>Payment</div>
+                                                                </a>
+                                                                <a class="step-item active" href="ecommerce-checkout-review.html">
+                                                                    <div class="step-progress"><span class="step-count">5</span>
+                                                                    </div>
+                                                                    <div class="step-label"><i class='bx bx-check-circle'></i>Review</div>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <h5>Review Your Transaction</h5>
+                                                    <hr>
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="row align-items-center g-2">
+                                                                <div class="col-12 col-lg-6">
+                                                                    <div class="d-lg-flex align-items-center gap-2">
+                                                                        <div class="cart-img text-center text-lg-start">
+                                                                            <img src="images/${sessionScope.ROOMDTO.image}" width="130" alt="">
+                                                                        </div>
+                                                                        <div class="cart-detail text-center text-lg-start">
+                                                                            <h6 class="mb-2">Transaction Details</h6>
+                                                                            <p class="mb-0">Product: booking room: <span>No ${transaction.description}</span>
+                                                                            </p>
+                                                                            <p class="mb-2">Payer Information: <span>${PAYER.firstName}  ${PAYER.lastName}</span>
+                                                                            </p>
+                                                                            <p class="mb-2">Payer Email: <span>${PAYER.email}</span>
+                                                                            </p>
+                                                                            <h5 class="mb-0">Total: ${transaction.amount.details.subtotal}</h5>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="payment-mode">
+                                                                        <h5 class="mb-3">Payment Mode: Pay Pal</h5>
+                                                                        <img src="assets/images/icons/visa.png" width="150" class="p-2 border bg-light rounded" alt="">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card">
+                                                        <div class="card-body">
+                                                            <div class="d-lg-flex align-items-center gap-3">
+                                                                <a href="MainController?btn=CompletedUser&paymentId=${param.paymentId}&PayerID=${param.PayerID}&txtUserId=${User.id}&txtRoomId=${sessionScope.ROOMDTO.roomId}&txtCheckInDate=${sessionScope.CHECKINDATE}&txtCheckOutDate=${sessionScope.CHECKOUTDATE}&txtTotalPrice=${sessionScope.TOTALROOMPRICE}" class="btn btn-white btn-ecomm"><i class='bx bx-refresh'></i>Completed</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label  class="form-label">Check Out Date</label>
-                                                    <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker"   />
+                                            </div>
+                                            <div class="col-12 col-xl-4">
+                                                <div class="card">
+                                                    <div class="card-body">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <p class="fs-5">Order summary</p>
+                                                                <div class="my-3 border-top"></div>
+                                                                <div class="d-flex align-items-center">
+                                                                    <a class="d-block flex-shrink-0" href="javascript:;">
+                                                                        <img src="images/${sessionScope.ROOMDTO.image}" width="75" alt="Product">
+                                                                    </a>
+                                                                    <div class="ps-2">
+                                                                        <h6 class="mb-1">Room no ${sessionScope.ROOMDTO.roomId}</h6>
+                                                                        <h5 class="mb-1">Description ${sessionScope.ROOMDTO.roomDescription}</h5>
+                                                                        <div class="widget-product-meta"><span class="me-2">$${sessionScope.ROOMDTO.roomPrice}</span><span class="">x 1</span>
+                                                                        </div>
+                                                                        <div class="widget-product-meta"><span class="me-2">Check In Date <small class="date">${sessionScope.CHECKINDATE}</small></span>
+                                                                        </div>
+                                                                        <div class="widget-product-meta"><span class="me-2">Check Out Date <small class="date">${sessionScope.CHECKOUTDATE}</small></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card mb-0">
+                                                            <div class="card-body">
+                                                                <p class="mb-2">Time Booking <span class="float-end">${sessionScope.DISTANCETIME} months</span>
+                                                                </p>
+                                                                <div class="my-3 border-top"></div>
+                                                                <h5 class="mb-0">Order Total: <span class="float-end">${sessionScope.TOTALROOMPRICE} $</span></h5>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                                <input type="submit" value="Confirm" name="btn" />
                                             </div>
                                         </div>
+                                        <!--end row-->
                                     </div>
-                                </form>
-
+                                </div>
                             </div>
+
                         </div>
-                    </c:if>
-                    <c:if test="${not empty Success}">
-                        <H1 style="color: greenyellow">${Success}</H1>
-                        <a href="user-google.jsp">click here to order new room</a>
-                    </c:if>
-                    <c:set var="Error" value="${requestScope.ERROR}"/>
-                    <c:if test="${not empty Error}">
-                        <H1 style="color: red">${Error}</H1>
-                        </c:if>
-                    <!--end row-->
+                    </section>
+                    <!--end shop cart-->
 
 
                 </div>
@@ -568,6 +561,9 @@
         <!--end wrapper-->
 
 
+
+
+
         <!-- JS Files-->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
@@ -576,13 +572,6 @@
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <!--plugins-->
         <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-        <script src="assets/plugins/datetimepicker/js/legacy.js"></script>
-        <script src="assets/plugins/datetimepicker/js/picker.js"></script>
-        <script src="assets/plugins/datetimepicker/js/picker.time.js"></script>
-        <script src="assets/plugins/datetimepicker/js/picker.date.js"></script>
-        <script src="assets/plugins/bootstrap-material-datetimepicker/js/moment.min.js"></script>
-        <script src="assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.min.js"></script>
-        <script src="assets/js/form-date-time-pickes.js"></script>
 
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>

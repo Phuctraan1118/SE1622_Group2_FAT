@@ -16,13 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import service.impl.PaymentService;
+import service.impl.PaymentServiceUser;
 
 /**
  *
  * @author buikh
  */
-@WebServlet(name = "ReviewPaymentController", urlPatterns = {"/ReviewPaymentController"})
-public class ReviewPaymentController extends HttpServlet {
+@WebServlet(name = "ReviewPaymentControllerUser", urlPatterns = {"/ReviewPaymentControllerUser"})
+public class ReviewPaymentControllerUser extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,7 +41,7 @@ public class ReviewPaymentController extends HttpServlet {
         String payerId = request.getParameter("PayerID");
         String url = "error.jsp";
         try {
-            PaymentService paymentService = new PaymentService();
+            PaymentServiceUser paymentService = new PaymentServiceUser();
             Payment payment = paymentService.getPaymentDetails(paymentId);
             
             PayerInfo payerInfo = payment.getPayer().getPayerInfo();
@@ -49,7 +50,7 @@ public class ReviewPaymentController extends HttpServlet {
             request.setAttribute("PAYER", payerInfo);
             request.setAttribute("transaction", transaction);
             
-            url = "ecommerce-checkout-review.jsp?paymentId=" + paymentId + "&PayerID=" + payerId;
+            url = "ecommerce-checkout-review-user.jsp?paymentId=" + paymentId + "&PayerID=" + payerId;
         }catch(PayPalRESTException ex){
             log("ReviewPaymentController _ PayPalRESTException "+ ex.getMessage());
         }finally{
