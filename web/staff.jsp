@@ -452,21 +452,6 @@
                                 </ol>
                             </nav>
                         </div>
-                        <div class="ms-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button"
-                                        class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                                                                                                        href="javascript:;">Action</a>
-                                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!--end breadcrumb-->
                     <div class="card radius-10 w-100">
@@ -481,8 +466,8 @@
                             </div>
 
                             <div class="table-responsive mt-2">
-                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead class="table-light">
+                                <table id="example" class="table align-middle" style="width:100%">
+                                    <thead class="table-secondary">
                                         <tr>
                                             <th>STT</th>
                                             <th>Name</th>

@@ -478,8 +478,8 @@
                             </div>
                             
                             <div class="table-responsive mt-2">
-                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead class="table-light">
+                                <table id="example" class="table align-middle" style="width:100%">
+                                    <thead class="table-secondary">
                                         <tr>
                                             <th>STT</th>
                                             <th>Name</th>
