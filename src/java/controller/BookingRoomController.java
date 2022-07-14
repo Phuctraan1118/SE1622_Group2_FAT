@@ -91,8 +91,8 @@ public class BookingRoomController extends HttpServlet {
                                         flag = false;
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() == LocalDate.parse(checkInDate).getMonthValue()
                                                 && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0) 
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
@@ -107,8 +107,8 @@ public class BookingRoomController extends HttpServlet {
                                         }
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                                 || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0) 
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
@@ -336,8 +336,8 @@ public class BookingRoomController extends HttpServlet {
                                         flag = false;
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() == LocalDate.parse(checkInDate).getMonthValue()
                                                 && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0) 
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
@@ -351,8 +351,8 @@ public class BookingRoomController extends HttpServlet {
                                         }
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                                 || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0) 
                                                     || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0

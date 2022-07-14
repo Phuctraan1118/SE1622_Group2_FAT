@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RegulationDisplayForStaffController.java</file>
-            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/service/impl/PaymentService.java</file>
+            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/BookingRoomControllerUser.java</file>
+            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/booking.jsp</file>
+            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/booking1.jsp</file>
+            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/user-google.jsp</file>
             <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/BookingRoomController.java</file>
-            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/staff.jsp</file>
-            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/regulationManagement.jsp</file>
+            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/user.jsp</file>
+            <file>file:/C:/Users/buikh/OneDrive/Documents/GitHub/SE1622_Group2_FAT/web/revenueManagement.jsp</file>
         </group>
     </open-files>
 </project-private>
