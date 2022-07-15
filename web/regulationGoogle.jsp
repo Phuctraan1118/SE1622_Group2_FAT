@@ -98,7 +98,7 @@
                     </li>
                     <li>
 
-                        <a href="regulationGoogle.jsp">
+                        <a href="RegulationDisplayGoogleController">
                             <div class="parent-icon">
                                 <ion-icon name="shield-outline"></ion-icon>
                             </div>

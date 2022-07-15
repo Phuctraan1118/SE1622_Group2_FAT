@@ -44,9 +44,9 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                   <font color="yellow">
-                     <div>
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
+                    <font color="yellow">
+                    <div>
+                        <h6>Welcome ${USER.name} (STAFF)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
@@ -66,7 +66,7 @@
                                 </a>
                             </li>
                             <li>
-<a href="customer.jsp">
+                                <a href="customer.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Customer Management
                                 </a>
                             </li>
@@ -80,9 +80,14 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
-                              <li>
+                            <li>
                                 <a href="regulationManagement.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="feedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
                         </ul>
@@ -101,7 +106,7 @@
                             <div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
-                    
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -128,7 +133,7 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
-<div class="mode-icon">
+                                    <div class="mode-icon">
                                         <ion-icon name="moon-sharp"></ion-icon> 
                                     </div>
                                 </a>
@@ -167,7 +172,7 @@
                                             <div class="app-title">Files</div>
                                         </div>
                                         <div class="col text-center">
-<div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
+                                            <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
                                             </div>
                                             <div class="app-title">Alerts</div>
                                         </div>
@@ -207,7 +212,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
                                                             ago</span></h6>
-<p class="msg-info">5 new user registered</p>
+                                                    <p class="msg-info">5 new user registered</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -246,7 +251,7 @@
                                             </div>
                                         </a>
                                         <a class="dropdown-item" href="javascript:;">
-<div class="d-flex align-items-center">
+                                            <div class="d-flex align-items-center">
                                                 <div class="notify text-danger"><ion-icon name="chatbox-ellipses-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
@@ -283,7 +288,7 @@
                                                 <div class="notify text-warning"><ion-icon name="cafe-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-<h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
+                                                    <h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
                                                             ago</span></h6>
                                                     <p class="msg-info">45% less alerts last 4 weeks</p>
                                                 </div>
@@ -325,7 +330,7 @@
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="settings-outline"></ion-icon></div>
-<div class="ms-3"><span>Setting</span></div>
+                                                <div class="ms-3"><span>Setting</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -379,7 +384,7 @@
                 <div class="page-content">
 
                     <!--start breadcrumb-->
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                         <div class="breadcrumb-title pe-3">Pages</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
@@ -418,7 +423,7 @@
                                                     <img src="${USER.img}" alt="...">
                                                     <input type="hidden" name="txtImg" value="${USER.img}" class="form-control">
                                                     <input type="hidden" name="txtStatus" value="${USER.status}" class="form-control">
-<input type="hidden" name="txtRole" value="${USER.role}" class="form-control">
+                                                    <input type="hidden" name="txtRole" value="${USER.role}" class="form-control">
                                                     <input type="hidden" name="txtUsername" value="${USER.id}" class="form-control">
                                                 </div>
                                             </div>
@@ -454,7 +459,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     <label class="form-label">Email address</label>
-<input type="email" name="txtEmail" value="${param.txtEmail}" class="form-control">
+                                                    <input type="email" name="txtEmail" value="${param.txtEmail}" class="form-control">
                                                     <c:if test="${not empty errors.emailLengthError}">
                                                         <font color="red">
                                                         ${errors.emailLengthError}
@@ -491,7 +496,7 @@
                                                         <font color="red">
                                                         ${errors.citizenIdentificationLengthError}
                                                         </font>
-</c:if>
+                                                    </c:if>
                                                 </div>
                                             </div>
                                             <div class="text-start mt-3">
@@ -541,7 +546,7 @@
                         <h6 class="mb-0">Header Colors</h6>
                         <hr/>
                         <div class="header-colors-indigators">
-<div class="row row-cols-auto g-3">
+                            <div class="row row-cols-auto g-3">
                                 <div class="col">
                                     <div class="indigator headercolor1" id="headercolor1"></div>
                                 </div>

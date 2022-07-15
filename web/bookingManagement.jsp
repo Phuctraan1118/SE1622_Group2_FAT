@@ -60,21 +60,21 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                     <font color="yellow">
-                      <h6>Welcome ${USER.name} (STAFF)</h6>
-                      </font>
+                    <font color="yellow">
+                    <h6>Welcome ${USER.name} (STAFF)</h6>
+                    </font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
-                <ul class="metismenu" id="menu">
-                    <li class="mm-active">
+               <ul class="metismenu" id="menu">
+                    <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Room Management</div>
+                            <div class="menu-title">Management</div>
                         </a>
                         <ul>
                             <li> <a href="staff.jsp">
@@ -96,31 +96,32 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
-                              <li>
+                            <li>
                                 <a href="regulationManagement.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="feedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
+                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="pages-edit-staff-profile.jsp">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
+                    <li>
+                        <a href="pages-edit-staff-profile.jsp">
+                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Edit Profile</div>
+                        </a>
+                    </li>
 
                 </ul>
                 <!--end navigation-->
@@ -392,7 +393,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                         <h6 class="mb-0 text-uppercase">Management</h6>
+                        <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
