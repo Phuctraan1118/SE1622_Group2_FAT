@@ -550,7 +550,6 @@
     <script src="assets/plugins/gmaps/map-custom-script.js"></script>
 
     <script src="assets/js/main.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
 <!--    <script >
                                         Email.send({
                                             Host: "smtp.yourisp.com",

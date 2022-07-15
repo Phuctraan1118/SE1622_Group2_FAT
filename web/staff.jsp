@@ -137,35 +137,6 @@
                     </li>
 
                 </ul>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Staff Profile</div>
-                        </a>
-                    </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="pages-edit-staff-profile.jsp"">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
-                    <li>
-                        <a href="feedback.jsp">
-                            <div class="parent-icon">
-                                <ion-icon class="lni lni-comments-alt"></ion-icon>
-                            </div>
-                            <div class="menu-title">Sent Feedback</div>
-                        </a>
-                    </li>
-                </ul>
                 <!--end navigation-->
             </aside>
             <!--end sidebar -->
