@@ -439,7 +439,7 @@
 
                                 </div>
                                 <div class="col-base  col-md-6">
-                                    <form class="js-ajax-form" onsubmit="sendEmail(); reset(); return false;">
+                                    <form class="js-ajax-form"">
                                         <div class="row-field row">
                                             <div class="col-field col-sm-6 col-md-4">
                                                 <div class="form-group">
@@ -491,7 +491,7 @@
                             </a>
                         </div>
                         <div class="text-center-md col-base col-md-4">
-                            <a href="https://themeforest.net/user/murren20" class="author-link">
+                            <a href="#" class="author-link">
                                 by DevFPT
                             </a>
                         </div>
@@ -550,8 +550,7 @@
     <script src="assets/plugins/gmaps/map-custom-script.js"></script>
 
     <script src="assets/js/main.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script >
+<!--    <script >
                                         Email.send({
                                             Host: "smtp.yourisp.com",
                                             Username: "username",
@@ -563,7 +562,7 @@
                                         }).then(
                                                 message => alert(message)
                                         );
-    </script>
+    </script>-->
 
 
 

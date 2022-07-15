@@ -32,9 +32,9 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
 
-         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
         <!--Theme Styles-->
@@ -81,7 +81,7 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li class="mm-active">
+                    <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
@@ -113,26 +113,28 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="feedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
+                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="pages-edit-staff-profile.jsp"">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
+                    <li>
+                        <a href="pages-edit-staff-profile.jsp">
+                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Edit Profile</div>
+                        </a>
+                    </li>
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -768,6 +770,7 @@
 
         </div>
         <!--end wrapper-->
+    </div>
 
 
 

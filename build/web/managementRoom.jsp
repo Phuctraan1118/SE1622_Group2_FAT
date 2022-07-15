@@ -77,7 +77,7 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li class="mm-active">
+                    <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
@@ -109,49 +109,28 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="feedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
+                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="pages-edit-staff-profile.jsp">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
-                    <!--                    <li class="menu-label">STAFF</li>-->
-                    <!--                    <li>
-                                            <a class="has-arrow" href="javascript:;">
-                                                <div class="parent-icon">
-                                                    <ion-icon name="lock-closed-sharp"></ion-icon>
-                                                <div class="menu-title">Au                                                </div>
-thentication</div>
-                                            </a>
-                                            <ul>
-                                                <li> <a href="authentication-sign-in-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign In Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-sign-up-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Sign Up Simple
-                                                    </a>
-                                                </li>
-                                                <li> <a href="authentication-reset-password-simple.html" target="_blank">
-                                                        <ion-icon name="ellipse-outline"></ion-icon>Reset Password Simple
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>-->
+                    <li>
+                        <a href="pages-edit-staff-profile.jsp">
+                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Edit Profile</div>
+                        </a>
+                    </li>
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -622,6 +601,7 @@ thentication</div>
                                                     <th>CHECK OUT DATE</th>
                                                     <th>USERNAME</th>
                                                     <th>IMAGE</th>
+                                                    <th>Send Notification</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -676,6 +656,11 @@ thentication</div>
                                                             </div>
                                                         </td>
                                                         <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                <a href="sendNotification.jsp?username=${dtoBooked.username}">Send Notification</a>
+                                                            </div>
+                                                        </td>
                                                         <!-- comment   <td>
                                                         <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
                                                         <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
@@ -843,17 +828,17 @@ thentication</div>
                     </script>-->
 
             <script>
-                            function showOrHideDiv() {
-                                var show = document.getElementById("showOrHide");
-                                if (show.style.display === "none") {
-                                    show.style.display = "block";
-                                } else {
-                                    show.style.display = "none";
-                                }
+                        function showOrHideDiv() {
+                            var show = document.getElementById("showOrHide");
+                            if (show.style.display === "none") {
+                                show.style.display = "block";
+                            } else {
+                                show.style.display = "none";
                             }
-                            function ConfirmDelete() {
-                                return confirm("Are you sure you want to delete?");
-                            }
+                        }
+                        function ConfirmDelete() {
+                            return confirm("Are you sure you want to delete?");
+                        }
             </script>
     </body>
 
