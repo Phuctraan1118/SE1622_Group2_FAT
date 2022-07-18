@@ -515,7 +515,7 @@ label.error{
   overflow: hidden;
 }
 
-.text-primary{
+.text-secondary {
   color:#c5a47e;
 }
 
@@ -2608,5 +2608,3 @@ img.mfp-img{
     bottom: auto;
   }
 }
-
-

@@ -459,17 +459,17 @@
                                         <div class="card-body">
                                             <div class="border p-3 rounded">
                                                 Room ID ${param.txtRoomId} <br/>
-                                                <input type="hidden" name="txtRoomId" value="${param.txtRoomId}" />
-                                                <input type="hidden" name="txtUsername" value="${param.txtUsername}" />
+                                                <input type="hidden" name="txtRoomId" value="${param.txtRoomId}">
+                                                <input type="hidden" name="txtUsername" value="${param.txtUsername}">
                                                 <div class="mb-3">
                                                     <label class="form-label">Check In Date</label>
-                                                    <input type="date"  name="txtCheckInDate" value="${param.txtCheckInDate}" class="form-control datepicker"    />
+                                                    <input type="date"  name="txtCheckInDate" value="${param.txtCheckInDate}" class="form-control datepicker">
                                                 </div>
                                                 <div class="mb-3">
                                                     <label  class="form-label">Check Out Date</label>
-                                                    <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker"   />
+                                                    <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker">
                                                 </div>
-                                                <input type="submit" value="Confirm" name="btn" />
+                                                <input type="submit" value="Confirm" name="btn">
                                             </div>
                                         </div>
                                     </div>
