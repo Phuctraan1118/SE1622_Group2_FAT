@@ -91,33 +91,47 @@ public class BookingRoomControllerUser extends HttpServlet {
                                         flag = false;
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() == LocalDate.parse(checkInDate).getMonthValue()
                                                 && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0)
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
+                                                    || (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)) {
                                                 request.setAttribute("ERROR", "Room is not avaiable");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_PAGE);
                                                 break;
                                             }
-                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            
+                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
+                                                flag = true;
+                                            }
+                                            
+                                            if (LocalDate.parse(checkInDate).isBefore(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
                                                 flag = true;
                                             }
                                         }
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                                 || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0)
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
+                                                    || (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)) {
                                                 request.setAttribute("ERROR", "Room is not avaiable");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_PAGE);
                                                 break;
                                             }
-                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            
+                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
+                                                flag = true;
+                                            }
+                                            
+                                            if (LocalDate.parse(checkInDate).isBefore(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
                                                 flag = true;
                                             }
                                         }
@@ -336,32 +350,47 @@ public class BookingRoomControllerUser extends HttpServlet {
                                         flag = false;
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() == LocalDate.parse(checkInDate).getMonthValue()
                                                 && LocalDate.parse(b.getCheckOutDate()).getMonthValue() == LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0)
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
+                                                    || (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)) {
                                                 request.setAttribute("ERROR", "Room is not avaiable");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_PAGE);
+                                                break;
                                             }
-                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            
+                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
+                                                flag = true;
+                                            }
+                                            
+                                            if (LocalDate.parse(checkInDate).isBefore(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
                                                 flag = true;
                                             }
                                         }
                                         if (LocalDate.parse(b.getCheckInDate()).getMonthValue() != LocalDate.parse(checkInDate).getMonthValue()
                                                 || LocalDate.parse(b.getCheckOutDate()).getMonthValue() != LocalDate.parse(checkOutDate).getMonthValue()) {
-                                            if (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
-                                                    && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) >= 0)
-                                                    || (LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) <= 0
+                                            if ((LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
+                                                    && LocalDate.parse(checkInDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)
+                                                    || (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) >= 0
                                                     && LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) <= 0)) {
                                                 request.setAttribute("ERROR", "Room is not avaiable");
                                                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_PAGE);
-
+                                                break;
                                             }
-                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate()))) {
+                                            
+                                            if (LocalDate.parse(checkInDate).isAfter(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
+                                                flag = true;
+                                            }
+                                            
+                                            if (LocalDate.parse(checkInDate).isBefore(LocalDate.parse(b.getCheckOutDate())) && 
+                                                    (LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckInDate())) < 0
+                                                    || LocalDate.parse(checkOutDate).compareTo(LocalDate.parse(b.getCheckOutDate())) > 0)) {
                                                 flag = true;
                                             }
                                         }

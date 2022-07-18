@@ -10,8 +10,11 @@
         <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
+       
         <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
         <link href="css/style.css" rel="stylesheet" media="screen">
 
     </head>
@@ -45,11 +48,11 @@
         <header id="top" class="header-home">
             <div class="brand-panel">
                 <a href="#top" class="brand js-target-scroll">
-                    Hostel<span class="text-primary">.</span>Management
+                    Hostel<span class="text-secondary">.</span>Management
                 </a>
                 <div class="brand-name">Hostel Management</div>
                 <div class="slide-number">
-                    <span class="current-number text-primary">0<span class="count">1</span></span>
+                    <span class="current-number text-secondary">0<span class="count">1</span></span>
                     <sup><span class="delimiter">/</span> 0<span class="total-count"></span></sup>
                 </div>
             </div>
@@ -71,7 +74,7 @@
             <nav class="navbar-desctop visible-md visible-lg">
                 <div class="container">
                     <a href="#top" class="brand js-target-scroll">
-                        Hostel<span class="text-primary">.</span>Management
+                        Hostel<span class="text-secondary">.</span>Management
                     </a>
                     <ul class="navbar-desctop-menu">
                         <li class="active">
@@ -99,7 +102,7 @@
 
             <nav class="navbar-mobile">
                 <a href="#top" class="brand js-target-scroll">
-                    Hostel<span class="text-primary">.</span>Management
+                    Hostel<span class="text-secondary">.</span>Management
                 </a>
 
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-mobile">
@@ -196,19 +199,19 @@
                 <section id="about" class="about section">
                     <div class="container">
                         <header class="section-header">
-                            <h2 class="section-title">About <span class="text-primary">Hostel</span></h2>
+                            <h2 class="section-title">About <span class="text-secondary">Hostel</span></h2>
                             <strong class="fade-title-left">About</strong>
                         </header>
                         <div class="section-content">
                             <div class="row-base row">
                                 <div class="col-base col-sm-6 col-md-4">
-                                    <h3 class="col-about-title">we turn ideas into works of art<span class="text-primary">.</span></h3>
+                                    <h3 class="col-about-title">we turn ideas into works of art<span class="text-secondary">.</span></h3>
                                     <div class="col-about-info">
                                         <p>For each project we establish relationships with partners who we know will help us create added value for your project. As well as bringing together the public and private sectors, we make sector-overarching links to gather knowledge and to learn from each other. The way we undertake projects is based on permanently applying values that reinforce each other: socio-cultural value, experiental value, building-technical value and economical value.</p>
                                     </div>
                                 </div>
                                 <div class="col-base col-about-spec col-sm-6 col-md-4">
-                                    <h3 class="col-about-title">our<br> specialization<span class="text-primary">:</span></h3>
+                                    <h3 class="col-about-title">our<br> specialization<span class="text-secondary">:</span></h3>
                                     <div class="service-item">
                                         <img alt width="46" src="images/icon-architecture.png">
                                         <h4>Architecture</h4>
@@ -233,7 +236,7 @@
 
                 <section class="projects section">
                     <div class="container">
-                        <h2 class="section-title">Our <span class="text-primary">projects</span></h2>
+                        <h2 class="section-title">Our <span class="text-secondary">projects</span></h2>
                     </div>
                     <div class="section-content">
                         <div class="projects-carousel js-projects-carousel js-projects-gallery">
@@ -374,7 +377,7 @@
                 <section class="clients section">
                     <div class="container">
                         <header class="section-header">
-                            <h2 class="section-title">Our <span class="text-primary">clients</span></h2>
+                            <h2 class="section-title">Our <span class="text-secondary">clients</span></h2>
                             <strong class="fade-title-left">clients</strong>
                         </header>
                         <div class="section-content">
@@ -422,14 +425,14 @@
                         <div class="text-parallax" data-stellar-background-ratio="0.85" style="background-image: url(&#x27;images/text-1.jpg&#x27;);">
                             <div class="text-parallax-content">10</div>
                         </div>
-                        <h4 class="experience-info wow fadeInRight"><span class="text-primary">Years of successful work</span><br> in the market</h4>
+                        <h4 class="experience-info wow fadeInRight"><span class="text-secondary">Years of successful work</span><br> in the market</h4>
                     </div>
                 </section>
 
                 <section class="contacts section">
                     <div class="container">
                         <header class="section-header">
-                            <h2 class="section-title">Get <span class="text-primary">in touch</span></h2>
+                            <h2 class="section-title">Get <span class="text-secondary">in touch</span></h2>
                             <strong class="fade-title-right">contacts</strong>
                         </header>
                         <div class="section-content">
@@ -438,38 +441,40 @@
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6099414916966!2d106.8076943152606!3d10.841132860959346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752731176b07b1%3A0xb752b24b379bae5e!2sFPT%20University%20HCMC!5e0!3m2!1sen!2s!4v1657436844268!5m2!1sen!2s" width="500" height="450" style="border:0; filter: invert(100%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                                 </div>
-                                <div class="col-base  col-md-6">
-                                    <form class="js-ajax-form"">
+                                <div class="col-base col-md-6">
+                                    <form method="post">
                                         <div class="row-field row">
                                             <div class="col-field col-sm-6 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="name" required placeholder="Name">
+                                                    <input type="text" class="form-control" id="name" required placeholder="Name">
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" name="email" required placeholder="Email *">
+                                                    <input type="email" class="form-control" id="email" required placeholder="Email *">
                                                 </div>
                                             </div>
                                             <div class="col-field col-sm-6 col-md-4">
                                                 <div class="form-group">
-                                                    <input type="tel" class="form-control" name="phone" placeholder="Phone">
+                                                    <input type="tel" class="form-control" id="phone" placeholder="Phone">
                                                 </div>
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" name="company" placeholder="Company">
-                                                </div>
+                                                <!--                                                <div class="form-group">
+                                                                                                    <input type="text" class="form-control" name="company" placeholder="Company">
+                                                                                                </div>-->
                                             </div>
                                             <div class="col-field col-sm-12 col-md-4">
                                                 <div class="form-group">
-                                                    <textarea class="form-control" name="message" placeholder="Message"></textarea>
+                                                    <textarea class="form-control" id="message" placeholder="Message"></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-message col-field col-sm-12">
-                                                <div class="form-group">
-                                                    <div class="success-message"><i class="fa fa-check text-primary"></i> Thank you!. Your message is successfully sent...</div>
-                                                    <div class="error-message">We're sorry, but something went wrong</div>
-                                                </div>
-                                            </div>
+                                            <!--                                            <div class="col-message col-field col-sm-12">
+                                                                                            <div class="form-group">
+                                                                                                <div class="success-message"><i class="fa fa-check text-secondary"></i> Thank you!. Your message is successfully sent...</div>
+                                                                                                <div class="error-message">We're sorry, but something went wrong</div>
+                                                                                            </div>
+                                                                                        </div>-->
                                         </div>
-                                        <div class="form-submit text-right"><button type="submit" class="btn btn-shadow-2 wow swing">Send <i class="icon-next"></i></button></div>
+                                        <div class="form-submit text-right">
+                                            <button type="submit" id="btn" class="btn btn-shadow-2 wow swing">Send <i class="icon-next"></i>
+                                            </button></div>
                                     </form>
                                 </div>
                             </div>
@@ -487,7 +492,7 @@
                     <div class="row-base row">
                         <div class="col-base text-left-md col-md-4">
                             <a href="#" class="brand">
-                                Hostel<span class="text-primary">.</span>Management
+                                Hostel<span class="text-secondary">.</span>Management
                             </a>
                         </div>
                         <div class="text-center-md col-base col-md-4">
@@ -550,20 +555,80 @@
     <script src="assets/plugins/gmaps/map-custom-script.js"></script>
 
     <script src="assets/js/main.js"></script>
-<!--    <script >
-                                        Email.send({
-                                            Host: "smtp.yourisp.com",
-                                            Username: "username",
-                                            Password: "password",
-                                            To: 'them@website.com',
-                                            From: "you@isp.com",
-                                            Subject: "This is the subject",
-                                            Body: "And this is the body"
-                                        }).then(
-                                                message => alert(message)
-                                        );
-    </script>-->
 
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script> 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var btn = document.getElementById('btn');
+        btn.addEventListener('click', function (e) {
+            e.preventDefault();
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+            var message = document.getElementById('message').value;
+            var body = 'name: ' + name + '</br> email: ' + email + '</br> phone: ' + phone
+                    + '</br> message: ' + message;
+            Email.send({
+                SecureToken: "e8d93be4-bd75-42c0-a9b9-5b3d9804f147",
+                To: 'phuctraan1118@gmail.com',
+                From: "thienphucrt@gmail.com",
+                Subject: "Customer Feedback",
+                Body: body
+            }).then(function () {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+
+            if (name === '' || email === '' || phone === '') {
+                swal({
+                    title: "Fields Empty!!",
+                    text: "Please check the missing field!!!",
+                    icon: "warning",
+                    button: "Ok"
+                });
+            }else{
+                swal({
+                    title: "Successfully!!",
+                    text: "Success!!!",
+                    icon: "success",
+                    button: "Ok"
+                });
+            }
+
+        });
+
+        });
+
+
+    </script>
+
+<!--    <script>
+        $("#submit").click(function () {
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var phone = $("#phone").val();
+
+            if (name === '' || email === '' || phone === '') {
+                swal({
+                    title: "Fields Empty!!",
+                    text: "Please check the missing field!!!",
+                    icon: "warning",
+                    button: "Ok"
+                });
+            }else{
+                swal({
+                    title: "Successfully!!",
+                    text: "Success!!!",
+                    icon: "success",
+                    button: "Ok"
+                });
+            }
+
+        });
+    </script>-->
 
 
 </body>
