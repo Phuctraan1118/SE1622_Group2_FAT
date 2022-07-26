@@ -45,6 +45,8 @@ public class MainController extends HttpServlet {
     private static final String CREATE_FEEDBACK = "FeedbackCreateController";
     private static final String REPLY_FEEDBACK = "FeedbackReplyController";
 
+    private static final String CREATE_SERVICE = "ServiceCreateController";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -91,13 +93,13 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.DELETE_BOOKED_ROOM_CONTROLLER);
             } else if (button.equals("Booking")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_PAGE);
-            }else if(button.equals("Booking Room")){
+            } else if (button.equals("Booking Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_PAGE);
-            }else if(button.equals("Confirm Room")){
+            } else if (button.equals("Confirm Room")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoom.BOOKING_CONTROLLER);
-            }else if(button.equals("CompletedUser")){
+            } else if (button.equals("CompletedUser")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER_USER);
-            }else if (button.equals("Confirm")) {
+            } else if (button.equals("Confirm")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.BOOKING_CONTROLLER);
             } else if (button.equals("ViewBooking")) {
                 url = siteMaps.getProperty(MyApplicationConstants.BookingRoomUser.SHOW_BOOKING);
@@ -141,6 +143,8 @@ public class MainController extends HttpServlet {
                 url = CREATE_FEEDBACK;
             } else if (button.equals("Send Feedback Reply")) {
                 url = REPLY_FEEDBACK;
+            } else if (button.equals("Add Service")) {
+                url = CREATE_SERVICE;
             } else if (button.equals("View Revenue")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             } else if (button.equals("View Owned Room")) {
@@ -149,9 +153,9 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.VIEW_ONWED_ROOM_GOOGLE_FOR_CUSTOMER);
             } else if (button.equals("Check Out PayPal")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER);
-            } else if(button.equals("Check Out")){
+            } else if (button.equals("Check Out")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER_USER);
-            }else if (button.equals("Completed")) {
+            } else if (button.equals("Completed")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER);
             }
 

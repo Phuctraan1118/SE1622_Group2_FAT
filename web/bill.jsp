@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,11 +13,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="MainController" method="POST"> 
-            <input type="text" name="txtBillName" value="" placeholder="Enter Bill Name" class="box">
-            <input type="text" name="txtNotificationDetail" value="" placeholder="Enter Notification Detail" class="box">
-            <input type="text" name="txtUsername" value="" placeholder="Enter username" class="box">
-            <input type="submit" name="btn" value="Add Bill" class="btn">
-        </form>
-    </body>
+        <c:if test = "${not empty requestScope.SERVICE}">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Electronic Detail</th>
+                        <th>Water Detail</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="sv" items="${requestScope.SERVICE}" varStatus="counter">
+                    <form action="MainController" method="POST">
+                        <tr>
+                            <td>${counter.count}</td>
+                            <td>${sv.electronicDetail}</td>
+                            <td>${sv.waterDetail}</td>
+                            <td>30000000</td>
+                        </tr>
+                    </form>
+                </c:forEach>
+            </tbody>
+        </table>
+    </c:if>
+</body>
 </html>

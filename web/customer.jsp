@@ -494,6 +494,7 @@
                                             <th>Phone</th>
                                             <th>CMND/CCCD</th>
                                             <th>Email</th>
+                                            <th>Send Bill</th>
                                             <th>&nbsp;</th>
                                             <th>&nbsp;</th>
                                         </tr>
@@ -540,6 +541,7 @@
                                                         <input type="hidden" name="userId" value="${user.id}"/>
                                                     </div>
                                                 </td>
+                                                <td><a href="service.jsp?userId=${user.id}"</td>
                                             </tr>
 
 
@@ -774,33 +776,33 @@
 
 
 
-        <!-- JS Files-->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <!--plugins-->
-        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-        <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-        <script src="assets/plugins/chartjs/chart.min.js"></script>
-        <script src="assets/js/index.js"></script>
-        <!-- Main JS-->
-        <script src="assets/js/main.js"></script>
-        <script src="PaginationJquery/app.js"></script>
+    <!-- JS Files-->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+    <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <!--plugins-->
+    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+    <script src="assets/plugins/chartjs/chart.min.js"></script>
+    <script src="assets/js/index.js"></script>
+    <!-- Main JS-->
+    <script src="assets/js/main.js"></script>
+    <script src="PaginationJquery/app.js"></script>
 
-        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-        <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-        <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
-        <script src="assets/js/table-datatable.js"></script>
+    <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+    <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+    <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+    <script src="assets/js/table-datatable.js"></script>
 
-        <!--        <script>
-                    function ConfirmDelete(){
-                        return confirm("Are you sure you want to delete?");
-                    }
-                </script>-->
+    <!--        <script>
+                function ConfirmDelete(){
+                    return confirm("Are you sure you want to delete?");
+                }
+            </script>-->
 
-        <script>
+    <script>
                         function showOrHideDiv() {
                             var show = document.getElementById("showOrHide");
                             if (show.style.display === "none") {
@@ -812,7 +814,7 @@
                         function ConfirmDelete() {
                             return confirm("Are you sure you want to delete?");
                         }
-        </script>
-    </body>
+    </script>
+</body>
 
 </html>

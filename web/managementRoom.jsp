@@ -602,6 +602,7 @@
                                                     <th>USERNAME</th>
                                                     <th>IMAGE</th>
                                                     <th>Send Notification</th>
+                                                    <th>Send Bill</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -659,6 +660,11 @@
                                                         <td>
                                                             <div class="box-input">
                                                                 <a href="sendNotification.jsp?username=${dtoBooked.username}">Send Notification</a>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="box-input">
+                                                                <a href="service.jsp?username=${dtoBooked.username}&roomId=${dtoBooked.roomId}">Send Bill</a>
                                                             </div>
                                                         </td>
                                                         <!-- comment   <td>
