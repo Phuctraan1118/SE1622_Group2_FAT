@@ -80,7 +80,7 @@
                         </a>
 
                     </li>
-                    
+
                     <li>
 
                         <a href="RoomOwnedViewController">
@@ -376,7 +376,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                       <h6 class="mb-0 text-uppercase">View Room</h6>
+                        <h6 class="mb-0 text-uppercase">View Room</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">

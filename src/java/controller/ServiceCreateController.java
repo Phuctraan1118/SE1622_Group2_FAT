@@ -7,7 +7,6 @@ package controller;
 import dao.ServiceDao;
 import dto.ServiceDto;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,8 +35,12 @@ public class ServiceCreateController extends HttpServlet {
 
         try {
             float ePrice = Float.parseFloat(tmpElectronicPrice);
+            ePrice *= 0.1;
             float wPrice = Float.parseFloat(tmpWaterPrice);
+            wPrice *= 0.4;
             ServiceDao dao = new ServiceDao();
+//            ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
+
             ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
             boolean result = dao.createService(dto);
             if (result) {

@@ -14,9 +14,9 @@
     <body>
         <form action="MainController" method="POST"> 
             <input type="text" name="txtElectronicDetail" value="" placeholder="Enter Electronic Detail" class="box">
+            <input type="text" name="txtElectronicPrice" value="" placeholder="Enter Electronice KW" class="box">
             <input type="text" name="txtWaterDetail" value="" placeholder="Enter Water Detail" class="box">
-            <input type="text" name="txtElectronicPrice" value="" placeholder="Enter Electronice Price" class="box">
-            <input type="text" name="txtWaterPrice" value="" placeholder="Enter Water Price" class="box">
+            <input type="text" name="txtWaterPrice" value="" placeholder="Enter Water cm3" class="box">
             ${param.roomId}
             <input type="hidden" name="txtRoomId" value="${param.roomId}"class="box">
             <input type="text" name="txtUsername" value="${param.username}"class="box">

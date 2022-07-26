@@ -8,7 +8,6 @@ import dao.UserDao;
 import dto.SignUpError;
 import dto.UserDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Properties;
 import javax.naming.NamingException;

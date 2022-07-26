@@ -7,7 +7,6 @@ package controller;
 import dao.RoomDAO;
 import dto.RoomDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;

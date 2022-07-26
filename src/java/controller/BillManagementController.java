@@ -4,9 +4,7 @@
  */
 package controller;
 
-import dao.FeedbackDAO;
 import dao.ServiceDao;
-import dto.FeedbackDTO;
 import dto.ServiceDto;
 import java.io.IOException;
 import java.util.List;
@@ -26,18 +24,20 @@ public class BillManagementController extends HttpServlet {
 
     private static final String ERROR = "bill.jsp";
     private static final String SUCCESS = "bill.jsp";
-    
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-       
+
         try {
             int roomId = Integer.parseInt(request.getParameter("roomId"));
             ServiceDao serviceDao = new ServiceDao();
             int serviceId = serviceDao.getlastedId(roomId);
             List<ServiceDto> result = serviceDao.getService(serviceId);
+            List<ServiceDto> resultTmp = serviceDao.getRoomPrice(roomId);
             request.setAttribute("SERVICE", result);
+            request.setAttribute("R_PRICE", resultTmp);
             url = SUCCESS;
 
         } catch (Exception ex) {

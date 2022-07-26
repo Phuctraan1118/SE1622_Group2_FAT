@@ -4,7 +4,6 @@
  */
 package dao;
 
-import dto.FeedbackDTO;
 import dto.FeedbackReplyDto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

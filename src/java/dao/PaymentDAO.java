@@ -9,7 +9,6 @@ import dto.BillDetailDTO;
 import dto.BookingDTO;
 import dto.BookingDetailDTO;
 import dto.FeeDTO;
-import dto.RoomDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

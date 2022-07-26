@@ -63,8 +63,8 @@ public class RoomDTO implements Serializable {
         this.image = image;
     }
 
-   public RoomDTO( String roomDescription, float roomPrice, String image, String status) {
-        
+    public RoomDTO(String roomDescription, float roomPrice, String image, String status) {
+
         this.roomDescription = roomDescription;
         this.roomPrice = roomPrice;
         this.image = image;

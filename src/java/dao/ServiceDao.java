@@ -30,6 +30,9 @@ public class ServiceDao {
     private static final String GET_SERVICE = "select electronicDetail,waterDetail,electronicPrice,waterPrice,roomId "
             + "from tblService "
             + "where serviceId = ? ";
+    private static final String GET_ROOM_PRICE = "select roomPrice "
+            + "from tblRoom "
+            + "where roomId = ? ";
 
     public boolean createService(ServiceDto serviceDto)
             throws SQLException, NamingException {
@@ -86,7 +89,7 @@ public class ServiceDao {
             throws SQLException, NamingException {
         List<ServiceDto> list = new ArrayList();
         try {
-           connection = DBHelper.makeConnection();
+            connection = DBHelper.makeConnection();
             if (connection != null) {
                 preparedStatement = connection.prepareStatement(GET_SERVICE);
                 preparedStatement.setInt(1, serviceId);
@@ -96,8 +99,8 @@ public class ServiceDao {
                     String waterDetail = resultSet.getString("waterDetail");
                     float electronicPrice = resultSet.getFloat("electronicPrice");
                     float waterPrice = resultSet.getFloat("waterPrice");
-                    int roomId = resultSet.getInt("roomId");
-                    list.add(new ServiceDto(serviceId, electronicDetail, waterDetail, electronicPrice, waterPrice, roomId));
+                    int roomID = resultSet.getInt("roomId");
+                    list.add(new ServiceDto(serviceId, electronicDetail, waterDetail, electronicPrice, waterPrice, roomID));
                 }
             }
         } finally {
@@ -112,7 +115,34 @@ public class ServiceDao {
             }
         }
         return list;
+    }
 
+    public List<ServiceDto> getRoomPrice(int roomId)
+            throws SQLException, NamingException {
+        List<ServiceDto> list = new ArrayList();
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(GET_ROOM_PRICE);
+                preparedStatement.setInt(1, roomId);
+                resultSet = preparedStatement.executeQuery();
+                while (resultSet.next()) {
+                    float roomPrice = resultSet.getFloat("roomPrice");
+                    list.add(new ServiceDto(roomPrice));
+                }
+            }
+        } finally {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+        return list;
     }
 
 }

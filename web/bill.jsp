@@ -18,21 +18,30 @@
                 <thead>
                     <tr>
                         <th>NO</th>
-                        <th>Electronic Detail</th>
-                        <th>Water Detail</th>
+                        <th>Electronic Price</th>
+                        <th>Water Price</th>
+                        <th>Room Price </th>
                         <th>Total</th>
                     </tr>
                 </thead>
                 <tbody>
                     <c:forEach var="sv" items="${requestScope.SERVICE}" varStatus="counter">
-                    <form action="MainController" method="POST">
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>${sv.electronicDetail}</td>
-                            <td>${sv.waterDetail}</td>
-                            <td>30000000</td>
-                        </tr>
-                    </form>
+                        <c:forEach var="dto" items="${requestScope.R_PRICE}">
+                        <form action="MainController" method="POST">
+                            <tr>
+                                <td>${counter.count}</td>
+                                <td>${sv.electronicPrice}</td>
+                                <td>${sv.waterPrice}</td>
+                                <td>${dto.roomPrice}</td>
+                                <td>
+                                    <c:set var="total" value="${sv.electronicPrice + sv.waterPrice + dto.roomPrice}" />
+                                    ${total}
+                                    <input type="hidden" value="${total}" name="txtTotal" />
+                                </td>
+
+                            </tr>
+                        </form>
+                    </c:forEach>
                 </c:forEach>
             </tbody>
         </table>

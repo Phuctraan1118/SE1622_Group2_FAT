@@ -5,10 +5,8 @@
 package controller;
 
 import dao.BookingDAO;
-import dto.BookingDTO;
 import dto.BookingInformationDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
@@ -19,7 +17,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import utils.MyApplicationConstants;
 
 /**
  *
