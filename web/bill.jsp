@@ -22,6 +22,7 @@
                         <th>Water Price</th>
                         <th>Room Price </th>
                         <th>Total</th>
+                        <th>Send Bill</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +39,11 @@
                                     ${total}
                                     <input type="hidden" value="${total}" name="txtTotal" />
                                 </td>
-
+                                <td>
+                                    <input type="hidden" value="${sv.roomId}" name="txtRoomId" />
+                                    <input type="hidden" value="${sv.id}" name="txtServiceId" />
+                                    <input type="submit" name="btn" value="Send Bill">
+                                </td>
                             </tr>
                         </form>
                     </c:forEach>

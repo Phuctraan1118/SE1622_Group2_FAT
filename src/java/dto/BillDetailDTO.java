@@ -35,6 +35,13 @@ public class BillDetailDTO {
         this.date = date;
         this.feeId = feeId;
     }
+    
+      public BillDetailDTO(int billId, int roomId, int serviceId, String date) {
+        this.billId = billId;
+        this.roomId = roomId;
+        this.date = date;
+        this.serviceId = serviceId;
+    }
 
     /**
      * @return the billId

@@ -46,6 +46,7 @@ public class MainController extends HttpServlet {
     private static final String REPLY_FEEDBACK = "FeedbackReplyController";
 
     private static final String CREATE_SERVICE = "ServiceCreateController";
+    private static final String CREATE_BILL = "BillCreateController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -145,6 +146,8 @@ public class MainController extends HttpServlet {
                 url = REPLY_FEEDBACK;
             } else if (button.equals("Add Service")) {
                 url = CREATE_SERVICE;
+            } else if (button.equals("Send Bill")) {
+                url = CREATE_BILL;
             } else if (button.equals("View Revenue")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
             } else if (button.equals("View Owned Room")) {
