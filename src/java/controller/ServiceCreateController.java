@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -40,11 +41,12 @@ public class ServiceCreateController extends HttpServlet {
             wPrice *= 0.4;
             ServiceDao dao = new ServiceDao();
 //            ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
-
             ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
             boolean result = dao.createService(dto);
             if (result) {
                 url = SUCCESS + roomId;
+                request.setAttribute("Electronic", ePrice / 0.1);
+                request.setAttribute("Water", wPrice / 0.4);
             }
 
         } catch (Exception ex) {
@@ -71,7 +73,7 @@ public class ServiceCreateController extends HttpServlet {
     }
 
     /**
-     * Handles the HTTP <code>POST</code> method.
+* Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response
