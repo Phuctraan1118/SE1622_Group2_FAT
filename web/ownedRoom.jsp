@@ -100,6 +100,16 @@
                         </a>
 
                     </li>
+                      <li>
+
+                        <a href="viewBillOfUser.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
 
                 </ul>
                 <!--end navigation-->

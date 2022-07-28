@@ -47,6 +47,8 @@ public class MainController extends HttpServlet {
 
     private static final String CREATE_SERVICE = "ServiceCreateController";
     private static final String CREATE_BILL = "BillCreateController";
+    private static final String VIEW_BILL = "BillViewForUserController";
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -146,7 +148,7 @@ public class MainController extends HttpServlet {
                 url = REPLY_FEEDBACK;
             } else if (button.equals("Add Service")) {
                 url = CREATE_SERVICE;
-            } else if (button.equals("Send Bill")) {
+            } else if (button.equals("Create Bill")) {
                 url = CREATE_BILL;
             } else if (button.equals("View Revenue")) {
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.VIEW_REVENUE_CONTROLLER);
@@ -161,6 +163,10 @@ public class MainController extends HttpServlet {
             } else if (button.equals("Completed")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER);
             }
+            else if (button.equals("View Bill Of You")) {
+                url = VIEW_BILL;
+            }
+            
 
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);

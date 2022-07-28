@@ -5,55 +5,38 @@
 package controller;
 
 import dao.BillDao;
-import dao.FeedbackDAO;
-import dto.BillDBDTO;
-import dto.BillDetailDTO;
-import dto.FeedbackDTO;
+import dto.BillDTO;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author hungp
+ * @author Bitano
  */
-@WebServlet(name = "BillCreateController", urlPatterns = {"/BillCreateController"})
-public class BillCreateController extends HttpServlet {
+@WebServlet(name = "BillViewForUserController", urlPatterns = {"/BillViewForUserController"})
+public class BillViewForUserController extends HttpServlet {
 
-    private static final String FAIL = "bill.jsp";
-    private static final String SUCCESS = "sendBill.jsp";
+    private static final String ERROR = "viewBillOfUser.jsp";
+    private static final String SUCCESS = "viewBillOfUser.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String total = request.getParameter("txtTotal");
-        String roomId = request.getParameter("txtRoomId");
-        String serviceId = request.getParameter("txtServiceId");
-        String url = FAIL;
+        String txtUsername = request.getParameter("txtUsername");
+        String url = ERROR;
+        HttpSession session = request.getSession(true);
         try {
-
-            Date date = new Date();
-            String billDate = new SimpleDateFormat("dd/MM/yyyy").format(date);
-            BillDBDTO bill = new BillDBDTO("BILL ROOM FEE", "BILL ROOM " + roomId + " FROM " + billDate + " IS " + total + "$");
             BillDao dao = new BillDao();
-            boolean result = dao.addBill(bill);
-            if (result) {
-                BillDBDTO billChecking = dao.GetBillById(bill.getDetail(), bill.getBillName());
-                if (billChecking != null) {
-                    BillDetailDTO billDetaildto = new BillDetailDTO(billChecking.getBillId(),Integer.parseInt(roomId), Integer.parseInt(serviceId), billDate);
-                    result = dao.addBillDetail(billDetaildto);
-                    if (result) {
-                        request.setAttribute("CREATE_SUCCESS", billChecking.getBillName());
-                        url = SUCCESS;
-                    }
-                }
-            }
+            List<BillDTO> result = dao.viewBillForUser(txtUsername);
+            session.setAttribute("BILL_USER", result);
+            url = SUCCESS;
 
         } catch (Exception ex) {
             ex.printStackTrace();

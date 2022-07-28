@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 public class ServiceCreateController extends HttpServlet {
 
     private static final String SUCCESS = "BillManagementController?roomId=";
+    private static final String FAIL = "service.jsp?roomId=";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -35,20 +36,23 @@ public class ServiceCreateController extends HttpServlet {
         String url = null;
 
         try {
-            float ePrice = Float.parseFloat(tmpElectronicPrice);
-            ePrice *= 0.1;
-            float wPrice = Float.parseFloat(tmpWaterPrice);
-            wPrice *= 0.4;
-            ServiceDao dao = new ServiceDao();
-//            ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
-            ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
-            boolean result = dao.createService(dto);
-            if (result) {
-                url = SUCCESS + roomId;
-                request.setAttribute("Electronic", ePrice / 0.1);
-                request.setAttribute("Water", wPrice / 0.4);
+            if (!electronicDetail.equalsIgnoreCase(waterDetail)) {
+                request.setAttribute("MONTH", "Month of electronic Detail must be equal Water Detail");
+                url = FAIL + roomId;
+            } else {
+                float ePrice = Float.parseFloat(tmpElectronicPrice);
+                ePrice *= 0.1;
+                float wPrice = Float.parseFloat(tmpWaterPrice);
+                wPrice *= 0.4;
+                ServiceDao dao = new ServiceDao();
+                ServiceDto dto = new ServiceDto(electronicDetail, waterDetail, ePrice, wPrice, Integer.parseInt(roomId));
+                boolean result = dao.createService(dto);
+                if (result) {
+                    url = SUCCESS + roomId;
+                    request.setAttribute("Electronic", ePrice / 0.1);
+                    request.setAttribute("Water", wPrice / 0.4);
+                }
             }
-
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -73,7 +77,7 @@ public class ServiceCreateController extends HttpServlet {
     }
 
     /**
-* Handles the HTTP <code>POST</code> method.
+     * Handles the HTTP <code>POST</code> method.
      *
      * @param request servlet request
      * @param response servlet response

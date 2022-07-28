@@ -29,6 +29,14 @@
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
         <title>Service</title>
+        <style>
+            .error{
+                color: red;
+            }
+            .success{
+                color: green;
+            }
+        </style>
     </head>
     <body>
 
@@ -261,59 +269,59 @@
                                                 </div>
                                             </a>
                                         </li>
-                            </c:if>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="pages-user-profile.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><ion-icon name="person-outline"></ion-icon></div>
-                                        <div class="ms-3"><span>Profile</span></div>
-                                    </div>
-                                </a>
+                                    </c:if>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="pages-user-profile.html">
+                                            <div class="d-flex align-items-center">
+                                                <div class=""><ion-icon name="person-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Profile</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="d-flex align-items-center">
+                                                <div class=""><ion-icon name="settings-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Setting</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="index2.html">
+                                            <div class="d-flex align-items-center">
+                                                <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Dashboard</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="d-flex align-items-center">
+                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Earnings</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            <div class="d-flex align-items-center">
+                                                <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Downloads</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
+                                            <div class="d-flex align-items-center">
+                                                <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
+                                                <div class="ms-3"><span>Logout</span></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><ion-icon name="settings-outline"></ion-icon></div>
-                                        <div class="ms-3"><span>Setting</span></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="index2.html">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
-                                        <div class="ms-3"><span>Dashboard</span></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
-                                        <div class="ms-3"><span>Earnings</span></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="#">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
-                                        <div class="ms-3"><span>Downloads</span></div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li>
-                                <a class="dropdown-item" href="MainController?btn=Logout">
-                                    <div class="d-flex align-items-center">
-                                        <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
-                                        <div class="ms-3"><span>Logout</span></div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                        </li>
 
                         </ul>
 
@@ -383,16 +391,15 @@
                                         <input type="hidden" name="txtRoomId" value="${param.roomId}" class="form-control">
                                     </div>
                                     <div class="col-12">
-                                        <label class="form-label">User Name</label>
-                                        <input type="text" name="txtUsername" disabled="" value="${param.username}" class="form-control">
-                                        <input type="hidden" name="txtUsername" value="${param.username}" class="form-control">
-                                    </div>
-                                    <div class="col-12">
                                         <div class="d-grid">
                                             <button type="submit" name="btn" value="Add Service" class="btn btn-primary">Add Service</button>
                                         </div>
                                     </div>
                                 </form>
+                                <c:set var="error" value="${requestScope.MONTH}"/>
+                                <c:if test="${not empty error}">
+                                    <p class="error">${error}</p>
+                                </c:if>
                             </div>
                         </div>
                     </div>

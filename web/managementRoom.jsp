@@ -664,7 +664,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="box-input">
-                                                                <a href="service.jsp?username=${dtoBooked.username}&roomId=${dtoBooked.roomId}">Send Bill</a>
+                                                                <a href="service.jsp?roomId=${dtoBooked.roomId}">Send Bill</a>
                                                             </div>
                                                         </td>
                                                         <!-- comment   <td>

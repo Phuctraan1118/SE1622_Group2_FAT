@@ -377,7 +377,7 @@
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Send Bill</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Create Bill</li>
                                 </ol>
                             </nav>
                         </div>
@@ -465,7 +465,7 @@
                                                                         <input type="hidden" value="${sv.id}" name="txtServiceId" />
                                                                         <div class="col-md-12">
                                                                             <div class="d-grid">
-                                                                                <input type="submit" class="btn btn-primary btn-ecomm " name="btn" value="Send Bill"   >
+                                                                                <input type="submit" class="btn btn-primary btn-ecomm " name="btn" value="Create Bill"   >
                                                                             </div>
                                                                         </div>
                                                                     </form>

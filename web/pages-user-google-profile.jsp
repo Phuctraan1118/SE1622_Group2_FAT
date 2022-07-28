@@ -102,7 +102,9 @@
                             <div class="menu-title">View Regulation</div>
                         </a>
 
-                    </li>    
+                    </li> 
+                    
+                     
                 </ul>
                 <!--end navigation-->
             </aside>
