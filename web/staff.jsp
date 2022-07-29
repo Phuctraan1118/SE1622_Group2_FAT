@@ -490,8 +490,6 @@
                                     <tbody>
                                         <c:forEach var="user" items="${sessionScope.LIST_STAFF}" varStatus="counter">
                                         <form action="MainController">
-
-
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>

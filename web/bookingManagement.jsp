@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <!--navigation-->
-               <ul class="metismenu" id="menu">
+                <ul class="metismenu" id="menu">
                     <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
@@ -426,75 +426,54 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <h6 class="mb-0">List Of Booking</h6>
-                                <a href="MainController?btn=ViewBooking">View Booking</a>
                             </div>
-                            <div class="table-responsive mt-2">
-                                <c:set var="orders" value="${requestScope.BOOKINGS}"/>
-                                <c:if test="${not empty orders}">
-                                    <div class="table-responsive mt-2">
-                                        <table class="table align-middle mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>No.</th>
-                                                    <th>Booking ID</th>
-                                                    <th>Username</th>
-                                                    <th>Room ID</th>
-                                                    <th>Booking Date</th>
-                                                    <th>Check In Date</th>
-                                                    <th>Check Out Date</th>
+                            <a href="MainController?btn=ViewBooking">View Booking</a>
+                            <c:set var="orders" value="${requestScope.BOOKINGS}"/>
+                            <c:if test="${not empty orders}">
+                                <div class="table-responsive mt-2">
+                                    <table id="example" class="table align-middle" style="width:100%">
+                                        <thead class="table-secondary">
+                                            <tr>
+                                                <th>No.</th>
+                                                <th>Booking ID</th>
+                                                <th>Username</th>
+                                                <th>Room ID</th>
+                                                <th>Booking Date</th>
+                                                <th>Check In Date</th>
+                                                <th>Check Out Date</th>
 
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="order" items="${orders}" varStatus="counter">
+                                                <tr>
+                                                    <td>${counter.count}</td>
+                                                    <td>
+                                                        <div class="d-flex align-items-center gap-3">
+                                                            <div class="product-info">
+                                                                <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${order.bookingId}"></h6>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="box-input">
+                                                            <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${order.username}">
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="box-input">
+                                                            <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${order.roomId}">
+                                                        </div>
+                                                    </td>
+                                                    <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${order.bookingDate}"></td>
+                                                    <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${order.checkInDate}"></td>
+                                                    <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${order.checkOutDate}"></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach var="order" items="${orders}" varStatus="counter">
-                                                    <tr>
-                                                        <td>${counter.count}</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center gap-3">
-                                                                <div class="product-info">
-                                                                    <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${order.bookingId}"></h6>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${order.username}">
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${order.roomId}">
-                                                            </div>
-                                                        </td>
-                                                        <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${order.bookingDate}"></td>
-                                                        <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${order.checkInDate}"></td>
-                                                        <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${order.checkOutDate}"></td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </c:if>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <hr>
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
+                            </c:if>
                         </div>
 
                     </div>
@@ -608,6 +587,9 @@
         <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
         <script src="assets/plugins/chartjs/chart.min.js"></script>
         <script src="assets/js/index.js"></script>
+        <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+        <script src="assets/js/table-datatable.js"></script>
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>
     </body>
