@@ -25,7 +25,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-        
+
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
@@ -433,7 +433,7 @@
                                                                     <option value="4-50">$5 to $49</option>
                                                                     <option value="49-100">$50 to $99</option>
                                                                     <option value="99-301">$100 to $300</option>
-                                                                    <option value="299-1000"> Above $300</option>
+                                                                    <option value="299-10000"> Above $300</option>
                                                                 </select>
                                                             </div>
 
@@ -453,7 +453,7 @@
                                                 <div class="card-body">
                                                     <form action="MainController" method="GET" class="searchbar">
                                                         <div class="position-relative">
-                                                            <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Room Description...">
+                                                            <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="search name room...">
                                                             <input type="hidden" value="Search room for customer" name="btn" />
                                                             <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
                                                         </div>
@@ -463,7 +463,7 @@
                                             <div class="product-grid">
 
                                                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
-                                                    <c:if test = "${ empty requestScope.SEARCHRESULT}"> NO RESULT</c:if>
+                                                    <c:if test = "${ empty requestScope.SEARCHRESULT}"> LOADING</c:if>
                                                     <c:if test = "${not empty requestScope.SEARCHRESULT}">
                                                         <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
                                                             <div class="col">
@@ -484,7 +484,7 @@
                                                                                     <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                 </a>
                                                                                 <a href="ecommerce-product-details.html">
-                                                                                    <h6 class="product-name mb-2">${dto.roomDescription}</h6>
+                                                                                    <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                 </a>
                                                                                 <div class="d-flex align-items-center">
                                                                                     <div class="mb-1 product-price">
@@ -496,7 +496,10 @@
                                                                                         <i class="bx bxs-star text-warning"></i>
                                                                                         <i class="bx bxs-star text-warning"></i>
                                                                                         <i class="bx bxs-star text-warning"></i>
-                                                                                    </div>
+                                                                                    </div> 
+                                                                                </div>
+                                                                                <div class="product-action mt-2" >
+                                                                                    <a href="roomDetail.jsp?roomId=${dto.roomId}">Click here to view detail room</a>
                                                                                 </div>
                                                                                 <div class="product-action mt-2">
                                                                                     <div class="d-grid">

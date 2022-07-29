@@ -26,7 +26,11 @@ public class RoomDTO implements Serializable {
 
     private String username;
     private String status;
-
+   
+    private String roomName;
+    private String categoryName;
+    private String imageTmp;
+    
     public RoomDTO() {
     }
 
@@ -62,6 +66,13 @@ public class RoomDTO implements Serializable {
         this.roomPrice = roomPrice;
         this.image = image;
     }
+    
+    public RoomDTO(int roomId, float roomPrice, String image, String roomName) {
+        this.roomId = roomId;
+        this.roomPrice = roomPrice;
+        this.image = image;
+        this.roomName = roomName;
+    }
 
     public RoomDTO(String roomDescription, float roomPrice, String image, String status) {
 
@@ -71,6 +82,46 @@ public class RoomDTO implements Serializable {
         this.status = status;
     }
 
+    public RoomDTO(int roomId, String roomDescription, float roomPrice, String image, String roomName, String categoryName) {
+        this.roomId = roomId;
+        this.roomDescription = roomDescription;
+        this.roomPrice = roomPrice;
+        this.image = image;
+        this.roomName = roomName;
+        this.categoryName = categoryName;
+       
+    }
+     public RoomDTO(String imageTmp){
+     this.imageTmp = imageTmp;
+     }
+
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+
+    public String getCategoryName() {
+        return categoryName;
+    }
+
+    public void setCategoryName(String categoryName) {
+        this.categoryName = categoryName;
+    }
+
+    public String getImageTmp() {
+        return imageTmp;
+    }
+
+    public void setImageTmp(String imageTmp) {
+        this.imageTmp = imageTmp;
+    }
+   
+    
+    
+    
     /**
      * @return the roomId
      */

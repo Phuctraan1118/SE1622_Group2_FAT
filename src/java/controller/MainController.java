@@ -49,6 +49,10 @@ public class MainController extends HttpServlet {
     private static final String CREATE_BILL = "BillCreateController";
     private static final String VIEW_BILL = "BillViewForUserController";
     
+    private static final String VIEW_ROOM_DETAIL = "RoomViewDetailController";
+    private static final String VIEW_ROOM_DETAIL_GOOGLE = "RoomViewDetailForGoogleController";
+    
+    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -165,6 +169,10 @@ public class MainController extends HttpServlet {
             }
             else if (button.equals("View Bill Of You")) {
                 url = VIEW_BILL;
+            } else if (button.equals("View Room Detail")) {
+                url = VIEW_ROOM_DETAIL;
+            } else if (button.equals("View Room Detail Google")) {
+                url = VIEW_ROOM_DETAIL_GOOGLE;
             }
             
 

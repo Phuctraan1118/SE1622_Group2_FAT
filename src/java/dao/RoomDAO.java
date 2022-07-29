@@ -20,43 +20,40 @@ import utils.DBHelper;
  * @author Bitano
  */
 public class RoomDAO implements Serializable {
-      
-       private static final String VIEW_OWNED_ROOM_FOR_CUSTOMER = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
+
+    private static final String VIEW_OWNED_ROOM_FOR_CUSTOMER = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
             + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
             + "from tblRoom r , tblBooking b, tblBookingDetail bd "
             + "where r.roomId = bd.roomId and b.bookingId = bd.bookingId and username = ? "
-                + "order by checkInDate , r.roomId asc ";
-       
-    private static final String SEARCH_NOT_BOOKED = "select roomId, roomDescription , roomPrice , image from tblRoom "
-            + "where roomDescription like ? "
-            + "and status like 'NB' ";
-    private static final String SEARCH_ALL_NOT_BOOKED = "select roomId, roomDescription , roomPrice , image from tblRoom "
-            + "where status like 'NB' ";
+            + "order by checkInDate , r.roomId asc ";
 
-     private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
-        + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
-        + "from tblBooking b	, tblBookingDetail bd, tblRoom r "
-        + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId and b.username like ?  ";
+    private static final String SEARCH_NOT_BOOKED = "select roomId, roomName , roomPrice , image from tblRoom "
+            + "where roomName like ? ";
 
+    private static final String SEARCH_ALL_NOT_BOOKED = "select roomId, roomName , roomPrice , image from tblRoom ";
 
-     
+    private static final String SEARCH_BOOKED_BY_USERNAME = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
+            + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
+            + "from tblBooking b	, tblBookingDetail bd, tblRoom r "
+            + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId and b.username like ?  ";
+
     private static final String SEARCH_ALL_BOOKED = "select r.roomId, r.roomDescription , r.roomPrice , r.image ,b.bookingId, b.bookingDate "
-        + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
-        + "from tblBooking b, tblBookingDetail bd, tblRoom r "
-        + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId ";
-    private static final String SEARCH_SORT_BY_DESC_AND_PRICE = "select roomId, roomDescription , roomPrice , image from tblRoom "
-            + "where roomPrice > ? and roomPrice < ? and roomDescription like ? "
+            + ", bd.checkInDate,bd.checkOutDate , b.username, r.status "
+            + "from tblBooking b, tblBookingDetail bd, tblRoom r "
+            + "where b.bookingId = bd.bookingId and r.roomId = bd.roomId ";
+    private static final String SEARCH_SORT_BY_DESC_AND_PRICE = "select roomId, roomName , roomPrice , image from tblRoom "
+            + "where roomPrice > ? and roomPrice < ? and roomName like ? "
             + "order by roomPrice ";
-    private static final String SEARCH_SORT_BY_PRICE ="select roomId, roomDescription , roomPrice , image from tblRoom "
+    private static final String SEARCH_SORT_BY_PRICE = "select roomId, roomName , roomPrice , image from tblRoom "
             + "where roomPrice > ? and roomPrice < ? "
             + "order by roomPrice ";
-    
-    private static final String SEARCH_SORT_BY_ID_ASC = "select roomId, roomDescription , roomPrice , image from tblRoom "
+
+    private static final String SEARCH_SORT_BY_ID_ASC = "select roomId, roomName , roomPrice , image from tblRoom "
             + "order by roomId ";
-    
-    private static final String SEARCH_SORT_BY_ID_DESC = "select roomId, roomDescription , roomPrice , image from tblRoom "
+
+    private static final String SEARCH_SORT_BY_ID_DESC = "select roomId, roomName , roomPrice , image from tblRoom "
             + "order by roomId desc ";
-    
+
     private static final String DELETE = "DELETE tblRoom WHERE roomId = ? ";
     private static final String DELETE_BOOKED = "UPDATE tblRoom SET status = 'NB'"
             + "WHERE roomId = ? ";
@@ -70,11 +67,87 @@ public class RoomDAO implements Serializable {
             + "UPDATE tblBooking "
             + "SET bookingDate = ?, checkinDate = ? , checkoutDate = ? "
             + "WHERE bookingId = ? ";
-    
+
     private static final String INSERT = "INSERT into tblRoom(roomDescription,roomPrice,image,status) VALUES (?,?,?,?) ";
     private static final String LAST_ID_ROOM = " select top 1 roomId from tblRoom order by roomId desc ";
 
+    private static final String VIEW_ROOM_DETAIL = "select c.categoryName , r.roomId , r.roomName , r.roomDescription , r.roomPrice , r.image  "
+            + "from tblRoom r  , tblCategory c "
+            + "where  c.categoryId = r.categoryId and r.roomId = ? ";
+
+    private static final String GET_IMAGE = "select i.image  "
+            + "from tblImage i , tblRoom r "
+            + "where r.roomId = i.roomId and r.roomId = ? ";
     
+     public List<RoomDTO> getImage(String searchValue)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(GET_IMAGE);
+                stm.setString(1, searchValue);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    String image = rs.getString("image");
+                    list.add(new RoomDTO(image));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
+    }
+      public List<RoomDTO> viewRoomDetail(String searchValue)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(VIEW_ROOM_DETAIL);
+                stm.setString(1, searchValue);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    String categoryName = rs.getString("categoryName");
+                    int roomId = rs.getInt("roomId");
+                    String roomName = rs.getString("roomName");
+                    String roomDescription = rs.getString("roomDescription");
+                    float roomPrice = rs.getFloat("roomPrice");
+                    String image = rs.getString("image");
+                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image, roomName, categoryName));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
+    }
     public List<RoomDTO> viewOwnedRoom(String user)
             throws SQLException, NamingException {
         Connection con = null;
@@ -85,7 +158,7 @@ public class RoomDAO implements Serializable {
             con = DBHelper.makeConnection();
             if (con != null) {
                 stm = con.prepareStatement(VIEW_OWNED_ROOM_FOR_CUSTOMER);
-                 stm.setString(1,  user);
+                stm.setString(1, user);
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
@@ -116,7 +189,7 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
-    
+
     public List<RoomDTO> searchNotBooked(String searchValue)
             throws SQLException, NamingException {
         Connection con = null;
@@ -131,10 +204,10 @@ public class RoomDAO implements Serializable {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
-                    String roomDescription = rs.getString("roomDescription");
+                    String roomName = rs.getString("roomName");
                     float roomPrice = rs.getFloat("roomPrice");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+                    list.add(new RoomDTO(roomId, roomPrice, image, roomName));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -166,10 +239,10 @@ public class RoomDAO implements Serializable {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
-                    String roomDescription = rs.getString("roomDescription");
+                    String roomName = rs.getString("roomName");
                     float roomPrice = rs.getFloat("roomPrice");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+                    list.add(new RoomDTO(roomId, roomPrice, image, roomName));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -300,9 +373,7 @@ public class RoomDAO implements Serializable {
         }
         return check;
     }
-    
-    
-    
+
     public boolean updateBookedRoom(RoomDTO room)
             throws SQLException, NamingException {
         boolean check = false;
@@ -443,8 +514,8 @@ public class RoomDAO implements Serializable {
         }
         return row;
     }
-    
-     public List<RoomDTO> searchSortByPrice(float priceMin, float priceMax)
+
+    public List<RoomDTO> searchSortByPrice(float priceMin, float priceMax)
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -459,10 +530,10 @@ public class RoomDAO implements Serializable {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
-                    String roomDescription = rs.getString("roomDescription");
+                    String roomName = rs.getString("roomName");
                     float roomPrice = rs.getFloat("roomPrice");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+                    list.add(new RoomDTO(roomId, roomPrice, image, roomName));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -480,7 +551,7 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
-     
+
     public List<RoomDTO> searchSortById()
             throws SQLException, NamingException {
         Connection con = null;
@@ -494,10 +565,10 @@ public class RoomDAO implements Serializable {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
-                    String roomDescription = rs.getString("roomDescription");
+                    String roomName = rs.getString("roomName");
                     float roomPrice = rs.getFloat("roomPrice");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+                    list.add(new RoomDTO(roomId, roomPrice, image, roomName));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -515,8 +586,8 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
-    
-     public List<RoomDTO> searchSortByIdDesc()
+
+    public List<RoomDTO> searchSortByIdDesc()
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -529,10 +600,10 @@ public class RoomDAO implements Serializable {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
-                    String roomDescription = rs.getString("roomDescription");
+                    String roomName = rs.getString("roomName");
                     float roomPrice = rs.getFloat("roomPrice");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+                    list.add(new RoomDTO(roomId, roomPrice, image, roomName));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -550,8 +621,8 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
-     
-     public List<RoomDTO> searchSortByDescAndPrice(String size ,float priceMin, float priceMax)
+
+    public List<RoomDTO> searchSortByDescAndPrice(String size, float priceMin, float priceMax)
             throws SQLException, NamingException {
         Connection con = null;
         PreparedStatement stm = null;
@@ -567,10 +638,10 @@ public class RoomDAO implements Serializable {
                 rs = stm.executeQuery();
                 while (rs.next()) {
                     int roomId = rs.getInt("roomId");
-                    String roomDescription = rs.getString("roomDescription");
+                    String roomName = rs.getString("roomName");
                     float roomPrice = rs.getFloat("roomPrice");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(roomId, roomDescription, roomPrice, image));
+                    list.add(new RoomDTO(roomId, roomPrice, image, roomName));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -588,4 +659,6 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
+
+  
 }

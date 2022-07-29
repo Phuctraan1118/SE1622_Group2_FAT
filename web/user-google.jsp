@@ -437,7 +437,7 @@
                                                     <div class="card-body">
                                                         <form action="MainController" method="POST" class="searchbar">
                                                             <div class="position-relative">
-                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="Search Room Description...">
+                                                                <input type="text" name="txtSearchValue" value="${param.txtSearchValue}" class="form-control ps-5" placeholder="search room name...">
                                                                 <input type="hidden" value="Search room for customer google" name="btn" />
                                                                 <span class="position-absolute top-50 product-show translate-middle-y"><ion-icon name="search-sharp" class="ms-3 fs-6"></ion-icon></span>
                                                             </div>
@@ -467,7 +467,7 @@
                                                                                         <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                     </a>
                                                                                     <a href="ecommerce-product-details.html">
-                                                                                        <h6 class="product-name mb-2">${dto.roomDescription}</h6>
+                                                                                        <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                     </a>
                                                                                     <div class="d-flex align-items-center">
                                                                                         <div class="mb-1 product-price">
@@ -481,6 +481,9 @@
                                                                                             <i class="bx bxs-star text-warning"></i>
                                                                                         </div>
                                                                                     </div>
+                                                                                    <div class="product-action mt-2" >
+                                                                                    <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">Click here to view detail room</a>
+                                                                                </div>
                                                                                     <div class="product-action mt-2">
                                                                                         <div class="d-grid">
                                                                                             <input type="hidden" name="txtUsername" value="${User.id}" />
