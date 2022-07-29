@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <!--navigation-->
-               <ul class="metismenu" id="menu">
+                <ul class="metismenu" id="menu">
                     <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
@@ -88,7 +88,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="feedback.jsp">
+                                <a href="viewfeedback.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
@@ -384,8 +384,8 @@
             <div class="page-content-wrapper">
                 <!-- start page content-->
                 <div class="page-content">
- <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                         <h6 class="mb-0 text-uppercase">Management</h6>
+                    <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+                        <h6 class="mb-0 text-uppercase">Management</h6>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">

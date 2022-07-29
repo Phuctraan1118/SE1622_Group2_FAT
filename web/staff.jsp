@@ -114,6 +114,11 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
+                            <li>
+                                <a href="viewfeedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -784,17 +789,17 @@
             </script>-->
 
     <script>
-                    function showOrHideDiv() {
-                        var show = document.getElementById("showOrHide");
-                        if (show.style.display === "none") {
-                            show.style.display = "block";
-                        } else {
-                            show.style.display = "none";
+                        function showOrHideDiv() {
+                            var show = document.getElementById("showOrHide");
+                            if (show.style.display === "none") {
+                                show.style.display = "block";
+                            } else {
+                                show.style.display = "none";
+                            }
                         }
-                    }
-                    function ConfirmDelete() {
-                        return confirm("Are you sure you want to delete?");
-                    }
+                        function ConfirmDelete() {
+                            return confirm("Are you sure you want to delete?");
+                        }
     </script>
 </body>
 

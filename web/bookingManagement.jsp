@@ -102,7 +102,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="feedback.jsp">
+                                <a href="viewfeedback.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
@@ -426,8 +426,8 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <h6 class="mb-0">List Of Booking</h6>
-                            </div>
-                            <a href="MainController?btn=ViewBooking">View Booking</a>
+                            </div></br>
+                            <a class="btn btn-dark" href="MainController?btn=ViewBooking">View Booking</a>
                             <c:set var="orders" value="${requestScope.BOOKINGS}"/>
                             <c:if test="${not empty orders}">
                                 <div class="table-responsive mt-2">

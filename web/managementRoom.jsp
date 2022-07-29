@@ -111,7 +111,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="feedback.jsp">
+                                <a href="viewfeedback.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
@@ -458,12 +458,35 @@
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete room" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                        </button>
+                                                        <!--                                                        <button type="submit" name="btn" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                        title="" data-bs-original-title="Delete room" onclick="return ConfirmDelete();" " aria-label="Delete">
+                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
+                                                                                                                </button>-->
+                                                        <!--                                                        <button type="button" name="btn btn-danger"  data-bs-target="#exampleDangerModal" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                        title="" data-bs-toggle="modal" data-bs-original-title="Delete room" aria-label="Delete">
+                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
+                                                                                                                </button>-->
+                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerModal">Delete</button>
+
                                                         <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
                                                         <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
+                                                        <div class="modal fade" id="exampleDangerModal" tabindex="-1" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg modal-dialog-centered">
+                                                                <div class="modal-content bg-danger">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title text-white">Delete</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body text-white">
+                                                                        <h6>Do you want delete!</h6>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                                                        <button type="submit" name="btn" value="Delete Room" class="btn btn-dark">Save changes</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -476,6 +499,7 @@
 
                     </div>
                     <br/>
+
                     <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">ADD NEW ROOM</button>
                     <!-- end page content-->
                     <div id="showOrHide">
@@ -520,6 +544,7 @@
                             </div>
                         </div>
                     </div>
+                    </br>
                     </br>
                     <div class="card radius-10 w-100">
                         <div class="card-body">
@@ -743,10 +768,10 @@
         <script>
                         function showOrHideDiv() {
                             var show = document.getElementById("showOrHide");
-                            if (show.style.display === "none") {
-                                show.style.display = "block";
-                            } else {
+                            if (show.style.display === "block") {
                                 show.style.display = "none";
+                            } else {
+                                show.style.display = "block";
                             }
                         }
                         function ConfirmDelete() {

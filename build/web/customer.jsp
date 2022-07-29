@@ -114,7 +114,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="feedback.jsp">
+                                <a href="viewfeedback.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
