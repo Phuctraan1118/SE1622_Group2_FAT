@@ -455,7 +455,7 @@
                                                     <th>ROOM PRICE</th>
                                                     <th>WATER PRICE</th>
                                                     <th>ELECTRONIC PRICE</th>
-                                                    <th>TOTAL PRICE</th>
+                                                    <th>TOTAL</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -484,7 +484,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="box-input">
-                                                                ${dto.billDate}
+                                                                ${dto.date}
                                                             </div>
                                                         </td>
                                                         <td>
@@ -504,18 +504,18 @@
                                                         </td>
                                                         <td>
                                                             <div class="product-info">
-                                                                <c:set var="total" value="${dto.roomPrice + dto.electronicPrice + dto.waterPrice}" />
-                                                                ${total}
+                                                                ${dto.total}
                                                             </div>
                                                         </td>
-                                                        <c:set var="result" value="${result + total}" />
+                                                         <c:set var="result" value="${result + dto.total}" />
                                                     </tr>
                                                 </form>
                                             </c:forEach>
                                             </tbody>
 
-                                            <h2>Result : ${result}</h2>
                                         </table>
+                                        
+                                            <h2>Result : ${result}</h2>
                                     </div>
                                 </div>
                             </div>

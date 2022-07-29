@@ -19,7 +19,11 @@ public class RevenueDTO {
     private float waterPrice;
     private float roomPrice;
     private float feesPrice;
-
+    private double total;
+    private String detail;
+    private String date;
+    
+    
     public RevenueDTO(int billId, int roomId, int serviceId, int feeId, String billName, String billDate, float electronicPrice, float waterPrice, float roomPrice, float feesPrice) {
         this.billId = billId;
         this.roomId = roomId;
@@ -33,6 +37,7 @@ public class RevenueDTO {
         this.feesPrice = feesPrice;
         
     }
+    
     public RevenueDTO(int billId, int roomId, int serviceId, int feeId, String billName, String billDate, float electronicPrice, float waterPrice, float roomPrice) {
         this.billId = billId;
         this.roomId = roomId;
@@ -48,6 +53,49 @@ public class RevenueDTO {
 
     public RevenueDTO() {
     }
+
+    public RevenueDTO(int roomId, String billName,String detail, float electronicPrice, float waterPrice, float roomPrice, double total, String date) {
+        this.roomId = roomId;
+        this.billName = billName;
+        this.detail = detail;
+        this.electronicPrice = electronicPrice;
+        this.waterPrice = waterPrice;
+        this.roomPrice = roomPrice;
+        this.total = total;
+        this.date = date;
+    }
+
+    
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+           
+    
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+    
+    
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+    
+    
 
     /**
      * @return the billId
