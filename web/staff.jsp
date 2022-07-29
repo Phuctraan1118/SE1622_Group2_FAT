@@ -114,11 +114,6 @@
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
-                            <li>
-                                <a href="feedback.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
-                                </a>
-                            </li>
                         </ul>
                     </li>
                     <li>

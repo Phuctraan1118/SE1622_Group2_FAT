@@ -23,7 +23,9 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
@@ -101,7 +103,7 @@
                         </a>
 
                     </li>
-                      <li>
+                    <li>
 
                         <a href="viewBillOfUser.jsp">
                             <div class="parent-icon">
@@ -111,6 +113,11 @@
                         </a>
 
                     </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Feedback Management
+                        </a>
+                    </li>
 
                 </ul>
                 <!--end navigation-->

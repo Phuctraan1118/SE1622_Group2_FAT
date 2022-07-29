@@ -45,64 +45,76 @@
                 <div class="sidebar-header">
                     <font color="yellow">
                     <div>
-                        <h6>Welcome ${USER.name} (STAFF)</h6>
+                        <h6>Welcome ${USER.name} (USER)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
+                    <li class="menu-label">Pages</li>
                     <li>
-                        <a href="javascript:;" class="has-arrow">
+                        <a href="pages-user1-profile.jsp">
                             <div class="parent-icon">
-                                <ion-icon name="home-sharp"></ion-icon>
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Management</div>
-                        </a>
-                        <ul>
-                            <li> <a href="staff.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="customer.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="managementRoom.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="bookingManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="regulationManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="feedback.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Staff Profile</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
                     </li>
+                    <c:if test="${not empty User}">
+                        <li>
+                            <a href="pages-edit-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
                     <li>
-                        <a href="pages-edit-staff-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
                             </div>
-                            <div class="menu-title">Edit Profile</div>
+                            <div class="menu-title">View Room</div>
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="RoomOwnedViewController">
+                            <div class="parent-icon">
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Regulation</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="viewBillOfUser.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Feedback Management
                         </a>
                     </li>
 
@@ -115,7 +127,6 @@
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
                     <div class="top-navbar-right ms-auto">
-
                         <ul class="navbar-nav align-items-center">
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
@@ -252,7 +263,7 @@
                                     </a>
                                 </div>
                             </li>
-                           <li class="nav-item dropdown dropdown-user-setting">
+                            <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
                                         <img src="${USER.img}" class="user-img" alt="">
@@ -366,10 +377,10 @@
                                         <label class="form-label">User Name</label>
                                         <input class="form-control" type="text" placeholder="Enter your username" name="txtUsername" value="" required="">
                                     </div>
-<!--                                    <div class="col-12">
-                                        <label class="form-label">Message</label>
-                                        <textarea class="form-control" rows="4" cols="4"></textarea>
-                                    </div>-->
+                                    <!--                                    <div class="col-12">
+                                                                            <label class="form-label">Message</label>
+                                                                            <textarea class="form-control" rows="4" cols="4"></textarea>
+                                                                        </div>-->
                                     <div class="col-12">
                                         <div class="d-grid">
                                             <button type="submit" name="btn" value="Send Feedback" class="btn btn-primary">Send</button>
