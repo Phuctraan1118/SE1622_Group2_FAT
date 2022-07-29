@@ -90,7 +90,7 @@
                         </a>
 
                     </li>
-                     <li>
+                    <li>
 
                         <a href="RegulationDisplayController">
                             <div class="parent-icon">
@@ -100,7 +100,7 @@
                         </a>
 
                     </li>
-                      <li>
+                    <li>
 
                         <a href="viewBillOfUser.jsp">
                             <div class="parent-icon">
@@ -414,157 +414,110 @@
                                                         <form action="MainController" method="POST" class="searchbar">
                                                             <div class="position-relative">
                                                                 <input type="hidden" value="${USER.id}" name="txtUser" />
-                                                                <input type="submit" value="View Owned Room" name="btn"/>
+                                                                <input type="submit" class="btn btn-secondary" value="View Owned Room" name="btn"/>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
-                     
+
                                                 <div class="product-grid">
                                                     <c:if test="${not empty requestScope.OWNED_ROOM}">
                                                         <div class="table-responsive mt-2">
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <div class="p-4 border rounded">
-                                                                        <table class="table align-middle mb-0">
-                                                                            <thead class="table-light">
-                                                                                <tr>
-                                                                                    <th>No</th>
-                                                                                    <th>ID ROOM</th>
-                                                                                    <th>DESCRIPTION</th>
-                                                                                    <th>PRICE</th>
-                                                                                    <th>IMAGE</th>
-                                                                                    <th>BOOKING DATE</th>
-                                                                                    <th>CHECK IN DATE</th>
-                                                                                    <th>CHECK OUT DATE</th>
-                                                                                    <th>USERNAME</th>
-
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <c:forEach var="dtoBooked" items="${requestScope.OWNED_ROOM}" varStatus="counter">
-                                                                                <form action="MainController" method="POST">
+                                                                            <table id="example" class="table align-middle" style="width:100%">
+                                                                                <thead class="table-secondary">
                                                                                     <tr>
-                                                                                        <td>${counter.count}</td>
-                                                                                        <td>
-                                                                                            <div class="d-flex align-items-center gap-3">
-                                                                                                <div class="product-info">
-                                                                                                    ${dtoBooked.roomId}
-                                                                                                </div>
-                                                                                            </div>
+                                                                                        <th>No</th>
+                                                                                        <th>ID ROOM</th>
+                                                                                        <th>DESCRIPTION</th>
+                                                                                        <th>PRICE</th>
+                                                                                        <th>IMAGE</th>
+                                                                                        <th>BOOKING DATE</th>
+                                                                                        <th>CHECK IN DATE</th>
+                                                                                        <th>CHECK OUT DATE</th>
+                                                                                        <th>USERNAME</th>
 
-
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <div class="box-input">
-                                                                                                ${dtoBooked.roomDescription}
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <div class="box-input">
-                                                                                                ${dtoBooked.roomPrice}
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
-                                                                                        <td>
-                                                                                            <div class="box-input">
-                                                                                                ${dtoBooked.bookingDate}
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <div class="box-input">
-                                                                                                ${dtoBooked.checkinDate}
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <div class="box-input">
-                                                                                                ${dtoBooked.checkoutDate}
-
-                                                                                            </div>
-                                                                                        </td>
-                                                                                        <td>
-                                                                                            <div class="box-input">
-                                                                                                ${dtoBooked.username}
-
-                                                                                            </div>
-                                                                                        </td>
-
-                                                                                        <!-- comment   <td>
-                                                                                        <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
-                                                                                        <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
-                                                                
-                                                                                    </td>
-                                                                                    
-                                                                                    <td>
-                                                                
-                                                                                        <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
-                                                                                            &txtRoomPrice1=${dtoBooked.roomPrice}&txtBookingDate=${dtoBooked.bookingDate}
-                                                                                            &txtCheckInDate=${dtoBooked.checkinDate}
-                                                                                            &txtCheckOutDate=${dtoBooked.checkoutDate}
-                                                                                            &txtUsername=${dtoBooked.username}&txtStatus1=${dtoBooked.status}
-                                                                                            &txtImage1=${dtoBooked.image}&txtBookingId=${dtoBooked.bookingId}"
-                                                                                            >Edit</a>
-                                                                
-                                                                                    </td> 
-                                                                                    <td>
-                                                                                        <input type="submit" name="btn" value="Delete Booked Room" />
-                                                                                        <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
-                                                                                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
-                                                                                    </td>
-                                                                                        -->
                                                                                     </tr>
-                                                                                </form>
-                                                                            </c:forEach>
-                                                                            </tbody>
-                                                                        </table>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                    <c:forEach var="dtoBooked" items="${requestScope.OWNED_ROOM}" varStatus="counter">
+                                                                                    <form action="MainController" method="POST">
+                                                                                        <tr>
+                                                                                            <td>${counter.count}</td>
+                                                                                            <td>
+                                                                                                <div class="d-flex align-items-center gap-3">
+                                                                                                    <div class="product-info">
+                                                                                                        ${dtoBooked.roomId}
+                                                                                                    </div>
+                                                                                                </div>
+
+
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    ${dtoBooked.roomDescription}
+
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    ${dtoBooked.roomPrice}
+
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    ${dtoBooked.bookingDate}
+
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    ${dtoBooked.checkinDate}
+
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    ${dtoBooked.checkoutDate}
+
+                                                                                                </div>
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                <div class="box-input">
+                                                                                                    ${dtoBooked.username}
+
+                                                                                                </div>
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </form>
+                                                                                </c:forEach>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </c:if>
+                                                        </c:if>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!--end row-->
                                         </div>
-                                        <!--end row-->
                                     </div>
-                                    <hr>
-                                    <nav class="d-flex justify-content-between" aria-label="Page navigation">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;"><i class='bx bx-chevron-left'></i> Prev</a>
-                                            </li>
-                                        </ul>
-                                        <ul class="pagination">
-                                            <li class="page-item active d-none d-sm-block" aria-current="page"><span class="page-link">1<span class="visually-hidden">(current)</span></span>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">2</a>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">3</a>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">4</a>
-                                            </li>
-                                            <li class="page-item d-none d-sm-block"><a class="page-link" href="javascript:;">5</a>
-                                            </li>
-                                        </ul>
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;" aria-label="Next">Next <i class='bx bx-chevron-right'></i></a>
-                                            </li>
-                                        </ul>
-                                    </nav>
                                 </div>
-                            </div>
-                        </div><!--end row-->
+                            </div><!--end row-->
+                        </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--end shop area-->
+        </section>
+        <!--end shop area-->
 
-</div>
-<!-- end page content-->
+    </div>
+    <!-- end page content-->
 </div>
 
 
@@ -651,7 +604,9 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <!--plugins-->
 <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-
+<script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/table-datatable.js"></script>
 <!-- Main JS-->
 <script src="assets/js/main.js"></script>
 

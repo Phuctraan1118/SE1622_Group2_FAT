@@ -47,8 +47,8 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        
-        
+
+
 
         <title>Room Management</title>
         <style>
@@ -414,21 +414,6 @@
                                 </ol>
                             </nav>
                         </div>
-                        <div class="ms-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button"
-                                        class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split"
-                                        data-bs-toggle="dropdown"> <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end"> <a class="dropdown-item"
-                                                                                                        href="javascript:;">Action</a>
-                                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div> <a class="dropdown-item" href="javascript:;">Separated link</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!--end breadcrumb-->
                     <div class="card radius-10 w-100">
@@ -437,8 +422,8 @@
                                 <h6 class="mb-0">View Room Not Booked</h6>
                             </div>
                             <div class="table-responsive mt-2">
-                                <table class="table align-middle mb-0">
-                                    <thead class="table-light">
+                                <table id="example" class="table align-middle" style="width:100%">
+                                    <thead class="table-secondary">
                                         <tr>
                                             <th>No</th>
                                             <th>ID ROOM</th>
@@ -486,25 +471,6 @@
                                     </c:forEach>
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-title">
-                                    <hr>
-                                    <nav aria-label="Page navigation example">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                                            </li>
-                                            <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
                             </div>
                         </div>
 
@@ -554,35 +520,22 @@
                             </div>
                         </div>
                     </div>
-                    </br>   </br>   </br>
-                    <div class="card-body">
-                        <h6 class="mb-0">View Room Booked</h6>
-                        </br>  </br>
-                        <form action="MainController" class="searchbar">
-                            <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
-                            <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
-                        </form>
-                        <div class="d-flex align-items-center">
+                    </br>
+                    <div class="card radius-10 w-100">
+                        <div class="card-body">
+                            <form action="MainController" class="searchbar">
+                                <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
+                                <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
+                            </form>
 
-                            <div class="fs-5 ms-auto dropdown">
-                                <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer" data-bs-toggle="dropdown"><i
-                                        class="bi bi-three-dots"></i></div>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="table-responsive mt-2">
-                            <div class="card">
+                            <div class="card radius-10 w-100">
                                 <div class="card-body">
-                                    <div class="p-4 border rounded">
-                                        <table class="table align-middle mb-0">
-                                            <thead class="table-light">
+                                    <div class="d-flex align-items-center">
+                                        <h6 class="mb-0">View Room Booked</h6>
+                                    </div>
+                                    <div class="table-responsive mt-2">
+                                        <table id="example" class="table align-middle" style="width:100%">
+                                            <thead class="table-secondary">
                                                 <tr>
                                                     <th>No</th>
                                                     <th>ID ROOM</th>
@@ -659,29 +612,6 @@
                                                                 <a href="service.jsp?roomId=${dtoBooked.roomId}""data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Send Bill" style="color: #FEA201;"><i class="fas fa-paper-plane"></i></a>
                                                             </div>
                                                         </td>
-                                                        <!-- comment   <td>
-                                                        <c:if test="${dtoBooked.status == 'B'}">Booked</c:if>
-                                                        <input type="hidden" name="txtStatus1" value="${dtoBooked.status}" />
-                                
-                                                    </td>
-                                                    
-                                                    <td>
-                                
-                                                        <a  href="editOwnedRoom.jsp?txtRoomId1=${dtoBooked.roomId}&txtRoomDescription1=${dtoBooked.roomDescription}
-                                                            &txtRoomPrice1=${dtoBooked.roomPrice}&txtBookingDate=${dtoBooked.bookingDate}
-                                                            &txtCheckInDate=${dtoBooked.checkinDate}
-                                                            &txtCheckOutDate=${dtoBooked.checkoutDate}
-                                                            &txtUsername=${dtoBooked.username}&txtStatus1=${dtoBooked.status}
-                                                            &txtImage1=${dtoBooked.image}&txtBookingId=${dtoBooked.bookingId}"
-                                                            >Edit</a>
-                                
-                                                    </td> 
-                                                    <td>
-                                                        <input type="submit" name="btn" value="Delete Booked Room" />
-                                                        <input type="hidden" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}"/>
-                                                        <input type="hidden" name="txtBookingId" value="${dtoBooked.bookingId}"/>
-                                                    </td>
-                                                        -->
                                                     </tr>
                                                 </form>
                                             </c:forEach>
@@ -691,141 +621,126 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="card-title">
-                                <hr>
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination">
-                                        <li class="page-item"><a class="page-link" href="javascript:;">Previous</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript:;javascript:;">1</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript:;">2</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript:;">3</a>
-                                        </li>
-                                        <li class="page-item"><a class="page-link" href="javascript:;">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
                     </div>
                 </div>
+            </div>
 
 
-                <!--end page content wrapper-->
-                <!--start footer-->
-                <footer class="footer">
-                    <div class="footer-text">
-                        Copyright © 2021. All right reserved.
+            <!--end page content wrapper-->
+            <!--start footer-->
+            <footer class="footer">
+                <div class="footer-text">
+                    Copyright © 2021. All right reserved.
+                </div>
+            </footer>
+            <!--end footer-->
+
+
+            <!--Start Back To Top Button-->
+            <a href="javaScript:;" class="back-to-top">
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </a>
+            <!--End Back To Top Button-->
+
+            <!--start switcher-->
+            <div class="switcher-body">
+                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                    <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
+                </button>
+                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
+                     tabindex="-1" id="offcanvasScrolling">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                     </div>
-                </footer>
-                <!--end footer-->
-
-
-                <!--Start Back To Top Button-->
-                <a href="javaScript:;" class="back-to-top">
-                    <ion-icon name="arrow-up-outline"></ion-icon>
-                </a>
-                <!--End Back To Top Button-->
-
-                <!--start switcher-->
-                <div class="switcher-body">
-                    <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas"
-                            data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                        <ion-icon name="color-palette-sharp" class="me-0"></ion-icon>
-                    </button>
-                    <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false"
-                         tabindex="-1" id="offcanvasScrolling">
-                        <div class="offcanvas-header border-bottom">
-                            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
-                            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    <div class="offcanvas-body">
+                        <h6 class="mb-0">Theme Variation</h6>
+                        <hr>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                            <label class="form-check-label" for="LightTheme">Light</label>
                         </div>
-                        <div class="offcanvas-body">
-                            <h6 class="mb-0">Theme Variation</h6>
-                            <hr>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
-                                <label class="form-check-label" for="LightTheme">Light</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
-                                <label class="form-check-label" for="DarkTheme">Dark</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
-                                       checked>
-                                <label class="form-check-label" for="SemiDark">Semi Dark</label>
-                            </div>
-                            <hr />
-                            <h6 class="mb-0">Header Colors</h6>
-                            <hr />
-                            <div class="header-colors-indigators">
-                                <div class="row row-cols-auto g-3">
-                                    <div class="col">
-                                        <div class="indigator headercolor1" id="headercolor1"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor2" id="headercolor2"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor3" id="headercolor3"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor4" id="headercolor4"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor5" id="headercolor5"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor6" id="headercolor6"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor7" id="headercolor7"></div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="indigator headercolor8" id="headercolor8"></div>
-                                    </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                            <label class="form-check-label" for="DarkTheme">Dark</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3"
+                                   checked>
+                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                        </div>
+                        <hr />
+                        <h6 class="mb-0">Header Colors</h6>
+                        <hr />
+                        <div class="header-colors-indigators">
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <div class="indigator headercolor1" id="headercolor1"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor2" id="headercolor2"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor3" id="headercolor3"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor4" id="headercolor4"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor5" id="headercolor5"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor6" id="headercolor6"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor7" id="headercolor7"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor8" id="headercolor8"></div>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
-                <!--end switcher-->
-
-
-                <!--start overlay-->
-                <div class="overlay nav-toggle-icon"></div>
-                <!--end overlay-->
-
             </div>
-            <!--end wrapper-->
+            <!--end switcher-->
+
+
+            <!--start overlay-->
+            <div class="overlay nav-toggle-icon"></div>
+            <!--end overlay-->
+
+        </div>
+        <!--end wrapper-->
 
 
 
-            <!-- JS Files-->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-            <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-            <script src="assets/js/bootstrap.bundle.min.js"></script>
-            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-            <!--plugins-->
-            <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-            <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
-            <script src="assets/plugins/chartjs/chart.min.js"></script>
-            <script src="assets/js/index.js"></script>
-            <!-- Main JS-->
-            <script src="assets/js/main.js"></script>
+        <!-- JS Files-->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!--plugins-->
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <script src="assets/plugins/apexcharts-bundle/js/apexcharts.min.js"></script>
+        <script src="assets/plugins/chartjs/chart.min.js"></script>
+        <script src="assets/js/index.js"></script>
+        <!-- Main JS-->
+        <script src="assets/js/main.js"></script>
+        <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+        <script src="assets/js/table-datatable.js"></script>
 
-            <!--        <script>
-                        function ConfirmDelete(){
-                            return confirm("Are you sure you want to delete?");
-                        }
-                    </script>-->
+        <!--        <script>
+                    function ConfirmDelete(){
+                        return confirm("Are you sure you want to delete?");
+                    }
+                </script>-->
 
-            <script>
+        <script>
                         function showOrHideDiv() {
                             var show = document.getElementById("showOrHide");
                             if (show.style.display === "none") {
@@ -837,7 +752,7 @@
                         function ConfirmDelete() {
                             return confirm("Are you sure you want to delete?");
                         }
-            </script>
+        </script>
     </body>
 
 </html>

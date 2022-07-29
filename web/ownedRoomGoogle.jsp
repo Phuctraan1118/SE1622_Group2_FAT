@@ -404,7 +404,7 @@
                                                         <form action="MainController" method="POST" class="searchbar">
                                                             <div class="position-relative">
                                                                 <input type="hidden" value="${USER.id}" name="txtUser" />
-                                                                <input type="submit" value="View Owned Room For Google" name="btn"/>
+                                                                <input type="submit" class="btn btn-secondary" value="View Owned Room For Google" name="btn"/>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -416,7 +416,7 @@
                                                             <div class="card">
                                                                 <div class="card-body">
                                                                     <div class="p-4 border rounded">
-                                                                        <table class="table align-middle mb-0">
+                                                                        <table id="example" class="table align-middle" style="width:100%">
                                                                             <thead class="table-light">
                                                                                 <tr>
                                                                                     <th>No</th>
@@ -641,6 +641,10 @@
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <!--plugins-->
 <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+
+<script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+<script src="assets/js/table-datatable.js"></script>
 
 <!-- Main JS-->
 <script src="assets/js/main.js"></script>
