@@ -45,7 +45,7 @@ public class RevenueShowController extends HttpServlet {
         String url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.REVENUE_PAGE);
         try {
             RevenueDAO dao = new RevenueDAO();
-            List<RevenueDTO> result = dao.showRevenue();
+            List<RevenueDTO> result = dao.showRevenue1();
              if (result != null) {
                 request.setAttribute("SHOW_REVENUE", result);
                 url = siteMaps.getProperty(MyApplicationConstants.ManageRevenue.REVENUE_PAGE);
