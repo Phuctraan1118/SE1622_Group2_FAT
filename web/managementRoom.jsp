@@ -43,11 +43,12 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
+        
 
         <title>Room Management</title>
         <style>
@@ -557,18 +558,9 @@
                     <div class="card-body">
                         <h6 class="mb-0">View Room Booked</h6>
                         </br>  </br>
-
-
-
                         <form action="MainController" class="searchbar">
-                            <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                                <ion-icon name="search-sharp"></ion-icon>
-                            </div>
                             <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
                             <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
-                            <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                                <ion-icon name="close-sharp"></ion-icon>
-                            </div>
                         </form>
                         <div class="d-flex align-items-center">
 
@@ -658,13 +650,13 @@
                                                         </td>
                                                         <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
                                                         <td>
-                                                            <div class="box-input">
-                                                                <a href="sendNotification.jsp?username=${dtoBooked.username}">Send Notification</a>
+                                                            <div class="btn btn-primary" style="margin-left: 30px;">
+                                                                <a href="sendNotification.jsp?username=${dtoBooked.username}"data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Send Notification" style="color: #FEA201;"><i class="fas fa-share"></i></a>
                                                             </div>
                                                         </td>
                                                         <td>
-                                                            <div class="box-input">
-                                                                <a href="service.jsp?roomId=${dtoBooked.roomId}">Send Bill</a>
+                                                            <div class="btn btn-primary" style="margin-left: 10px;">
+                                                                <a href="service.jsp?roomId=${dtoBooked.roomId}""data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Send Bill" style="color: #FEA201;"><i class="fas fa-paper-plane"></i></a>
                                                             </div>
                                                         </td>
                                                         <!-- comment   <td>
