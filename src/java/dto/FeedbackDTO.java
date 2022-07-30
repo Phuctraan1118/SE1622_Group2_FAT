@@ -17,6 +17,12 @@ public class FeedbackDTO implements Serializable{
     private String username;
     private boolean status;
 
+    public FeedbackDTO(int feedbackId, String feedbackContent, boolean status) {
+        this.feedbackId = feedbackId;
+        this.feedbackContent = feedbackContent;
+        this.status = status;
+    }
+    
     public FeedbackDTO(String feedbackName, String username, boolean status) {
         this.feedbackContent = feedbackName;
         this.username = username;

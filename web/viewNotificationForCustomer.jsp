@@ -1,10 +1,10 @@
 <%-- 
-    Document   : feedback
-    Created on : Jul 14, 2022, 3:21:11 PM
+    Document   : viewfeedback
+    Created on : Jul 15, 2022, 1:29:34 AM
     Author     : hungp
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en" class="semi-dark">
     <head>
@@ -20,6 +20,7 @@
         <link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
         <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
         <link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+        <link href="assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
 
         <!-- CSS Files -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -33,88 +34,76 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Send Feedback</title>
+        <title>View Feedbacks</title>
     </head>
     <body>
-
-
         <!--start wrapper-->
         <div class="wrapper">
+            <!--start sidebar -->
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <font color="yellow">
-                    <div>
-                        <h6>Welcome ${USER.name} (USER)</h6>
-                    </div></font>
-                    <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
+                    <h6  style="font-family: 'Courgette', cursive;">Welcome ${USER.name} (STAFF)</h6>
+                    </font>
+                    <div class="toggle-icon ms-auto">
+                        <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
+                                <ion-icon name="home-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">User Profile</div>
+                            <div class="menu-title">Management</div>
                         </a>
-                    </li>
-                    <c:if test="${not empty User}">
-                        <li>
-                            <a href="pages-edit-profile.jsp">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
-                    </c:if>
-                    <li>
-
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
-                            <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Room</div>
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
-                            <div class="parent-icon">
-                                <ion-icon name="planet-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">Owned Room</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="RegulationDisplayController">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Regulation</div>
-                        </a>
-
+                        <ul>
+                            <li> <a href="staff.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="customer.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="managementRoom.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="MainController?btn=ViewBooking">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="regulationManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
+                            <li>                               
+                                <a href="viewfeedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
-
-                        <a href="viewBillOfUser.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                        <a href="pages-staff-profile.jsp">
+                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">View History Bill</div>
+                            <div class="menu-title">Staff Profile</div>
                         </a>
-
-                    </li> 
+                    </li>
                     <li>
-                        <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Send Feedback
+                        <a href="pages-edit-staff-profile.jsp">
+                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
 
@@ -126,19 +115,13 @@
             <!--start top header-->
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
+
                     <div class="top-navbar-right ms-auto">
                         <ul class="navbar-nav align-items-center">
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
                                     <div class="mode-icon">
                                         <ion-icon name="moon-sharp"></ion-icon> 
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown dropdown-large dropdown-apps">
-                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                    <div class="">
-                                        <ion-icon name="apps-sharp"></ion-icon>
                                     </div>
                                 </a>
                             </li>
@@ -266,23 +249,24 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${USER.img}" class="user-img" alt="">
+                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="${USER.img}" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">${USER.name}</h6>
+                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
                                                 </div>
                                             </div>
                                         </a>
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user-profile.html">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
@@ -323,7 +307,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="MainController?btn=Logout">
+                                        <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Logout</span></div>
@@ -348,13 +332,13 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <div class="breadcrumb-title pe-3">Feedback</div>
+                        <div class="breadcrumb-title pe-3">Management</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;"><ion-icon name="home-outline"></ion-icon></a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Send Feedback</li>
+                                    <li class="breadcrumb-item active" aria-current="page">View Feedback</li>
                                 </ol>
                             </nav>
                         </div>
@@ -362,62 +346,171 @@
                     <!--end breadcrumb-->
 
 
-
+                    <h6 class="mb-0 text-uppercase">View Feedbacks</h6>
+                    <hr/>
                     <div class="card">
                         <div class="card-body">
-                            <div class="border p-3 rounded">
-                                <h6 class="mb-0 text-uppercase">Contact Form</h6>
-                                <hr>
-                                <form action="MainController" method="POST" class="row g-3">
-                                    <div class="col-12">
-                                        <label class="form-label">Content Feedback</label>
-                                        <input class="form-control" type="text" placeholder="Enter content" name="txtContentFeedback" value="" required="">
-                                    </div>
-                                    <div class="col-12">
-                                        <label class="form-label">User Name</label>
-                                        <input class="form-control" type="text" placeholder="Enter your username" name="txtUsername" value="" required="">
-                                    </div>
-                                    <!--                                    <div class="col-12">
-                                                                            <label class="form-label">Message</label>
-                                                                            <textarea class="form-control" rows="4" cols="4"></textarea>
-                                                                        </div>-->
-                                    <div class="col-12">
-                                        <div class="d-grid">
-                                            <button type="submit" name="btn" value="Send Feedback" class="btn btn-primary">Send</button>
-                                        </div>
-                                    </div>
-                                </form>
+                            <div class="table-responsive">
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Notification Name</th>
+                                            <th>Notification Detail</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="noti" items="${requestScope.VIEW_NOTIFICATION_FOR_CUSTOMER}" varStatus="counter">
+                                        <form action="MainController" method="POST">
+                                            <tr>
+                                                <td>${counter.count}</td>
+                                                <td>${noti.name}</td>
+                                                <td>${noti.detail}</td>
+                                                <td>${noti.username}</td>
+                                            </tr>
+                                        </form>
+                                    </c:forEach>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Notification Name</th>
+                                            <th>Notification Detail</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
                     </div>
 
 
-                    <!--end switcher-->
-
-
-                    <!--start overlay-->
-                    <div class="overlay nav-toggle-icon"></div>
-                    <!--end overlay-->
-
                 </div>
-                <!--end wrapper-->
+                <!-- end page content-->
+            </div>
 
 
 
+            <!--Start Back To Top Button-->
+            <a href="javaScript:;" class="back-to-top"><ion-icon name="arrow-up-outline"></ion-icon></a>
+            <!--End Back To Top Button-->
+
+            <!--start switcher-->
+            <div class="switcher-body">
+                <button class="btn btn-primary btn-switcher shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><ion-icon name="color-palette-sharp" class="me-0"></ion-icon></button>
+                <div class="offcanvas offcanvas-end shadow border-start-0 p-2" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling">
+                    <div class="offcanvas-header border-bottom">
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Theme Customizer</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <h6 class="mb-0">Theme Variation</h6>
+                        <hr>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
+                            <label class="form-check-label" for="LightTheme">Light</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="DarkTheme" value="option2">
+                            <label class="form-check-label" for="DarkTheme">Dark</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="SemiDark" value="option3" checked>
+                            <label class="form-check-label" for="SemiDark">Semi Dark</label>
+                        </div>
+                        <hr/>
+                        <h6 class="mb-0">Header Colors</h6>
+                        <hr/>
+                        <div class="header-colors-indigators">
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <div class="indigator headercolor1" id="headercolor1"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor2" id="headercolor2"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor3" id="headercolor3"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor4" id="headercolor4"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor5" id="headercolor5"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor6" id="headercolor6"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor7" id="headercolor7"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator headercolor8" id="headercolor8"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <h6 class="mb-0">Sidebar Colors</h6>
+                        <hr/>
+                        <div class="header-colors-indigators">
+                            <div class="row row-cols-auto g-3">
+                                <div class="col">
+                                    <div class="indigator sidebarcolor1" id="sidebarcolor1"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor2" id="sidebarcolor2"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor3" id="sidebarcolor3"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor4" id="sidebarcolor4"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor5" id="sidebarcolor5"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor6" id="sidebarcolor6"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor7" id="sidebarcolor7"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="indigator sidebarcolor8" id="sidebarcolor8"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--end switcher-->
 
 
-                <!-- JS Files-->
-                <script src="assets/js/jquery.min.js"></script>
-                <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-                <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-                <script src="assets/js/bootstrap.bundle.min.js"></script>
-                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                <!--plugins-->
-                <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+            <!--start overlay-->
+            <div class="overlay nav-toggle-icon"></div>
+            <!--end overlay-->
 
-                <!-- Main JS-->
-                <script src="assets/js/main.js"></script>
+        </div>
+        <!--end wrapper-->
 
 
-                </body>
-                </html>
+
+        <!-- JS Files-->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+        <script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <!--plugins-->
+        <script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+        <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+        <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
+        <script src="assets/js/table-datatable.js"></script>
+
+        <!-- Main JS-->
+        <script src="assets/js/main.js"></script>
+
+
+    </body>
+</html>

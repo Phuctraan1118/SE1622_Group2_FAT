@@ -4,6 +4,7 @@
  */
 package dao;
 
+import dto.NotificationDto;
 import form.NotificationCreateForm;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +29,7 @@ public class NotificationDao {
     private static final String GET_NOTIFICATION = "SELECT notificationId,notificationName,detail,username FROM tblNotification WHERE notificationName like ?";
     private static final String UPDATE_NOTIFICATION = "UPDATE tblNotification SET notificationName=?, detail=?, username=? where notificationId=?";
     private static final String DELETE = "DELETE tblNotification WHERE notificationId=?";
+    private static final String GET_NOTIFICATION_FOR_CUSTOMER = "select notificationId,notificationName , detail, username from tblNotification where username like ? ";
 
     public boolean addNewNotification(NotificationCreateForm notificationForm) throws NamingException, SQLException {
         boolean check = false;
@@ -50,6 +52,41 @@ public class NotificationDao {
             }
         }
         return check;
+    }
+
+    public List<NotificationDto> viewNotificationForCustomer(String username)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<NotificationDto> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(GET_NOTIFICATION_FOR_CUSTOMER);
+                stm.setString(1, "%" + username + "%");
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int notificationId = rs.getInt("notificationId");
+                    String notificationName = rs.getString("notificationName");
+                    String detail = rs.getString("detail");
+                    list.add(new NotificationDto(notificationId, notificationName, detail, username));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
     }
 
     public List<NotificationCreateForm> getNotifications(String searchedNotificationName) throws SQLException {

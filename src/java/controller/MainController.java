@@ -34,6 +34,7 @@ public class MainController extends HttpServlet {
     private static final String SEARCH_NOTIFICATION = "NotificationDisplayController";
     private static final String UPDATE_NOTIFICATION = "NotificationUpdateController";
     private static final String DELETE_NOTIFICATION = "NotificationDeleteController";
+    private static final String SEARCH_NOTIFICATION_FOR_CUSTOMER = "NotificationDisplayForCustomer";
 
     private static final String SEARCH_REGULATION = "RegulationDisplayController";
     private static final String SEARCH_REGULATION_IN_SEND_NOTI_PAGE = "RegulationForSendNotiDisplayController";
@@ -48,12 +49,10 @@ public class MainController extends HttpServlet {
     private static final String CREATE_SERVICE = "ServiceCreateController";
     private static final String CREATE_BILL = "BillCreateController";
     private static final String VIEW_BILL = "BillViewForUserController";
-    
+
     private static final String VIEW_ROOM_DETAIL = "RoomViewDetailController";
     private static final String VIEW_ROOM_DETAIL_GOOGLE = "RoomViewDetailForGoogleController";
     private static final String EDIT_ROOM_DETAIL = "RoomViewDetailStaffController";
-    
-    
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -167,8 +166,7 @@ public class MainController extends HttpServlet {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.CHECK_OUT_CONTROLLER_USER);
             } else if (button.equals("Completed")) {
                 url = siteMaps.getProperty(MyApplicationConstants.MainControllerFeatures.EXECUTE_PAYMENT_CONTROLLER);
-            }
-            else if (button.equals("View Bill Of You")) {
+            } else if (button.equals("View Bill Of You")) {
                 url = VIEW_BILL;
             } else if (button.equals("View Room Detail")) {
                 url = VIEW_ROOM_DETAIL;
@@ -177,7 +175,6 @@ public class MainController extends HttpServlet {
             } else if (button.equals("Edit Room Detail")) {
                 url = EDIT_ROOM_DETAIL;
             }
-            
 
         } finally {
             RequestDispatcher rd = request.getRequestDispatcher(url);

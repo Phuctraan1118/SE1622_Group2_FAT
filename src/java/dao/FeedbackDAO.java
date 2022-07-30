@@ -27,9 +27,9 @@ public class FeedbackDAO {
             + "where status = 1 "
             + "order by feedbackId desc ";
 
-    private static final String VIEW_FEEDBACK = "select feedbackId, feedbackName, username, status "
+    private static final String VIEW_FEEDBACK = "select feedbackId, feedbackName, status "
             + "from tblFeedback "
-            + "where username = ? ";
+            + "where username like ?";
 
     public boolean deleteFeedbackAfterReply(String feedbackId)
             throws SQLException, NamingException {
@@ -128,7 +128,6 @@ public class FeedbackDAO {
                 while (rs.next()) {
                     int feedbackId = rs.getInt("feedbackId");
                     String feedbackContent = rs.getString("feedbackName");
-                    String user = rs.getString("username");
                     boolean status = rs.getBoolean("status");
                     list.add(new FeedbackDTO(feedbackId, feedbackContent, username, status));
 

@@ -5,8 +5,11 @@
 package controller;
 
 import dao.FeedbackDAO;
+import dao.NotificationDao;
 import dto.FeedbackDTO;
+import dto.NotificationDto;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,20 +22,20 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author hungp
  */
-//USER VIEW REPLY FEEDBACK
-@WebServlet(name = "FeedbackViewController", urlPatterns = {"/FeedbackViewController"})
-public class FeedbackViewController extends HttpServlet {
+@WebServlet(name = "NotificationDisplayForCustomer", urlPatterns = {"/NotificationDisplayForCustomer"})
+public class NotificationDisplayForCustomer extends HttpServlet {
 
-   private static final String SUCCESS = "viewFeedbackUser.jsp";
+    private static final String SUCCESS = "viewNotificationForCustomer.jsp";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         String url = null;
-         String username = request.getParameter("txtUsername");
+        String url = null;
+        String username = request.getParameter("txtUsername");
         try {
-            FeedbackDAO dao = new FeedbackDAO();
-            List<FeedbackDTO> result = dao.viewFeedback(username);
-            request.setAttribute("VIEW_FEEDBACK", result);
+            NotificationDao dao = new NotificationDao();
+            List<NotificationDto> result = dao.viewNotificationForCustomer(username);
+            request.setAttribute("VIEW_NOTIFICATION_FOR_CUSTOMER", result);
             url = SUCCESS;
 
         } catch (Exception ex) {
