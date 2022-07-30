@@ -101,7 +101,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="bookingManagement.jsp">
+                                <a href="MainController?btn=ViewBooking">
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
@@ -464,7 +464,7 @@
                                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerModal">Delete</button>
 
                                                         <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
-                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
+
                                                         <div class="modal fade" id="exampleDangerModal" tabindex="-1" aria-hidden="true">
                                                             <div class="modal-dialog modal-lg modal-dialog-centered">
                                                                 <div class="modal-content bg-danger">
@@ -476,6 +476,7 @@
                                                                         <h6>Do you want delete!</h6>
                                                                     </div>
                                                                     <div class="modal-footer">
+                                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
                                                                         <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
                                                                         <button type="submit" name="btn" value="Delete Room" class="btn btn-dark">Save changes</button>
                                                                     </div>
@@ -510,19 +511,19 @@
                                                         <form class="row g-3" action="MainController" method="POST">
                                                             <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
                                                             <div class="row align-content-center">
-                                                                 <div class="col-md-3">
-                                                                <h4>Category Name</h4>
-                                                                <select name="txtCategoryId"class="form-select">
-                                                                    <option value="1">Normal Room</option>
-                                                                    <option value="2">Vip Room</option>
-                                                                    <option value="3">Family Room</option>
-                                                                </select>
-                                                                 </div>
-                                                                 <div class="col-md-3">
-                                                                <h4>Room Name</h4>
-                                                                <input type="text" name="txtCreateRoomName" value="${param.txtCreateRoomName}" required="" />
-                                                                <p class="error">${errors.roomDescriptionLengthError}</p>
-                                                                 </div>
+                                                                <div class="col-md-3">
+                                                                    <h4>Category Name</h4>
+                                                                    <select name="txtCategoryId"class="form-select">
+                                                                        <option value="1">Normal Room</option>
+                                                                        <option value="2">Vip Room</option>
+                                                                        <option value="3">Family Room</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <h4>Room Name</h4>
+                                                                    <input type="text" name="txtCreateRoomName" value="${param.txtCreateRoomName}" required="" />
+                                                                    <p class="error">${errors.roomDescriptionLengthError}</p>
+                                                                </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault01" class="form-label">Room Description</label>
                                                                     <input type="text" class="form-control" id="validationDefault01" name="txtCreateRoomDescription" value="${param.txtCreateRoomDescription}" required="">

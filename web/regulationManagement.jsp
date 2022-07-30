@@ -78,7 +78,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="bookingManagement.jsp">
+                                <a href="MainController?btn=ViewBooking">
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>

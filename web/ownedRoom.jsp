@@ -102,7 +102,7 @@
                     </li>
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
                                 <ion-icon name="shield-outline"></ion-icon>
                             </div>

@@ -78,7 +78,7 @@
                 </div>
                 <!--navigation-->
                 <ul class="metismenu" id="menu">
-                    <li>
+                      <li>
                         <a href="javascript:;" class="has-arrow">
                             <div class="parent-icon">
                                 <ion-icon name="home-sharp"></ion-icon>
@@ -91,8 +91,28 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="customer.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
+                                </a>
+                            </li>
+                            <li>
                                 <a href="managementRoom.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="MainController?btn=ViewBooking">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="regulationManagement.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
+                                </a>
+                            </li>
+                            <li>
+                                <a href="viewfeedback.jsp">
+                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
                         </ul>

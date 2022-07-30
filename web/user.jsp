@@ -85,13 +85,12 @@
 
                     <li>
 
-                        <a href="RoomOwnedViewController">
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
                     </li>
                     <li>
 
@@ -105,7 +104,7 @@
                     </li>
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                       <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
                                 <ion-icon name="shield-outline"></ion-icon>
                             </div>

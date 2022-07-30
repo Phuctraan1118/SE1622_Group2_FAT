@@ -145,7 +145,7 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown dropdown-large dropdown-apps">
-                                
+
                             <li class="nav-item dropdown dropdown-large">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="position-relative">
@@ -348,101 +348,112 @@
                             <div class="shop-container">
 
                                 <div class="card shadow-sm border-0">
+
                                     <div class="card-body">
 
                                         <div class="shop-cart">
-                                            <c:forEach var="bill" items="${sessionScope.BILL_USER}" varStatus="counter">
-                                                <form action="MainController" method="POST">
-                                                    <div class="row">
-                                                        <div class="col-sm-4">
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <div class="card">
-                                                                        <div class="card-body">
-                                                                            <p class="fs-5">Apply Discount Code</p>
-                                                                            <div class="input-group">
-                                                                                <input type="text" class="form-control" placeholder="Enter discount code">
-                                                                                <button class="btn btn-primary btn-ecomm" type="button">Apply</button>
+
+
+                                            <form action="MainController" method="POST">
+                                                <div class="row">
+                                                    <c:forEach var="bill" items="${sessionScope.BILL_USER}" varStatus="counter">
+
+                                                        <div class="col-12 col-xl-4">
+                                                            <div class="order-summary">
+                                                                <div class="card">
+                                                                    <div class="card-body">
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <p class="fs-5">Apply Discount Code</p>
+                                                                                <div class="input-group">
+                                                                                    <input type="text" class="form-control" placeholder="Enter discount code">
+                                                                                    <button class="btn btn-primary btn-ecomm" type="button">Apply</button>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
 
-                                                                    <div class="card">
-                                                                        <div class="card-body">
-                                                                            <p class="fs-5">Bill</p>
-                                                                            <div class="my-3 border-top"></div>
-                                                                            <div class="mb-3">
-                                                                                <label class="form-label">Bill Name</label></br>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.billName}">
-                                                                                <input type="hidden" class="form-control" value="${bill.billName}">
-                                                                            </div>
-                                                                            <div class="mb-3">
-                                                                                <label class="form-label">Detail</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.detail}">
-                                                                                <input type="hidden" class="form-control" value="${bill.detail}">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Date</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.date}">
-                                                                                <input type="hidden" class="form-control" value="${bill.date}">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Room ID</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.roomId1}">
-                                                                                <input type="hidden" class="form-control" value="${bill.roomId1}">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Room Price</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.roomPrice}$">
-                                                                                <input type="hidden" class="form-control" value="${bill.roomPrice}$">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Electronic Detail</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.electronicDetail}">
-                                                                                <input type="hidden" class="form-control" value="${bill.electronicDetail}">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Electronic Price</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.electronicPrice}$">
-                                                                                <input type="hidden" class="form-control" value="${bill.electronicPrice}$">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Water Detail</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.waterDetail}">
-                                                                                <input type="hidden" class="form-control" value="${bill.waterDetail}">
-                                                                            </div>
-                                                                            <div class="mb-0">
-                                                                                <label class="form-label">Water Price</label>
-                                                                                <input type="text" class="form-control" disabled="" value="${bill.waterPrice}$">
-                                                                                <input type="hidden" class="form-control" value="${bill.waterPrice}$">
+                                                                        <div class="card">
+                                                                            <div class="card-body">
+                                                                                <p class="fs-5">Bill</p>
+                                                                                <div class="my-3 border-top"></div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Bill Name</label></br>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.billName}">
+                                                                                    <input type="hidden" class="form-control" value="${bill.billName}">
+                                                                                </div>
+                                                                                <div class="mb-3">
+                                                                                    <label class="form-label">Detail</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.detail}">
+                                                                                    <input type="hidden" class="form-control" value="${bill.detail}">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Date</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.date}">
+                                                                                    <input type="hidden" class="form-control" value="${bill.date}">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Room ID</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.roomId1}">
+                                                                                    <input type="hidden" class="form-control" value="${bill.roomId1}">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Room Price</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.roomPrice}$">
+                                                                                    <input type="hidden" class="form-control" value="${bill.roomPrice}$">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Electronic Detail</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.electronicDetail}">
+                                                                                    <input type="hidden" class="form-control" value="${bill.electronicDetail}">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Electronic Price</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.electronicPrice}$">
+                                                                                    <input type="hidden" class="form-control" value="${bill.electronicPrice}$">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Water Detail</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.waterDetail}">
+                                                                                    <input type="hidden" class="form-control" value="${bill.waterDetail}">
+                                                                                </div>
+                                                                                <div class="mb-0">
+                                                                                    <label class="form-label">Water Price</label>
+                                                                                    <input type="text" class="form-control" disabled="" value="${bill.waterPrice}$">
+                                                                                    <input type="hidden" class="form-control" value="${bill.waterPrice}$">
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
 
-                                                                    <div class="card mb-0">
-                                                                        <div class="card-body">
-                                                                            <p class="mb-2">User Name: <span class="float-end">${bill.username}</span>
-                                                                            </p>
-                                                                            <div class="my-3 border-top"></div>
-                                                                            <h5 class="mb-0">Bill Total:
-                                                                                <c:set var="total" value="${bill.electronicPrice + bill.waterPrice + bill.roomPrice}" />
-                                                                                <span class="float-end">${total}$</span>
-                                                                            </h5>
-                                                                            <div class="my-4"></div>
-                                                                            <div class="d-grid"> <a href="javascript:;" class="btn btn-primary btn-ecomm">Proceed to Checkout</a>
+                                                                        <div class="card mb-0">
+                                                                            <div class="card-body">
+                                                                                <p class="mb-2">User Name: <span class="float-end">${bill.username}</span>
+                                                                                </p>
+                                                                                <div class="my-3 border-top"></div>
+                                                                                <h5 class="mb-0">Bill Total:
+                                                                                    <c:set var="total" value="${bill.electronicPrice + bill.waterPrice + bill.roomPrice}" />
+                                                                                    <span class="float-end">${total}$</span>
+                                                                                </h5>
+                                                                                <div class="my-4"></div>
+                                                                                <div class="d-grid"> <a href="javascript:;" class="btn btn-primary btn-ecomm">Proceed to Checkout</a>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end row-->
-                                                </form>
-                                            </c:forEach>
+
+                                                    </c:forEach>
+                                                </div>   
+                                            </form>
+                                            <!--end row-->
                                         </div>
 
+
+
+
                                     </div>
+
                                 </div>
 
                             </div>
