@@ -17,8 +17,8 @@
             <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
             <h4>ID ROOM : ${param.txtRoomId} 
                 <input type="hidden" value="${param.txtRoomId}" name="txtRoomId" /> </h4> 
-            <h4>ROOM DESCRIPTION: 
-                <input type="text" name="txtRoomDescription" placeholder="Description" required="" value="${param.txtRoomDescription}"/>
+            <h4>ROOM Name 
+                <input type="text" name="txtRoomName" placeholder="Description" required="" value="${param.txtRoomName}"/>
                 <c:if test="${not empty errors1.roomDescriptionLengthError}">
                     <font color="red"> 
                     ${errors1.roomDescriptionLengthError}
@@ -38,6 +38,7 @@
                 <input type="file" name="txtImage" value="${param.txtImage}"/>
             </h4>
             <h4> <input type="submit" name="btn" value="Update Room"/> </h4>
+            <a href="managementRoom.jsp">Click here to back</a>
         </form>
     </body>
 </html>

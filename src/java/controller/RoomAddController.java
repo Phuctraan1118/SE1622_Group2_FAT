@@ -35,6 +35,9 @@ public class RoomAddController extends HttpServlet {
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
         boolean foundErr = false;
         int roomId = 0;
+        int categoryId = 0;
+        String txtCategoryId = request.getParameter("txtCategoryId");
+        String roomName = request.getParameter("txtCreateRoomName");
         String roomDescription = request.getParameter("txtCreateRoomDescription");
         String roomPrice = request.getParameter("txtCreateRoomPrice");
         float price = 0;
@@ -43,6 +46,10 @@ public class RoomAddController extends HttpServlet {
         RoomInsertError errors = new RoomInsertError();
         try {
 
+            if (roomName.trim().length() < 3 || roomName.trim().length() > 100) {
+                foundErr = true;
+                errors.setRoomNameLengthError("3 - 100 chars");
+            }
             if (roomDescription.trim().length() < 3 || roomDescription.trim().length() > 100) {
                 foundErr = true;
                 errors.setRoomDescriptionLengthError("3 - 100 chars");
@@ -55,9 +62,10 @@ public class RoomAddController extends HttpServlet {
                 request.setAttribute("CREATEERRORS", errors);
                 url = "MainController?txtSearchValue=&btn=SEARCH+ROOM";
             } else {
+                categoryId = Integer.parseInt(txtCategoryId);
                 price = Float.parseFloat(roomPrice);
                 RoomDAO dao = new RoomDAO();
-                RoomDTO dto = new RoomDTO(roomDescription, price, image, "NB");
+                RoomDTO dto = new RoomDTO(roomName,roomDescription, price, image, "NB",categoryId);
                 boolean result = dao.create(dto);
                 if (result) {
                     url = "MainController?txtSearchValue=&btn=SEARCH+ROOM";

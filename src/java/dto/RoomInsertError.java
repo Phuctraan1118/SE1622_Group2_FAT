@@ -12,7 +12,7 @@ import java.io.Serializable;
  */
 public class RoomInsertError implements Serializable {
 
-  
+    private String roomNameLengthError;
     private String roomDescriptionLengthError;
     private String priceStringError;
     private String bookingDateLengthError;
@@ -37,6 +37,24 @@ public class RoomInsertError implements Serializable {
         this.checkoutDateLengthError = checkoutDateLengthError;
     }
 
+    public RoomInsertError(String roomNameLengthError, String roomDescriptionLengthError, String priceStringError, String bookingDateLengthError, String checkinDateLengthError, String checkoutDateLengthError) {
+        this.roomNameLengthError = roomNameLengthError;
+        this.roomDescriptionLengthError = roomDescriptionLengthError;
+        this.priceStringError = priceStringError;
+        this.bookingDateLengthError = bookingDateLengthError;
+        this.checkinDateLengthError = checkinDateLengthError;
+        this.checkoutDateLengthError = checkoutDateLengthError;
+    }
+    
+
+    public String getRoomNameLengthError() {
+        return roomNameLengthError;
+    }
+
+    public void setRoomNameLengthError(String roomNameLengthError) {
+        this.roomNameLengthError = roomNameLengthError;
+    }
+   
     /**
      * @return the roomDescriptionLengthError
      */

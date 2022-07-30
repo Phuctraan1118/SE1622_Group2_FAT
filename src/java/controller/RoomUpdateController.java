@@ -27,6 +27,8 @@ import utils.MyApplicationConstants;
 @WebServlet(name = "RoomUpdateController", urlPatterns = {"/RoomUpdateController"})
 public class RoomUpdateController extends HttpServlet {
 
+    private static final String ERROR = "MainController?txtSearchValue=&btn=SEARCH+ROOM";
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -34,14 +36,20 @@ public class RoomUpdateController extends HttpServlet {
         Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
         boolean foundErr = false;
         int roomId = Integer.parseInt(request.getParameter("txtRoomId"));
-        String roomDescription = request.getParameter("txtRoomDescription");
+        String roomName = request.getParameter("txtRoomName");
+        String roomDes = request.getParameter("txtRoomDescription");
         String roomPrice = request.getParameter("txtRoomPrice");
         float price = 0;
         String image = request.getParameter("txtImage");
         RoomInsertError errors = new RoomInsertError();
-        String url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.EDIT_ROOM_PAGE);
+      
+        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
         try {
-            if (roomDescription.trim().length() < 3 || roomDescription.trim().length() > 100) {
+            if (roomName.trim().length() < 3 || roomName.trim().length() > 100) {
+                foundErr = true;
+                errors.setRoomNameLengthError("3 - 100 chars");
+            }
+            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 100) {
                 foundErr = true;
                 errors.setRoomDescriptionLengthError("3 - 100 chars");
             }
@@ -54,7 +62,7 @@ public class RoomUpdateController extends HttpServlet {
             } else {
                 price = Float.parseFloat(roomPrice);
                 RoomDAO dao = new RoomDAO();
-                RoomDTO dto = new RoomDTO(roomId, roomDescription, price, image);
+                RoomDTO dto = new RoomDTO(roomId, roomName, roomDes, price, image);
                 boolean check = dao.updateNotBookedRoom(dto);
                 if (check) {
                     url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);

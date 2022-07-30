@@ -32,25 +32,17 @@
         <link href="assets/css/style.css" rel="stylesheet">
         <link href="assets/css/icons.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
-
 
         <!--Theme Styles-->
         <link href="assets/css/dark-theme.css" rel="stylesheet" />
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"/>
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-
-
-        <title>Room Management</title>
+        <title>Edit Management</title>
         <style>
             .error{
                 color: red;
@@ -59,18 +51,19 @@
                 color: green;
             }
         </style>
+        
     </head>
 
     <body>
         <!--start wrapper-->
         <div class="wrapper">
-            <c:set var="User" value="${sessionScope.USER}"/>
+<c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
                     <font color="yellow">
-                    <div>
-                        <h6 style="font-family: 'Courgette', cursive;">Welcome ${USER.name} (STAFF)</h6>
+                     <div>
+                      <h6>Welcome ${USER.name} (STAFF)</h6>
                     </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
@@ -106,32 +99,30 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="regulationManagement.jsp">
+                                <a href="RegulationDisplayForStaffController">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="viewfeedback.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
+                            <div class="parent-icon">
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">Staff Profile</div>
                         </a>
                     </li>
                     <li>
-                        <a href="pages-edit-staff-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
+                        <c:if test="${not empty User}">
+                            <a href="pages-edit-staff-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </c:if>
                     </li>
-
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -143,16 +134,6 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    <form action="MainController" class="searchbar">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
-                            <ion-icon name="search-sharp"></ion-icon>
-                        </div>
-                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search description">
-                        <input type="hidden" value="SEARCH ROOM" name="btn" />
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon">
-                            <ion-icon name="close-sharp"></ion-icon>
-                        </div>
-                    </form>
 
                     <div class="top-navbar-right ms-auto">
 
@@ -347,7 +328,7 @@
                                                 <div class="">
                                                     <ion-icon name="speedometer-outline"></ion-icon>
                                                 </div>
-                                                <div class="ms-3"><span>Room Management</span></div>
+                                                <div class="ms-3"><span>Management</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -402,7 +383,7 @@
 
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                        <h6 class="mb-0 text-uppercase">Management</h6>
+                        <div class="breadcrumb-title pe-3">Management</div>
                         <div class="ps-3">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
@@ -410,255 +391,72 @@
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Room Management</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Room</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                     <!--end breadcrumb-->
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <h6 class="mb-0">View Room Not Booked</h6>
-                            </div>
-                            <div class="table-responsive mt-2">
-                                <table id="example" class="table align-middle" style="width:100%">
-                                    <thead class="table-secondary">
-                                        <tr>
-                                            <th>No</th>
-                                            <th>ID ROOM</th>
-                                            <th>ROOM NAME</th>
-                                            <th>PRICE</th>
-                                            <th>IMAGE</th>
-                                            <th>EDIT</th>
-                                            <th>DELETE</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                        <form action="MainController" method="POST">
-                                            <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
-                                            <tr>
-                                                <td>${counter.count}</td>
-                                                <td> ${dto.roomId}</td>
-                                                <td>
-                                                    ${dto.roomName}
-                                                </td>
-                                                <td>
-                                                    ${dto.roomPrice}
-                                                </td>
-                                                <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
-                                                <td>
-                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=Edit+Room+Detail">Edit</a>
-                                                </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <!--                                                        <button type="submit" name="btn" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-original-title="Delete room" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                                                                                </button>-->
-                                                        <!--                                                        <button type="button" name="btn btn-danger"  data-bs-target="#exampleDangerModal" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-toggle="modal" data-bs-original-title="Delete room" aria-label="Delete">
-                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                                                                                </button>-->
-                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerModal">Delete</button>
-
-                                                        <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
-                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
-                                                        <div class="modal fade" id="exampleDangerModal" tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                                                <div class="modal-content bg-danger">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title text-white">Delete</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body text-white">
-                                                                        <h6>Do you want delete!</h6>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="submit" name="btn" value="Delete Room" class="btn btn-dark">Save changes</button>
-                                                                    </div>
-                                                                </div>
+                </div>
+                <!-- end page content-->
+                <div class="card radius-10 w-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center">
+                            <h6 class="mb-0">Edit</h6>
+                        </div>
+                        <div class="table-responsive mt-2">
+                            <table class="table align-middle mb-0">
+                                <div class="row">
+                                    <div class="col-xl-12 mx-auto">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="p-4 border rounded">
+                                                    <form class="row g-3" action="MainController" method="POST">
+                                                        <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
+                                                        <div class="row align-content-center">
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault01" class="form-label">ID Room</label>
+                                                                <input type="hidden" class="form-control" id="validationDefault01" name="txtRoomId" value="${param.txtRoomId}" required="">
+                                                                </br> ${param.txtRoomId}
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <label for="validationDefault02" class="form-label">Room Name</label>
+                                                               <input type="text" class="form-control" id="validationDefault02" name="txtRoomName" value="${param.txtRoomName}" required="">
+                                                                <c:if test="${not empty errors1.roomDescriptionLengthError}">
+                                                                    <font color="red"> 
+                                                                    ${errors1.roomDescriptionLengthError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-2">
+                                                                <label for="validationDefault02" class="form-label">Price</label>
+                                                                <input type="text" class="form-control" id="validationDefault02" name="txtRoomPrice" value="${param.txtRoomPrice}" required="">
+                                                                <c:if test="${not empty errors1.priceStringError}">
+                                                                    <font color="red">
+                                                                    ${errors1.priceStringError}
+                                                                    </font> <br/>
+                                                                </c:if>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <img src=images/${param.txtImage} style="width: 100px; height: 100px;">
+                                                                <label for="validationDefault03" class="form-label">Image</label>
+                                                                <input type="file"  name="txtImage" value="${param.txtImage}" class="form-control" aria-label="file example">
+                                                            </div>
+                                                            <div class="col-md-1">
+                                                                <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Room">Update Room</button>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </form>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                    <br/>
-
-                    <button onclick="showOrHideDiv()" class="row col-md-3 btn btn-primary" name="btn">ADD NEW ROOM</button>
-                    <!-- end page content-->
-                    <div id="showOrHide">
-                        <div class="card-body">
-
-                            <div class="table-responsive mt-2">
-                                <table class="table align-middle mb-0">
-                                    <div class="row">
-                                        <div class="col-xl-12 mx-auto">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="p-4 border rounded">
-                                                        <form class="row g-3" action="MainController" method="POST">
-                                                            <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
-                                                            <div class="row align-content-center">
-                                                                 <div class="col-md-3">
-                                                                <h4>Category Name</h4>
-                                                                <select name="txtCategoryId"class="form-select">
-                                                                    <option value="1">Normal Room</option>
-                                                                    <option value="2">Vip Room</option>
-                                                                    <option value="3">Family Room</option>
-                                                                </select>
-                                                                 </div>
-                                                                 <div class="col-md-3">
-                                                                <h4>Room Name</h4>
-                                                                <input type="text" name="txtCreateRoomName" value="${param.txttxtCreateRoomName}" required="" />
-                                                                <p class="error">${errors.roomNameLengthError}</p>
-                                                                 </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault01" class="form-label">Room Description</label>
-                                                                    <input type="text" class="form-control" id="validationDefault01" name="txtCreateRoomDescription" value="${param.txtCreateRoomDescription}" required="">
-                                                                    <p class="error">${errors.roomDescriptionLengthError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault02" class="form-label">Price</label>
-                                                                    <input type="text" class="form-control" name="txtCreateRoomPrice" value="${param.txtCreateRoomPrice}" required="">
-                                                                    <p class="error">${errors.priceStringError}</p>
-                                                                </div>
-                                                                <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Image</label>
-                                                                    <input type="file"  name="txtCreateImage" value="${param.txtCreateImage}" class="form-control" aria-label="file example" required>
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <button type="submit" class="btn btn-primary" name="btn" value="ADD ROOM">ADD ROOM</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    </br>
-                    </br>
-                    <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <form action="MainController" class="searchbar">
-                                <input class="form-control" type="text" type="text" name="txtSearchValueBooked" value="${param.txtSearchValueBooked}" placeholder="search username">
-                                <input type="hidden" value="SEARCH OWNED ROOM" name="btn" />
-                            </form>
-
-                            <div class="card radius-10 w-100">
-                                <div class="card-body">
-                                    <div class="d-flex align-items-center">
-                                        <h6 class="mb-0">View Room Booked</h6>
-                                    </div>
-                                    <div class="table-responsive mt-2">
-                                        <table id="example" class="table align-middle" style="width:100%">
-                                            <thead class="table-secondary">
-                                                <tr>
-                                                    <th>No</th>
-                                                    <th>ID ROOM</th>
-                                                    <th>ROOM NAME</th>
-                                                    <th>PRICE</th>
-                                                    <th>BOOKING DATE</th>
-                                                    <th>CHECK IN DATE</th>
-                                                    <th>CHECK OUT DATE</th>
-                                                    <th>USERNAME</th>
-                                                    <th>IMAGE</th>
-                                                    <th>Send Notification</th>
-                                                    <th>Send Bill</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach var="dtoBooked" items="${requestScope.SEARCH_BOOKED}" varStatus="counter">
-                                                <form action="MainController" method="POST">
-                                                    <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
-                                                    <tr>
-                                                        <td>${counter.count}</td>
-                                                        <td>
-                                                            <div class="d-flex align-items-center gap-3">
-                                                                <div class="product-info">
-                                                                    ${dtoBooked.roomId}
-                                                                </div>
-                                                            </div>
-
-
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                ${dtoBooked.roomName}
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                ${dtoBooked.roomPrice}
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                ${dtoBooked.bookingDate}
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                ${dtoBooked.checkinDate}
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                ${dtoBooked.checkoutDate}
-
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="box-input">
-                                                                ${dtoBooked.username}
-
-                                                            </div>
-                                                        </td>
-                                                        <td><img src=images/${dtoBooked.image} style="width: 100px; height: 100px;"></td>
-                                                        <td>
-                                                            <div class="btn btn-primary" style="margin-left: 30px;">
-                                                                <a href="sendNotification.jsp?username=${dtoBooked.username}"data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Send Notification" style="color: #FEA201;"><i class="fas fa-share"></i></a>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="btn btn-primary" style="margin-left: 10px;">
-                                                                <a href="service.jsp?roomId=${dtoBooked.roomId}""data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Send Bill" style="color: #FEA201;"><i class="fas fa-paper-plane"></i></a>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </form>
-                                            </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </div>
                                 </div>
-                            </div>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-
-
             <!--end page content wrapper-->
             <!--start footer-->
             <footer class="footer">
@@ -763,9 +561,6 @@
         <script src="assets/js/index.js"></script>
         <!-- Main JS-->
         <script src="assets/js/main.js"></script>
-        <script src="assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-        <script src="assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
-        <script src="assets/js/table-datatable.js"></script>
 
         <!--        <script>
                     function ConfirmDelete(){
@@ -774,17 +569,17 @@
                 </script>-->
 
         <script>
-                        function showOrHideDiv() {
-                            var show = document.getElementById("showOrHide");
-                            if (show.style.display === "block") {
-                                show.style.display = "none";
-                            } else {
-                                show.style.display = "block";
-                            }
-                        }
-                        function ConfirmDelete() {
-                            return confirm("Are you sure you want to delete?");
-                        }
+            function showOrHideDiv() {
+                var show = document.getElementById("showOrHide");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                } else {
+                    show.style.display = "none";
+                }
+            }
+            function ConfirmDelete() {
+                return confirm("Are you sure you want to delete?");
+            }
         </script>
     </body>
 

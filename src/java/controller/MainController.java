@@ -51,6 +51,7 @@ public class MainController extends HttpServlet {
     
     private static final String VIEW_ROOM_DETAIL = "RoomViewDetailController";
     private static final String VIEW_ROOM_DETAIL_GOOGLE = "RoomViewDetailForGoogleController";
+    private static final String EDIT_ROOM_DETAIL = "RoomViewDetailStaffController";
     
     
 
@@ -173,6 +174,8 @@ public class MainController extends HttpServlet {
                 url = VIEW_ROOM_DETAIL;
             } else if (button.equals("View Room Detail Google")) {
                 url = VIEW_ROOM_DETAIL_GOOGLE;
+            } else if (button.equals("Edit Room Detail")) {
+                url = EDIT_ROOM_DETAIL;
             }
             
 
