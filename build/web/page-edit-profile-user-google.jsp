@@ -34,7 +34,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>Edit Profile</title>
     </head>
     <body>
 
@@ -80,13 +80,39 @@
                     </li>
                     <li>
 
-                        <a href="regulation.jsp">
+                        <a href="RoomOwnedViewGoogleController">
                             <div class="parent-icon">
-                                <ion-icon name="home-outline"></ion-icon>
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="regulationGoogle.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
 
+                    </li>
+
+                    <li>
+
+                        <a href="viewBillOfUser.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
+                        </a>
                     </li>
                 </ul>
                 <!--end navigation-->

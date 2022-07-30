@@ -31,7 +31,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>View Room</title>
     </head>
     <body>
 
@@ -115,7 +115,7 @@
                     </li> 
                     <li>
                         <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Feedback Management
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
 
@@ -477,13 +477,16 @@
                                                                         </div>
                                                                     </div>
                                                                     <form action="MainController" method="post">
-                                                                        <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                        <a href="roomDetail.jsp?roomId=${dto.roomId}">
+                                                                            <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                        </a>
+                                                                        
                                                                         <div class="card-body">
                                                                             <div class="product-info">
-                                                                                <a href="javascript:;">
+                                                                                <a href="roomDetail.jsp?roomId=${dto.roomId}">
                                                                                     <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                 </a>
-                                                                                <a href="ecommerce-product-details.html">
+                                                                                <a href="roomDetail.jsp?roomId=${dto.roomId}">
                                                                                     <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                 </a>
                                                                                 <div class="d-flex align-items-center">
@@ -497,9 +500,6 @@
                                                                                         <i class="bx bxs-star text-warning"></i>
                                                                                         <i class="bx bxs-star text-warning"></i>
                                                                                     </div> 
-                                                                                </div>
-                                                                                <div class="product-action mt-2" >
-                                                                                    <a href="roomDetail.jsp?roomId=${dto.roomId}">Click here to view detail room</a>
                                                                                 </div>
                                                                                 <div class="product-action mt-2">
                                                                                     <div class="d-grid">

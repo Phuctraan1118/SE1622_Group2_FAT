@@ -29,7 +29,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>Regulation</title>
     </head>
     <body>
 
@@ -100,7 +100,7 @@
                         </a>
 
                     </li>
-                      <li>
+                    <li>
 
                         <a href="viewBillOfUser.jsp">
                             <div class="parent-icon">
@@ -110,6 +110,11 @@
                         </a>
 
                     </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
+                        </a>
+                    </li>
 
                 </ul>
                 <!--end navigation-->
@@ -120,12 +125,12 @@
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
                     <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
-<!--                    <form class="searchbar" action="MainController" method="POST">
-                        <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
-                        <input class="form-control" type="text" name="search" value="${param.search}" placeholder="Search Regulation">
-                        <input type="hidden" value="Search Regulation " name="btn">
-                        <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
-                    </form>-->
+                    <!--                    <form class="searchbar" action="MainController" method="POST">
+                                            <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><ion-icon name="search-sharp"></ion-icon></div>
+                                            <input class="form-control" type="text" name="search" value="${param.search}" placeholder="Search Regulation">
+                                            <input type="hidden" value="Search Regulation " name="btn">
+                                            <div class="position-absolute top-50 translate-middle-y search-close-icon"><ion-icon name="close-sharp"></ion-icon></div>
+                                        </form>-->
                     <div class="top-navbar-right ms-auto">
 
                         <ul class="navbar-nav align-items-center">

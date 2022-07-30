@@ -29,7 +29,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>Owned Room</title>
     </head>
     <body>
 
@@ -110,7 +110,11 @@
                         </a>
 
                     </li> 
-
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
+                        </a>
+                    </li>
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -386,18 +390,6 @@
                     <!--start breadcrumb-->
                     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
                         <h6 class="mb-0 text-uppercase">Owned Room</h6>
-                        <div class="ms-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-                                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!--end breadcrumb-->
 

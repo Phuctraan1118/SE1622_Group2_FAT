@@ -97,6 +97,21 @@
                         </a>
 
                     </li>
+                    <li>
+
+                        <a href="viewBillOfUser.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="shield-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
+                        </a>
+                    </li>
 
                 </ul>
                 <!--end navigation-->
@@ -453,20 +468,22 @@
                                                                     <div class="card product-card">
                                                                         <div class="card-header bg-transparent border-bottom-0">
                                                                             <div class="d-flex align-items-center justify-content-end">
-                                                                                <a href="javascript:;">
+                                                                                <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
                                                                                     <div class="product-wishlist"> <i class="bx bx-heart"></i>
                                                                                     </div>
                                                                                 </a>
                                                                             </div>
                                                                         </div>
                                                                         <form action="MainController" method="post">
-                                                                            <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                            <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
+                                                                                <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
+                                                                            </a>
                                                                             <div class="card-body">
                                                                                 <div class="product-info">
-                                                                                    <a href="javascript:;">
+                                                                                    <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
                                                                                         <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                     </a>
-                                                                                    <a href="ecommerce-product-details.html">
+                                                                                    <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
                                                                                         <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                     </a>
                                                                                     <div class="d-flex align-items-center">
@@ -481,9 +498,6 @@
                                                                                             <i class="bx bxs-star text-warning"></i>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div class="product-action mt-2" >
-                                                                                    <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">Click here to view detail room</a>
-                                                                                </div>
                                                                                     <div class="product-action mt-2">
                                                                                         <div class="d-grid">
                                                                                             <input type="hidden" name="txtUsername" value="${User.id}" />

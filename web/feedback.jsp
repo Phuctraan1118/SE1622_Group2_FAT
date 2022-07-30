@@ -114,7 +114,7 @@
                     </li> 
                     <li>
                         <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Feedback Management
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Send Feedback
                         </a>
                     </li>
 

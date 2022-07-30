@@ -28,7 +28,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>History Bill</title>
     </head>
     <body>
 
@@ -36,7 +36,7 @@
         <!--start wrapper-->
         <div class="wrapper">
             <!--start sidebar -->
-           <c:set var="User" value="${sessionScope.USER}"/>
+            <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
@@ -101,7 +101,7 @@
                         </a>
 
                     </li>
-                      <li>
+                    <li>
 
                         <a href="viewBillOfUser.jsp">
                             <div class="parent-icon">
@@ -111,6 +111,11 @@
                         </a>
 
                     </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
+                        </a>
+                    </li>
 
                 </ul>
                 <!--end navigation-->
@@ -140,46 +145,7 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown dropdown-large dropdown-apps">
-                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                    <div class="">
-                                        <ion-icon name="apps-sharp"></ion-icon>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                                    <div class="row row-cols-3 g-3 p-3">
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Orders</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Teams</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Tasks</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Media</div>  
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Files</div>
-                                        </div>
-                                        <div class="col text-center">
-                                            <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
-                                            </div>
-                                            <div class="app-title">Alerts</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                                
                             <li class="nav-item dropdown dropdown-large">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="position-relative">
@@ -321,42 +287,10 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-profile.html">
+                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="settings-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Setting</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="index2.html">
-                                            <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="speedometer-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Dashboard</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="wallet-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Earnings</span></div>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <div class="d-flex align-items-center">
-                                                <div class=""><ion-icon name="cloud-download-outline"></ion-icon></div>
-                                                <div class="ms-3"><span>Downloads</span></div>
                                             </div>
                                         </a>
                                     </li>
@@ -395,18 +329,6 @@
                                     <li class="breadcrumb-item active" aria-current="page">Review Cart</li>
                                 </ol>
                             </nav>
-                        </div>
-                        <div class="ms-auto">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-primary">Settings</button>
-                                <button type="button" class="btn btn-outline-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-                                    <a class="dropdown-item" href="javascript:;">Another action</a>
-                                    <a class="dropdown-item" href="javascript:;">Something else here</a>
-                                    <div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!--end breadcrumb-->
