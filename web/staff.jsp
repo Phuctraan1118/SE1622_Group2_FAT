@@ -110,7 +110,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="regulationManagement.jsp">
+                                <a href="RegulationDisplayForStaffController">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>

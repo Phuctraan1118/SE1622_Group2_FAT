@@ -23,12 +23,14 @@ public interface UserService {
 
     UserCreateDto updateUser(UserUpdateForm form);
 
-    boolean deleteUser(String userId);
+    boolean deleteUser(int userId);
+
+    boolean deleteCustomer(int userId);
 
     List<UserDisplayForm> searchStaff(String fullName);
 
     List<UserDisplayForm> searchCustomer(String fullName);
-    
+
     int getEndPage();
 
 }

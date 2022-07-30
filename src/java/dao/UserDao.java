@@ -112,13 +112,35 @@ public class UserDao {
         return list;
     }
 
-    public boolean deleteUser(String userId) throws SQLException {
+    public boolean deleteUser(int userId) throws SQLException {
         boolean check = false;
         try {
             connection = DBHelper.makeConnection();
             if (connection != null) {
                 preparedStatement = connection.prepareStatement(REMOVE_BY_ID);
-                preparedStatement.setString(1, userId);
+                preparedStatement.setInt(1, userId);
+                check = preparedStatement.executeUpdate() > 0;
+            }
+        } catch (SQLException | NamingException e) {
+            e.printStackTrace();
+        } finally {
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        }
+        return check;
+    }
+
+    public boolean deleteCustomer(int userId) throws SQLException {
+        boolean check = false;
+        try {
+            connection = DBHelper.makeConnection();
+            if (connection != null) {
+                preparedStatement = connection.prepareStatement(REMOVE_BY_ID);
+                preparedStatement.setInt(1, userId);
                 check = preparedStatement.executeUpdate() > 0;
             }
         } catch (SQLException | NamingException e) {

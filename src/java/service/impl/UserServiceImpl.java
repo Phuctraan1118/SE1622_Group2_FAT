@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean deleteUser(String userId) {
+    public boolean deleteUser(int userId) {
         boolean isDeleted = false;
         userDao = new UserDao();
         try {
@@ -135,6 +135,18 @@ public class UserServiceImpl implements UserService {
             endPage += 1;
         }
         return endPage;
+    }
+
+    @Override
+    public boolean deleteCustomer(int userId) {
+        boolean isDeleted = false;
+        userDao = new UserDao();
+        try {
+            isDeleted = userDao.deleteCustomer(userId);
+        } catch (SQLException ex) {
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return isDeleted;
     }
 
 }

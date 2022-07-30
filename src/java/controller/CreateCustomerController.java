@@ -37,7 +37,6 @@ public class CreateCustomerController extends HttpServlet {
         String url = FAIL;
         boolean check = true;
 
-        String lastSearchValue = request.getParameter("search");
         UserCreateForm userCreateForm = getUserForm(request);
         userValidationService = new UserValidationServiceImpl();
         UserError userError = userValidationService.createUserValidation(userCreateForm);
@@ -55,8 +54,7 @@ public class CreateCustomerController extends HttpServlet {
                 UserCreateDto userCreateDto = userService.createUser(userCreateForm);
                 if (userCreateDto != null) {
                     request.setAttribute("CREATED", userCreateForm.getUsername());
-                    url = "MainController?btn=Search Customer&search=" + lastSearchValue;
-//                    url = "customer.jsp";
+                    url = "SearchCustomerController?search=";
                     forwardToJsp(request, url, response);
                 }
             }

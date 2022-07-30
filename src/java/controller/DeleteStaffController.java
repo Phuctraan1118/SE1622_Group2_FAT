@@ -33,7 +33,7 @@ public class DeleteStaffController extends HttpServlet {
         String search = request.getParameter("search");
         boolean isDeleted = false;
         userService = new UserServiceImpl();
-        isDeleted = userService.deleteUser(userId);
+        isDeleted = userService.deleteUser(Integer.parseInt(userId));
         if (isDeleted) {
             url = SUCCESS + search;
             RequestDispatcher rd = request.getRequestDispatcher(url);

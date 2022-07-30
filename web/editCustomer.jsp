@@ -432,46 +432,33 @@
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault01" class="form-label">Username</label>
                                                                         <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}" disabled>
-                                                                        
-                    
-                    
-                    
-                    
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Full Name</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="${x.fullName}" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.fullNameError}</p> 
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Address</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtAddress" value="${x.address}" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.addressError}</p>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Phone</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Citizen Identification</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Email</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
-                                                                        <p class="error">${requestScope.USER_ERROR.emailError}</p>
+
                                                                     </div>
                                                                     <div class="col-md-1">
                                                                         <input type="hidden" name="txtUserId" value="${x.id}">
                                                                         <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
                                                                     </div>
                                                                     <div class="col-md-1">
-                                                                        <!--                                                        <button type="submit" name="btn" value="Delete Staff"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                                        title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" aria-label="Delete">
-                                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                                                                                                </button>-->
                                                                         <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Delete Customer">Delete Customer</button>
                                                                         <input type="hidden" name="userId" value="${x.id}"/>
                                                                         <input type="hidden" name="search" value="${param.search}"/>
