@@ -77,7 +77,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="bookingManagement.jsp">
+                                <a href="MainController?btn=ViewBooking">
                                     <ion-icon name="ellipse-outline"></ion-icon>Booking Management
                                 </a>
                             </li>
@@ -87,7 +87,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="feedback.jsp">
+                                <a href="viewfeedback.jsp">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
