@@ -477,16 +477,16 @@
                                                                         </div>
                                                                     </div>
                                                                     <form action="MainController" method="post">
-                                                                        <a href="roomDetail.jsp?roomId=${dto.roomId}">
+                                                                        <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                             <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
                                                                         </a>
                                                                         
                                                                         <div class="card-body">
                                                                             <div class="product-info">
-                                                                                <a href="roomDetail.jsp?roomId=${dto.roomId}">
+                                                                                <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                     <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                 </a>
-                                                                                <a href="roomDetail.jsp?roomId=${dto.roomId}">
+                                                                                 <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                     <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                 </a>
                                                                                 <div class="d-flex align-items-center">

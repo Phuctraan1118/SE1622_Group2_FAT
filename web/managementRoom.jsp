@@ -520,8 +520,8 @@
                                                                  </div>
                                                                  <div class="col-md-3">
                                                                 <h4>Room Name</h4>
-                                                                <input type="text" name="txtCreateRoomName" value="${param.txttxtCreateRoomName}" required="" />
-                                                                <p class="error">${errors.roomNameLengthError}</p>
+                                                                <input type="text" name="txtCreateRoomName" value="${param.txtCreateRoomName}" required="" />
+                                                                <p class="error">${errors.roomDescriptionLengthError}</p>
                                                                  </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault01" class="form-label">Room Description</label>

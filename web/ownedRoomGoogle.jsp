@@ -450,7 +450,7 @@
                                                                                         </td>
                                                                                         <td>
                                                                                             <div class="box-input">
-                                                                                                ${dtoBooked.roomDescription}
+                                                                                                ${dtoBooked.roomName}
 
                                                                                             </div>
                                                                                         </td>

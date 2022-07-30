@@ -407,7 +407,7 @@
                     <!--start product detail-->
                     <form action="MainController" method="get">
                         <input type="hidden" name="txtRoomId" value="${param.roomId}" />
-                        <input type="submit" name="btn" value="View Room Detail" />
+                        <input type="hidden" name="btn" value="View Room Detail" />
                         <section class="shop-page">
                             <div class="shop-container">
 

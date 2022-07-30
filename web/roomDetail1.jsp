@@ -16,7 +16,7 @@
         <h1> Room ${param.roomId}</h1>
         <form action="MainController" method="get">
             <input type="hidden" name="txtRoomId" value="${param.roomId}" />
-            <input type="submit" name="btn" value="View Room Detail" />
+            <input type="hidden" name="btn" value="View Room Detail" />
             <c:forEach var="dto" items="${requestScope.VIEW_ROOM_DETAIL}" >
                 <h4>Category Name</h4>
                 ${dto.categoryName} </br>
