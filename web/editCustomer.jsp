@@ -146,11 +146,6 @@
                     <div class="mobile-menu-button">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
-                    <p class="error">${requestScope.USER_ERROR.fullNameError}</p> 
-                    <p class="error">${requestScope.USER_ERROR.addressError}</p>
-                    <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
-                    <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
-                    <p class="error">${requestScope.USER_ERROR.emailError}</p>
                     <p class="error">${requestScope.USER_ERROR.messageError}</p>
                     <div class="top-navbar-right ms-auto">
 
@@ -408,7 +403,7 @@
                                             <ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Edit Staff</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Edit Customer</li>
                                 </ol>
                             </nav>
                         </div>
@@ -437,27 +432,36 @@
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault01" class="form-label">Username</label>
                                                                         <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}" disabled>
+                                                                        
+                    
+                    
+                    
+                    
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Full Name</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="${x.fullName}" required="">
+                                                                        <p class="error">${requestScope.USER_ERROR.fullNameError}</p> 
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Address</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtAddress" value="${x.address}" required="">
+                                                                        <p class="error">${requestScope.USER_ERROR.addressError}</p>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Phone</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
+                                                                        <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Citizen Identification</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
+                                                                        <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
                                                                     </div>
                                                                     <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Email</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
-
+                                                                        <p class="error">${requestScope.USER_ERROR.emailError}</p>
                                                                     </div>
                                                                     <div class="col-md-1">
                                                                         <input type="hidden" name="txtUserId" value="${x.id}">

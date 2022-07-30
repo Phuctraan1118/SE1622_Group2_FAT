@@ -79,7 +79,7 @@
                     </li>
                     <li>
 
-                        <a href="RoomOwnedViewGoogleController">
+                          <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room+For+Google">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
