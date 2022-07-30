@@ -34,7 +34,6 @@ public class MainController extends HttpServlet {
     private static final String SEARCH_NOTIFICATION = "NotificationDisplayController";
     private static final String UPDATE_NOTIFICATION = "NotificationUpdateController";
     private static final String DELETE_NOTIFICATION = "NotificationDeleteController";
-    private static final String SEARCH_NOTIFICATION_FOR_CUSTOMER = "NotificationDisplayForCustomer";
 
     private static final String SEARCH_REGULATION = "RegulationDisplayController";
     private static final String SEARCH_REGULATION_IN_SEND_NOTI_PAGE = "RegulationForSendNotiDisplayController";
@@ -45,6 +44,7 @@ public class MainController extends HttpServlet {
 
     private static final String CREATE_FEEDBACK = "FeedbackCreateController";
     private static final String REPLY_FEEDBACK = "FeedbackReplyController";
+    private static final String VIEW_FEEDBACK_REPLY = "FeedbackReplyDisplayController";
 
     private static final String CREATE_SERVICE = "ServiceCreateController";
     private static final String CREATE_BILL = "BillCreateController";
@@ -174,6 +174,8 @@ public class MainController extends HttpServlet {
                 url = VIEW_ROOM_DETAIL_GOOGLE;
             } else if (button.equals("Edit Room Detail")) {
                 url = EDIT_ROOM_DETAIL;
+            } else if (button.equals("View Feedback Reply")) {
+                url = VIEW_FEEDBACK_REPLY;
             }
 
         } finally {

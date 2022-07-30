@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en" class="semi-dark">
     <head>
@@ -377,16 +378,44 @@
                                         <label class="form-label">User Name</label>
                                         <input class="form-control" type="text" placeholder="Enter your username" name="txtUsername" value="" required="">
                                     </div>
-                                    <!--                                    <div class="col-12">
-                                                                            <label class="form-label">Message</label>
-                                                                            <textarea class="form-control" rows="4" cols="4"></textarea>
-                                                                        </div>-->
                                     <div class="col-12">
                                         <div class="d-grid">
                                             <button type="submit" name="btn" value="Send Feedback" class="btn btn-primary">Send</button>
                                         </div>
                                     </div>
                                 </form>
+                                <form action="MainController" method="POST">
+                                    <div class="d-grid">
+                                        <input type="hidden" name="txtUsername" value="${USER.id}">
+                                        <button type="submit" name="btn" value="View Feedback Reply" class="btn btn-primary">View Feedback Reply</button>
+                                    </div>
+                                </form>
+                                <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Feedback Reply Content</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach var="fbReply" items="${requestScope.VIEW_FEEDBACK_REPLY}" varStatus="counter">
+                                            <tr>
+                                                <td>${counter.count}</td>
+                                                <td>${fbReply.contentReply}</td>
+                                                <td>${fbReply.username}</td>
+                                            </tr>
+                                            </form>
+                                        </c:forEach>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>NO</th>
+                                            <th>Feedback Name</th>
+                                            <th>Username</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
                             </div>
                         </div>
                     </div>

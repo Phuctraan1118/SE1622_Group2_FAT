@@ -109,14 +109,12 @@
 
                     </li> 
                     <li>
-
                         <a href="FeedbackViewController?txtUsername=${USER.id}">
                             <div class="parent-icon">
                                 <ion-icon name="shield-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Feedback</div>
                         </a>
-
                     </li> 
                     <li>
                         <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">

@@ -4,11 +4,14 @@
  */
 package dao;
 
+import dto.FeedbackDTO;
 import dto.FeedbackReplyDto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.naming.NamingException;
 import utils.DBHelper;
 
@@ -24,6 +27,9 @@ public class FeedbackReplyDao {
 
     private static final String REPLY_FEEDBACK = "INSERT INTO tblFeedbackReply(contentReply, username) "
             + "values (?,?)";
+    private static final String VIEW_FEEDBACK_REPLY = "select id, contentReply "
+            + "from tblFeedbackReply "
+            + "where username like ?";
 
     public boolean replyFeedback(FeedbackReplyDto fb)
             throws SQLException, NamingException {
@@ -46,5 +52,39 @@ public class FeedbackReplyDao {
             }
         }
         return row;
+    }
+
+    public List<FeedbackReplyDto> viewFeedback(String username)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<FeedbackReplyDto> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(VIEW_FEEDBACK_REPLY);
+                stm.setString(1, "%" + username + "%");
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String contentReply = rs.getString("contentReply");
+                    list.add(new FeedbackReplyDto(id, contentReply, username));
+
+                }//End traverse Result Set
+            }//end if connection has opened
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
+
     }
 }
