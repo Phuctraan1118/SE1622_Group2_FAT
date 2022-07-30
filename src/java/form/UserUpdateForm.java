@@ -17,7 +17,18 @@ public class UserUpdateForm {
     private String citizenIdentification;
     private String email;
 
+    private int userId;
+
     public UserUpdateForm() {
+    }
+
+    public UserUpdateForm(String fullName, String address, String phone, String citizenIdentification, String email, int userId) {
+        this.fullName = fullName;
+        this.address = address;
+        this.phone = phone;
+        this.citizenIdentification = citizenIdentification;
+        this.email = email;
+        this.userId = userId;
     }
 
     public UserUpdateForm(String username, String fullName, String address, String phone, String citizenIdentification, String email) {
@@ -28,7 +39,15 @@ public class UserUpdateForm {
         this.citizenIdentification = citizenIdentification;
         this.email = email;
     }
-    
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -77,6 +96,4 @@ public class UserUpdateForm {
         this.email = email;
     }
 
-    
-    
 }

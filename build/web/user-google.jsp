@@ -468,23 +468,22 @@
                                                                     <div class="card product-card">
                                                                         <div class="card-header bg-transparent border-bottom-0">
                                                                             <div class="d-flex align-items-center justify-content-end">
-                                                                                <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
+                                                                                <<a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                     <div class="product-wishlist"> <i class="bx bx-heart"></i>
                                                                                     </div>
                                                                                 </a>
                                                                             </div>
                                                                         </div>
                                                                         <form action="MainController" method="post">
-                                                                            <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
+                                                                             <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                 <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
                                                                             </a>
                                                                             <div class="card-body">
                                                                                 <div class="product-info">
-                                                                                    <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
+                                                                                     <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                         <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                     </a>
-                                                                                    <a href="roomDetailGoogle.jsp?roomId=${dto.roomId}">
-                                                                                        <h6 class="product-name mb-2">${dto.roomName}</h6>
+                                                                                   <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">                                                                                        <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                     </a>
                                                                                     <div class="d-flex align-items-center">
                                                                                         <div class="mb-1 product-price">

@@ -484,12 +484,11 @@
                                             <th>CMND/CCCD</th>
                                             <th>Email</th>
                                             <th>&nbsp;</th>
-                                            <th>&nbsp;</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach var="user" items="${sessionScope.LIST_STAFF}" varStatus="counter">
-                                        <form action="MainController">
+                                        <form action="MainController" method="POST">
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>
@@ -512,72 +511,12 @@
                                                                                                                         title="" data-bs-original-title="Update info" aria-label="Update">
                                                                                                                     <ion-icon name="pencil-sharp"></ion-icon>
                                                                                                                 </button> -->
-                                                        <a href="editStaff.jsp?userId=${user.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Update info" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
-                                                        <input type="hidden" name="search" value="${param.search}"/>
-                                                        <input type="hidden" name="userId" value="${user.id}"/>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div  class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Staff"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                        </button>
+                                                        <a href="editStaff.jsp?userId=${user.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                         <input type="hidden" name="userId" value="${user.id}"/>
                                                     </div>
                                                 </td>
                                             </tr>
-
-
-
-
-                                            <!--                                            <tr>
-                                                                                            <td>${counter.count}</td>
-                                                                                            <td>
-                                                                                                <div class="d-flex align-items-center gap-3">
-                                                                                                    <div class="product-info">
-                                                                                                        <h6 class="product-name mb-1"><input type="text" name="txtUsername" class="form-control" id="validationDefault02" disabled value="${user.username}"></h6>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                <div class="box-input">
-                                                                                                    <input type="text" name="txtFullName" class="form-control" id="validationDefault02" disabled value="${user.fullName}">
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                <div class="box-input">
-                                                                                                    <input type="text" name="txtAddress" class="form-control" id="validationDefault02" disabled value="${user.address}">
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td><input type="text" name="txtPhone" class="form-control" id="validationDefault02" disabled value="${user.phone}"></td>
-                                                                                            <td><input type="text" name="txtCmnd" class="form-control" id="validationDefault02" disabled value="${user.citizenIdentification}"></td>
-                                                                                            <td><input type="text" name="txtEmail" class="form-control" id="validationDefault02" disabled value="${user.email}"></td>
-                                                                                            <td><img src="images/${user.getImage()}" style="width: 100px; height: 100px;"></td>
-                                                                                            <td>
-                                                                                                <div class="d-flex align-items-center gap-3 fs-6">
-                                                                                                                                                            <button type="submit" name="btn" value="Update Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                                                                    title="" data-bs-original-title="Update info" aria-label="Update">
-                                                                                                                                                                <ion-icon name="pencil-sharp"></ion-icon>
-                                                                                                                                                            </button> 
-                                                                                                    <a href="editStaff.jsp?userId=${user.id}"> <ion-icon name="pencil-sharp"></ion-icon></a>
-                                                                                                    <input type="hidden" name="search" value="${param.search}"/>
-                                                                                                    <input type="hidden" name="userId" value="${user.id}"/>
-                                                                                                </div>
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                <div class="d-flex align-items-center gap-3 fs-6">
-                                                                                                    <button type="submit" name="btn" value="Delete Staff" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                            title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                                                                        <ion-icon name="trash-sharp"></ion-icon>
-                                                                                                    </button>
-                                                                                                    <input type="hidden" name="search" value="${param.search}"/>
-                                                                                                    <input type="hidden" name="userId" value="${user.id}"/>
-                                                                                                </div>
-                                                                                            </td>
-                                                                                        </tr>-->
-
                                         </form>
                                     </c:forEach>
                             </div>

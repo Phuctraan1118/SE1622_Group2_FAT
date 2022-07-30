@@ -479,8 +479,6 @@
                                             <th>Phone</th>
                                             <th>CMND/CCCD</th>
                                             <th>Email</th>
-                                            <th>Send Bill</th>
-                                            <th>&nbsp;</th>
                                             <th>&nbsp;</th>
                                         </tr>
                                     </thead>
@@ -511,22 +509,11 @@
                                                                                                                         title="" data-bs-original-title="Update info" aria-label="Update">
                                                                                                                     <ion-icon name="pencil-sharp"></ion-icon>
                                                                                                                 </button> -->
-                                                        <a href="editCustomer.jsp?userId=${user.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Update info" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
+                                                        <a href="editCustomer.jsp?userId=${user.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Edit info" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                         <input type="hidden" name="userId" value="${user.id}"/>
                                                     </div>
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <button type="submit" name="btn" value="Delete Customer"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                            <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                        </button>
-                                                        <input type="hidden" name="search" value="${param.search}"/>
-                                                        <input type="hidden" name="userId" value="${user.id}"/>
-                                                    </div>
-                                                </td>
-                                                <td><a href="service.jsp?userId=${user.id}"</td>
                                             </tr>
 
 

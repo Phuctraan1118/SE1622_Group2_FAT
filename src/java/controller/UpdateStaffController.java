@@ -53,7 +53,7 @@ public class UpdateStaffController extends HttpServlet {
             if (userDto != null) {
                 request.setAttribute("UPDATED", userUpdateForm.getUsername());
                 url = SUCCESS;
-                forwardToJsp(request, url , response);
+                forwardToJsp(request, url, response);
             }
         }
 
@@ -65,13 +65,13 @@ public class UpdateStaffController extends HttpServlet {
     }
 
     private UserUpdateForm getUserForm(HttpServletRequest request) {
-        String username = request.getParameter("txtUsername");
+        String userId = request.getParameter("txtUserId");
         String fullName = request.getParameter("txtFullName");
         String address = request.getParameter("txtAddress");
         String phone = request.getParameter("txtPhone");
         String cmnd = request.getParameter("txtCmnd");
         String email = request.getParameter("txtEmail");
-        return new UserUpdateForm(username, fullName, address, phone, cmnd, email);
+        return new UserUpdateForm(fullName, address, phone, cmnd, email,Integer.parseInt(userId));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

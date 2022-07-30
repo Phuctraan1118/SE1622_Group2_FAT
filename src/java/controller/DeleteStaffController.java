@@ -22,7 +22,7 @@ import service.impl.UserServiceImpl;
 public class DeleteStaffController extends HttpServlet {
 
     private static final String ERROR = "staff.jsp";
-    private static final String SUCCESS = "staff.jsp";
+    private static final String SUCCESS = "SearchStaffController?search=";
     private UserService userService;
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -30,13 +30,15 @@ public class DeleteStaffController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
         String userId = request.getParameter("userId");
-
+        String search = request.getParameter("search");
+        boolean isDeleted = false;
         userService = new UserServiceImpl();
-        boolean isDeleted = userService.deleteUser(userId);
-
-        url = SUCCESS;
-        RequestDispatcher rd = request.getRequestDispatcher(url);
-        rd.forward(request, response);
+        isDeleted = userService.deleteUser(userId);
+        if (isDeleted) {
+            url = SUCCESS + search;
+            RequestDispatcher rd = request.getRequestDispatcher(url);
+            rd.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

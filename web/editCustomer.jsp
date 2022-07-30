@@ -416,7 +416,7 @@
                                                                 <div class="row align-content-center">
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault01" class="form-label">Username</label>
-                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}">
+                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}" disabled>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Full Name</label>
@@ -430,20 +430,30 @@
                                                                         <label for="validationDefault02" class="form-label">Phone</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
                                                                     </div>
-                                                                    <div class="col-md-2">
+                                                                    <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Citizen Identification</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Email</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
+
                                                                     </div>
                                                                     <div class="col-md-1">
-                                                                        <input type="hidden" name="userId" value="${x.id}">
-                                                                        <button type="button" class="btn btn-success px-5" onclick="success_noti()" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
-                                                                        <button type="submit" class="btn btn-info px-5" style="margin-top: 24px;"  name="btn" value="Update Customer">Back to Customer Management</button>
+                                                                        <input type="hidden" name="txtUserId" value="${x.id}">
+                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <!--                                                        <button type="submit" name="btn" value="Delete Staff"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                                        title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" aria-label="Delete">
+                                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
+                                                                                                                                </button>-->
+                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Delete Customer">Delete Customer</button>
+                                                                        <input type="hidden" name="userId" value="${x.id}"/>
+                                                                        <input type="hidden" name="search" value="${param.search}"/>
                                                                     </div>
                                                                 </div>
+
                                                             </form>
                                                         </c:if> 
                                                     </c:forEach>

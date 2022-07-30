@@ -412,7 +412,7 @@
                                                                 <div class="row align-content-center">
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault01" class="form-label">Username</label>
-                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}">
+                                                                        <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="${x.username}" disabled>
                                                                     </div>
                                                                     <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Full Name</label>
@@ -436,8 +436,17 @@
 
                                                                     </div>
                                                                     <div class="col-md-1">
-                                                                        <input type="hidden" name="userId" value="${x.id}">
+                                                                        <input type="hidden" name="txtUserId" value="${x.id}">
                                                                         <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Staff">Update Staff</button>
+                                                                    </div>
+                                                                    <div class="col-md-1">
+                                                                        <!--                                                        <button type="submit" name="btn" value="Delete Staff"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                                                                                                                        title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" aria-label="Delete">
+                                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
+                                                                                                                                </button>-->
+                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Delete Staff">Delete Staff</button>
+                                                                        <input type="hidden" name="userId" value="${x.id}"/>
+                                                                        <input type="hidden" name="search" value="${param.search}"/>
                                                                     </div>
                                                                 </div>
 
@@ -459,7 +468,7 @@
             <!--start footer-->
             <footer class="footer">
                 <div class="footer-text">
-                    Copyright © 2021. All right reserved.
+                    FAT-Group2
                 </div>
             </footer>
             <!--end footer-->

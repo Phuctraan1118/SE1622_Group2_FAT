@@ -42,7 +42,7 @@ public class UserDao {
     private static final String ID_USER = "idUser";
     private static final String SEARCH_CUSTOMER_BY_FULLNAME = "SELECT idUser, username, fullName, email, address, phone, citizenIdentification,image FROM tblUser WHERE fullName like ? AND role like 'US'";
     private static final String REMOVE_BY_ID = "DELETE tblUser WHERE idUser=?";
-    private static final String UPDATE_CUSTOMER = "UPDATE tblUser SET fullName=?, email=?, address=?, phone=?,citizenIdentification=? WHERE username=?";
+    private static final String UPDATE_USER = "UPDATE tblUser SET fullName=?, email=?, address=?, phone=?,citizenIdentification=? WHERE idUser=?";
     private static final String DUPLICATE = "SELECT username FROM tblUser WHERE username=?";
 
     private static final String ADD_USER_QUERY = "INSERT into tblUser (username, password, fullName, email, address, "
@@ -139,13 +139,13 @@ public class UserDao {
         try {
             connection = DBHelper.makeConnection();
             if (connection != null) {
-                preparedStatement = connection.prepareStatement(UPDATE_CUSTOMER);
+                preparedStatement = connection.prepareStatement(UPDATE_USER);
                 preparedStatement.setString(1, user.getFullName());
                 preparedStatement.setString(2, user.getEmail());
                 preparedStatement.setString(3, user.getAddress());
                 preparedStatement.setString(4, user.getPhone());
                 preparedStatement.setString(5, user.getCitizenIdentification());
-                preparedStatement.setString(6, user.getUsername());
+                preparedStatement.setInt(6, user.getUserId());
                 check = preparedStatement.executeUpdate() > 0;
             }
         } catch (Exception e) {

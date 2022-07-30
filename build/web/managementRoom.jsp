@@ -427,7 +427,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>ID ROOM</th>
-                                            <th>DESCRIPTION</th>
+                                            <th>ROOM NAME</th>
                                             <th>PRICE</th>
                                             <th>IMAGE</th>
                                             <th>EDIT</th>
@@ -442,19 +442,14 @@
                                                 <td>${counter.count}</td>
                                                 <td> ${dto.roomId}</td>
                                                 <td>
-                                                    ${dto.roomDescription}
+                                                    ${dto.roomName}
                                                 </td>
                                                 <td>
                                                     ${dto.roomPrice}
                                                 </td>
                                                 <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
                                                 <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <a href="editRoom.jsp?txtRoomId=${dto.roomId}&txtRoomDescription=${dto.roomDescription}
-                                                           &txtRoomPrice=${dto.roomPrice}&txtImage=${dto.image}"data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-original-title="Update room" style="color: #FEA201;"><i class="fa-solid fa-pencil"></i></a>
-                                                        <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
-
-                                                    </div>
+                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=Edit+Room+Detail">Edit</a>
                                                 </td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 fs-6">
@@ -515,6 +510,19 @@
                                                         <form class="row g-3" action="MainController" method="POST">
                                                             <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
                                                             <div class="row align-content-center">
+                                                                 <div class="col-md-3">
+                                                                <h4>Category Name</h4>
+                                                                <select name="txtCategoryId"class="form-select">
+                                                                    <option value="1">Normal Room</option>
+                                                                    <option value="2">Vip Room</option>
+                                                                    <option value="3">Family Room</option>
+                                                                </select>
+                                                                 </div>
+                                                                 <div class="col-md-3">
+                                                                <h4>Room Name</h4>
+                                                                <input type="text" name="txtCreateRoomName" value="${param.txtCreateRoomName}" required="" />
+                                                                <p class="error">${errors.roomDescriptionLengthError}</p>
+                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault01" class="form-label">Room Description</label>
                                                                     <input type="text" class="form-control" id="validationDefault01" name="txtCreateRoomDescription" value="${param.txtCreateRoomDescription}" required="">
@@ -564,7 +572,7 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>ID ROOM</th>
-                                                    <th>DESCRIPTION</th>
+                                                    <th>ROOM NAME</th>
                                                     <th>PRICE</th>
                                                     <th>BOOKING DATE</th>
                                                     <th>CHECK IN DATE</th>
@@ -592,7 +600,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="box-input">
-                                                                ${dtoBooked.roomDescription}
+                                                                ${dtoBooked.roomName}
 
                                                             </div>
                                                         </td>

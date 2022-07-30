@@ -35,8 +35,7 @@ public class SearchStaffController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String url = ERROR;
-        UserDao userDao;
-        userDao = new UserDao();
+      
         HttpSession session = request.getSession(true);
         String indexPage = request.getParameter("index");
         if (indexPage == null) {

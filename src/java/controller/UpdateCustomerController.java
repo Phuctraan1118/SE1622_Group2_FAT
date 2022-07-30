@@ -26,7 +26,7 @@ import service.impl.UserValidationServiceImpl;
 @WebServlet(name = "UpdateCustomerController", urlPatterns = {"/UpdateCustomerController"})
 public class UpdateCustomerController extends HttpServlet {
 
-    private static final String ERROR = "editCustomer.jsp?userId=";
+   private static final String ERROR = "editCustomer.jsp?userId=";
     private static final String SUCCESS = "SearchCustomerController?search=";
     private UserService userService;
     private UserValidationService userValidationService;
@@ -41,7 +41,7 @@ public class UpdateCustomerController extends HttpServlet {
         String userId = request.getParameter("userId");
         userValidationService = new UserValidationServiceImpl();
         UserError userError = userValidationService.UpdateUserValidation(userUpdateForm);
-         if (userError != null) {
+        if (userError != null) {
             check = false;
             url = ERROR + userId;
             request.setAttribute("USER_ERROR", userError);
@@ -56,6 +56,7 @@ public class UpdateCustomerController extends HttpServlet {
                 forwardToJsp(request, url, response);
             }
         }
+
     }
 
     private void forwardToJsp(HttpServletRequest request, String url, HttpServletResponse response) throws ServletException, IOException {
@@ -64,13 +65,13 @@ public class UpdateCustomerController extends HttpServlet {
     }
 
     private UserUpdateForm getUserForm(HttpServletRequest request) {
-        String username = request.getParameter("txtUsername");
+        String userId = request.getParameter("txtUserId");
         String fullName = request.getParameter("txtFullName");
         String address = request.getParameter("txtAddress");
         String phone = request.getParameter("txtPhone");
         String cmnd = request.getParameter("txtCmnd");
         String email = request.getParameter("txtEmail");
-        return new UserUpdateForm(username, fullName, address, phone, cmnd, email);
+        return new UserUpdateForm(fullName, address, phone, cmnd, email,Integer.parseInt(userId));
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
