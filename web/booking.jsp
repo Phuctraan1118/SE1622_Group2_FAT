@@ -33,7 +33,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>Booking</title>
     </head>
     <body>
 
@@ -492,7 +492,7 @@
                                                     <label  class="form-label">Check Out Date</label>
                                                     <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker"   />
                                                 </div>
-                                                <input type="submit" value="Confirm Room" name="btn" />
+                                                <input type="submit" class="btn btn-dark" value="Confirm Room" name="btn" />
                                             </div>
                                         </div>
                                     </div>

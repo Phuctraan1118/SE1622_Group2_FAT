@@ -468,17 +468,17 @@
                                                 </td>
                                                 <td><img src=images/${dto.image} style="width: 100px; height: 100px;"></td>
                                                 <td>
-                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=Edit+Room+Detail">Edit</a>
+                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=Edit+Room+Detail" class="text-warning text-center"><ion-icon name="pencil-sharp"></ion-icon></a>
                                                 </td>
                                         <form action="MainController" method="get">
                                             <td>
                                                 <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
-                                                <a href="MainController?txtRoomId=${dto.roomId}&btn=Display+Image+Room">Edit Image Room</a>
+                                                <a href="MainController?txtRoomId=${dto.roomId}&btn=Display+Image+Room" class="text-warning text-center"><ion-icon name="pencil-sharp"></ion-icon></a>
                                             </td>
                                             <td>
                                                 <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
                                                 <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
-                                                <input type="submit" name="btn" value="Delete Room" />
+                                                <input type="submit" onclick=" return ConfirmDelete();" class="btn btn-danger" name="btn" value="Delete Room" />
                                             </td>
 
                                             </tr>

@@ -418,9 +418,7 @@
                                                 <h3 class="mb-2">${User.name}</h3>
                                                 <p>${User.address}</p>
                                             </div>
-                                            <div class="">
-                                                <a href="javascript:;" class="btn btn-primary"><ion-icon name="send-sharp"></ion-icon>Send Message</a>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -438,56 +436,21 @@
                             <div class="card radius-10">
                                 <div class="card-body">
                                     <h5 class="mb-3">Location</h5>
-                                    <p class="mb-0"><ion-icon name="compass-sharp" class="me-2"></ion-icon>Kalkio Network</p>
+                                    <p class="mb-0"><ion-icon name="compass-sharp" class="me-2"></ion-icon>${User.address}</p>
                                 </div>
                             </div>
 
                             <div class="card radius-10">
                                 <div class="card-body">
                                     <h5 class="mb-3">Connect</h5>
-                                    <p class=""><ion-icon name="globe-sharp" class="me-2"></ion-icon>www.example.com</p>
+                                    <p class=""><ion-icon name="globe-sharp" class="me-2"></ion-icon>${User.email}</p>
                                     <p class=""><ion-icon name="logo-facebook" class="me-2"></ion-icon>Facebook</p>
                                     <p class=""><ion-icon name="logo-twitter" class="me-2"></ion-icon>Twitter</p>
                                     <p class="mb-0"><ion-icon name="logo-linkedin" class="me-2"></ion-icon>LinkedIn</p>
                                 </div>
                             </div>
 
-                            <div class="card radius-10">
-                                <div class="card-body">
-                                    <h5 class="mb-3">Skills</h5>
-                                    <div class="mb-3">
-                                        <p class="mb-1">Web Design</p>
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 45%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <p class="mb-1">HTML5</p>
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 55%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <p class="mb-1">PHP7</p>
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 65%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-3">
-                                        <p class="mb-1">CSS3</p>
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 75%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="mb-0">
-                                        <p class="mb-1">Photoshop</p>
-                                        <div class="progress" style="height: 5px;">
-                                            <div class="progress-bar" role="progressbar" style="width: 85%"></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                            
 
                         </div>
                     </div><!--end row-->

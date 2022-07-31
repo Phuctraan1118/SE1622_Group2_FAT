@@ -248,7 +248,7 @@
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
                                                     <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
                                                     <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
@@ -384,8 +384,6 @@
                                                                 <div class="ms-3">
                                                                     <h6 class="mb-0">${User.name}</h6>
                                                                     <p class="mb-0">${User.email}</p>
-                                                                </div>
-                                                                <div class="ms-auto"><a href="page-edit-profile-user-google.jsp?txtFullname=${User.name}&txtEmail=${User.email}&txtImg=${User.img}" class="btn btn-light btn-ecomm"><i class='bx bx-edit'></i> Edit Profile</a>
                                                                 </div>
                                                             </div>
                                                             <hr>

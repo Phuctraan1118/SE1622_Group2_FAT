@@ -446,7 +446,9 @@
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>${fb.feedbackContent}</td>
-                                                <td>${fb.status}</td>
+                                                <c:if test="${fb.status eq true}">
+                                                    <td>Pending</td>
+                                                </c:if>
                                             </tr>
                                         </form>
                                     </c:forEach>
