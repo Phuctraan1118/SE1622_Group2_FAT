@@ -30,7 +30,7 @@
         <link href="assets/css/header-colors.css" rel="stylesheet" />
         <style>
             .success{
-                color: : green;
+                color: green;
             }
         </style>
         <title>Reply Feedback</title>

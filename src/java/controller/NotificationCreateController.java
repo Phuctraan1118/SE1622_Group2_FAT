@@ -36,7 +36,7 @@ public class NotificationCreateController extends HttpServlet {
         NotificationDto notificationDto = notificationService.createNoti(notificationForm);
         if (notificationDto != null) {
             request.setAttribute("CREATED", notificationDto.getUsername());
-            url = "notifi.jsp";
+            url = "staff.jsp";
             forwardToJsp(request, url, response);
         }
         

@@ -416,27 +416,28 @@
                                         <input type="submit" name="btn" value="Display Regulation In SendNotiPage">
                                         <input type="hidden" name="txtUsername" value="${username}">
                                 </form>
-                                <form class="row g-3">
-                                    <c:if test = "${not empty requestScope.LIST_REGULATION_FOR_SEND_NOTI}">
-                                        <table>
-                                            <thead>
+
+                                <c:if test = "${not empty requestScope.LIST_REGULATION_FOR_SEND_NOTI}">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>NO</th>
+                                                <th>Regulation Name</th>
+                                                <th>Regulation Detail</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="regulation" items="${requestScope.LIST_REGULATION_FOR_SEND_NOTI}" varStatus="counter">
                                                 <tr>
-                                                    <th>NO</th>
-                                                    <th>Regulation Name</th>
-                                                    <th>Regulation Detail</th>
+                                                    <td>${counter.count}</td>
+                                                    <td>${regulation.regulationName}</td>
+                                                    <td>${regulation.regulationDetail}</td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach var="regulation" items="${requestScope.LIST_REGULATION_FOR_SEND_NOTI}" varStatus="counter">
-                                                    <tr>
-                                                        <td>${counter.count}</td>
-                                                        <td>${regulation.regulationName}</td>
-                                                        <td>${regulation.regulationDetail}</td>
-                                                    </tr>
-                                                </c:forEach>
-                                            </tbody>
-                                        </table>
-                                    </c:if>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </c:if>
+                                <form action="MainController" method="POST" class="row g-3">
                                     <div class="col-12">
                                         <label class="form-label">Notification Name</label>
                                         <input class="form-control" name="txtNotificationName" value="" placeholder="Enter Notification Name" class="box">
@@ -455,7 +456,7 @@
                                                                         </div>-->
                                     <div class="col-12">
                                         <div class="d-grid">
-                                            <button type="submit" nname="btn" value="Add Notification" class="btn btn-primary" class="btn">Add Notification</button>
+                                            <button type="submit" name="btn" value="Add Notification" class="btn btn-primary" class="btn">Add Notification</button>
                                         </div>
                                     </div>
                                 </form>
