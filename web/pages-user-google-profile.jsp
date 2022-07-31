@@ -56,7 +56,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="pages-user-google-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
@@ -65,7 +65,7 @@
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="page-edit-profile-user-google">
+                            <a href="page-edit-profile-user-google.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>

@@ -28,7 +28,8 @@ import utils.MyApplicationConstants;
 public class RoomUpdateController extends HttpServlet {
 
    // private static final String ERROR = "MainController?txtSearchValue=&btn=SEARCH+ROOM";
-    private static final String ERROR = "error.jsp";
+      private static final String ERROR = "MainController?btn=Edit+Room+Detail&txtRoomId=";
+//    private static final String ERROR = "error.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,8 +46,9 @@ public class RoomUpdateController extends HttpServlet {
         String imageOld = request.getParameter("txtImageOld");
         RoomInsertError errors = new RoomInsertError();
       
-     //   String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
-        String url = ERROR;
+//        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
+//       
+         String url = ERROR + roomId;
         try {
             if (roomName.trim().length() < 3 || roomName.trim().length() > 100) {
                 foundErr = true;

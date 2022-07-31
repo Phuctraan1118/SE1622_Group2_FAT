@@ -57,7 +57,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user1-profile.jsp">
+                        <a href="pages-user-google-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
@@ -66,7 +66,7 @@
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="pages-edit-profile.jsp">
+                            <a href="pages-edit-profile-user-google.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -76,49 +76,13 @@
                     </c:if>
                     <li>
 
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+Google">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Room</div>
                         </a>
 
-                    </li>
-
-                    <li>
-
-                        <a href="RoomOwnedViewController">
-                            <div class="parent-icon">
-                                <ion-icon name="planet-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">Owned Room</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="RegulationDisplayController">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Regulation</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="viewBillOfUser.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View History Bill</div>
-                        </a>
-
-                    </li> 
-                    <li>
-                        <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Feedback Management
-                        </a>
                     </li>
 
                 </ul>
@@ -410,7 +374,7 @@
 
 
                     <!--start product detail-->
-                    <form action="MainController" method="get">
+             
                         <input type="hidden" name="txtRoomId" value="${param.roomId}" />
                         <input type="submit" name="btn" value="View Room Detail Google" />
                         <section class="shop-page">
@@ -470,9 +434,11 @@
                                                                 </dl>
                                                                 <!--end row-->
                                                                 <div class="d-flex gap-2 mt-3">
+                                                                    <form action="MainController" method="post">
                                                                     <input type="hidden" name="txtUsername" value="${User.id}" />
                                                                     <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                                    <input type="submit" class="btn btn-primary btn-ecomm" name="btn" value="Booking Room"/>
+                                                                    <input type="submit" class="btn btn-primary btn-ecomm" name="btn" value="Booking"/>
+                                                                     </form>
                                                                 </div>
                                                                 <hr/>
                                                                 <div class="product-sharing">
@@ -548,8 +514,7 @@
                             </div>
                         </section>
                         <!--end product detail-->
-                    </form>
-
+                  
 
                 </div>
                 <!-- end page content-->

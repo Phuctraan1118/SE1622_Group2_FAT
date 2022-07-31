@@ -30,6 +30,14 @@
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
         <title>Edit Room</title>
+        <style>
+            .error{
+                color: red;
+            }
+            .success{
+                color: green;
+            }
+        </style>
     </head>
     <body>
 
@@ -374,23 +382,17 @@
                                                     <div class="col-md-6 position-relative">
                                                         <label for="validationTooltip03" class="form-label">Room Name</label>
                                                         <input type="text" name="txtRoomName" value="${dto.roomName}" class="form-control" id="validationTooltip03" required>
-                                                        <div class="invalid-tooltip">
-                                                            Please provide a valid city.
-                                                        </div>
+                                                          <p class="error">${error.roomNameLengthError}</p>
                                                     </div>
                                                     <div class="col-md-6 position-relative">
                                                         <label for="validationTooltip04" class="form-label">Room Description</label>
                                                         <textarea type="text" name="txtRoomDescription" class="form-control" id="validationTooltip04" required>${dto.roomDescription}</textarea>
-                                                        <div class="invalid-tooltip">
-                                                            Please select a valid state.
-                                                        </div>
+                                                        <p class="error">${error.roomDescriptionLengthError}</p>
                                                     </div>
                                                     <div class="col-md-3 position-relative">
                                                         <label for="validationTooltip05" class="form-label">Room Price</label>
                                                         <input type="text" name="txtRoomPrice" value="${dto.roomPrice}" class="form-control" id="validationTooltip05" required>
-                                                        <div class="invalid-tooltip">
-                                                            Please provide a valid zip.
-                                                        </div>
+                                                       <p class="error">${error.priceStringError}</p>
                                                     </div>
                                                     <div class="mb-3">
 

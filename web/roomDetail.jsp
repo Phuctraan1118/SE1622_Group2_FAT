@@ -82,19 +82,18 @@
 
                     <li>
 
-                        <a href="RoomOwnedViewController">
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
                     </li>
                     <li>
 
                         <a href="RegulationDisplayController">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
@@ -102,17 +101,36 @@
                     </li>
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View History Bill</div>
                         </a>
 
                     </li> 
                     <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
+                        </a>
+
+                    </li> 
+                    <li>
                         <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Feedback Management
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
 
@@ -405,7 +423,6 @@
 
 
                     <!--start product detail-->
-                    <form action="MainController" method="get">
                         <input type="hidden" name="txtRoomId" value="${param.roomId}" />
                         <input type="hidden" name="btn" value="View Room Detail" />
                         <section class="shop-page">
@@ -436,7 +453,9 @@
                                                         </div>
 
                                                     </div>
+
                                                     <c:forEach var="dto" items="${requestScope.VIEW_ROOM_DETAIL}" >
+
                                                         <div class="col-12 col-lg-7">
                                                             <div class="product-info-section p-3">
                                                                 <h3 class="mt-3 mt-lg-0 mb-0">${param.roomId}</h3>
@@ -455,7 +474,10 @@
                                                                     <h4 class="mb-0">${dto.roomPrice}</h4>
                                                                 </div>
                                                                 <div class="mt-3">
-                                                                    <h6>Discription :</h6>
+                                                                    <p class="mb-0">${dto.roomName}</p>
+                                                                </div>
+                                                                <div class="mt-3">
+                                                                    <h6>Description :</h6>
                                                                     <p class="mb-0">${dto.roomDescription}</p>
                                                                 </div>
                                                                 <dl class="row mt-3">	<dt class="col-sm-3">Product id</dt>
@@ -464,11 +486,15 @@
                                                                     <dd class="col-sm-9">${dto.categoryName}</dd>
                                                                 </dl>
                                                                 <!--end row-->
+
                                                                 <div class="d-flex gap-2 mt-3">
-                                                                    <input type="hidden" name="txtUsername" value="${User.id}" />
-                                                                    <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
-                                                                    <input type="submit" class="btn btn-primary btn-ecomm" name="btn" value="Booking Room"/>
+                                                                    <form action="MainController">
+                                                                        <input type="hidden" name="txtUsername" value="${User.id}" />
+                                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}" />
+                                                                        <input type="submit" class="btn btn-primary btn-ecomm" name="btn" value="Booking Room"/>
+                                                                    </form>
                                                                 </div>
+
                                                                 <hr/>
                                                                 <div class="product-sharing">
                                                                     <ul class="list-inline">
@@ -486,7 +512,9 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                     </c:forEach>
+
 
                                                 </div>
                                                 <!--end row-->
@@ -512,39 +540,38 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                             <c:forEach var="dto" items="${requestScope.VIEW_ROOM_DETAIL}" >
-                                            <div class="tab-content pt-3">
-                                               
-                                                <div class="tab-pane fade" id="discription" role="tabpanel">
-                                                    <p>${dto.roomDescription}</p>
-                                                    <ul>
-                                                        <li>Not just for commute</li>
-                                                        <li>Branded tongue and cuff</li>
-                                                        <li>Super fast and amazing</li>
-                                                        <li>Lorem sed do eiusmod tempor</li>
-                                                    </ul>
-                                                    <p class="mb-1">Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.</p>
-                                                    <p class="mb-1">Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+                                            <c:forEach var="dto" items="${requestScope.VIEW_ROOM_DETAIL}" >
+                                                <div class="tab-content pt-3">
+
+                                                    <div class="tab-pane fade" id="discription" role="tabpanel">
+                                                        <p>${dto.roomDescription}</p>
+                                                        <ul>
+                                                            <li>Not just for commute</li>
+                                                            <li>Branded tongue and cuff</li>
+                                                            <li>Super fast and amazing</li>
+                                                            <li>Lorem sed do eiusmod tempor</li>
+                                                        </ul>
+                                                        <p class="mb-1">Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone.</p>
+                                                        <p class="mb-1">Seitan aliquip quis cardigan american apparel, butcher voluptate nisi.</p>
+                                                    </div>
+
+                                                    <div class="tab-pane fade" id="more-info" role="tabpanel">
+                                                        <p>${dto.roomDescription}</p>
+                                                    </div>
                                                 </div>
-                                                
-                                                <div class="tab-pane fade" id="more-info" role="tabpanel">
-                                                    <p>${dto.roomDescription}</p>
-                                                </div>
-                                            </div>
-                                                    </c:forEach>
-                                        </div>
-                                                   
-                                                </div>
-                                            </div>
+                                            </c:forEach>
                                         </div>
 
-                                        <!--end similar products-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--end similar products-->
 
                             </div>
                         </section>
                         <!--end product detail-->
-                    </form>
-
+                  
 
                 </div>
                 <!-- end page content-->

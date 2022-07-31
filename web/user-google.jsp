@@ -98,7 +98,7 @@
                         </a>
 
                     </li>
-                    <li>
+<!--                    <li>
 
                         <a href="viewBillOfUser.jsp">
                             <div class="parent-icon">
@@ -129,7 +129,7 @@
                         <a href="feedback.jsp">
                             <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
-                    </li>
+                    </li>-->
 
                 </ul>
                 <!--end navigation-->
@@ -493,15 +493,15 @@
                                                                             </div>
                                                                         </div>
                                                                         <form action="MainController" method="post">
-                                                                            <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
+                                                                            <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail+Google">
                                                                                 <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
                                                                             </a>
                                                                             <div class="card-body">
                                                                                 <div class="product-info">
-                                                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
+                                                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail+Google">
                                                                                         <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                     </a>
-                                                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">                                                                                        <h6 class="product-name mb-2">${dto.roomName}</h6>
+                                                                                    <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail+Google">                                                                                        <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                     </a>
                                                                                     <div class="d-flex align-items-center">
                                                                                         <div class="mb-1 product-price">

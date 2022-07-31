@@ -85,24 +85,12 @@
 
                     </li>
                     <li>
-
                         <a href="RoomOwnedViewGoogleController">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
-                    </li>
-                    <li>
-
-                        <a href="RegulationDisplayGoogleController">
-                            <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Regulation</div>
-                        </a>
-
                     </li>
                 </ul>
                 <!--end navigation-->
