@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 public class FeedbackReplyController extends HttpServlet {
 
     private static final String ERROR = "replyFeedback.jsp";
-    private static final String SUCCESS = "replyFeedback.jsp";
+    private static final String SUCCESS = "replyFeedback.jsp?feedbackId=";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -42,7 +42,7 @@ public class FeedbackReplyController extends HttpServlet {
             feedbackDAO.deleteFeedbackAfterReply(feedbackId);
 
             if (result) {
-                url = SUCCESS;
+                url = SUCCESS + feedbackId;
                 request.setAttribute("REPLY_SUCCESS", dto.getUsername());
             }
         } catch (Exception ex) {
