@@ -153,6 +153,23 @@
                             <ion-icon name="close-sharp"></ion-icon>
                         </div>
                     </form>
+                        <c:set var="delete_room" value="${requestScope.DELETE_FAIL}" />
+                        <c:if test="${not empty delete_room}">
+                          <p style="color:red">${delete_room}</p>
+                        </c:if>
+                        <c:set var="delete_room_success" value="${requestScope.DELETE_SUCCESS}" />
+                        <c:if test="${not empty delete_room_success}">
+                          <p style="color:green">${delete_room_success}</p>
+                        </c:if>
+                        <c:set var="add_room_success" value="${requestScope.ADD_SUCCESS}" />
+                        <c:if test="${not empty add_room_success}">
+                          <p style="color:green">Add room ${add_room_success}</p>
+                        </c:if>
+                        <c:set var="update_room_success" value="${requestScope.UPDATE_SUCCESS}" />
+                        <c:if test="${not empty update_room_success}">
+                          <p style="color:green">Update room ${update_room_success}</p>
+                        </c:if>
+                        
 
                     <div class="top-navbar-right ms-auto">
 

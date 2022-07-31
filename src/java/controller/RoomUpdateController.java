@@ -54,9 +54,9 @@ public class RoomUpdateController extends HttpServlet {
                 foundErr = true;
                 errors.setRoomNameLengthError("3 - 100 chars");
             }
-            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 100) {
+            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 1000) {
                 foundErr = true;
-                errors.setRoomDescriptionLengthError("3 - 100 chars");
+                errors.setRoomDescriptionLengthError("3 - 1000 chars");
             }
             if (!Validate.checkPrice(roomPrice)) {
                 foundErr = true;
@@ -73,6 +73,7 @@ public class RoomUpdateController extends HttpServlet {
                 RoomDTO dto = new RoomDTO(roomId, roomName, roomDes, price, image);
                 boolean check = dao.updateNotBookedRoom(dto);
                 if (check) {
+                    request.setAttribute("UPDATE_SUCCESS", "success");
                     url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
                 }
             }
