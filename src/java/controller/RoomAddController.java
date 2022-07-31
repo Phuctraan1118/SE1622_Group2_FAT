@@ -50,9 +50,9 @@ public class RoomAddController extends HttpServlet {
                 foundErr = true;
                 errors.setRoomNameLengthError("3 - 100 chars");
             }
-            if (roomDescription.trim().length() < 3 || roomDescription.trim().length() > 100) {
+            if (roomDescription.trim().length() < 3 || roomDescription.trim().length() > 1000) {
                 foundErr = true;
-                errors.setRoomDescriptionLengthError("3 - 100 chars");
+                errors.setRoomDescriptionLengthError("3 - 1000 chars");
             }
             if (!Validate.checkPrice(roomPrice)) {
                 foundErr = true;
@@ -68,6 +68,7 @@ public class RoomAddController extends HttpServlet {
                 RoomDTO dto = new RoomDTO(roomName,roomDescription, price, image, "NB",categoryId);
                 boolean result = dao.create(dto);
                 if (result) {
+                    request.setAttribute("ADD_SUCCESS", "success");
                     url = "MainController?txtSearchValue=&btn=SEARCH+ROOM";
                 }
             }
