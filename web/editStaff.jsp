@@ -467,7 +467,7 @@
                                                                                                                                         title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" aria-label="Delete">
                                                                                                                                     <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
                                                                                                                                 </button>-->
-                                                                        <button type="submit" class="btn btn-primary" onclick="ConfirmDelete()" style="margin-top: 24px;"  name="btn" value="Delete Staff">Delete Staff</button>
+                                                                        <button type="submit" class="btn btn-primary" onclick=" return ConfirmDelete();" style="margin-top: 24px;"  name="btn" value="Delete Staff">Delete Staff</button>
                                                                         <input type="hidden" name="userId" value="${x.id}"/>
                                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                                     </div>

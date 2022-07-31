@@ -460,7 +460,7 @@
                                                                     </div>
                                                                         </br>
                                                                     <div class="col-md-1">
-                                                                        <button type="submit" class="btn btn-primary" onclick="ConfirmDelete()" style="margin-top: 24px;"  name="btn" value="Delete Customer">Delete Customer</button>
+                                                                        <button type="submit" class="btn btn-primary" onclick=" return ConfirmDelete();" style="margin-top: 24px;"  name="btn" value="Delete Customer">Delete Customer</button>
                                                                         <input type="hidden" name="userId" value="${x.id}"/>
                                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                                     </div>
