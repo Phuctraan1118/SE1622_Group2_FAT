@@ -28,14 +28,14 @@ public class RoomDisplayImageController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String searchValue = request.getParameter("txtRoomId");
-        String url = ERROR + searchValue;
+        int roomId = Integer.parseInt(request.getParameter("txtRoomId"));
+        String url = ERROR + roomId;
         try {
             RoomDAO dao = new RoomDAO();
-            List<RoomDTO> resultImg = dao.getImage(searchValue);
+            List<RoomDTO> resultImg = dao.getImageV2(roomId);
            request.setAttribute("GET_IMAGE_ROOM", resultImg);
            
-           url = SUCCESS + searchValue;
+           url = SUCCESS + roomId;
             
         } catch (Exception ex) {
             ex.printStackTrace();

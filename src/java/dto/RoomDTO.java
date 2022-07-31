@@ -35,7 +35,7 @@ public class RoomDTO implements Serializable {
 
     public RoomDTO() {
     }
-
+  
     public RoomDTO(int roomId) {
         this.roomId = roomId;
     }
