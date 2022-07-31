@@ -445,7 +445,7 @@
                                                     <label  class="form-label">Check Out Date</label>
                                                     <input type="date" name="txtCheckOutDate" value="${param.txtCheckOutDate}" class="form-control datepicker">
                                                 </div>
-                                                <input type="submit" value="Confirm" name="btn">
+                                                <input type="submit" class="btn btn-secondary" value="Confirm" name="btn">
                                             </div>
                                         </div>
                                     </div>

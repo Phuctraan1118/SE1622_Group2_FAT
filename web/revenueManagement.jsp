@@ -52,22 +52,6 @@
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="admin.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="person-circle-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">User Profile</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="admin.jsp">
-                            <div class="parent-icon">
-                                <ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
-                    </li>
-                    <li>
                         <a href="revenueManagement.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="wallet-sharp"></ion-icon>

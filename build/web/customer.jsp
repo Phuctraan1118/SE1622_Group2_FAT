@@ -88,18 +88,18 @@
                             </div>
                             <div class="menu-title">Management</div>
                         </a>
-                        <ul>
-                            <li> <a href="staff.jsp">
+                       <ul>
+                            <li> <a href="MainController?search=&btn=Search+Staff">
                                     <ion-icon name="ellipse-outline"></ion-icon>Staff Management
                                 </a>
                             </li>
                             <li>
-                                <a href="customer.jsp">
+                                <a href="MainController?search=&btn=Search+Customer">
                                     <ion-icon name="ellipse-outline"></ion-icon>Customer Management
                                 </a>
                             </li>
                             <li>
-                                <a href="managementRoom.jsp">
+                                <a href="MainController?txtSearchValue=&btn=SEARCH+ROOM">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
@@ -109,12 +109,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="regulationManagement.jsp">
+                                <a href="RegulationDisplayForStaffController">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
                             <li>
-                                <a href="viewfeedback.jsp">
+                                <a href="FeedbackDisplayController">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>

@@ -64,7 +64,7 @@
                         </a>
                     </li>
                         <li>
-                            <a href="pages-edit-profile.jsp">
+                            <a href="page-edit-profile-user-google.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -72,71 +72,15 @@
                             </a>
                         </li>
                     <li>
-
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Room</div>
                         </a>
-
                     </li>
 
-                    <li>
-
-                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
-                            <div class="parent-icon">
-                                <ion-icon name="planet-outline"></ion-icon>
-                            </div>
-                            <div class="menu-title">Owned Room</div>
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="RegulationDisplayController">
-                            <div class="parent-icon">
-                                <ion-icon name="receipt-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Regulation</div>
-                        </a>
-
-                    </li>
-                    <li>
-
-                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
-                            <div class="parent-icon">
-                                <ion-icon name="newspaper-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">View History Bill</div>
-                        </a>
-
-                    </li> 
-                    <li>
-
-                        <a href="FeedbackViewController?txtUsername=${USER.id}">
-                            <div class="parent-icon">
-                                <ion-icon name="document-text-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Feedback</div>
-                        </a>
-
-                    </li> 
-                    <li>
-                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
-                            <div class="parent-icon">
-                                <ion-icon name="gift-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">View Notification</div>
-                        </a>
-
-                    </li> 
-                    <li>
-                        <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
-                        </a>
-                    </li>
-
-                </ul>
+       
                 <!--end navigation-->
             </aside>
             <!--end sidebar -->

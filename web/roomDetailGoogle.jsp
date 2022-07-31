@@ -66,7 +66,7 @@
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="pages-edit-profile-user-google.jsp">
+                            <a href="page-edit-profile-user-google.jsp">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -76,7 +76,7 @@
                     </c:if>
                     <li>
 
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+Google">
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
