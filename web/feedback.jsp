@@ -62,14 +62,14 @@
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
-                        <li>
-                            <a href="pages-edit-profile.jsp">
-                                <div class="parent-icon">
-                                    <ion-icon name="create-sharp"></ion-icon>
-                                </div>
-                                <div class="menu-title">Edit Profile</div>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="pages-edit-profile.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="create-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">Edit Profile</div>
+                        </a>
+                    </li>
                     <li>
 
                         <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
@@ -399,6 +399,10 @@
                                             <button type="submit" name="btn" value="Send Feedback" class="btn btn-primary">Send</button>
                                         </div>
                                     </div>
+                                    <c:set var="succcess" value="${requestScope.CREATE_FEEDBACK_SUCCESS}"/>
+                                    <c:if test="${not empty succcess}">
+                                        <p class="success text-left" style="color: green;">Username ${succcess} send Feedback success!</p>
+                                    </c:if>
                                 </form>
                                 <form action="MainController" method="POST">
                                     <div class="col-4">
@@ -413,7 +417,6 @@
                                         <tr>
                                             <th>NO</th>
                                             <th>Feedback Reply Content</th>
-                                            <th>Username</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -421,16 +424,13 @@
                                             <tr>
                                                 <td>${counter.count}</td>
                                                 <td>${fbReply.contentReply}</td>
-                                                <td>${fbReply.username}</td>
                                             </tr>
-                                            </form>
                                         </c:forEach>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>NO</th>
                                             <th>Feedback Name</th>
-                                            <th>Username</th>
                                         </tr>
                                     </tfoot>
                                 </table>

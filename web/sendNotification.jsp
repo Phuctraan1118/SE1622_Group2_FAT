@@ -459,7 +459,12 @@
                                             <button type="submit" name="btn" value="Add Notification" class="btn btn-primary" class="btn">Add Notification</button>
                                         </div>
                                     </div>
+                                    <c:set var="succcess" value="${requestScope.CREATED_NOTIFICATION_SUCCESS}"/>
+                                    <c:if test="${not empty succcess}">
+                                        <p class="success text-left" style="color: green;">Already send notification to username ${succcess}</p>
+                                    </c:if>
                                 </form>
+
                             </div>
                         </div>
                     </div>

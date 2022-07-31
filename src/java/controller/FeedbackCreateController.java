@@ -39,6 +39,7 @@ public class FeedbackCreateController extends HttpServlet {
             FeedbackDTO dto = new FeedbackDTO(content, username, true);
             boolean result = dao.createFeedback(dto);
             if (result) {
+                request.setAttribute("CREATE_FEEDBACK_SUCCESS", dto.getUsername());
                 url = SUCCESS;
             }
 
