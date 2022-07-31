@@ -1,4 +1,3 @@
-
 <%-- 
     Document   : Staff
     Created on : May 30, 2022, 10:32:42 PM
@@ -69,7 +68,7 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <font color="yellow">
+<font color="yellow">
                     <div>
                         <h6 style="font-family: 'Courgette', cursive;">Welcome ${USER.name} (STAFF)</h6>
                     </div></font>
@@ -129,7 +128,7 @@
                         <a href="pages-edit-staff-profile.jsp">
                             <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Edit Profile</div>
+<div class="menu-title">Edit Profile</div>
                         </a>
                     </li>
 
@@ -183,7 +182,7 @@
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
                                                 <div class="notify text-primary">
-                                                    <ion-icon name="cart-outline"></ion-icon>
+<ion-icon name="cart-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
@@ -223,7 +222,7 @@
                                                     <ion-icon name="checkmark-done-outline"></ion-icon>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Product Approved <span class="msg-time float-end">2 hrs ago</span></h6>
+<h6 class="msg-name">New Product Approved <span class="msg-time float-end">2 hrs ago</span></h6>
                                                     <p class="msg-info">Your new product has approved</p>
                                                 </div>
                                             </div>
@@ -260,7 +259,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
                                                             ago</span></h6>
-                                                    <p class="msg-info">24 new authors joined last week</p>
+<p class="msg-info">24 new authors joined last week</p>
                                                 </div>
                                             </div>
                                         </a>
@@ -302,7 +301,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+<a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
                                                 <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
@@ -346,7 +345,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="javascript:;">
+<a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex align-items-center">
                                                 <div class="">
                                                     <ion-icon name="wallet-outline"></ion-icon>
@@ -401,7 +400,7 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb mb-0 p-0 align-items-center">
                                     <li class="breadcrumb-item"><a href="javascript:;">
-                                            <ion-icon name="home-outline"></ion-icon>
+<ion-icon name="home-outline"></ion-icon>
                                         </a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">Room Management</li>
@@ -442,7 +441,7 @@
                                                 <td>
                                                     <input type="hidden" name="txtRoomIdTmp" value="${param.txtRoomId}" />
                                                     <input type="hidden" name="txtIdTmp" value="${dto.id}" />
-                                                    <input type="submit" class="btn btn-dark px-5" value="Delete Image" name="btn" />
+<input type="submit" class="btn btn-dark px-5" value="Delete Image" name="btn" />
                                                 </td>
                                             </form>
                                             </tr>
@@ -495,7 +494,7 @@
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
                     </div>
                     <div class="offcanvas-body">
-                        <h6 class="mb-0">Theme Variation</h6>
+<h6 class="mb-0">Theme Variation</h6>
                         <hr>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="LightTheme" value="option1">
@@ -546,9 +545,7 @@
                 </div>
             </div>
             <!--end switcher-->
-
-
-            <!--start overlay-->
+<!--start overlay-->
             <div class="overlay nav-toggle-icon"></div>
             <!--end overlay-->
 

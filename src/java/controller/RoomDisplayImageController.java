@@ -32,7 +32,7 @@ public class RoomDisplayImageController extends HttpServlet {
         String url = ERROR + roomId;
         try {
             RoomDAO dao = new RoomDAO();
-            List<RoomDTO> resultImg = dao.getImageV2(roomId);
+            List<RoomDTO> resultImg = dao.getImageV3(roomId);
            request.setAttribute("GET_IMAGE_ROOM", resultImg);
            
            url = SUCCESS + roomId;

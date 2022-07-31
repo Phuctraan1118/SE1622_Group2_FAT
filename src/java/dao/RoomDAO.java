@@ -109,7 +109,40 @@ public class RoomDAO implements Serializable {
         }
         return check;
     }
+ public List<RoomDTO> getImageV3(int roomId)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        ResultSet rs = null;
+        List<RoomDTO> list = new ArrayList();
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(GET_IMAGE_V2);
+                stm.setInt(1, roomId);
+                rs = stm.executeQuery();
+                while (rs.next()) {
+                    int id = rs.getInt("id");
+                    String imageTmp = rs.getString("image");
+                    list.add(new RoomDTO(imageTmp, id));
+                    
+                }//End traverse Result Set
+            }
+            //end if connection has opened
+        }  finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return list;
 
+    }
     public List<RoomDTO> getImageV2(int roomId)
             throws SQLException, NamingException {
         Connection con = null;
