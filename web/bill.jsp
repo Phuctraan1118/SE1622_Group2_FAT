@@ -465,7 +465,7 @@
                                                                         <input type="hidden" value="${sv.id}" name="txtServiceId" />
                                                                         <div class="col-md-12">
                                                                             <div class="d-grid">
-                                                                                <input type="submit" class="btn btn-primary btn-ecomm " name="btn" value="Create Bill"   >
+                                                                                <input type="submit" class="btn btn-primary btn-ecomm " name="btn" value="Create Bill">
                                                                             </div>
                                                                         </div>
                                                                     </form>

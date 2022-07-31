@@ -44,7 +44,7 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <font color="yellow">
+                    <font color="green">
                     <div>
                         <h6>Welcome ${USER.name} (USER)</h6>
                     </div></font>
@@ -62,7 +62,6 @@
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
-                    <c:if test="${not empty User}">
                         <li>
                             <a href="pages-edit-profile.jsp">
                                 <div class="parent-icon">
@@ -71,7 +70,6 @@
                                 <div class="menu-title">Edit Profile</div>
                             </a>
                         </li>
-                    </c:if>
                     <li>
 
                         <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
@@ -91,13 +89,12 @@
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
                     </li>
                     <li>
 
                         <a href="RegulationDisplayController">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
@@ -105,17 +102,36 @@
                     </li>
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View History Bill</div>
                         </a>
 
                     </li> 
                     <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
+                        </a>
+
+                    </li> 
+                    <li>
                         <a href="feedback.jsp">
-                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px"></i>Send Feedback
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
 
@@ -378,16 +394,18 @@
                                         <label class="form-label">User Name</label>
                                         <input class="form-control" type="text" placeholder="Enter your username" name="txtUsername" value="" required="">
                                     </div>
-                                    <div class="col-12">
+                                    <div class="col-4">
                                         <div class="d-grid">
                                             <button type="submit" name="btn" value="Send Feedback" class="btn btn-primary">Send</button>
                                         </div>
                                     </div>
                                 </form>
                                 <form action="MainController" method="POST">
-                                    <div class="d-grid">
-                                        <input type="hidden" name="txtUsername" value="${USER.id}">
-                                        <button type="submit" name="btn" value="View Feedback Reply" class="btn btn-primary">View Feedback Reply</button>
+                                    <div class="col-4">
+                                        <div class="d-grid">
+                                            <input type="hidden" name="txtUsername" value="${USER.id}">
+                                            <button type="submit" name="btn" value="View Feedback Reply" class="btn btn-dark px-5">View Feedback Reply</button>
+                                        </div>
                                     </div>
                                 </form>
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">

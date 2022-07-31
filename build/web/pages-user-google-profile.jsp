@@ -56,7 +56,7 @@
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user-google-profile.jsp">
+                        <a href="pages-user1-profile.jsp">
                             <div class="parent-icon">
                                 <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
@@ -65,7 +65,7 @@
                     </li>
                     <c:if test="${not empty User}">
                         <li>
-                            <a href="page-edit-profile-user-google.jsp">
+                            <a href="page-edit-profile-user-google">
                                 <div class="parent-icon">
                                     <ion-icon name="create-sharp"></ion-icon>
                                 </div>
@@ -75,7 +75,7 @@
                     </c:if>
                     <li>
 
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
@@ -83,33 +83,52 @@
                         </a>
 
                     </li>
+
                     <li>
 
-                        <a href="ownedRoomGoogle.jsp">
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
+                    </li>
+                    <li>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="receipt-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Regulation</div>
+                        </a>
 
                     </li>
                     <li>
 
-                        <a href="regulationGoogle.jsp">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">View Regulation</div>
+                            <div class="menu-title">View History Bill</div>
                         </a>
 
                     </li> 
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="document-text-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">View History Bill</div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
                         </a>
 
                     </li> 
@@ -118,7 +137,7 @@
                             <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
-                     
+
                 </ul>
                 <!--end navigation-->
             </aside>

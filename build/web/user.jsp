@@ -96,7 +96,7 @@
 
                         <a href="RegulationDisplayController">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
@@ -104,11 +104,30 @@
                     </li>
                     <li>
 
-                       <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
                         </a>
 
                     </li> 
@@ -479,13 +498,13 @@
                                                                         <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                             <img style="width: 370.75px; height: 247.36px" src="images/${dto.image}" class="card-img-top" alt="...">
                                                                         </a>
-                                                                        
+
                                                                         <div class="card-body">
                                                                             <div class="product-info">
                                                                                 <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                     <h1 class="product-catergory font-13 mb-1">${dto.roomId}</h1>
                                                                                 </a>
-                                                                                 <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
+                                                                                <a href="MainController?txtRoomId=${dto.roomId}&btn=View+Room+Detail">
                                                                                     <h6 class="product-name mb-2">${dto.roomName}</h6>
                                                                                 </a>
                                                                                 <div class="d-flex align-items-center">

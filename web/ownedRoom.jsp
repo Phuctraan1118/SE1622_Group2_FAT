@@ -80,21 +80,21 @@
                         </a>
 
                     </li>
+
                     <li>
 
-                        <a href="ownedRoom.jsp">
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
                     </li>
                     <li>
 
                         <a href="RegulationDisplayController">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
@@ -104,9 +104,28 @@
 
                         <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
                         </a>
 
                     </li> 
@@ -115,6 +134,7 @@
                             <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -401,16 +421,10 @@
                                     <div class="row">
                                         <div class="col-12 col-xl-12">
                                             <div class="product-wrapper">
-                                                <div class="card">
-                                                    <div class="card-body">
-                                                        <form action="MainController" method="POST" class="searchbar">
-                                                            <div class="position-relative">
+                                                        <form action="MainController" method="POST">
                                                                 <input type="hidden" value="${USER.id}" name="txtUser" />
-                                                                <input type="submit" class="btn btn-secondary" value="View Owned Room" name="btn"/>
-                                                            </div>
+                                                                <input type="hidden" class="btn btn-secondary" value="View Owned Room" name="btn"/>
                                                         </form>
-                                                    </div>
-                                                </div>
 
                                                 <div class="product-grid">
                                                     <c:if test="${not empty requestScope.OWNED_ROOM}">

@@ -29,7 +29,7 @@
         <link href="assets/css/semi-dark.css" rel="stylesheet" />
         <link href="assets/css/header-colors.css" rel="stylesheet" />
 
-        <title>Dashkote - Bootstrap5 Admin Template</title>
+        <title>User Google</title>
     </head>
     <body>
 

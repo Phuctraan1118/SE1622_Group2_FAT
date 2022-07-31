@@ -44,68 +44,89 @@
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
+                    <font color="green">
                     <div>
-                        <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
-                    </div>
-                    <div>
-                        <h4 class="logo-text">User2</h4>
-                    </div>
+                        <h6>Welcome ${USER.name} (USER)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto"><ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
+                
                 <ul class="metismenu" id="menu">
                     <li class="menu-label">Pages</li>
                     <li>
-                        <a href="pages-user-google-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
+                        <a href="pages-user1-profile.jsp">
+                            <div class="parent-icon">
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">User Profile</div>
                         </a>
                     </li>
+                        <li>
+                            <a href="pages-edit-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
                     <li>
-                        <a href="page-edit-profile-user-google.jsp">
-                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
-                            </div>
-                            <div class="menu-title">Edit Profile</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer+google">
+
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
                             <div class="parent-icon">
                                 <ion-icon name="home-outline"></ion-icon>
                             </div>
                             <div class="menu-title">View Room</div>
                         </a>
+
                     </li>
+
                     <li>
 
-                        <a href="RoomOwnedViewGoogleController">
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
                     </li>
                     <li>
 
-                        <a href="regulationGoogle.jsp">
+                        <a href="RegulationDisplayController">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
 
                     </li>
-
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
                         </a>
 
                     </li> 
@@ -114,6 +135,7 @@
                             <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
+
                 </ul>
                 <!--end navigation-->
             </aside>
@@ -326,7 +348,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="pages-user-google-profile.jsp">
+                                        <a class="dropdown-item" href="pages-user1-profile.jsp">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="person-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Profile</span></div>

@@ -83,19 +83,18 @@
 
                     <li>
 
-                        <a href="RoomOwnedViewController">
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>
                             <div class="menu-title">Owned Room</div>
                         </a>
-
                     </li>
                     <li>
 
                         <a href="RegulationDisplayController">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View Regulation</div>
                         </a>
@@ -103,11 +102,30 @@
                     </li>
                     <li>
 
-                        <a href="viewBillOfUser.jsp">
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
                             <div class="parent-icon">
-                                <ion-icon name="shield-outline"></ion-icon>
+                                <ion-icon name="newspaper-sharp"></ion-icon>
                             </div>
                             <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
                         </a>
 
                     </li> 
@@ -336,7 +354,7 @@
                         <c:set var="User" value="${sessionScope.USER}"/>
                         <h6>Welcome ${USER.name} (USER)</h6>
                         <input type="hidden" name="txtUsername" value="${USER.id}" />
-                        <input type="submit" name="btn" value="View Bill Of You" />
+                        <input type="hidden" name="btn" value="View Bill Of You" />
 
 
                     </form>

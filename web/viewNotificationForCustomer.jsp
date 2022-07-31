@@ -39,71 +39,102 @@
     <body>
         <!--start wrapper-->
         <div class="wrapper">
-            <!--start sidebar -->
             <c:set var="User" value="${sessionScope.USER}"/>
             <!--start sidebar -->
             <aside class="sidebar-wrapper" data-simplebar="true">
                 <div class="sidebar-header">
-                    <font color="yellow">
-                    <h6  style="font-family: 'Courgette', cursive;">Welcome ${USER.name} (STAFF)</h6>
-                    </font>
+                    <font color="green">
+                    <div>
+                        <h6>Welcome ${USER.name} (USER)</h6>
+                    </div></font>
                     <div class="toggle-icon ms-auto">
                         <ion-icon name="menu-sharp"></ion-icon>
                     </div>
                 </div>
                 <!--navigation-->
+
                 <ul class="metismenu" id="menu">
+                    <li class="menu-label">Pages</li>
                     <li>
-                        <a href="javascript:;" class="has-arrow">
+                        <a href="pages-user1-profile.jsp">
                             <div class="parent-icon">
-                                <ion-icon name="home-sharp"></ion-icon>
+                                <ion-icon name="person-circle-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Management</div>
+                            <div class="menu-title">User Profile</div>
                         </a>
-                        <ul>
-                            <li> <a href="staff.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Staff Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="customer.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Customer Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="managementRoom.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Room Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="MainController?btn=ViewBooking">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Booking Management
-                                </a>
-                            </li>
-                            <li>
-                                <a href="regulationManagement.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
-                                </a>
-                            </li>
-                            <li>                               
-                                <a href="viewfeedback.jsp">
-                                    <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
-                                </a>
-                            </li>
-                        </ul>
                     </li>
+                    <c:if test="${not empty User}">
+                        <li>
+                            <a href="pages-edit-profile.jsp">
+                                <div class="parent-icon">
+                                    <ion-icon name="create-sharp"></ion-icon>
+                                </div>
+                                <div class="menu-title">Edit Profile</div>
+                            </a>
+                        </li>
+                    </c:if>
                     <li>
-                        <a href="pages-staff-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="person-circle-sharp"></ion-icon>
+
+                        <a href="MainController?txtSearchValue=&btn=Search+room+for+customer">
+                            <div class="parent-icon">
+                                <ion-icon name="home-outline"></ion-icon>
                             </div>
-                            <div class="menu-title">Staff Profile</div>
+                            <div class="menu-title">View Room</div>
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="MainController?txtUser=${USER.id}&btn=View+Owned+Room">
+                            <div class="parent-icon">
+                                <ion-icon name="planet-outline"></ion-icon>
+                            </div>
+                            <div class="menu-title">Owned Room</div>
                         </a>
                     </li>
                     <li>
-                        <a href="pages-edit-staff-profile.jsp">
-                            <div class="parent-icon"><ion-icon name="create-sharp"></ion-icon>
+
+                        <a href="RegulationDisplayController">
+                            <div class="parent-icon">
+                                <ion-icon name="receipt-sharp"></ion-icon>
                             </div>
-                            <div class="menu-title">Edit Profile</div>
+                            <div class="menu-title">View Regulation</div>
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="MainController?txtUsername=${USER.id}&btn=View+Bill+Of+You">
+                            <div class="parent-icon">
+                                <ion-icon name="newspaper-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View History Bill</div>
+                        </a>
+
+                    </li> 
+                    <li>
+
+                        <a href="FeedbackViewController?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="document-text-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Feedback</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="NotificationDisplayForCustomer?txtUsername=${USER.id}">
+                            <div class="parent-icon">
+                                <ion-icon name="gift-sharp"></ion-icon>
+                            </div>
+                            <div class="menu-title">View Notification</div>
+                        </a>
+
+                    </li> 
+                    <li>
+                        <a href="feedback.jsp">
+                            <i class="fadeIn animated bx bx-comment-detail" style="font-size: 22px; margin-right: 8px;"></i>Send Feedback
                         </a>
                     </li>
 
@@ -115,15 +146,65 @@
             <!--start top header-->
             <header class="top-header">
                 <nav class="navbar navbar-expand gap-3">
+                    <div class="mobile-menu-button"><ion-icon name="menu-sharp"></ion-icon></div>
 
                     <div class="top-navbar-right ms-auto">
+
                         <ul class="navbar-nav align-items-center">
+                            <li class="nav-item mobile-search-button">
+                                <a class="nav-link" href="javascript:;">
+                                    <div class="">
+                                        <ion-icon name="search-sharp"></ion-icon>
+                                    </div>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-mode-icon" href="javascript:;">
                                     <div class="mode-icon">
                                         <ion-icon name="moon-sharp"></ion-icon> 
                                     </div>
                                 </a>
+                            </li>
+                            <li class="nav-item dropdown dropdown-large dropdown-apps">
+                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
+                                    <div class="">
+                                        <ion-icon name="apps-sharp"></ion-icon>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                                    <div class="row row-cols-3 g-3 p-3">
+                                        <div class="col text-center">
+                                            <div class="app-box mx-auto bg-gradient-purple text-white"><ion-icon name="cart-sharp"></ion-icon>
+                                            </div>
+                                            <div class="app-title">Orders</div>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="app-box mx-auto bg-gradient-info text-white"><ion-icon name="people-sharp"></ion-icon>
+                                            </div>
+                                            <div class="app-title">Teams</div>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="app-box mx-auto bg-gradient-success text-white"><ion-icon name="shield-checkmark-sharp"></ion-icon>
+                                            </div>
+                                            <div class="app-title">Tasks</div>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="app-box mx-auto bg-gradient-danger text-white"><ion-icon name="videocam-sharp"></ion-icon>
+                                            </div>
+                                            <div class="app-title">Media</div>  
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="app-box mx-auto bg-gradient-warning text-white"><ion-icon name="file-tray-sharp"></ion-icon>
+                                            </div>
+                                            <div class="app-title">Files</div>
+                                        </div>
+                                        <div class="col text-center">
+                                            <div class="app-box mx-auto bg-gradient-branding text-white"><ion-icon name="notifications-sharp"></ion-icon>
+                                            </div>
+                                            <div class="app-title">Alerts</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li class="nav-item dropdown dropdown-large">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
@@ -249,17 +330,17 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                        <img  src="${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
-                                                    <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
-                                                    <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
+                                                    <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
+                                                    <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
                                                 </div>
                                             </div>
                                         </a>
@@ -307,7 +388,7 @@
                                     </li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li>
-                                        <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
+                                        <a class="dropdown-item" href="MainController?btn=Logout">
                                             <div class="d-flex align-items-center">
                                                 <div class=""><ion-icon name="log-out-outline"></ion-icon></div>
                                                 <div class="ms-3"><span>Logout</span></div>
@@ -316,7 +397,6 @@
                                     </li>
                                 </ul>
                             </li>
-
                         </ul>
 
                     </div>

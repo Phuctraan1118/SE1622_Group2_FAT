@@ -357,12 +357,14 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="p-4 border rounded">
-
+                                            <c:set var="error" value="${requestScope.CREATEERRORS1}" />
                                             <form class="row g-3 needs-validation" novalidate>
                                                 <c:forEach var="dto" items="${requestScope.EDIT_ROOM_DETAIL}" >
                                                     <div class="col-md-4 position-relative">
                                                         <label for="validationTooltip01" class="form-label">Category Name</label>
-                                                        <input type="text" class="form-control" id="validationTooltip01" value="${dto.categoryName}" required>
+                                                        <input type="text" class="form-control" id="validationTooltip01" value="${dto.categoryName}" disabled="">
+                                                      
+
                                                     </div>
                                                     <div class="col-md-4 position-relative">
                                                         <label for="validationTooltip02" class="form-label">Room Id</label>
@@ -391,13 +393,15 @@
                                                         </div>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label for="validationTooltip06" class="form-label">Image</label>
+
+                                                        <label for="validationTooltip06" class="form-label">Image</label> </br>
+                                                        <img style="width: 370.75px; height: 247.36px;" src="images/${dto.image}" class="card-img-top" alt="...">
                                                         <input type="file" name="txtImage" value="${dto.image}" class="form-control" aria-label="file example">
+                                                        <input type="hidden" name="txtImageOld" value="${dto.image}" />
+                                                        
                                                     </div>
                                                 </c:forEach> 
-                                                <c:forEach var="dto1" items="${requestScope.EDIT_IMAGE_DETAIL}" > 
-                                                            <img style="width: 370.75px; height: 247.36px;" src="images/${dto1.imageTmp}" class="card-img-top" alt="...">
-                                                </c:forEach>
+                                               
                                                 <div class="col-12">
                                                     <button class="btn btn-primary" type="submit" name="btn" value="Update Room">Update Room</button>
                                                 </div>
