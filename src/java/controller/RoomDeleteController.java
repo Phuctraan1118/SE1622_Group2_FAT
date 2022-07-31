@@ -5,8 +5,10 @@
 package controller;
 
 import dao.RoomDAO;
+import dto.RoomDTO;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 import javax.naming.NamingException;
 import javax.servlet.ServletContext;
@@ -33,10 +35,20 @@ public class RoomDeleteController extends HttpServlet {
         String url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
         try {
             RoomDAO dao = new RoomDAO();
-            boolean check = dao.deleteNotBookedRoom(roomId);
-            if (check) {
-                url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
+            List<RoomDTO> dto = dao.getImageV2(roomId);
+            if (dto == null) {
+                boolean check = dao.deleteNotBookedRoom(roomId);
+                if (check) {
+                    url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
+                }
+            } else if(dto != null){
+                boolean check = dao.deleteImageV2(roomId);
+                boolean checkTmp = dao.deleteNotBookedRoom(roomId);
+                if (check == true && checkTmp == true) {
+                    url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
+                }
             }
+
         } catch (NamingException | SQLException ex) {
             log("Error at DeleteRoomController: " + ex.toString());
         } finally {
