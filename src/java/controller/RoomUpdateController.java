@@ -54,9 +54,9 @@ public class RoomUpdateController extends HttpServlet {
                 foundErr = true;
                 errors.setRoomNameLengthError("3 - 100 chars");
             }
-            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 100) {
+            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 10000) {
                 foundErr = true;
-                errors.setRoomDescriptionLengthError("3 - 100 chars");
+                errors.setRoomDescriptionLengthError("3 - 10000 chars");
             }
             if (!Validate.checkPrice(roomPrice)) {
                 foundErr = true;

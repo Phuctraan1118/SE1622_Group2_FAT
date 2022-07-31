@@ -84,8 +84,6 @@ public class RoomDAO implements Serializable {
     private static final String GET_IMAGE_V2 = "select id , image from tblImage where roomId = ? ";
     private static final String DELETE_IMAGE_V2 = "delete tblimage where roomId = ? ";
 
-    
-    
     public boolean deleteImageV2(int roomId) throws SQLException, NamingException {
         boolean check = false;
         Connection con = null;
@@ -128,7 +126,7 @@ public class RoomDAO implements Serializable {
                     int id = rs.getInt("id");
                     String imageTmp = rs.getString("image");
                     list.add(new RoomDTO(imageTmp, id));
-
+                    return list;
                 }//End traverse Result Set
             }//end if connection has opened
         } finally {
@@ -142,7 +140,7 @@ public class RoomDAO implements Serializable {
                 con.close();
             }
         }
-        return list;
+        return null;
 
     }
 
@@ -570,8 +568,9 @@ public class RoomDAO implements Serializable {
                 stm.setInt(1, roomId);
                 int value = stm.executeUpdate();
                 check = value > 0;
-
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
 
             if (stm != null) {
@@ -812,6 +811,5 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
-
 
 }

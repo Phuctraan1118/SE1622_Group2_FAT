@@ -3,12 +3,37 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/editRoom1.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/editCustomer.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/editRoom.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/viewBillOfUser.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/user.jsp</file>
-            <file>file:/D:/Kì%205/SWP_Group%202/SE1622_Group2_FAT/web/customer.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/bookingManagement.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/MainController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RoomViewDetailForGoogleController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RegulationDisplayController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/service.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/roomDetailGoogle.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/editRoom.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/managementRoom.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RoomUpdateController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/sendNotification.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/sendBill.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/user-google.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/viewfeedback.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RoomOwnedViewController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/roomDetail.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/pages-user-google-profile.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/customer.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/booking.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RoomViewDetailController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RegulationDisplayForStaffController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/regulationGoogle.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/page-edit-profile-user-google.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RoomViewDetailStaffController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/RoomAddController.java</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/user.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/regulation.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/staff.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/roomDetail1.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/booking1.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/web/regulationManagement.jsp</file>
+            <file>file:/C:/Users/Bitano/Documents/GitHub/SE1622_Group2_FAT/src/java/controller/FeedbackDisplayController.java</file>
         </group>
     </open-files>
 </project-private>

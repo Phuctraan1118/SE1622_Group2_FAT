@@ -50,9 +50,9 @@ public class RoomAddController extends HttpServlet {
                 foundErr = true;
                 errors.setRoomNameLengthError("3 - 100 chars");
             }
-            if (roomDescription.trim().length() < 3 || roomDescription.trim().length() > 100) {
+            if (roomDescription.trim().length() < 3 || roomDescription.trim().length() > 1000) {
                 foundErr = true;
-                errors.setRoomDescriptionLengthError("3 - 100 chars");
+                errors.setRoomDescriptionLengthError("3 - 1000 chars");
             }
             if (!Validate.checkPrice(roomPrice)) {
                 foundErr = true;
