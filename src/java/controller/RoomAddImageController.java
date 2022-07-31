@@ -4,11 +4,10 @@
  */
 package controller;
 
-import validator.Validate;
 import dao.RoomDAO;
 import dto.RoomDTO;
-import dto.RoomInsertError;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.Properties;
 import javax.naming.NamingException;
@@ -19,69 +18,45 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import utils.MyApplicationConstants;
+import validator.Validate;
 
 /**
  *
  * @author Bitano
  */
-@WebServlet(name = "RoomUpdateController", urlPatterns = {"/RoomUpdateController"})
-public class RoomUpdateController extends HttpServlet {
+@WebServlet(name = "RoomAddImageController", urlPatterns = {"/RoomAddImageController"})
+public class RoomAddImageController extends HttpServlet {
 
-   // private static final String ERROR = "MainController?txtSearchValue=&btn=SEARCH+ROOM";
-    private static final String ERROR = "error.jsp";
+    private static final String ERROR = "MainController?btn=Display+Image+Room&txtRoomId=";
+    private static final String SUCCESS = "MainController?btn=Display+Image+Room&txtRoomId=";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ServletContext context = this.getServletContext();
-        Properties siteMaps = (Properties) context.getAttribute("SITEMAPS");
-        boolean foundErr = false;
-        int roomId = Integer.parseInt(request.getParameter("txtRoomId"));
-        String roomName = request.getParameter("txtRoomName");
-        String roomDes = request.getParameter("txtRoomDescription");
-        String roomPrice = request.getParameter("txtRoomPrice");
-        float price = 0;
+        int roomId = Integer.parseInt(request.getParameter("txtRoomId1"));
+        int id = Integer.parseInt(request.getParameter("txtId"));
         String image = request.getParameter("txtImage");
         String imageOld = request.getParameter("txtImageOld");
-        RoomInsertError errors = new RoomInsertError();
-      
-     //   String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
-        String url = ERROR;
+        String url = ERROR + roomId;
         try {
-            if (roomName.trim().length() < 3 || roomName.trim().length() > 100) {
-                foundErr = true;
-                errors.setRoomNameLengthError("3 - 100 chars");
-            }
-            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 100) {
-                foundErr = true;
-                errors.setRoomDescriptionLengthError("3 - 100 chars");
-            }
-            if (!Validate.checkPrice(roomPrice)) {
-                foundErr = true;
-                errors.setPriceStringError("Number please");
-            }
             if (image.equals("")) {
                 image = imageOld;
             }
-            if (foundErr) {
-                request.setAttribute("CREATEERRORS1", errors);
-            } else {
-                price = Float.parseFloat(roomPrice);
-                RoomDAO dao = new RoomDAO();
-                RoomDTO dto = new RoomDTO(roomId, roomName, roomDes, price, image);
-                boolean check = dao.updateNotBookedRoom(dto);
-                if (check) {
-                    url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
-                }
+            RoomDAO dao = new RoomDAO();
+            RoomDTO dto = new RoomDTO(roomId,id,image);
+            boolean check = dao.updateImageRoom(dto);
+            if (check) {
+                url = SUCCESS + roomId;
             }
+
         } catch (NamingException | NumberFormatException | SQLException e) {
-            log("Error at UpdateController: " + e.toString());
+            log("Error at RoomAddImageController: " + e.toString());
         } finally {
             request.getRequestDispatcher(url).forward(request, response);
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

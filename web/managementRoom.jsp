@@ -147,7 +147,7 @@
                         <div class="position-absolute top-50 translate-middle-y search-icon ms-3">
                             <ion-icon name="search-sharp"></ion-icon>
                         </div>
-                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="Search description">
+                        <input class="form-control" type="text" name="txtSearchValue" value="${param.txtSearchValue}" placeholder="search name room">
                         <input type="hidden" value="SEARCH ROOM" name="btn" />
                         <div class="position-absolute top-50 translate-middle-y search-close-icon">
                             <ion-icon name="close-sharp"></ion-icon>
@@ -431,12 +431,14 @@
                                             <th>PRICE</th>
                                             <th>IMAGE</th>
                                             <th>EDIT</th>
+                                            <th>ADD OR EDIT IMAGE</th>
                                             <th>DELETE</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <c:forEach var="dto" items="${requestScope.SEARCHRESULT}" varStatus="counter">
-                                        <form action="MainController" method="POST">
+
                                             <c:set var="errors1" value="${requestScope.CREATEERRORS1}"/>
                                             <tr>
                                                 <td>${counter.count}</td>
@@ -451,40 +453,17 @@
                                                 <td>
                                                     <a href="MainController?txtRoomId=${dto.roomId}&btn=Edit+Room+Detail">Edit</a>
                                                 </td>
-                                                <td>
-                                                    <div class="d-flex align-items-center gap-3 fs-6">
-                                                        <!--                                                        <button type="submit" name="btn" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-original-title="Delete room" onclick="return ConfirmDelete();" " aria-label="Delete">
-                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                                                                                </button>-->
-                                                        <!--                                                        <button type="button" name="btn btn-danger"  data-bs-target="#exampleDangerModal" value="Delete Room"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                                                                                        title="" data-bs-toggle="modal" data-bs-original-title="Delete room" aria-label="Delete">
-                                                                                                                    <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
-                                                                                                                </button>-->
-                                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleDangerModal">Delete</button>
+                                        <form action="MainController" method="get">
+                                            <td>
+                                                <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
+                                                <a href="MainController?txtRoomId=${dto.roomId}&btn=Display+Image+Room">Edit Image Room</a>
+                                            </td>
+                                            <td>
+                                                <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
+                                                <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
+                                                <input type="submit" name="btn" value="Delete Room" />
+                                            </td>
 
-                                                        <input type="hidden" name="txtSearchValue" value="${param.txtSearchValue}"/>
-
-                                                        <div class="modal fade" id="exampleDangerModal" tabindex="-1" aria-hidden="true">
-                                                            <div class="modal-dialog modal-lg modal-dialog-centered">
-                                                                <div class="modal-content bg-danger">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title text-white">Delete</h5>
-                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                                    </div>
-                                                                    <div class="modal-body text-white">
-                                                                        <h6>Do you want delete!</h6>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <input type="hidden" name="txtRoomId" value="${dto.roomId}"/>
-                                                                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                                                        <button type="submit" name="btn" value="Delete Room" class="btn btn-dark">Save changes</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </td>
                                             </tr>
                                         </form>
                                     </c:forEach>

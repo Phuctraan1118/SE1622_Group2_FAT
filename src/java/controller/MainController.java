@@ -53,6 +53,11 @@ public class MainController extends HttpServlet {
     private static final String VIEW_ROOM_DETAIL = "RoomViewDetailController";
     private static final String VIEW_ROOM_DETAIL_GOOGLE = "RoomViewDetailForGoogleController";
     private static final String EDIT_ROOM_DETAIL = "RoomViewDetailStaffController";
+    
+    private static final String DISPLAY_IMAGE_ROOM = "RoomDisplayImageController";
+    private static final String SAVE_IMAGE_ROOM = "RoomAddImageController";
+    private static final String ADD_IMAGE_ROOM = "RoomAddImageContiController";
+    private static final String DELETE_IMAGE_ROOM = "RoomDeleteImageController";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -176,6 +181,17 @@ public class MainController extends HttpServlet {
                 url = EDIT_ROOM_DETAIL;
             } else if (button.equals("View Feedback Reply")) {
                 url = VIEW_FEEDBACK_REPLY;
+                } else if (button.equals("Display Image Room")) {
+                url = DISPLAY_IMAGE_ROOM;
+            
+            } else if (button.equals("Save Image")) {
+                url = SAVE_IMAGE_ROOM;
+          
+            } else if (button.equals("Add New Image")) {
+                url = ADD_IMAGE_ROOM;
+            
+            } else if (button.equals("Delete Image")) {
+                url = DELETE_IMAGE_ROOM;
             }
 
         } finally {

@@ -75,9 +75,90 @@ public class RoomDAO implements Serializable {
             + "from tblRoom r  , tblCategory c "
             + "where  c.categoryId = r.categoryId and r.roomId = ? ";
 
-    private static final String GET_IMAGE = "select i.image  "
-            + "from tblImage i , tblRoom r "
-            + "where r.roomId = i.roomId and r.roomId = ? ";
+    private static final String GET_IMAGE = "SELECT i.id, i.image  "
+            + "FROM tblImage i , tblRoom r "
+            + "WHERE r.roomId = i.roomId and r.roomId = ? ";
+    private static final String UPDATE_IMAGE_ROOM = "UPDATE tblImage SET image = ? WHERE roomId = ? and id = ? ";
+    private static final String INSERT_IMAGE_ROOM = "INSERT into tblImage(roomId , image ) VALUES (?, ?) ";
+    private static final String DELETE_IMAGE_ROOM = "DELETE tblImage WHERE id = ? ";
+    
+      public boolean deleteImage(int id) throws SQLException, NamingException {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement stm = null;
+
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(DELETE_IMAGE_ROOM);
+                stm.setInt(1, id);
+                int value = stm.executeUpdate();
+                check = value > 0;
+
+            }
+        } finally {
+
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
+
+       public boolean addNewImage(RoomDTO room)
+            throws SQLException, NamingException {
+        Connection con = null;
+        PreparedStatement stm = null;
+        boolean row = false;
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(INSERT_IMAGE_ROOM);
+                stm.setInt(1, room.getRoomId());
+                stm.setString(2, room.getImageTmp());
+                row = stm.executeUpdate() > 0;
+
+            }//end if connection has opened
+        } finally {
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return row;
+    }
+    public boolean updateImageRoom(RoomDTO room)
+            throws SQLException, NamingException {
+        boolean check = false;
+        Connection con = null;
+        PreparedStatement stm = null;
+        try {
+            con = DBHelper.makeConnection();
+            if (con != null) {
+                stm = con.prepareStatement(UPDATE_IMAGE_ROOM);
+                stm.setString(1, room.getImageTmp());
+                stm.setInt(2, room.getRoomId());
+                stm.setInt(3, room.getId());
+                int value = stm.executeUpdate();
+                check = value > 0;
+
+            }
+        } finally {
+
+            if (stm != null) {
+                stm.close();
+            }
+            if (con != null) {
+                con.close();
+            }
+        }
+        return check;
+    }
 
     public List<RoomDTO> getImage(String searchValue)
             throws SQLException, NamingException {
@@ -92,8 +173,9 @@ public class RoomDAO implements Serializable {
                 stm.setString(1, searchValue);
                 rs = stm.executeQuery();
                 while (rs.next()) {
+                    int id = rs.getInt("id");
                     String image = rs.getString("image");
-                    list.add(new RoomDTO(image));
+                    list.add(new RoomDTO(image, id));
 
                 }//End traverse Result Set
             }//end if connection has opened
@@ -665,5 +747,4 @@ public class RoomDAO implements Serializable {
         return list;
 
     }
-
 }
