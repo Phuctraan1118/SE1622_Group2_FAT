@@ -412,7 +412,7 @@
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h6 class="mb-0">View Room Not Booked</h6>
+                                <h6 class="mb-0">View Room</h6>
                             </div>
                             <div class="table-responsive mt-2">
                                 <c:if test = "${not empty requestScope.GET_IMAGE_ROOM}">

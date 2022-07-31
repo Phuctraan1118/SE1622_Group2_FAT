@@ -88,7 +88,7 @@
                             </div>
                             <div class="menu-title">Management</div>
                         </a>
-                       <ul>
+                        <ul>
                             <li> <a href="MainController?search=&btn=Search+Staff">
                                     <ion-icon name="ellipse-outline"></ion-icon>Staff Management
                                 </a>
@@ -344,14 +344,14 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${User.img}" class="user-img" alt="">
+                                        <img src="images/${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="images/${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
                                                     <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
                                                     <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
@@ -472,14 +472,14 @@
                                 <table id="example" class="table align-middle" style="width:100%">
                                     <thead class="table-secondary">
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Name</th>
-                                            <th>Full Name</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>CMND/CCCD</th>
-                                            <th>Email</th>
-                                            <th>&nbsp;</th>
+                                            <th>COUNT</th>
+                                            <th>NAME</th>
+                                            <th>FULL NAME</th>
+                                            <th>ADDRESS</th>
+                                            <th>PHONE</th>
+                                            <th>CITIZEN IDENTIFICATION</th>
+                                            <th>MAIL</th>
+                                            <th>EDIT</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -491,9 +491,10 @@
                                                 <td>${counter.count}</td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 cursor-pointer">
-                                                        <img src="${user.getImage()}" class="rounded-circle" width="44" height="44" alt="">
+                                                        <img src=images/${user.image} style="width: 50px; height: 50px;">
                                                         <div class="">
                                                             <p class="mb-0">${user.username}</p>
+
                                                         </div>
                                                     </div>
                                                 </td>

@@ -320,14 +320,14 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${User.img}" class="user-img" alt="">
+                                        <img src="images/${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="images/${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
                                                     <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
                                                     <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
@@ -436,7 +436,7 @@
                     <div class="card radius-10 w-100">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
-                                <h6 class="mb-0">View Room Not Booked</h6>
+                                <h6 class="mb-0">View Room</h6>
                             </div>
                             <div class="table-responsive mt-2">
                                 <table id="example" class="table align-middle" style="width:100%">
@@ -448,7 +448,7 @@
                                             <th>PRICE</th>
                                             <th>IMAGE</th>
                                             <th>EDIT</th>
-                                            <th>ADD OR EDIT IMAGE</th>
+                                            <th>EXTRA IMAGE</th>
                                             <th>DELETE</th>
 
                                         </tr>

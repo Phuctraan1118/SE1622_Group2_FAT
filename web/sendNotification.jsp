@@ -309,14 +309,14 @@
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${USER.img}" class="user-img" alt="">
+                                        <img src="images/${USER.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="#">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="${USER.img}" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="images/${USER.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
                                                     <h6 class="mb-0 dropdown-user-name">${USER.name}</h6>
                                                 </div>

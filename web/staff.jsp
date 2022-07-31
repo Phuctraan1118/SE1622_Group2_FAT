@@ -216,146 +216,18 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="nav-item dropdown dropdown-large">
-                                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
-                                    <div class="position-relative">
-                                        <span class="notify-badge">8</span>
-                                        <ion-icon name="notifications-sharp"></ion-icon>
-                                    </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-end">
-                                    <a href="javascript:;">
-                                        <div class="msg-header">
-                                            <p class="msg-header-title">Notifications</p>
-                                            <p class="msg-header-clear ms-auto">Marks all as read</p>
-                                        </div>
-                                    </a>
-                                    <div class="header-notifications-list">
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-primary">
-                                                    <ion-icon name="cart-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Orders <span class="msg-time float-end">2 min
-                                                            ago</span></h6>
-                                                    <p class="msg-info">You have recived new orders</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-danger">
-                                                    <ion-icon name="person-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Staffs<span class="msg-time float-end">14 Sec
-                                                            ago</span></h6>
-                                                    <p class="msg-info">5 new user registered</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-success">
-                                                    <ion-icon name="document-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">24 PDF File<span class="msg-time float-end">19 min
-                                                            ago</span></h6>
-                                                    <p class="msg-info">The pdf files generated</p>
-                                                </div>
-                                            </div>
-                                        </a>
-
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-info">
-                                                    <ion-icon name="checkmark-done-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Product Approved <span class="msg-time float-end">2 hrs ago</span></h6>
-                                                    <p class="msg-info">Your new product has approved</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-warning">
-                                                    <ion-icon name="send-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">Time Response <span class="msg-time float-end">28 min
-                                                            ago</span></h6>
-                                                    <p class="msg-info">5.1 min avarage time response</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-danger">
-                                                    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New Comments <span class="msg-time float-end">4 hrs
-                                                            ago</span></h6>
-                                                    <p class="msg-info">New Staff comments recived</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-primary">
-                                                    <ion-icon name="albums-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">New 24 authors<span class="msg-time float-end">1 day
-                                                            ago</span></h6>
-                                                    <p class="msg-info">24 new authors joined last week</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-success">
-                                                    <ion-icon name="shield-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">Your item is shipped <span class="msg-time float-end">5 hrs
-                                                            ago</span></h6>
-                                                    <p class="msg-info">Successfully shipped your item</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item" href="javascript:;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="notify text-warning">
-                                                    <ion-icon name="cafe-outline"></ion-icon>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="msg-name">Defense Alerts <span class="msg-time float-end">2 weeks
-                                                            ago</span></h6>
-                                                    <p class="msg-info">45% less alerts last 4 weeks</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <a href="javascript:;">
-                                        <div class="text-center msg-footer">View All Notifications</div>
-                                    </a>
-                                </div>
-                            </li>
+                            
                             <li class="nav-item dropdown dropdown-user-setting">
                                 <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                     <div class="user-setting">
-                                        <img src="${User.img}" class="user-img" alt="">
+                                        <img src="images/${User.img}" class="user-img" alt="">
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="javascript:;">
                                             <div class="d-flex flex-row align-items-center gap-2">
-                                                <img src="${User.img}" alt="" class="rounded-circle" width="54" height="54">
+                                                <img src="images/${User.img}" alt="" class="rounded-circle" width="54" height="54">
                                                 <div class="">
                                                     <h6 class="mb-0 dropdown-user-name">${User.name}</h6>
                                                     <small class="mb-0 dropdown-user-designation text-secondary">${User.address}</small>
@@ -476,14 +348,14 @@
                                 <table id="example" class="table align-middle" style="width:100%">
                                     <thead class="table-secondary">
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Name</th>
-                                            <th>Full Name</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>CMND/CCCD</th>
-                                            <th>Email</th>
-                                            <th>&nbsp;</th>
+                                            <th>COUNT</th>
+                                            <th>NAME</th>
+                                            <th>FULL NAME</th>
+                                            <th>ADDRESS</th>
+                                            <th>PHONE</th>
+                                            <th>CITIZEN IDENTIFICATION</th>
+                                            <th>MAIL</th>
+                                            <th>EDIT</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -493,7 +365,7 @@
                                                 <td>${counter.count}</td>
                                                 <td>
                                                     <div class="d-flex align-items-center gap-3 cursor-pointer">
-                                                        <img src="${user.getImage()}" class="rounded-circle" width="44" height="44" alt="">
+                                                          <img src=images/${user.image} style="width: 50px; height: 50px;">
                                                         <div class="">
                                                             <p class="mb-0">${user.username}</p>
                                                         </div>
@@ -544,42 +416,42 @@
                                                         <form class="row g-3" action="MainController" method="POST">
                                                             <div class="row align-content-center">
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault01" class="form-label">User name</label>
+                                                                    <label for="validationDefault01" class="form-label">USERNAME</label>
                                                                     <input type="text" class="form-control" id="validationDefault01" name="txtUsername" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.usernameError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault02" class="form-label">Password</label>
+                                                                    <label for="validationDefault02" class="form-label">PASSWORD</label>
                                                                     <input type="password" class="form-control" id="validationDefault02" name="txtPassword" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.passwordError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault02" class="form-label">Full name</label>
+                                                                    <label for="validationDefault02" class="form-label">FULL NAME</label>
                                                                     <input type="text" class="form-control" id="validationDefault02" name="txtFullName" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.fullNameError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Email</label>
+                                                                    <label for="validationDefault03" class="form-label">MAIL</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtEmail" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.emailError}</p>
                                                                 </div>
                                                                 <div class="col-md-6">
-                                                                    <label for="validationDefault03" class="form-label">Address</label>
+                                                                    <label for="validationDefault03" class="form-label">ADDRESS</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtAddress" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.addressError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Phone</label>
+                                                                    <label for="validationDefault03" class="form-label">PHONE</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtPhone" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.phoneNumError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Citizen Identification</label>
+                                                                    <label for="validationDefault03" class="form-label">CITIZEN IDENTIFICATION</label>
                                                                     <input type="text" class="form-control" id="validationDefault03" name="txtCitizenIdentification" value="" required="">
                                                                     <p class="error">${requestScope.USER_ERROR.citizenIndentification}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <label for="validationDefault03" class="form-label">Image</label>
+                                                                    <label for="validationDefault03" class="form-label">IMAGE</label>
                                                                     <input type="file"  name="txtImg" class="form-control" aria-label="file example" required>
                                                                 </div>
                                                                 <div class="col-12">
