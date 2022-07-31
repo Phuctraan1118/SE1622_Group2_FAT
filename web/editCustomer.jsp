@@ -445,7 +445,7 @@
                                                                         <label for="validationDefault02" class="form-label">Phone</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Citizen Identification</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
                                                                     </div>
@@ -454,12 +454,13 @@
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
 
                                                                     </div>
-                                                                    <div class="col-md-1">
+                                                                        <div class="col-md-1" style="margin-right: 50px;">
                                                                         <input type="hidden" name="txtUserId" value="${x.id}">
                                                                         <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Customer">Update Customer</button>
                                                                     </div>
+                                                                        </br>
                                                                     <div class="col-md-1">
-                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Delete Customer">Delete Customer</button>
+                                                                        <button type="submit" class="btn btn-primary" onclick=" return ConfirmDelete();" style="margin-top: 24px;"  name="btn" value="Delete Customer">Delete Customer</button>
                                                                         <input type="hidden" name="userId" value="${x.id}"/>
                                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                                     </div>
@@ -586,7 +587,19 @@
         <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
         <script src="assets/plugins/notifications/js/notifications.min.js"></script>
         <script src="assets/plugins/notifications/js/notification-custom-script.js"></script>
-
+        <script>
+            function showOrHideDiv() {
+                var show = document.getElementById("showOrHide");
+                if (show.style.display === "none") {
+                    show.style.display = "block";
+                } else {
+                    show.style.display = "none";
+                }
+            }
+            function ConfirmDelete() {
+                return confirm("Are you sure you want to delete?");
+            }
+        </script>
     </body>
 
 </html>

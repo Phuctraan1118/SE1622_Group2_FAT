@@ -86,17 +86,17 @@
                             <div class="menu-title">Management</div>
                         </a>
                         <ul>
-                            <li> <a href="staff.jsp">
+                            <li> <a href="MainController?search=&btn=Search+Staff">
                                     <ion-icon name="ellipse-outline"></ion-icon>Staff Management
                                 </a>
                             </li>
                             <li>
-                                <a href="customer.jsp">
+                                <a href="MainController?search=&btn=Search+Customer">
                                     <ion-icon name="ellipse-outline"></ion-icon>Customer Management
                                 </a>
                             </li>
                             <li>
-                                <a href="managementRoom.jsp">
+                                <a href="MainController?txtSearchValue=&btn=SEARCH+ROOM">
                                     <ion-icon name="ellipse-outline"></ion-icon>Room Management
                                 </a>
                             </li>
@@ -106,12 +106,12 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="regulationManagement.jsp">
+                                <a href="RegulationDisplayForStaffController">
                                     <ion-icon name="ellipse-outline"></ion-icon>Regulation Management
                                 </a>
                             </li>
                             <li>
-                                <a href="viewfeedback.jsp">
+                                <a href="FeedbackDisplayController">
                                     <ion-icon name="ellipse-outline"></ion-icon>Feedback Management
                                 </a>
                             </li>
@@ -153,6 +153,23 @@
                             <ion-icon name="close-sharp"></ion-icon>
                         </div>
                     </form>
+                        <c:set var="delete_room" value="${requestScope.DELETE_FAIL}" />
+                        <c:if test="${not empty delete_room}">
+                          <p style="color:red">${delete_room}</p>
+                        </c:if>
+                        <c:set var="delete_room_success" value="${requestScope.DELETE_SUCCESS}" />
+                        <c:if test="${not empty delete_room_success}">
+                          <p style="color:green">${delete_room_success}</p>
+                        </c:if>
+                        <c:set var="add_room_success" value="${requestScope.ADD_SUCCESS}" />
+                        <c:if test="${not empty add_room_success}">
+                          <p style="color:green">Add room ${add_room_success}</p>
+                        </c:if>
+                        <c:set var="update_room_success" value="${requestScope.UPDATE_SUCCESS}" />
+                        <c:if test="${not empty update_room_success}">
+                          <p style="color:green">Update room ${update_room_success}</p>
+                        </c:if>
+                        
 
                     <div class="top-navbar-right ms-auto">
 
@@ -491,7 +508,7 @@
                                                             <c:set var="errors" value="${requestScope.CREATEERRORS}"/>
                                                             <div class="row align-content-center">
                                                                 <div class="col-md-3">
-                                                                    <h4>Category Name</h4>
+                                                                    <label for="validationDefault01" class="form-label">Category Name</label>
                                                                     <select name="txtCategoryId"class="form-select">
                                                                         <option value="1">Normal Room</option>
                                                                         <option value="2">Vip Room</option>
@@ -499,9 +516,9 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <h4>Room Name</h4>
-                                                                    <input type="text" name="txtCreateRoomName" value="${param.txtCreateRoomName}" required="" />
-                                                                    <p class="error">${errors.roomDescriptionLengthError}</p>
+                                                                    <label for="validationDefault01" class="form-label">Room Name</label>
+                                                                    <input type="text" class="form-control" name="txtCreateRoomName" value="${param.txtCreateRoomName}" required="" />
+                                                                    <p class="error">${errors.roomNameLengthError}</p>
                                                                 </div>
                                                                 <div class="col-md-3">
                                                                     <label for="validationDefault01" class="form-label">Room Description</label>

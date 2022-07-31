@@ -39,13 +39,21 @@ public class RoomDeleteController extends HttpServlet {
             if (dto == null) {
                 boolean check = dao.deleteNotBookedRoom(roomId);
                 if (check) {
+                    request.setAttribute("DELETE_SUCCESS", "Delete Success");
                     url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
+                } else {
+                    request.setAttribute("DELETE_FAIL", "Can not delete because room have booked");
+                     url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
                 }
             } else if(dto != null){
                 boolean check = dao.deleteImageV2(roomId);
                 boolean checkTmp = dao.deleteNotBookedRoom(roomId);
                 if (check == true && checkTmp == true) {
+                    request.setAttribute("DELETE_SUCCESS", "Delete Success");
                     url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
+                }else {
+                    request.setAttribute("DELETE_FAIL", "Can not delete because room have booked");
+                     url = siteMaps.getProperty(MyApplicationConstants.ManageRooms.SEARCH_ROOM_CONTROLLER);
                 }
             }
 

@@ -80,7 +80,7 @@
                     
                     <li>
 
-                        <a href="RoomOwnedViewController">
+                        <a href="MainController?txtUser=nguyen&btn=View+Owned+Room">
                             <div class="parent-icon">
                                 <ion-icon name="planet-outline"></ion-icon>
                             </div>

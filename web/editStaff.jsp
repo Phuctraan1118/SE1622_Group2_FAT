@@ -448,11 +448,11 @@
                                                                         <label for="validationDefault02" class="form-label">Phone</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtPhone" value="${x.phone}" required="">
                                                                     </div>
-                                                                    <div class="col-md-3">
+                                                                    <div class="col-md-2">
                                                                         <label for="validationDefault02" class="form-label">Citizen Identification</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtCmnd" value="${x.citizenIdentification}" required="">
                                                                     </div>
-                                                                    <div class="col-md-2">
+                                                                    <div class="col-md-3">
                                                                         <label for="validationDefault02" class="form-label">Email</label>
                                                                         <input type="text" class="form-control" id="validationDefault02" name="txtEmail" value="${x.email}" required="">
 
@@ -461,12 +461,13 @@
                                                                         <input type="hidden" name="txtUserId" value="${x.id}">
                                                                         <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Update Staff">Update Staff</button>
                                                                     </div>
+                                                                        
                                                                     <div class="col-md-1">
                                                                         <!--                                                        <button type="submit" name="btn" value="Delete Staff"  style="color: #F4262B; border: none; padding: 0 0 0 0;"class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom"
                                                                                                                                         title="" data-bs-original-title="Delete info" onclick="return ConfirmDelete();" aria-label="Delete">
                                                                                                                                     <i style="color: #F4262B; border: none; " class="fa-solid fa-trash-can" ></i>
                                                                                                                                 </button>-->
-                                                                        <button type="submit" class="btn btn-primary" style="margin-top: 24px;"  name="btn" value="Delete Staff">Delete Staff</button>
+                                                                        <button type="submit" class="btn btn-primary" onclick=" return ConfirmDelete();" style="margin-top: 24px;"  name="btn" value="Delete Staff">Delete Staff</button>
                                                                         <input type="hidden" name="userId" value="${x.id}"/>
                                                                         <input type="hidden" name="search" value="${param.search}"/>
                                                                     </div>

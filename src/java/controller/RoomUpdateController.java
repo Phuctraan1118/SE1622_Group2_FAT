@@ -28,7 +28,8 @@ import utils.MyApplicationConstants;
 public class RoomUpdateController extends HttpServlet {
 
    // private static final String ERROR = "MainController?txtSearchValue=&btn=SEARCH+ROOM";
-    private static final String ERROR = "error.jsp";
+      private static final String ERROR = "MainController?btn=Edit+Room+Detail&txtRoomId=";
+//    private static final String ERROR = "error.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,16 +46,17 @@ public class RoomUpdateController extends HttpServlet {
         String imageOld = request.getParameter("txtImageOld");
         RoomInsertError errors = new RoomInsertError();
       
-     //   String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
-        String url = ERROR;
+//        String url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
+//       
+         String url = ERROR + roomId;
         try {
             if (roomName.trim().length() < 3 || roomName.trim().length() > 100) {
                 foundErr = true;
                 errors.setRoomNameLengthError("3 - 100 chars");
             }
-            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 100) {
+            if (roomDes.trim().length() < 3 || roomDes.trim().length() > 1000) {
                 foundErr = true;
-                errors.setRoomDescriptionLengthError("3 - 100 chars");
+                errors.setRoomDescriptionLengthError("3 - 1000 chars");
             }
             if (!Validate.checkPrice(roomPrice)) {
                 foundErr = true;
@@ -71,6 +73,7 @@ public class RoomUpdateController extends HttpServlet {
                 RoomDTO dto = new RoomDTO(roomId, roomName, roomDes, price, image);
                 boolean check = dao.updateNotBookedRoom(dto);
                 if (check) {
+                    request.setAttribute("UPDATE_SUCCESS", "success");
                     url = siteMaps.getProperty(MyApplicationConstants.AuthenticationFeatures.MANAGEMENT_ROOM_PAGE);
                 }
             }
