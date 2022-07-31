@@ -352,7 +352,7 @@
                     <form action="MainController"> 
                         <div class="row">
                             <div class="col-xl-12 mx-auto">
-                                <h6 class="mb-0 text-uppercase">Tooltips</h6>
+                                <h6 class="mb-0 text-uppercase">Edit Room</h6>
                                 <hr/>
                                 <div class="card">
                                     <div class="card-body">
